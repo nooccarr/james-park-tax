@@ -6,7 +6,7 @@ const Layout = () => {
       <nav>
         <ul>
           <li>
-            <Link to='/about'>About</Link>
+            <Link to='/about-us'>About Us</Link>
           </li>
           <li>
             <Link to='/services'>Services</Link>
@@ -15,7 +15,7 @@ const Layout = () => {
             <Link to='/resources'>Resources</Link>
           </li>
           <li>
-            <Link to='/contact'>Contact</Link>
+            <Link to='/contact-us'>Contact Us</Link>
           </li>
         </ul>
       </nav>

@@ -1,6 +1,8 @@
 const Resources = () => {
   return (
-    <div>Resources</div>
+    <div>
+      <h2>Resources</h2>
+    </div>
   );
 };
 
