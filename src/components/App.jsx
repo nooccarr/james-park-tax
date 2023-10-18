@@ -6,6 +6,7 @@ import About from './About';
 import Services from './Services';
 import Resources from './Resources';
 import Contact from './Contact';
+import NoMatch from './NoMatch';
 import Footer from './Footer';
 
 const App = () => {
@@ -20,10 +21,11 @@ const App = () => {
             <Route path='services' element={<Services />} />
             <Route path='resources' element={<Resources />} />
             <Route path='contact' element={<Contact />} />
+            <Route path='*' element={<NoMatch />} />
           </Route>
         </Routes>
-        <Footer />     
-      </BrowserRouter>   
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
