@@ -8,4 +8,7 @@ router.route('/')
   .patch(contentsController.updateContent)
   .delete(contentsController.deleteContent);
 
+router.route('/:id')
+  .get(contentsController.getContentById);
+  
 module.exports = router;
