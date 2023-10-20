@@ -8,14 +8,16 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from the React app
-app.use('/', express.static(path.join(__dirname, '..', 'client', 'dist')));
+app.use('/', express.static(path.join(__dirname, '..', 'dist')));
+
+// Serve requests from the router
+app.use('/users', require('./lib/routes/userRoutes'));
+app.use('/contents', require('./lib/routes/contentRoutes'));
 
 // Handle client routing, return all requests to the app
-app.get("/*", (_, res) => {
-  res.sendFile(path.join(__dirname, "..", "client", "dist", "index.html"), err => {
-      if (err) {
-          console.log(err);
-      }
+app.get('*', (_, res) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), err => {
+    if (err) console.log(err);
   });
 });
 
