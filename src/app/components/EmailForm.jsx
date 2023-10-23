@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const EmailForm = () => {
   const [ formValues, setFormValues ] = useState({
@@ -11,17 +11,16 @@ const EmailForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = {
-      name: formData.get('name') ?? '',
-      email: formData.get('email') ?? '',
-      subject: formData.get('subject') ?? '',
-      message: formData.get('message') ?? ''
-    };
-    setFormValues(data);
-
+    // TODO:
+    // - send email
+    // - setRecords([...records, { ...formValues, id: uuidv4() }]);
+    setFormValues({
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
+    });
     setShowFormSuccess(true);
-
     console.log("Email form sent");
   };
 
@@ -30,7 +29,9 @@ const EmailForm = () => {
       <div>
         <h3>Fill out the form below to e-mail us.</h3>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+      >
         <label htmlFor='name'>
           Name
           <input 
@@ -38,7 +39,9 @@ const EmailForm = () => {
             name='name' 
             id='name' 
             required={true} 
-            autoComplete="off" 
+            autoComplete="off"
+            value={formValues.name}
+            onChange={(e) => setFormValues({ ...formValues, name: e.target.value })} 
           />
         </label>
 
@@ -50,6 +53,8 @@ const EmailForm = () => {
             id='email' 
             required={true} 
             autoComplete="off" 
+            value={formValues.email}
+            onChange={(e) => setFormValues({ ...formValues, email: e.target.value })}
           />
         </label>
 
@@ -60,6 +65,8 @@ const EmailForm = () => {
             id='subject' 
             defaultValue='' 
             required={true}
+            value={formValues.subject}
+            onChange={(e) => setFormValues({ ...formValues, subject: e.target.value })}
           >
             <option value='' disabled>--Please choose an option--</option>
             <option value='Tax Preparation'>Tax Preparation</option>
@@ -75,6 +82,8 @@ const EmailForm = () => {
             name='message' 
             id='message' 
             autoComplete="off"
+            value={formValues.message}
+            onChange={(e) => setFormValues({ ...formValues, message: e.target.value })}
           />
         </label>
 
