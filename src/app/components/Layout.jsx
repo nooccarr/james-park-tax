@@ -13,6 +13,14 @@ const Layout = () => {
           </li>
           <li>
             <Link to='/resources'>Resources</Link>
+            <ul>
+              <li>
+                <Link to='/resources/tax'>Tax Information</Link>
+              </li>
+              <li>
+                <Link to='/resources/medicare'>Medicare Information</Link>
+              </li>              
+            </ul>
           </li>
           <li>
             <Link to='/contact-us'>Contact Us</Link>
