@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const contentSchema = new mongoose.Schema(
+const postSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -21,4 +21,4 @@ const contentSchema = new mongoose.Schema(
   }
 );
 
-module.exports = mongoose.model('Content', contentSchema);
+module.exports = mongoose.model('Post', postSchema);
