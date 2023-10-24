@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faCalendar, faC } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
 
 const Home = () => {
   const [ showContactForm, setShowContactForm ] = useState(false);
   const [ showFormSuccess, setShowFormSuccess ] = useState(false);
-  
+
   return (
     <div>
       <h2>Home</h2>
@@ -17,24 +17,20 @@ const Home = () => {
       {!showFormSuccess && (
         <button
           onClick={() => setShowContactForm(true)}
-        >        
+        >
           <h3>
-            <FontAwesomeIcon icon={faCalendar} />   
+            <FontAwesomeIcon icon={faCalendarDays} />
             Schedule A Consultation
           </h3>
         </button>
       )}
-      
+
       {showContactForm && (
-        <ContactForm 
+        <ContactForm
           setShowContactForm={setShowContactForm}
-          setShowFormSuccess={setShowFormSuccess} 
+          setShowFormSuccess={setShowFormSuccess}
         />
       )}
-        {/* <ContactForm 
-          setShowContactForm={setShowContactForm}
-          setShowFormSuccess={setShowFormSuccess} 
-        /> */}
 
       {showFormSuccess && <h3>Thank you for your submission!</h3>}
     </div>

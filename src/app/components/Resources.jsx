@@ -1,7 +1,14 @@
+import SearchParams from "./SearchParams";
+
 const Resources = () => {
   return (
     <div>
-      <h2>Resources</h2>
+      <div>
+        <h2>Resources</h2>
+      </div>
+      <main>
+        <SearchParams />
+      </main>
     </div>
   );
 };

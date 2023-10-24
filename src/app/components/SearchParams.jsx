@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 const SearchParams = () => {
   const [requestParams, setRequestParams] = useState({
     search: ''
@@ -11,15 +13,14 @@ const SearchParams = () => {
     };
     setRequestParams(data);
 
-    console.log("C");
-
+    console.log('Search request!');
   };
 
   return (
     <div>
       <form onSubmit={handleSubmit}>
         <label htmlFor="search">
-          Location
+          Search
           <input id="search" name="search" placeholder="Search" />
         </label>
 
