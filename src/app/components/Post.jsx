@@ -10,7 +10,7 @@ const Post = ({ posts }) => {
 
   return (
     <div>
-      {console.log(posts)}
+      {/* {console.log(posts)} */}
       <h1>Post ID: {slug}</h1>
       <h3>{title}</h3>
       <p>{description}</p>
