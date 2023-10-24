@@ -12,7 +12,6 @@ const EmailForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formValues);
     // TODO:
     // - send email
     // - setRecords([...records, { ...formValues, id: uuidv4() }]);
