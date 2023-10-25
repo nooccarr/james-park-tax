@@ -23,6 +23,7 @@ const App = () => {
           <Route path='about-us' element={<AboutUs />} />
           <Route path='tax-info/*' element={<TaxInfo />} />
           <Route path='medicare-info/*' element={<MedicareInfo />} />
+          <Route path='search' element={<TaxInfo />} />
           <Route path='contact-us' element={<ContactUs />} />
           <Route path='*' element={<NoMatch />} />
         </Route>

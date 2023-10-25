@@ -1,10 +1,11 @@
 import { Link, useParams, useLocation } from 'react-router-dom';
 
-const Post = ({ posts }) => {
+const Post = ({ posts, infoType }) => {
   const { slug } = useParams();
   const post = posts[slug];
 
   const { pathname } = useLocation();
+  const info = pathname.split('/')[1];
 
   if (!post) return <span>The post you've requested doesn't exist.</span>;
 
@@ -12,11 +13,9 @@ const Post = ({ posts }) => {
 
   return (
     <div>
-      {/* {console.log(posts)} */}
-      <h1>Post ID: {slug}</h1>
       <h3>{title}</h3>
       <p>{description}</p>
-      <Link to={`/${pathname.split('/')[1]}`}>Back to Resources</Link>
+      <Link to={`/${info}`}>Back to {infoType} Info</Link>
     </div>
   );
 };

@@ -10,9 +10,7 @@ const Home = () => {
   return (
     <div>
       <h2>Home</h2>
-      <p>
-        James Park Tax & Accounting is a full-service accounting firm serving clients throughout the area, dedicated to providing our clients with professional, personalized services and guidance in a wide range of financial and business needs.
-      </p>
+      <p>Curabitur a vehicula tellus. Vivamus ac lorem viverra sem blandit mattis. Aliquam nibh augue, semper at consequat id, viverra sit amet tellus.</p>
 
       {!showFormSuccess && (
         <button
