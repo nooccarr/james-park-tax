@@ -1,20 +1,14 @@
-import { Link, useParams, useNavigate } from 'react-router-dom';
-const Resource = ['tax', 'medicare'];
+import { Link, useLocation } from 'react-router-dom';
 
 const PostList = ({ posts }) => {
-  const { resourceId } = useParams();
-  const resource = Resource.includes(resourceId);
-
-  if (!resource) return <span>The resource you've requested doesn't exist.</span>;
+  const { pathname } = useLocation();
 
   return (
     <div>
-      <h3>{resourceId}</h3>
-    <ul>
-        {/* {console.log(posts)} */}
+      <ul>
         {Object.entries(posts).map(([slug, { title }]) => (
           <li key={slug}>
-            <Link to={`/resources/${resourceId}/${slug}`}>
+            <Link to={`${pathname}/${slug}`}>
               <h3>{title}</h3>
             </Link>
           </li>

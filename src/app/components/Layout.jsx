@@ -6,22 +6,14 @@ const Layout = () => {
       <nav>
         <ul>
           <li>
-            <Link to='/about-us'>About Us</Link>
+            <Link to='/about-us'>회사소개</Link>
           </li>
           <li>
-            <Link to='/services'>Services</Link>
+            <Link to='/tax-info'>Tax 정보</Link>
           </li>
           <li>
-            <Link to='/resources'>Resources</Link>
-            <ul>
-              <li>
-                <Link to='/resources/tax'>Tax Information</Link>
-              </li>
-              <li>
-                <Link to='/resources/medicare'>Medicare Information</Link>
-              </li>              
-            </ul>
-          </li>
+            <Link to='/medicare-info'>Medicare 정보</Link>
+          </li>           
           <li>
             <Link to='/contact-us'>Contact Us</Link>
           </li>

@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 
 const SearchParams = () => {
   const [requestParams, setRequestParams] = useState({
@@ -26,8 +29,16 @@ const SearchParams = () => {
 
         <button>Submit</button>
       </form>
+      <div>
+        <Link to='/'>
+          <FontAwesomeIcon icon={faXmark} />
+        </Link>
+      </div>
     </div>
   );
 };
 
 export default SearchParams;
+
+// TODO:
+// Filter by category: All, Tax, Medicare

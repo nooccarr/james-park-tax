@@ -2,7 +2,7 @@ const AboutUs = () => {
   return (
     <div>
       <div>
-        <h2>About Us</h2>
+        <h2>회사소개</h2>
       </div>
       <main>
         <p>Capicola cillum sunt, drumstick excepteur voluptate ea brisket tail tenderloin magna ut pig ut et.</p>
