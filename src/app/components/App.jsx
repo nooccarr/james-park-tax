@@ -6,6 +6,7 @@ import Home from './Home';
 import AboutUs from './AboutUs';
 import TaxInfo from './TaxInfo';
 import MedicareInfo from './MedicareInfo';
+import Results from './Results';
 import ContactUs from './ContactUs';
 import NoMatch from './NoMatch';
 import Footer from './Footer';
@@ -23,7 +24,7 @@ const App = () => {
           <Route path='about-us' element={<AboutUs />} />
           <Route path='tax-info/*' element={<TaxInfo />} />
           <Route path='medicare-info/*' element={<MedicareInfo />} />
-          <Route path='search' element={<TaxInfo />} />
+          <Route path='search' element={<Results />} />
           <Route path='contact-us' element={<ContactUs />} />
           <Route path='*' element={<NoMatch />} />
         </Route>
