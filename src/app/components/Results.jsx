@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-const TaxInfo = ({ posts }) => {
+const Results = () => {
   return (
     <div>
       <div>
@@ -13,4 +13,4 @@ const TaxInfo = ({ posts }) => {
   );
 };
 
-export default TaxInfo;
+export default Results;

@@ -42,6 +42,8 @@ const Posts = {
 
 const App = () => {
   const [posts, setPosts] = useState({});
+  const [searchPosts, setSearchPosts] = useState({});
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     requestPosts();
@@ -55,27 +57,43 @@ const App = () => {
     }
   };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+    handleSearchQueryChange(e.target.value);
+  };
+
+  const handleSearchQueryChange = (query) => {
+    if (query.length) {
+      const filteredPosts = Object.entries(posts).filter(
+        ([slug, { title, description }]) => title.toLowerCase().includes(query.toLowerCase()) || description.toLowerCase().includes(query.toLowerCase())
+      );
+      setSearchPosts(Object.fromEntries(filteredPosts));
+    } else {
+      setSearchPosts({});
+    }
+  };
+
   return (
-    <div>{ console.log(posts)}
+    <div>
       <Routes>
-        <Route path='/search' element={<SearchParams />} />
+        <Route path='/search' element={<SearchParams searchQuery={searchQuery} handleSearchChange={handleSearchChange} />} />
         <Route path='*' element={<Header />} />
       </Routes>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='about-us' element={<AboutUs />} />
-          <Route path='tax-info' element={<TaxInfo />}>
+          <Route path='tax-info' element={<TaxInfo category='Tax' />}>
             <Route index element={<PostList posts={posts} category='Tax' />} />
             <Route path=':slug' element={<Post posts={posts} />} />
           </Route>
-          <Route path='medicare-info' element={<MedicareInfo />}>
+          <Route path='medicare-info' element={<MedicareInfo category='Medicare' />}>
             <Route index element={<PostList posts={posts} category='Medicare' />} />
             <Route path=':slug' element={<Post posts={posts} />} />
           </Route>
           <Route path='search' element={<Results />}>
-            <Route index element={<PostList posts={posts} />} />
-            <Route path=':slug' element={<Post posts={posts} />} />
+            <Route index element={<PostList posts={searchPosts} searchQuery={searchQuery} />} />
+            <Route path=':slug' element={<Post posts={searchPosts} />} />
           </Route>
           <Route path='contact-us' element={<ContactUs />} />
           <Route path='*' element={<NoMatch />} />

@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-const TaxInfo = ({ category = 'Tax' }) => {
+const TaxInfo = ({ category }) => {
   return (
     <div>
       <div>

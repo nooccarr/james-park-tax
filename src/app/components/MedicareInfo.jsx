@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 
-const MedicareInfo = ({ category = 'Medicare' }) => {
+const MedicareInfo = ({ category }) => {
 
   return (
     <div>

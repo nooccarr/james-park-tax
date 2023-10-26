@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const PostList = ({ posts, category }) => {
+const PostList = ({ posts, category, searchQuery }) => {
   const [categoryPosts, setCategoryPosts] = useState({});
 
   useEffect(() => {
     category ? getCategoryPosts() : setCategoryPosts(posts);
-  }, []);
+  }, [posts]);
 
   const getCategoryPosts = () => {
     const filteredPosts = Object.entries(posts).filter(
@@ -17,15 +17,19 @@ const PostList = ({ posts, category }) => {
 
   return (
     <div>
-      <ul>
-        {Object.entries(categoryPosts).map(([slug, { path, title }]) => (
-          <li key={slug}>
-            <Link to={`/${path}/${slug}`}>
-              <h3>{title}</h3>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {!Object.keys(categoryPosts).length && searchQuery?.length ? (
+        <h2>Sorry, no results matched your search terms</h2>
+      ) : (
+        <ul>
+          {Object.entries(categoryPosts).map(([slug, { path, title }]) => (
+            <li key={slug}>
+              <Link to={`/${path}/${slug}`}>
+                <h3>{title}</h3>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

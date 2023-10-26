@@ -1,33 +1,27 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
 
-const SearchParams = () => {
-  const [requestParams, setRequestParams] = useState({
-    search: ''
-  });
+const SearchParams = ({ searchQuery, handleSearchChange }) => {
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = {
-      search: formData.get('search') ?? ''
-    };
-    setRequestParams(data);
-
-    console.log('Search request!');
-  };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form>
         <label htmlFor="search">
-          Search
-          <input id="search" name="search" placeholder="Search" />
+          <Link to='/search'>
+            <FontAwesomeIcon icon={faMagnifyingGlass} />
+          </Link>
+          <input
+            id="search"
+            name="search"
+            placeholder="Search"
+            autoComplete='off'
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
         </label>
-
-        <button>Submit</button>
       </form>
       <div>
         <Link to='/'>
