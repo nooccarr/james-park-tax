@@ -1,14 +1,12 @@
 import { Link, useLocation } from 'react-router-dom';
 
 const PostList = ({ posts }) => {
-  const { pathname } = useLocation();
-
   return (
     <div>
       <ul>
-        {Object.entries(posts).map(([slug, { title }]) => (
+        {Object.entries(posts).map(([slug, { path, title }]) => (
           <li key={slug}>
-            <Link to={`${pathname}/${slug}`}>
+            <Link to={`/${path}/${slug}`}>
               <h3>{title}</h3>
             </Link>
           </li>

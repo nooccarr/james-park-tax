@@ -1,21 +1,18 @@
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
-const Post = ({ posts, infoType }) => {
+const Post = ({ posts, capitalizedCategory }) => {
   const { slug } = useParams();
   const post = posts[slug];
 
-  const { pathname } = useLocation();
-  const info = pathname.split('/')[1];
-
   if (!post) return <span>The post you've requested doesn't exist.</span>;
 
-  const { title, description } = post;
+  const { title, description, path } = post;
 
   return (
     <div>
       <h3>{title}</h3>
       <p>{description}</p>
-      <Link to={`/${info}`}>Back to {infoType} Info</Link>
+      <Link to={`/${path}`}>Back to {capitalizedCategory} Info</Link>
     </div>
   );
 };
