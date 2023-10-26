@@ -1,6 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
+import pathToCapitalized from '../utils/pathToCapitalized';
 
-const Post = ({ posts, capitalizedCategory }) => {
+const Post = ({ posts }) => {
   const { slug } = useParams();
   const post = posts[slug];
 
@@ -8,11 +9,13 @@ const Post = ({ posts, capitalizedCategory }) => {
 
   const { title, description, path } = post;
 
+  const capitalizedPath = pathToCapitalized(path);
+
   return (
     <div>
       <h3>{title}</h3>
       <p>{description}</p>
-      <Link to={`/${path}`}>Back to {capitalizedCategory} Info</Link>
+      <Link to={`/${path}`}>Back to {capitalizedPath} Info</Link>
     </div>
   );
 };
