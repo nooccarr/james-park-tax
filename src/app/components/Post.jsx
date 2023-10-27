@@ -15,7 +15,7 @@ const Post = ({ posts }) => {
     <div>
       <h3>{title}</h3>
       <p>{description}</p>
-      <Link to={`/${path}`}>Back to {capitalizedPath} Info</Link>
+      <Link to={`/${path}`}>Back to {capitalizedPath}</Link>
     </div>
   );
 };
