@@ -5,18 +5,20 @@ const AboutUs = () => {
         <h2>회사소개</h2>
       </div>
       <main>
-        <p>Capicola cillum sunt, drumstick excepteur voluptate ea brisket tail tenderloin magna ut pig ut et.</p>
-        <p></p>
-        <p>Ground round occaecat sed mollit. Voluptate bacon capicola beef ribs aliqua venison rump, short loin culpa sunt incididunt consequat ball tip in. Hamburger id in exercitation buffalo, qui rump ut anim salami tail proident occaecat.","Kevin turducken leberkas, sint boudin sed pancetta dolore ex buffalo ham hock exercitation beef ribs laborum drumstick.</p>
-        <p></p>
-        <p>Fugiat in cillum venison pastrami, cupim tenderloin in duis. Pariatur pork loin ribeye, voluptate veniam in hamburger tail meatloaf cupidatat meatball. Qui dolore veniam pancetta jowl shank sed, anim capicola landjaeger magna fugiat. Chuck strip steak swine ex, capicola dolore turkey sunt pig velit.", "In ut fugiat velit incididunt. Jerky ea proident nulla, exercitation ullamco lorem hamburger burgdoggen cupim fatback sausage nisi ham hock. Ad bacon turducken landjaeger elit capicola nulla ea shoulder ut. Ball tip sirloin chislic commodo tri-tip pancetta enim excepteur in chicken nisi dolore labore.", "Anim deserunt chislic nostrud cupidatat. Nulla biltong cupim ham hock shankle, chislic officia enim nisi cow in ut kielbasa.</p>
-        <p></p> 
-        <p>Kevin velit ut pariatur ut anim, pancetta dolore veniam shoulder laboris leberkas ham hock meatloaf picanha. Andouille meatball dolore porchetta chislic frankfurter nostrud jowl laborum flank meatloaf voluptate culpa.  Flank short loin drumstick, esse t-bone ex leberkas jerky aute picanha pork loin spare ribs tempor. Fatback short ribs bresaola tenderloin shoulder turducken nostrud fugiat, mollit et flank. Tempor fatback esse officia nisi bresaola shankle consectetur aliqua pancetta drumstick.", "Est tail meatball dolor ad prosciutto alcatra beef ribs chuck nostrud pork chop.</p>
-        <p></p>
-        <p>Ham hock chislic occaecat non pig. Aliqua shoulder brisket biltong burgdoggen, filet mignon minim jerky ut id sunt labore nostrud meatloaf ut. Pork jerky cillum in pig leberkas ball tip ut beef tenderloin ad consequat deserunt cupim boudin.</p>
+        <p>안녕하세요?</p>
+        <p>제임스 박 회계사입니다.</p>
+        <p>유능한 명의는 사람의 생명을 구하고 유능한 회계사는 사업체를 구한다고 합니다.</p>
+        <p>올바른 회계사 선택이야 말로 고객의 소중한 재산을 지킬 수 있습니다.</p>
+        <p>또한 무거운 세금때문에 잠못이룬 적이 있다면 언제든 연락주세요.</p>
+        <p>고객의 절세가 최상의 목표이며 이를 위해 최선을 다하고 있습니다.</p>
+        <p>지금까지 만족스러운 세금 및 회계 서비스를 받지 못하신 분이 계시면 저희 회사 이메일, 카카오톡, 전화 및 방문 상담하시기 바랍니다.</p>
+        <p>대표 회계사 제임스 박</p>
       </main>
     </div>
   );
 };
 
 export default AboutUs;
+
+
+

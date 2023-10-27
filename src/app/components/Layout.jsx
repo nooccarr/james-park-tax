@@ -9,6 +9,9 @@ const Layout = () => {
             <Link to='/about-us'>회사소개</Link>
           </li>
           <li>
+            <Link to='/services'>서비스</Link>
+          </li>
+          <li>
             <Link to='/tax-info'>Tax 정보</Link>
           </li>
           <li>

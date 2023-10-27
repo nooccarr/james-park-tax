@@ -7,14 +7,14 @@ const Post = ({ posts }) => {
 
   if (!post) return <span>The post you've requested doesn't exist.</span>;
 
-  const { title, description, path } = post;
-
+  const { title, article, path } = post;
+  const articleContent = article;
   const capitalizedPath = pathToCapitalized(path);
 
   return (
     <div>
       <h3>{title}</h3>
-      <p>{description}</p>
+      <div dangerouslySetInnerHTML={{ __html: articleContent }} />
       <Link to={`/${path}`}>Back to {capitalizedPath}</Link>
     </div>
   );

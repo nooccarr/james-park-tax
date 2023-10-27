@@ -21,10 +21,14 @@ const PostList = ({ posts, category, searchQuery }) => {
         <h2>Sorry, no results matched your search terms</h2>
       ) : (
         <ul>
-          {Object.entries(categoryPosts).map(([slug, { path, title }]) => (
+          {Object.entries(categoryPosts).map(([slug, { path, title, description }]) => (
             <li key={slug}>
               <Link to={`/${path}/${slug}`}>
                 <h3>{title}</h3>
+              </Link>
+              <p>{description}</p>
+              <Link to={`/${path}/${slug}`}>
+                <button>continue reading</button>
               </Link>
             </li>
           ))}
