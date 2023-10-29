@@ -1,4 +1,7 @@
 import { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
@@ -8,34 +11,55 @@ const Home = () => {
   const [ showFormSuccess, setShowFormSuccess ] = useState(false);
 
   return (
-    <div>
-      <h2>Home</h2>
-      <ul>
-        <li>한국거주 영주권, 시민권자 세금보고</li>
-        <li>증여, 상속세, 양도세 상담</li>
-        <li>메디케어 건강보험 안내</li>
-      </ul>
+    <>
+      <section>
+        <Container fluid>
+          <Row>
+            <Col>
+              <div>
+                <h2>Home</h2>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
 
-      {!showFormSuccess && (
-        <button
-          onClick={() => setShowContactForm(true)}
-        >
-          <h3>
-            <FontAwesomeIcon icon={faCalendarDays} />
-            Schedule A Consultation
-          </h3>
-        </button>
-      )}
+      <main>
+        <Container>
+          <Row>
+            <Col>
+              <ul>
+                <li>한국거주 영주권, 시민권자 세금보고</li>
+                <li>증여, 상속세, 양도세 상담</li>
+                <li>메디케어 건강보험 안내</li>
+              </ul>
 
-      {showContactForm && (
-        <ContactForm
-          setShowContactForm={setShowContactForm}
-          setShowFormSuccess={setShowFormSuccess}
-        />
-      )}
+              {!showFormSuccess && (
 
-      {showFormSuccess && <h3>Thank you for your submission!</h3>}
-    </div>
+                  <button onClick={() => setShowContactForm(true)}>
+                    <h3>
+                      <FontAwesomeIcon icon={faCalendarDays} />
+                      Schedule A Consultation
+                    </h3>
+                  </button>
+
+              )}
+
+              {showContactForm && (
+                <ContactForm
+                  setShowContactForm={setShowContactForm}
+                  setShowFormSuccess={setShowFormSuccess}
+                />
+              )}
+
+              {showFormSuccess &&
+                <h3>Thank you for your submission!</h3>
+              }
+            </Col>
+          </Row>
+        </Container>
+      </main>
+    </>
   );
 };
 

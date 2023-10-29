@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
   const [formValues, setFormValues] = useState({
@@ -30,54 +33,65 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
 
   return (
     <section>
-      <h5>Schedule A Consultation</h5>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor='name'>
-            Name
-            <input
-              type='text'
-              name='name'
-              id='name'
-              autoComplete='off'
-              required
-            />
-          </label>
+      <Container>
+        <Row>
+          <h5>Schedule A Consultation</h5>
+        </Row>
 
-          <label htmlFor='email'>
-            Email
-            <input
-              type='email'
-              name='email'
-              id='email'
-              autoComplete="off"
-              required
-            />
-          </label>
-
-          <label htmlFor='subject'>
-            Subject
-            <input
-              type='text'
-              name='subject'
-              id='subject'
-              autoComplete="off"
-              required
-            />
-          </label>
-
-          <label htmlFor='message'>
-            Message
-            <textarea
-              name='message'
-              id='message'
-              autoComplete="off"
-            />
-          </label>
-
-          <button>Schedule A Consultation</button>
-        </form>
-      </div>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <Row>
+              <label htmlFor='name'>
+                Name
+              </label>
+              <input
+                type='text'
+                name='name'
+                id='name'
+                autoComplete='off'
+                required
+              />
+            </Row>
+            <Row>
+              <label htmlFor='email'>
+                Email
+              </label>
+              <input
+                type='email'
+                name='email'
+                id='email'
+                autoComplete="off"
+                required
+              />
+            </Row>
+            <Row>
+              <label htmlFor='subject'>
+                Subject
+              </label>
+              <input
+                type='text'
+                name='subject'
+                id='subject'
+                autoComplete="off"
+                required
+              />
+            </Row>
+            <Row>
+              <label htmlFor='message'>
+                Message
+              </label>
+              <textarea
+                name='message'
+                id='message'
+                autoComplete="off"
+              />
+            </Row>
+            <Row>
+              <button>Schedule A Consultation</button>
+            </Row>
+          </form>
+        </div>
+      </Container>
     </section>
   )
 };
