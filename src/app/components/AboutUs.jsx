@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Ratio from 'react-bootstrap/Ratio';
 
 const AboutUs = () => {
   return (
@@ -17,9 +18,14 @@ const AboutUs = () => {
         </Container>
       </section>
 
-      <main>
+      <main style={{ height: '1080px' }}>
         <Container>
           <Row>
+            <Col>
+              <Ratio aspectRatio='1x1'>
+                <embed type='image/jpg' src='/src/app/about-us.jpg' />
+              </Ratio>
+            </Col>
             <Col>
               <p>안녕하세요?</p>
               <p>제임스 박 회계사입니다.</p>

@@ -1,4 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import pathToCapitalized from '../utils/pathToCapitalized';
 
 const Post = ({ posts }) => {
@@ -12,11 +15,19 @@ const Post = ({ posts }) => {
   const capitalizedPath = pathToCapitalized(path);
 
   return (
-    <div>
-      <h3>{title}</h3>
-      <div dangerouslySetInnerHTML={{ __html: articleContent }} />
-      <Link to={`/${path}`}>Back to {capitalizedPath}</Link>
-    </div>
+    <div style={{ minHeight: '1080px' }}>
+    <main>
+      <Container>
+        <Row>
+          <Col>
+            <h3>{title}</h3>
+            <div dangerouslySetInnerHTML={{ __html: articleContent }} />
+            <Link to={`/${path}`}>Back to {capitalizedPath}</Link>
+          </Col>
+        </Row>
+      </Container>
+      </main>
+      </div>
   );
 };
 

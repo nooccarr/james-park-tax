@@ -2,6 +2,7 @@ import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Ratio from "react-bootstrap/Ratio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
@@ -11,28 +12,19 @@ const Home = () => {
   const [ showFormSuccess, setShowFormSuccess ] = useState(false);
 
   return (
-    <>
-      <section>
-        <Container fluid>
-          <Row>
-            <Col>
-              <div>
-                <h2>Home</h2>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
-
+    // <div style={{ height: '1000px' }}>
       <main>
-        <Container>
+
+        <Ratio aspectRatio='16x9'>
+          <embed type='image/jpg' src='/src/app/landing.jpg' />
+        </Ratio>
+
+        {/* <Container>
           <Row>
             <Col>
-              <ul>
-                <li>한국거주 영주권, 시민권자 세금보고</li>
-                <li>증여, 상속세, 양도세 상담</li>
-                <li>메디케어 건강보험 안내</li>
-              </ul>
+              <p>한국거주 영주권, 시민권자 세금보고</p>
+              <p>증여, 상속세, 양도세 상담</p>
+              <p>메디케어 건강보험 안내</p>
 
               {!showFormSuccess && (
 
@@ -57,9 +49,9 @@ const Home = () => {
               }
             </Col>
           </Row>
-        </Container>
-      </main>
-    </>
+        </Container> */}
+        </main>
+    // </div>
   );
 };
 

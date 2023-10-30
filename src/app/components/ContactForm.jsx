@@ -1,7 +1,10 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
   const [formValues, setFormValues] = useState({
@@ -35,7 +38,14 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
     <section>
       <Container>
         <Row>
-          <h5>Schedule A Consultation</h5>
+          <Col>
+            <h5>Schedule A Consultation</h5>
+          </Col>
+          <Col>
+            <Link onClick={() => setShowContactForm(false)}>
+              <FontAwesomeIcon icon={faXmark} />
+            </Link>
+          </Col>
         </Row>
 
         <div>

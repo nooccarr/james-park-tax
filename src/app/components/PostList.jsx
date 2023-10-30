@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const PostList = ({ posts, category, searchQuery }) => {
   const [categoryPosts, setCategoryPosts] = useState({});
@@ -10,30 +13,42 @@ const PostList = ({ posts, category, searchQuery }) => {
 
   const getCategoryPosts = () => {
     const filteredPosts = Object.entries(posts).filter(
-      ([slug, post]) => post.category === category
+      ([_slug, post]) => post.category === category
     );
     setCategoryPosts(Object.fromEntries(filteredPosts));
   };
 
   return (
-    <div>
-      {!Object.keys(categoryPosts).length && searchQuery?.length ? (
-        <h2>Sorry, no results matched your search terms</h2>
-      ) : (
-        <ul>
-          {Object.entries(categoryPosts).map(([slug, { path, title, description }]) => (
-            <li key={slug}>
-              <Link to={`/${path}/${slug}`}>
-                <h3>{title}</h3>
-              </Link>
-              <p>{description}</p>
-              <Link to={`/${path}/${slug}`}>
-                <button>continue reading</button>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      )}
+    <div style={{ minHeight: '1080px' }}>
+      <main>
+        <Container>
+          {!Object.keys(categoryPosts).length && searchQuery?.length ? (
+            <Row>
+              <Col>
+                <h2>Sorry, no results matched your search terms</h2>
+              </Col>
+            </Row>
+          ) : (
+            <ul>
+              <Row>
+                <Col>
+                  {Object.entries(categoryPosts).map(([slug, { path, title, description }]) => (
+                      <li key={slug}>
+                        <Link to={`/${path}/${slug}`}>
+                          <h3>{title}</h3>
+                        </Link>
+                        <p>{description}</p>
+                        <Link to={`/${path}/${slug}`}>
+                          <button>continue reading</button>
+                        </Link>
+                      </li>
+                  ))}
+                </Col>
+              </Row>
+            </ul>
+          )}
+        </Container>
+      </main>
     </div>
   );
 };

@@ -80,9 +80,9 @@ const App = () => {
 
   return (
     <div>
+      <Header />
       <Routes>
         <Route path='/search' element={<SearchParams searchQuery={searchQuery} handleSearchChange={handleSearchChange} />} />
-        <Route path='*' element={<Header />} />
       </Routes>
       <Routes>
         <Route path='/' element={<Layout />}>

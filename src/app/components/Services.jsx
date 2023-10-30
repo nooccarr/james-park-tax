@@ -5,7 +5,7 @@ import EmailForm from './EmailForm';
 
 const Services = () => {
   return (
-    <>
+    <div style={{ height: '1080px' }}>
       <Container fluid>
         <Row>
           <Col>
@@ -37,7 +37,7 @@ const Services = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 
