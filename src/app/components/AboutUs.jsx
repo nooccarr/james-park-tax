@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Ratio from 'react-bootstrap/Ratio';
+import AboutUsImg from '../images/about-us.jpg';
 
 const AboutUs = () => {
   return (
@@ -23,7 +24,7 @@ const AboutUs = () => {
           <Row>
             <Col>
               <Ratio aspectRatio='1x1'>
-                <embed type='image/jpg' src='/src/app/about-us.jpg' />
+                <img src={AboutUsImg} alt='about-us-image' />
               </Ratio>
             </Col>
             <Col>

@@ -6,6 +6,7 @@ import Ratio from "react-bootstrap/Ratio";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
+import LandingImg from '../images/landing.jpg';
 
 const Home = () => {
   const [ showContactForm, setShowContactForm ] = useState(false);
@@ -16,7 +17,7 @@ const Home = () => {
       <main>
 
         <Ratio aspectRatio='16x9'>
-          <embed type='image/jpg' src='/src/app/landing.jpg' />
+          <img src={LandingImg} alt='landing-image' />
         </Ratio>
 
         {/* <Container>
