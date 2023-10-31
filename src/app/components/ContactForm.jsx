@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Stack from 'react-bootstrap/Stack';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
@@ -36,72 +34,66 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
 
   return (
     <section>
-      <Container>
-        <Row>
-          <Col>
-            <h5>Schedule A Consultation</h5>
-          </Col>
-          <Col>
-            <Link onClick={() => setShowContactForm(false)}>
-              <FontAwesomeIcon icon={faXmark} />
-            </Link>
-          </Col>
-        </Row>
-
-        <div>
-          <form onSubmit={handleSubmit}>
-            <Row>
-              <label htmlFor='name'>
-                Name
-              </label>
-              <input
-                type='text'
-                name='name'
-                id='name'
-                autoComplete='off'
-                required
-              />
-            </Row>
-            <Row>
-              <label htmlFor='email'>
-                Email
-              </label>
-              <input
-                type='email'
-                name='email'
-                id='email'
-                autoComplete="off"
-                required
-              />
-            </Row>
-            <Row>
-              <label htmlFor='subject'>
-                Subject
-              </label>
-              <input
-                type='text'
-                name='subject'
-                id='subject'
-                autoComplete="off"
-                required
-              />
-            </Row>
-            <Row>
-              <label htmlFor='message'>
-                Message
-              </label>
-              <textarea
-                name='message'
-                id='message'
-                autoComplete="off"
-              />
-            </Row>
-            <Row>
-              <button>Schedule A Consultation</button>
-            </Row>
-          </form>
+      <Stack direction='horizontal'>
+        <div className='p-2'>
+          <h5>Schedule A Consultation</h5>
         </div>
-      </Container>
+        <div className='p-2 ms-auto'>
+          <Link onClick={() => setShowContactForm(false)}>
+            <FontAwesomeIcon icon={faXmark} />
+          </Link>
+        </div>
+      </Stack>
+
+      <div className='p-2'>
+        <form onSubmit={handleSubmit}>
+          <Stack>
+            <label htmlFor='name'>
+              Name
+            </label>
+            <input
+              type='text'
+              name='name'
+              id='name'
+              autoComplete='off'
+              required
+            />
+          
+            <label htmlFor='email'>
+              Email
+            </label>
+            <input
+              type='email'
+              name='email'
+              id='email'
+              autoComplete="off"
+              required
+            />
+
+            <label htmlFor='subject'>
+              Subject
+            </label>
+            <input
+              type='text'
+              name='subject'
+              id='subject'
+              autoComplete="off"
+              required
+            />
+            
+            <label htmlFor='message'>
+              Message
+            </label>
+            <textarea
+              name='message'
+              id='message'
+              autoComplete="off"
+            />
+            
+            <button className='mt-2'>Schedule A Consultation</button>
+          </Stack>
+        </form>
+      </div>
     </section>
   )
 };
