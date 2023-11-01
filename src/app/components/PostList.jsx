@@ -33,7 +33,10 @@ const PostList = ({ posts, category, searchQuery }) => {
           ) : (
             <>
               {Object.entries(categoryPosts).map(([slug, post]) => (
-                <div key={slug} className='my-3'>
+                <Row key={slug}>
+                  <Col md={{ span: 8, offset: 2 }} className='my-3'>
+
+
                   <Card>
                     <Card.Header as='h5'>{post.category}</Card.Header>
                     <Card.Body>
@@ -48,7 +51,11 @@ const PostList = ({ posts, category, searchQuery }) => {
                       </Link>
                     </div>
                   </Card>
-                </div>
+
+
+                  </Col>
+                </Row>
+
               ))}
             </>
           )}

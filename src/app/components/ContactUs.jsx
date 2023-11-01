@@ -10,10 +10,10 @@ import EmailForm from "./EmailForm";
 import PageHeader from './PageHeader';
 
 const ContactUs = () => {
-  const [location, setLocation] = useState('new-york');
+  const [location, setLocation] = useState('new-york-office');
 
   const handleLocation = (e) => {
-    setLocation(e.target.innerText.toLowerCase().replace(' ', '-').split(' ')[0]);
+    setLocation(e.target.innerText.toLowerCase().split(' ').join('-'));
   };
 
   return (
@@ -32,7 +32,7 @@ const ContactUs = () => {
               </ButtonGroup>
 
 
-              {location === 'new-york' ? (
+              {location === 'new-york-office' ? (
                 <section>
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12088.22206060176!2d-73.8026996!3d40.7608037!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c261502c1e2cf7%3A0x8f3b1894cd7e0382!2zSmFtZXMgUGFyayBUYXggJiBBY2NvdW50aW5nLCBJbmMuICjtmozqs4TrspXsnbgp!5e0!3m2!1sen!2sus!4v1698084181313!5m2!1sen!2sus"
@@ -77,9 +77,7 @@ const ContactUs = () => {
                         </span>
                       </Col>
                       <Col>
-                        <p>
-                          Mon - Fri: 9 AM - 6 PM EST
-                        </p>
+                        <p>Mon - Fri : 9 AM - 6 PM EST</p>
                       </Col>
                     </Row>
                   </Container>
@@ -129,9 +127,7 @@ const ContactUs = () => {
                         </span>
                       </Col>
                       <Col>
-                        <p>
-                          Mon - Fri: 9 AM - 6 PM EST
-                        </p>
+                        <p>Mon - Fri : 9 AM - 6 PM EST</p>
                       </Col>
                     </Row>
                   </Container>

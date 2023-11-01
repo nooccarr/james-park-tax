@@ -30,7 +30,7 @@ const EmailForm = () => {
   return (
     <aside>
         <Stack>
-          <div className='p-2'>
+          <div className='px-2'>
             <h3>Fill out the form below to e-mail us.</h3>
           </div>
         </Stack>
