@@ -66,7 +66,7 @@ const ContactUs = () => {
                       </Col>
                       <Col>
                         <p>
-                          <a href="tel:+7183591098">(718) 359-1098</a>
+                          <a href='tel:+17183591096'>(718) 359-1096</a>
                         </p>
                       </Col>
                     </Row>
