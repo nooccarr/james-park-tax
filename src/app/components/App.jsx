@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './Header';
-import SearchParams from './SearchParams';
 import Layout from './Layout';
 import Home from './Home';
 import AboutUs from './AboutUs';
@@ -14,7 +13,7 @@ import PostList from './PostList';
 import Post from './Post';
 import NoMatch from './NoMatch';
 import Footer from './Footer';
-import '../styles/App.css';
+import '../styles/app.css';
 const Posts = {
   "세금을-줄이는-방법": {
     "category": "Tax",

@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Logo from '../images/logo.png';
-import '../styles/Header.css';
+import '../styles/header.css';
 
 const Header = () => {
 

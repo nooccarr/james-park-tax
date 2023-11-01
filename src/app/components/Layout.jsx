@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import '../styles/Layout.css';
+import '../styles/layout.css';
 const NavItems = [
   { link: 'about-us', title: '회사소개' },
   { link: 'services', title: '서비스' },
@@ -30,7 +30,7 @@ const Layout = () => {
                     {NavItems.map(({ link, title }) => (
                       <Link key={link} as='li' to={link} className='nav-link' style={{ color: '#FFF9D1'}}>
                           {title}
-                      </Link>  
+                      </Link>
                     ))}
                   </Nav>
                 </Navbar>
@@ -53,4 +53,4 @@ const Layout = () => {
 export default Layout;
 
 // rgb(103, 125, 115)
-// rgb(227, 241, 222) 
+// rgb(227, 241, 222)
