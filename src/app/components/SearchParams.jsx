@@ -25,7 +25,7 @@ const SearchParams = ({ searchQuery, handleSearchChange }) => {
           />
         </InputGroup>
 
-        <Button className='mx-3'>Search</Button>
+        <Button className='ms-3'>Search</Button>
       </Stack>
     </header>
   );

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const PostList = ({ posts, category, searchQuery }) => {
   const [categoryPosts, setCategoryPosts] = useState({});
@@ -23,29 +25,32 @@ const PostList = ({ posts, category, searchQuery }) => {
       <main>
         <Container>
           {!Object.keys(categoryPosts).length && searchQuery?.length ? (
-            <Row>
-              <Col>
+            <Row className='justify-content-md-center'>
+              <Col md='auto'>
                 <h2>Sorry, no results matched your search terms</h2>
               </Col>
             </Row>
           ) : (
-            <ul>
-              <Row>
-                <Col>
-                  {Object.entries(categoryPosts).map(([slug, { path, title, description }]) => (
-                      <li key={slug}>
-                        <Link to={`/${path}/${slug}`}>
-                          <h3>{title}</h3>
-                        </Link>
-                        <p>{description}</p>
-                        <Link to={`/${path}/${slug}`}>
-                          <button>continue reading</button>
-                        </Link>
-                      </li>
-                  ))}
-                </Col>
-              </Row>
-            </ul>
+            <>
+              {Object.entries(categoryPosts).map(([slug, post]) => (
+                <div key={slug} className='my-3'>
+                  <Card>
+                    <Card.Header as='h5'>{post.category}</Card.Header>
+                    <Card.Body>
+                      <Link to={`/${post.path}/${slug}`}>
+                        <Card.Title>{post.title}</Card.Title>
+                      </Link>
+                      <Card.Text>{post.description}</Card.Text>
+                    </Card.Body>
+                    <div className='pb-3 ps-3'>
+                      <Link to={`/${post.path}/${slug}`}>
+                        <Button>continue reading</Button>
+                      </Link>
+                    </div>
+                  </Card>
+                </div>
+              ))}
+            </>
           )}
         </Container>
       </main>

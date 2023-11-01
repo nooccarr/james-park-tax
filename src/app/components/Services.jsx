@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import ListGroup from 'react-bootstrap/ListGroup';
 import EmailForm from './EmailForm';
 import PageHeader from './PageHeader';
 
@@ -14,16 +15,14 @@ const Services = () => {
       <Container>
         <Row>
           <Col>
-            <main>
-              <ul>
-                <li>한국거주 영주권, 시민권자 세금보고</li>
-                <li>증여, 상속세, 양도세 상담 (한국 및 미국)</li>
-                <li>사업체 세금 및 개인 세금 보고</li>
-                <li>세금공제용 은퇴연금 (IRA, SEP IRA, 401K) 전문</li>
-                <li>메디케어 건강보험 안내 (65세 이상)</li>
-                <li>저축보험 (가족의 보장+ 노후준비)</li>
-              </ul>
-            </main>
+            <ListGroup>
+              <ListGroup.Item>한국거주 영주권, 시민권자 세금보고</ListGroup.Item>
+              <ListGroup.Item>증여, 상속세, 양도세 상담 (한국 및 미국)</ListGroup.Item>
+              <ListGroup.Item>사업체 세금 및 개인 세금 보고</ListGroup.Item>
+              <ListGroup.Item>세금공제용 은퇴연금 (IRA, SEP IRA, 401K) 전문</ListGroup.Item>
+              <ListGroup.Item>메디케어 건강보험 안내 (65세 이상)</ListGroup.Item>
+              <ListGroup.Item>저축보험 (가족의 보장+ 노후준비)</ListGroup.Item>
+            </ListGroup>
           </Col>
           <Col>
             <EmailForm />

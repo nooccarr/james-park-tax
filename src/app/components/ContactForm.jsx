@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Stack from 'react-bootstrap/Stack';
 import CloseButton from 'react-bootstrap/CloseButton';
+import Button from 'react-bootstrap/Button';
 
 const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
   const [formValues, setFormValues] = useState({
@@ -86,7 +87,7 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
               autoComplete="off"
             />
 
-            <button className='mt-2'>Schedule A Consultation</button>
+            <Button className='mt-2'>Schedule A Consultation</Button>
           </Stack>
         </form>
       </div>

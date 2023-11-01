@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import Stack from 'react-bootstrap/Stack';
+import Button from 'react-bootstrap/Button';
 const SUBJECTS = ['--Please choose an option--', 'Tax Preparation', 'Tax Planning', 'Accounting', 'Other'];
 
 const EmailForm = () => {
@@ -51,8 +52,6 @@ const EmailForm = () => {
                 required
               />
 
-
-
               <label htmlFor='email'>
                 Email
               </label>
@@ -65,7 +64,6 @@ const EmailForm = () => {
                 onChange={(e) => setFormValues({ ...formValues, email: e.target.value })}
                 required
               />
-
 
               <label htmlFor='subject'>
                 Subject
@@ -88,19 +86,18 @@ const EmailForm = () => {
                 ))}
               </select>
 
+              <label htmlFor='message'>
+                Message (optional)
+              </label>
+              <textarea
+                name='message'
+                id='message'
+                autoComplete="off"
+                value={formValues.message}
+                onChange={(e) => setFormValues({ ...formValues, message: e.target.value })}
+              />
 
-
-            <label htmlFor='message'>
-              Message (optional)
-            </label>
-            <textarea
-              name='message'
-              id='message'
-              autoComplete="off"
-              value={formValues.message}
-              onChange={(e) => setFormValues({ ...formValues, message: e.target.value })}
-            />
-            <button className='mt-2'>Send</button>
+              <Button className='mt-2'>Send</Button>
             </Stack>
           </form>
 

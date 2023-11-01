@@ -1,9 +1,7 @@
 import { useState } from "react";
-// import Container from "react-bootstrap/Container";
-// import Row from "react-bootstrap/Row";
-// import Col from "react-bootstrap/Col";
 import Stack from 'react-bootstrap/Stack';
 import Ratio from "react-bootstrap/Ratio";
+import Button from "react-bootstrap/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
@@ -27,15 +25,15 @@ const Home = () => {
       <Stack className='col-md-4 mx-auto'>
         {!showContactForm ? (
           <>
-            <div className='p-2 mx-auto'>한국거주 영주권, 시민권자 세금보고</div>
-            <div className='p-2 mx-auto'>증여, 상속세, 양도세 상담</div>
-            <div className='p-2 mx-auto'>메디케어 건강보험 안내</div>
-            <button onClick={handleButtonClick}>
+            <h3 className='p-2 mx-auto'>한국거주 영주권, 시민권자 세금보고</h3>
+            <h3 className='p-2 mx-auto'>증여, 상속세, 양도세 상담</h3>
+            <h3 className='p-2 mx-auto'>메디케어 건강보험 안내</h3>
+            <Button onClick={handleButtonClick}>
               <h3>
-                <FontAwesomeIcon icon={faCalendarDays} />
+                <FontAwesomeIcon className='pe-2' icon={faCalendarDays} />
                 Schedule A Consultation
               </h3>
-            </button>
+            </Button>
           </>
         ) : (
           <ContactForm
