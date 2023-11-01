@@ -19,7 +19,7 @@ const Post = ({ posts }) => {
     <main>
       <Container>
         <Row>
-          <Col>
+          <Col md={{ span: 8, offset: 2 }}>
             <h3>{title}</h3>
             <div dangerouslySetInnerHTML={{ __html: articleContent }} />
             <Link to={`/${path}`}>Back to {capitalizedPath}</Link>
