@@ -1,9 +1,10 @@
 import { useState } from 'react';
+import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
 import CloseButton from 'react-bootstrap/CloseButton';
 import Button from 'react-bootstrap/Button';
 
-const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
+const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSuccess }) => {
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
@@ -13,18 +14,12 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    const data = {
-      name: formData.get('name') ?? '',
-      email: formData.get('email') ?? '',
-      subject: formData.get('subject') ?? '',
-      message: formData.get('message') ?? ''
-    };
-    setFormValues(data);
+
+
     // TODO:
     // - send email
     // - setRecords([...records, { ...formValues, id: uuidv4() }]);
-    setShowContactForm(false);
+    handleCloseButtonClick();
     setShowFormSuccess(true);
 
     console.log("Contact form sent");
@@ -32,18 +27,13 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
   };
 
   return (
-    <section>
-      <Stack direction='horizontal'>
-        <div className='p-2'>
-          <h5>Schedule A Consultation</h5>
-        </div>
-        <div className='p-2 ms-auto'>
-          <CloseButton onClick={() => setShowContactForm(false)} />
-        </div>
-      </Stack>
-
-      <div className='p-2'>
-        <form onSubmit={handleSubmit}>
+    <Modal show={showContactForm} onHide={handleCloseButtonClick} animation={false}>
+      <Modal.Header closeButton>
+        <Modal.Title>Schedule A Consultation</Modal.Title>
+      </Modal.Header>{ console.log(formValues)}
+      {/* <form onSubmit={handleSubmit}> */}
+      <form>
+        <Modal.Body>
           <Stack>
             <label htmlFor='name'>
               Name
@@ -54,7 +44,11 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
               id='name'
               autoComplete='off'
               required
+              class='form-control'
+              value={formValues.name}
+              onChange={(e) => setFormValues({ ...formValues, name: e.target.value })}
             />
+            {/* <div className='valid-feedback'>Gooood</div> */}
 
             <label htmlFor='email'>
               Email
@@ -65,6 +59,9 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
               id='email'
               autoComplete="off"
               required
+              class='form-control'
+              value={formValues.email}
+              onChange={(e) => setFormValues({ ...formValues, email: e.target.value })}
             />
 
             <label htmlFor='subject'>
@@ -76,6 +73,9 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
               id='subject'
               autoComplete="off"
               required
+              class='form-control'
+              value={formValues.subject}
+              onChange={(e) => setFormValues({ ...formValues, subject: e.target.value })}
             />
 
             <label htmlFor='message'>
@@ -85,14 +85,18 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
               name='message'
               id='message'
               autoComplete="off"
+              class='form-control'
+              value={formValues.message}
+              onChange={(e) => setFormValues({ ...formValues, message: e.target.value })}
             />
-
-            <Button className='mt-2'>Schedule A Consultation</Button>
           </Stack>
-        </form>
-      </div>
-    </section>
-  )
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={handleSubmit}>Schedule A Consultation</Button>
+        </Modal.Footer>
+      </form>
+    </Modal>
+  );
 };
 
 export default ContactForm;
