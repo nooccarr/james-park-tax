@@ -17,7 +17,7 @@ const AboutUs = () => {
           <Row>
             <Col md={{ span: 6, offset: 3 }}  className='my-3'>
               <Ratio aspectRatio='4x3'>
-                <img src={AboutUsImg} alt='about-us-image' />
+                <img src={AboutUsImg} alt='' />
               </Ratio>
             </Col>
           </Row>
