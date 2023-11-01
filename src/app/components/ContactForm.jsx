@@ -44,7 +44,7 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
               id='name'
               autoComplete='off'
               required
-              class='form-control'
+              className='form-control'
               value={formValues.name}
               onChange={(e) => setFormValues({ ...formValues, name: e.target.value })}
             />
@@ -59,7 +59,7 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
               id='email'
               autoComplete="off"
               required
-              class='form-control'
+              className='form-control'
               value={formValues.email}
               onChange={(e) => setFormValues({ ...formValues, email: e.target.value })}
             />
@@ -73,7 +73,7 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
               id='subject'
               autoComplete="off"
               required
-              class='form-control'
+              className='form-control'
               value={formValues.subject}
               onChange={(e) => setFormValues({ ...formValues, subject: e.target.value })}
             />
@@ -85,7 +85,7 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
               name='message'
               id='message'
               autoComplete="off"
-              class='form-control'
+              className='form-control'
               value={formValues.message}
               onChange={(e) => setFormValues({ ...formValues, message: e.target.value })}
             />

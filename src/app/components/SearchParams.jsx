@@ -9,7 +9,7 @@ const SearchParams = ({ searchQuery, handleSearchChange }) => {
 
 
   return (
-    <header>
+    <section>
       <Stack direction='horizontal'>
         <InputGroup>
           <InputGroup.Text id="basic-addon1">
@@ -27,7 +27,7 @@ const SearchParams = ({ searchQuery, handleSearchChange }) => {
 
         <Button className='ms-3'>Search</Button>
       </Stack>
-    </header>
+    </section>
   );
 };
 

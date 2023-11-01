@@ -14,6 +14,7 @@ import PostList from './PostList';
 import Post from './Post';
 import NoMatch from './NoMatch';
 import Footer from './Footer';
+import '../styles/App.css';
 const Posts = {
   "세금을-줄이는-방법": {
     "category": "Tax",

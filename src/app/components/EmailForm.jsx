@@ -47,7 +47,7 @@ const EmailForm = () => {
                 name='name'
                 id='name'
                 autoComplete="off"
-                class='form-control'
+                className='form-control'
                 value={formValues.name}
                 onChange={(e) => setFormValues({ ...formValues, name: e.target.value })}
                 required
@@ -61,7 +61,7 @@ const EmailForm = () => {
                 name='email'
                 id='email'
                 autoComplete="off"
-                class='form-control'
+                className='form-control'
                 value={formValues.email}
                 onChange={(e) => setFormValues({ ...formValues, email: e.target.value })}
                 required
@@ -73,7 +73,7 @@ const EmailForm = () => {
               <select
                 name='subject'
                 id='subject'
-                class='form-control'
+                className='form-control'
                 value={formValues.subject}
                 onChange={(e) => setFormValues({ ...formValues, subject: e.target.value })}
                 required
@@ -96,7 +96,7 @@ const EmailForm = () => {
                 name='message'
                 id='message'
                 autoComplete="off"
-                class='form-control'
+                className='form-control'
                 value={formValues.message}
                 onChange={(e) => setFormValues({ ...formValues, message: e.target.value })}
               />
