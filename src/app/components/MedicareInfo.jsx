@@ -2,22 +2,15 @@ import { Outlet } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import PageHeader from './PageHeader';
 
-const MedicareInfo = ({ category }) => {
+const MedicareInfo = () => {
 
   return (
     <>
-      <section>
-        <Container fluid>
-          <Row>
-            <Col>
-              <div>
-                <h2>{category} 정보</h2>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <div>
+        <PageHeader title='Medicare 정보' />
+      </div>
 
       <Container>
         <Row>

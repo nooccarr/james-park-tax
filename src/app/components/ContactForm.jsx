@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom'
 import Stack from 'react-bootstrap/Stack';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import CloseButton from 'react-bootstrap/CloseButton';
 
 const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
   const [formValues, setFormValues] = useState({
@@ -39,9 +37,7 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
           <h5>Schedule A Consultation</h5>
         </div>
         <div className='p-2 ms-auto'>
-          <Link onClick={() => setShowContactForm(false)}>
-            <FontAwesomeIcon icon={faXmark} />
-          </Link>
+          <CloseButton onClick={() => setShowContactForm(false)} />
         </div>
       </Stack>
 
@@ -58,7 +54,7 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
               autoComplete='off'
               required
             />
-          
+
             <label htmlFor='email'>
               Email
             </label>
@@ -80,7 +76,7 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
               autoComplete="off"
               required
             />
-            
+
             <label htmlFor='message'>
               Message
             </label>
@@ -89,7 +85,7 @@ const ContactForm = ({ setShowContactForm, setShowFormSuccess }) => {
               id='message'
               autoComplete="off"
             />
-            
+
             <button className='mt-2'>Schedule A Consultation</button>
           </Stack>
         </form>

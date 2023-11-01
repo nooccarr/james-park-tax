@@ -70,7 +70,7 @@ const App = () => {
   const handleSearchQueryChange = (query) => {
     if (query.length) {
       const filteredPosts = Object.entries(posts).filter(
-        ([slug, { title, description }]) => title.toLowerCase().includes(query.toLowerCase()) || description.toLowerCase().includes(query.toLowerCase())
+        ([_slug, { title, description }]) => title.toLowerCase().includes(query.toLowerCase()) || description.toLowerCase().includes(query.toLowerCase())
       );
       setSearchPosts(Object.fromEntries(filteredPosts));
     } else {
@@ -79,34 +79,31 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       <Header />
-      <Routes>
-        <Route path='/search' element={<SearchParams searchQuery={searchQuery} handleSearchChange={handleSearchChange} />} />
-      </Routes>
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} />
           <Route path='about-us' element={<AboutUs />} />
           <Route path='services' element={<Services />} />
-          <Route path='tax-info' element={<TaxInfo category='Tax' />}>
+          <Route path='tax-info' element={<TaxInfo />}>
             <Route index element={<PostList posts={posts} category='Tax' />} />
             <Route path=':slug' element={<Post posts={posts} />} />
           </Route>
-          <Route path='medicare-info' element={<MedicareInfo category='Medicare' />}>
+          <Route path='medicare-info' element={<MedicareInfo />}>
             <Route index element={<PostList posts={posts} category='Medicare' />} />
             <Route path=':slug' element={<Post posts={posts} />} />
           </Route>
-          <Route path='contact-us' element={<ContactUs />} />
-          <Route path='search' element={<Results />}>
+          <Route path='search' element={<Results searchQuery={searchQuery} handleSearchChange={handleSearchChange} />}>
             <Route index element={<PostList posts={searchPosts} searchQuery={searchQuery} />} />
             <Route path=':slug' element={<Post posts={searchPosts} />} />
           </Route>
+          <Route path='contact-us' element={<ContactUs />} />
           <Route path='*' element={<NoMatch />} />
         </Route>
       </Routes>
       <Footer />
-    </div>
+    </>
   );
 }
 

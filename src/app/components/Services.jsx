@@ -2,21 +2,14 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import EmailForm from './EmailForm';
+import PageHeader from './PageHeader';
 
 const Services = () => {
   return (
-    <div style={{ height: '1080px' }}>
-      <Container fluid>
-        <Row>
-          <Col>
-            <section>
-              <div>
-                <h2>서비스</h2>
-              </div>
-            </section>
-          </Col>
-        </Row>
-      </Container>
+    <>
+      <div>
+        <PageHeader title='서비스' />
+      </div>
 
       <Container>
         <Row>
@@ -37,7 +30,7 @@ const Services = () => {
           </Col>
         </Row>
       </Container>
-    </div>
+    </>
   );
 };
 

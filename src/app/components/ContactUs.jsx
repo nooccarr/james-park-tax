@@ -4,21 +4,14 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { faClock, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import EmailForm from "./EmailForm";
+import PageHeader from './PageHeader';
 
 const ContactUs = () => {
   return (
     <>
-      <Container fluid>
-        <Row>
-          <Col>
-            <section>
-              <div>
-                <h2>Contact Us</h2>
-              </div>
-            </section>
-          </Col>
-        </Row>
-      </Container>
+      <div>
+        <PageHeader title='Contact Us' />
+      </div>
 
       <Container>
         <Row>
@@ -33,14 +26,14 @@ const ContactUs = () => {
                     <FontAwesomeIcon icon={faLocationDot} />
                   </span>
                   163-10 Northern Boulevard, #311<br/>
-                  Flushing, NY 11358<br/>
-                  <p>
-                    <span>
-                      <FontAwesomeIcon icon={faPhone} />
-                    </span>
-                    <a href="tel:+7183591098">(718) 359-1098</a>
-                  </p>
+                  Flushing, NY 11358
                 </address>
+                <p>
+                  <span>
+                    <FontAwesomeIcon icon={faPhone} />
+                  </span>
+                  <a href="tel:+7183591098">(718) 359-1098</a>
+                </p>
                 <p>
                   <span>
                     <FontAwesomeIcon icon={faClock} />
@@ -68,13 +61,13 @@ const ContactUs = () => {
                   </span>
                   725 Grand Avenue, #301<br/>
                   Ridgefield, NJ 07657<br/>
-                  <p>
-                    <span>
-                      <FontAwesomeIcon icon={faPhone} />
-                    </span>
-                    <a href="tel:+2016253060">(201) 625-3060</a>
-                  </p>
                 </address>
+                <p>
+                  <span>
+                    <FontAwesomeIcon icon={faPhone} />
+                  </span>
+                  <a href="tel:+2016253060">(201) 625-3060</a>
+                </p>
                 <p>
                   <span>
                     <FontAwesomeIcon icon={faClock} />

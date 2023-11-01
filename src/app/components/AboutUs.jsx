@@ -2,24 +2,17 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Ratio from 'react-bootstrap/Ratio';
+import PageHeader from './PageHeader';
 import AboutUsImg from '../images/about-us.jpg';
 
 const AboutUs = () => {
   return (
     <>
-      <section>
-        <Container fluid>
-          <Row>
-            <Col>
-              <div>
-                <h2>회사소개</h2>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <div>
+        <PageHeader title='회사소개' />
+      </div>
 
-      <main style={{ height: '1080px' }}>
+      <main>
         <Container>
           <Row>
             <Col>

@@ -19,7 +19,7 @@ const PostList = ({ posts, category, searchQuery }) => {
   };
 
   return (
-    <div style={{ minHeight: '1080px' }}>
+    <>
       <main>
         <Container>
           {!Object.keys(categoryPosts).length && searchQuery?.length ? (
@@ -49,7 +49,7 @@ const PostList = ({ posts, category, searchQuery }) => {
           )}
         </Container>
       </main>
-    </div>
+    </>
   );
 };
 

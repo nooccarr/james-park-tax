@@ -15,7 +15,7 @@ const Post = ({ posts }) => {
   const capitalizedPath = pathToCapitalized(path);
 
   return (
-    <div style={{ minHeight: '1080px' }}>
+
     <main>
       <Container>
         <Row>
@@ -26,8 +26,7 @@ const Post = ({ posts }) => {
           </Col>
         </Row>
       </Container>
-      </main>
-      </div>
+    </main>
   );
 };
 

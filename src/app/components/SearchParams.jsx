@@ -1,38 +1,31 @@
-import { Link } from 'react-router-dom';
-// import Container from 'react-bootstrap/Container';
-// import Row from 'react-bootstrap/Row';
-// import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faXmark } from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 const SearchParams = ({ searchQuery, handleSearchChange }) => {
 
 
   return (
     <header>
-      <Stack direction='horizontal' gap={3}>
-        <div className='me-auto'>
-          <form>
+      <Stack direction='horizontal'>
+        <InputGroup>
+          <InputGroup.Text id="basic-addon1">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
-            <label htmlFor="search">
-              <input
-                id="search"
-                name="search"
-                placeholder="Search"
-                autoComplete='off'
-                value={searchQuery}
-                onChange={handleSearchChange}
-              />
-            </label>
-          </form>
-        </div>
+          </InputGroup.Text>
+          <Form.Control
+            type='search'
+            aria-label="Search"
+            aria-describedby="basic-addon1"
+            autoComplete='off'
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
+        </InputGroup>
 
-        <div className='p-2'>
-          <Link to='/'>
-            <FontAwesomeIcon icon={faXmark} />
-          </Link>
-        </div>
+        <Button className='mx-3'>Search</Button>
       </Stack>
     </header>
   );
@@ -40,5 +33,5 @@ const SearchParams = ({ searchQuery, handleSearchChange }) => {
 
 export default SearchParams;
 
-// TODO:
-// Filter by category: All, Tax, Medicare
+// TODO<
+// Filter by category: All, Tax, Medice

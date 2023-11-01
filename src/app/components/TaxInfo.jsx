@@ -1,22 +1,15 @@
 import { Outlet } from 'react-router-dom';
+import PageHeader from './PageHeader';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const TaxInfo = ({ category }) => {
+const TaxInfo = () => {
   return (
     <>
-      <section>
-        <Container fluid>
-          <Row>
-            <Col>
-              <div>
-                <h2>{category} 정보</h2>
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </section>
+      <div>
+        <PageHeader title='Tax 정보' />
+      </div>
 
       <Container>
         <Row>

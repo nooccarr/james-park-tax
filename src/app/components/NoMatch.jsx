@@ -1,20 +1,16 @@
 import { Link } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
+import Stack from 'react-bootstrap/Stack';
 
 const NoMatch = () => {
   return (
     <main>
-      <Container>
-        <Row>
-          <h2>404: Page Not Found</h2>
-        </Row>
-        <Row>
-          <p>
-            <Link to='/'>Go to the home page</Link>
-          </p>
-        </Row>
-      </Container>
+      <Stack>
+        <h1 className='mx-auto'>404</h1>
+        <h3 className='mx-auto'>Sorry, the page not found</h3>
+        <p className='mx-auto'>
+          <Link to='/'>Go to the home page</Link>
+        </p>
+      </Stack>
     </main>
   );
 };
