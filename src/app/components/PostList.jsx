@@ -23,7 +23,7 @@ const PostList = ({ posts, category, searchQuery }) => {
   return (
     <>
       <main>
-        <Container>
+        <Container className='mb-5'>
           {!Object.keys(categoryPosts).length && searchQuery?.length ? (
             <Row className='justify-content-md-center'>
               <Col md='auto'>

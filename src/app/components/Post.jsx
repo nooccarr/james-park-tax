@@ -17,7 +17,7 @@ const Post = ({ posts }) => {
   return (
 
     <main>
-      <Container>
+      <Container className='mb-5'>
         <Row>
           <Col md={{ span: 8, offset: 2 }}>
             <h3>{title}</h3>

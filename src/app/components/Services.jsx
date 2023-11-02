@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
 import EmailForm from './EmailForm';
 import PageHeader from './PageHeader';
+import '../styles/services.css';
 
 const Services = () => {
   return (

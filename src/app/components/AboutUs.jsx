@@ -14,16 +14,14 @@ const AboutUs = () => {
       </div>
 
       <main>
-        <Container  className='my-5'>
+        <Container className='my-5'>
           <Row>
-            <Col md={{ span: 6, offset: 3 }}  className='my-3'>
-              <Ratio aspectRatio='4x3'>
+            <Col className='mb-5'>
+              <Ratio aspectRatio='1x1'>
                 <img src={AboutUsImg} alt='' />
               </Ratio>
             </Col>
-          </Row>
-          <Row>
-            <Col md={{ span: 6, offset: 3 }}>
+            <Col className='mx-5'>
               <p>안녕하세요?</p>
               <p>제임스 박 회계사입니다.</p>
               <p>유능한 명의는 사람의 생명을 구하고 유능한 회계사는 사업체를 구한다고 합니다.</p>
