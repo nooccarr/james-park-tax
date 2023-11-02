@@ -20,29 +20,23 @@ const Layout = () => {
   return (
     <>
       <nav className='nav-container'>
+        <Navbar>
+          <Container>
+            <Nav as='ul'>
+              {NavItems.map(({ link, title }) => (
+                <Nav.Item key={link} as='li'>
+                  <Link to={link} className='navlink'>
+                      {title}
+                  </Link>
+                </Nav.Item>
+              ))}
+            </Nav>
 
-        <Container>
-          <Row>
-            <Col>
-              <Stack as='ul' direction='horizontal'>
-                <Navbar>
-                  <Nav>
-                    {NavItems.map(({ link, title }) => (
-                      <Link key={link} as='li' to={link} className='nav-link' style={{ color: '#FFF9D1'}}>
-                          {title}
-                      </Link>
-                    ))}
-                  </Nav>
-                </Navbar>
-              </Stack>
-            </Col>
-            <Col>
-              <Link to='search'>
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-              </Link>
-            </Col>
-          </Row>
-        </Container>
+            <Link to='search' className='navsearch'>
+              <FontAwesomeIcon icon={faMagnifyingGlass}  />
+            </Link>
+          </Container> 
+        </Navbar>
       </nav>
 
       <Outlet />
@@ -51,6 +45,3 @@ const Layout = () => {
 };
 
 export default Layout;
-
-// rgb(103, 125, 115)
-// rgb(227, 241, 222)

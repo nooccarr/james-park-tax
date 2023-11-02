@@ -1,6 +1,6 @@
 .nav-container {
   background-color: #235161;
-  height: 60px;
+  /* height: 60px; */
 }
 
 /* nav ul li {
@@ -8,16 +8,24 @@
   text-decoration: none;
 } */
 
-.nav-link {
+.navlink {
   color: rgb(227, 241, 222);
   text-decoration: none;
+  margin-right: 16px;
 }
 
-.nav-link:hover {
+.navlink:hover {
   color: rgb(103, 125, 115);
 
 }
 
+.navsearch {
+  color: rgb(227, 241, 222);
+}
+
+.navsearch:hover {
+  color: rgb(103, 125, 115);
+}
 /* 
 rgb(255, 255, 255) 
 rgb(5, 58, 74)
