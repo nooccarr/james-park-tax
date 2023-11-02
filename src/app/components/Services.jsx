@@ -8,11 +8,11 @@ import PageHeader from './PageHeader';
 const Services = () => {
   return (
     <>
-      <div>
+      <div className='services-header-image'>
         <PageHeader title='서비스' />
       </div>
 
-      <Container>
+      <Container className='my-5'>
         <Row>
           <Col>
             <ListGroup as='ul'>

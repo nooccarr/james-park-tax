@@ -4,16 +4,17 @@ import Col from 'react-bootstrap/Col';
 import Ratio from 'react-bootstrap/Ratio';
 import PageHeader from './PageHeader';
 import AboutUsImg from '../images/about-us.jpg';
+import '../styles/about-us.css';
 
 const AboutUs = () => {
   return (
     <>
-      <div>
+      <div className='about-us-header-image'>
         <PageHeader title='회사소개' />
       </div>
 
       <main>
-        <Container>
+        <Container  className='my-5'>
           <Row>
             <Col md={{ span: 6, offset: 3 }}  className='my-3'>
               <Ratio aspectRatio='4x3'>

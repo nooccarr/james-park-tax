@@ -7,11 +7,11 @@ import Col from 'react-bootstrap/Col';
 const TaxInfo = () => {
   return (
     <>
-      <div>
+      <div className='tax-info-header-image'>
         <PageHeader title='Tax 정보' />
       </div>
 
-      <Container>
+      <Container className='my-5'>
         <Row>
           <Col>
             <Outlet />

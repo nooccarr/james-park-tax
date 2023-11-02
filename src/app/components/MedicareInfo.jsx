@@ -8,11 +8,11 @@ const MedicareInfo = () => {
 
   return (
     <>
-      <div>
+      <div className='medicare-info-header-image'>
         <PageHeader title='Medicare 정보' />
       </div>
 
-      <Container>
+      <Container className='my-5'>
         <Row>
           <Col>
             <Outlet />

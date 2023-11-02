@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { faClock, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
 import EmailForm from "./EmailForm";
 import PageHeader from './PageHeader';
+import '../styles/contact-us.css';
 
 const ContactUs = () => {
   const [location, setLocation] = useState('new-york-office');
@@ -18,11 +19,11 @@ const ContactUs = () => {
 
   return (
     <>
-      <div>
+      <div className='contact-us-header-image'>
         <PageHeader title='Contact Us' />
       </div>
 
-      <Container>
+      <Container className='my-5'>
         <Row>
           <Col>
             <main>

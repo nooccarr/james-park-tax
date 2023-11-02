@@ -21,7 +21,7 @@ const Layout = () => {
     <>
       <nav className='nav-container'>
         <Navbar>
-          <Container>
+          <Container className='py-2'>
             <Nav as='ul'>
               {NavItems.map(({ link, title }) => (
                 <Nav.Item key={link} as='li'>
