@@ -5,29 +5,34 @@
 .navlink {
   color: rgb(227, 241, 222);
   text-decoration: none;
-  margin-right: 16px;
+  margin-right: 32px;
 }
 
-.navlink:hover {
-  color: rgb(103, 125, 115);
-
+.navlink:hover,
+.navlink:focus {
+  color: #677D73;
 }
 
 .navsearch {
   color: rgb(227, 241, 222);
 }
 
-.navsearch:hover {
-  color: rgb(103, 125, 115);
+.navsearch:hover,
+.navsearch:focus {
+  color: #677D73;
 }
+
 /* 
-rgb(255, 255, 255) 
+rgb(255, 255, 255)
+#fff
 rgb(5, 58, 74)
 #043A49
 #235161
 rgb(103, 125, 115)
+#677D73
 rgb(227, 241, 222) 
 rgb(158, 154, 121)
+#9E9A79
 #AA9465
 rgb(255, 249, 209) 
 #FFF9D1 */

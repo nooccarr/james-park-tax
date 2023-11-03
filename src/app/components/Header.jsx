@@ -13,13 +13,21 @@ const Header = () => {
       <Container>
         <Row>
           <Col className='py-4'>
+            <h1 className='text-hide'>James Park Tax & Accounting</h1>
             <Link to='/'>
               <img src={Logo} alt='' />
             </Link>
+            
           </Col>
           <Col md='auto' className='my-auto'>
             <div>CALL US TODAY</div>
-            <a href='tel:+17183591096'>(718) 359-1096</a>
+            <a href='tel:+17183591096' className='header-tel'>(718) 359-1096</a>
+          </Col>
+          <Col md='auto' className='my-auto '>
+          
+          </Col>
+          <Col md='auto' className='my-auto'>
+            <span className='icon-kakao'></span>
           </Col>
         </Row>
       </Container>

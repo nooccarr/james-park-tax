@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import Button from 'react-bootstrap/Button';
-import { faClock, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import EmailForm from "./EmailForm";
 import PageHeader from './PageHeader';
 import '../styles/contact-us.css';
@@ -74,6 +74,16 @@ const ContactUs = () => {
                     <Row xs='auto'>
                       <Col className='ps-0'>
                         <span>
+                          <FontAwesomeIcon icon={faEnvelope} />
+                        </span>
+                      </Col>
+                      <Col className='ps-0'>
+                        <p>jamesparktax@gmail.com</p>
+                      </Col>
+                    </Row>                    
+                    <Row xs='auto'>
+                      <Col className='ps-0'>
+                        <span>
                           <FontAwesomeIcon icon={faClock} />
                         </span>
                       </Col>
@@ -121,6 +131,16 @@ const ContactUs = () => {
                         </p>
                       </Col>
                     </Row>
+                    <Row xs='auto'>
+                      <Col className='ps-0'>
+                        <span>
+                          <FontAwesomeIcon icon={faEnvelope} />
+                        </span>
+                      </Col>
+                      <Col className='ps-0'>
+                        <p>jamesparktax@gmail.com</p>
+                      </Col>
+                    </Row>                    
                     <Row xs='auto'>
                       <Col className='ps-0'>
                         <span>
