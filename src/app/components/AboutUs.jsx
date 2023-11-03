@@ -16,6 +16,15 @@ const AboutUs = () => {
       <main>
         <Container className='my-5'>
           <Row>
+            <Col className='text-center pb-5'>
+              <h1 className='header-h1'>
+                <span className='header-span'>믿고 맡길수 있는 </span>
+                든든한 회계사
+              </h1>
+              <h3 className='header-h3'>탁월한 지식으로 성심성의껏 고객의 재무 안전을 책임집니다.</h3>
+            </Col>
+          </Row>
+          <Row>
             <Col className='mb-5'>
               <Ratio aspectRatio='1x1'>
                 <img src={AboutUsImg} alt='' />
@@ -29,6 +38,8 @@ const AboutUs = () => {
               <p>또한 무거운 세금때문에 잠못이룬 적이 있다면 언제든 연락주세요.</p>
               <p>고객의 절세가 최상의 목표이며 이를 위해 최선을 다하고 있습니다.</p>
               <p>지금까지 만족스러운 세금 및 회계 서비스를 받지 못하신 분이 계시면 저희 회사 이메일, 카카오톡, 전화 및 방문 상담하시기 바랍니다.</p>
+              <p>감사합니다.</p>
+              <p>&nbsp;</p>
               <p>대표 회계사 제임스 박</p>
             </Col>
           </Row>

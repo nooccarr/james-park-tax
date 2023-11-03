@@ -7,6 +7,27 @@
   background-size: cover;
 }
 
+.header-h1 {
+  color: #222;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.header-h3 {
+  color: #6A6A6A;
+  font-size: 18px;
+}
+
+.header-span {
+  color: #9E9A79;
+}
+
+p {
+  color: #6A6A6A;
+  line-height: 24px;
+  font-size: 15px;
+}
+
 /* .parallax {
   background-image: url("../images/about-us-header.jpg");
 
