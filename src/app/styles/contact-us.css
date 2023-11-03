@@ -6,3 +6,30 @@
   /* background-repeat: no-repeat; */
   background-size: cover;
 }
+
+span path {
+  color: #9E9A79;
+}
+
+div address {
+  color: #6A6A6A;
+  line-height: 24px;
+  font-size: 15px;
+}
+
+div span {
+  color: #6A6A6A;
+  line-height: 24px;
+  font-size: 15px;
+}
+
+p a {
+  text-decoration: none;
+  color: #6A6A6A;
+  line-height: 24px;
+  font-size: 15px;
+}
+
+p a:hover {
+  color: lightgrey;
+}

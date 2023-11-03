@@ -1,7 +1,8 @@
 import { useRef, useState } from 'react';
 import Stack from 'react-bootstrap/Stack';
 import Button from 'react-bootstrap/Button';
-const SUBJECTS = ['--Please choose an option--', 'Tax Preparation', 'Tax Planning', 'Accounting', 'Other'];
+const SUBJECTS = ['--Please choose an option--', '사업체 세금 보고', '개인 세금 보고', '은퇴연금', 'Medicare 건강보험', '저축보험', 'Other'];
+import '../styles/email-form.css';
 
 const EmailForm = () => {
   const [ formValues, setFormValues ] = useState({
@@ -28,14 +29,15 @@ const EmailForm = () => {
   };
 
   return (
-    <aside>
-        <Stack>
+    <aside className='pb-5'>
+        <Stack className='py-4 text-center rounded-top' style={{ backgroundColor: '#043A49', borderBottom: '3px solid #AA9465'}}>
           <div className='px-2'>
-            <h3>Fill out the form below to e-mail us.</h3>
+            <h4 className='email-form-h4'>이메일로 문의하기</h4>
+            <h5 className='email-form-h5'>Fill out the form below to e-mail us.</h5>
           </div>
         </Stack>
 
-        <div className='p-2'>
+        <div className='p-3 text-center border rounded-bottom'>
           <form onSubmit={handleSubmit}>
             <Stack>
 

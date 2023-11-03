@@ -51,7 +51,9 @@ const Services = () => {
                   저축보험 (가족의 보장+ 노후준비)
                 </span>
               </ListGroup.Item>
-
+              <ListGroup.Item as='li' className='py-3' style={{ backgroundColor: '#043A49', borderBottom: '3px solid #AA9465'}}>
+                &nbsp;
+              </ListGroup.Item>
             </ListGroup>
           </Col>
           <Col>
