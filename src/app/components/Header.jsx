@@ -1,12 +1,18 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import Logo from '../images/logo.png';
+import Kakaotalk from '../images/kakaotalk-offcanvas.png';
 import '../styles/header.css';
 
 const Header = () => {
+  const [showOffCanvas, setShowOffCanvas] = useState(false);
 
+  const handleOffCanvasShow = () => { setShowOffCanvas(true) };
+  const handleOffCanvasClose = () => { setShowOffCanvas(false) };
 
   return (
     <header>
@@ -27,10 +33,21 @@ const Header = () => {
           
           </Col>
           <Col md='auto' className='my-auto'>
-            <span className='icon-kakao'></span>
+            <a onClick={handleOffCanvasShow}>
+              <span className='icon-kakao'></span>
+            </a>
           </Col>
         </Row>
       </Container>
+
+      <Offcanvas show={showOffCanvas} placement='end' onHide={handleOffCanvasClose} className='offcanvas-background-image'>
+        <Offcanvas.Header closeButton closeVariant='white' className='mb-4'>
+          <Offcanvas.Title>&nbsp;</Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          <img src={Kakaotalk} alt='' className='offcanvas-kakao-image' />
+        </Offcanvas.Body>
+      </Offcanvas>
     </header>
   );
 };

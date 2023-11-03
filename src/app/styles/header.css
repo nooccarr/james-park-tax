@@ -28,3 +28,13 @@ header {
   background-image: url('../kakaotalk-force.svg');
   cursor: pointer;
 }
+
+.offcanvas-kakao-image {
+  width: 100%;
+}
+
+.offcanvas-background-image {
+  background-image: url('../images/offcanvas-brick-wall.jpg');
+  background-size: cover;
+  
+}
