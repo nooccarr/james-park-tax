@@ -16,14 +16,14 @@ const Services = () => {
 
       <Container className='my-5'>
         <Row>
-          <Col>
+          <Col md={8} className='pe-5'>
             <ListGroup as='ul' className='text-center rounded-0'>
               <ListGroup.Item as='li' className='py-4' style={{ backgroundColor: '#043A49'}}>
                 <h4 className='service-li-h4'>감사 및 회계 업무</h4>
                 <h5 className='service-li-h5'>exceptional service</h5>
               </ListGroup.Item>
               {ServiceItems.map((item) => (
-                <ListGroup.Item as='li' key={item} style={{ backgroundColor: '#F1F1F1'}}>
+                <ListGroup.Item as='li' key={item} className='border-white' style={{ backgroundColor: '#F1F1F1'}}>
                   <span className='service-li'>
                     {item}
                   </span>
@@ -34,7 +34,7 @@ const Services = () => {
               </ListGroup.Item>
             </ListGroup>
           </Col>
-          <Col>
+          <Col md={4}>
             <EmailForm />
           </Col>
         </Row>

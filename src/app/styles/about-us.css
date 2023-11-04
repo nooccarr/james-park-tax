@@ -25,10 +25,11 @@
   font-weight: 700;
 }
 
-p {
+.text-container p {
   color: #6A6A6A;
   line-height: 24px;
   font-size: 15px;
+  margin: 0px;
 }
 
 /* .parallax {

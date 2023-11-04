@@ -11,3 +11,14 @@
 .home-contact-form-button:hover {
   opacity: 1;
 }
+
+.form-submit-message {
+  color: #FFF9D1;
+  padding-bottom: 25px;
+  font-weight: 400;
+}
+
+.home-carousel-h1 {
+  color: #FFF9D1;
+  font-weight: 400;
+}

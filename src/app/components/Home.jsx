@@ -45,13 +45,13 @@ const Home = () => {
                         Schedule A Consultation
                       </h2>
                     </button>
-                    <div className='my-5 py-5'>&nbsp;</div>
-                    {/* <div style={{ position:S 'absolute', top: '50%', transform: 'translate(0, -50%)'}}>&nbsp;</div> */}
+                    <div className='my-5 py-4'>&nbsp;</div>
                   </>
                 ): (
-                  <div className='py-2'>
-                    <h3 className='mb-5'>Thank you for your submission!</h3>
-                  </div>
+                  <>
+                    <h2 className='form-submit-message'>Thank you for your submission!</h2>
+                    <div className='my-5 py-4'>&nbsp;</div>
+                  </>
                 )
               }
             </Carousel.Caption>
@@ -62,9 +62,10 @@ const Home = () => {
             <img src={LandingImgTwo} alt='' />
           </Ratio>
           <Carousel.Caption>
-            <h1>한국거주 영주권, 시민권자 세금보고</h1>
-            <h1>증여, 상속세, 양도세 상담</h1>
-            <h1 className='mb-5'>메디케어 건강보험 안내</h1>
+            <h1 className='home-carousel-h1'>한국거주 영주권, 시민권자 세금보고</h1>
+            <h1 className='home-carousel-h1'>증여, 상속세, 양도세 상담</h1>
+            <h1 className='home-carousel-h1'>메디케어 건강보험 안내</h1>
+            <div className='my-4 py-4'>&nbsp;</div>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

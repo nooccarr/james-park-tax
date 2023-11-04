@@ -28,12 +28,10 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
 
   return (
     <Modal show={showContactForm} onHide={handleCloseButtonClick} animation={true}>
-      <div style={{ marginTop: '400px', display: 'none'}}></div>
       <Modal.Header closeButton>
         <Modal.Title>Schedule A Consultation</Modal.Title>
       </Modal.Header>{ console.log(formValues)}
-      {/* <form onSubmit={handleSubmit}> */}
-      <form>
+        <form onSubmit={handleSubmit}>
         <Modal.Body>
           <Stack>
             <label htmlFor='name'>
@@ -93,7 +91,7 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
           </Stack>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={handleSubmit}>Schedule A Consultation</Button>
+          <button onClick={handleSubmit}>Schedule A Consultation</button>
         </Modal.Footer>
       </form>
     </Modal>

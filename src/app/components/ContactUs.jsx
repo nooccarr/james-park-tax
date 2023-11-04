@@ -25,26 +25,38 @@ const ContactUs = () => {
 
       <Container className='my-5'>
         <Row>
-          <Col>
+          <Col md={8} className='pe-5'>
             <main>
-              <ButtonGroup className='mb-4 w-100'>
+              {location === 'new-york-office' ? (
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12088.22206060176!2d-73.8026996!3d40.7608037!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c261502c1e2cf7%3A0x8f3b1894cd7e0382!2zSmFtZXMgUGFyayBUYXggJiBBY2NvdW50aW5nLCBJbmMuICjtmozqs4TrspXsnbgp!5e0!3m2!1sen!2sus!4v1698084181313!5m2!1sen!2sus"
+                width="100%"
+                height="450"
+                style={{ border: '1px solid lightgrey' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              >
+              </iframe>
+              ): (
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d317.27360008062965!2d-74.00572083325287!3d40.840434243643735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f70b3b69f52b%3A0x3fe2c115711b0927!2s725%20Grand%20Ave%2C%20Ridgefield%2C%20NJ%2007657!5e0!3m2!1sen!2sus!4v1698263388796!5m2!1sen!2sus"
+                width="100%"
+                height="450"
+                style={{ border: '1px solid lightgrey' }}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+              )}
+
+              <ButtonGroup className='my-4 w-100'>
                 <Button onClick={handleLocation} variant='secondary'>NEW YORK OFFICE</Button>
                 <Button onClick={handleLocation} variant='secondary'>NEW JERSEY OFFICE</Button>
               </ButtonGroup>
 
-
               {location === 'new-york-office' ? (
                 <section>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12088.22206060176!2d-73.8026996!3d40.7608037!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c261502c1e2cf7%3A0x8f3b1894cd7e0382!2zSmFtZXMgUGFyayBUYXggJiBBY2NvdW50aW5nLCBJbmMuICjtmozqs4TrspXsnbgp!5e0!3m2!1sen!2sus!4v1698084181313!5m2!1sen!2sus"
-                    width="100%"
-                    height="450"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  >
-                  </iframe>
                   <Container className='mt-4'>
                     <Row xs='auto'>
                       <Col className='ps-0'>
@@ -95,16 +107,6 @@ const ContactUs = () => {
                 </section>
               ): (
                 <section>
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d317.27360008062965!2d-74.00572083325287!3d40.840434243643735!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2f70b3b69f52b%3A0x3fe2c115711b0927!2s725%20Grand%20Ave%2C%20Ridgefield%2C%20NJ%2007657!5e0!3m2!1sen!2sus!4v1698263388796!5m2!1sen!2sus"
-                    width="100%"
-                    height="450"
-                    style={{ border: 0 }}
-                    allowFullScreen=""
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-
                   <Container className='mt-4'>
                     <Row xs='auto'>
                       <Col className='ps-0'>
@@ -156,7 +158,7 @@ const ContactUs = () => {
               )}
             </main>
           </Col>
-          <Col>
+          <Col md={4}>
             <EmailForm />
           </Col>
         </Row>
