@@ -1,13 +1,12 @@
 import { useState } from "react";
 import Ratio from "react-bootstrap/Ratio";
-import Button from "react-bootstrap/Button";
 import Carousel from "react-bootstrap/Carousel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import ContactForm from "./ContactForm";
 import LandingImgOne from '../images/landing-1.jpg';
 import LandingImgTwo from '../images/landing-2.jpg';
-import AboutUsPage from '../images/about-us.jpg';
+import '../styles/home.css';
 
 const Home = () => {
   const [ showContactForm, setShowContactForm ] = useState(false);
@@ -39,14 +38,16 @@ const Home = () => {
               )}
 
               {!showFormSuccess ? (
-                  <div className='mb-5 pb-5'>
-                  <Button onClick={handleButtonClick} className='py-2 mb-5'>
-                    <h3>
-                      <FontAwesomeIcon className='pe-2' icon={faCalendarDays} />
-                      Schedule A Consultation
-                    </h3>
-                  </Button>
-                  </div>
+                  <>
+                    <button onClick={handleButtonClick} className='home-contact-form-button'>
+                      <h2 className='mb-0'>
+                        <FontAwesomeIcon className='pe-2' icon={faCalendarDays} />
+                        Schedule A Consultation
+                      </h2>
+                    </button>
+                    <div className='my-5 py-5'>&nbsp;</div>
+                    {/* <div style={{ position:S 'absolute', top: '50%', transform: 'translate(0, -50%)'}}>&nbsp;</div> */}
+                  </>
                 ): (
                   <div className='py-2'>
                     <h3 className='mb-5'>Thank you for your submission!</h3>

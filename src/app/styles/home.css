@@ -1,0 +1,13 @@
+.home-contact-form-button {
+  background-color: #043A49;
+  color: #FFF9D1;
+  border: none;
+  border-radius: 10px;
+  padding: 25px;
+  opacity: 0.6;
+  transition: 0.5s;
+}
+
+.home-contact-form-button:hover {
+  opacity: 1;
+}
