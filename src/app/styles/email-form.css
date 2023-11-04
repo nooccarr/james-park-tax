@@ -1,8 +1,12 @@
+.email-form-form {
+  background-color: #F1F1F1;
+}
+
 .email-form-h4 {
   color: #FFF9D1;
   line-height: 24px;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
   margin-bottom: 0px;
 }
 
@@ -12,6 +16,24 @@
   font-weight: 400;
   font-style: italic;
   margin-bottom: 0px;
+}
+
+.email-form-button {
+  background-color: #043A49;
+  color: #FFF9D1;
+  border: none;
+  border-radius: 4px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.email-form-button:hover {
+  opacity: 0.8;
 }
 
 form label {
@@ -26,6 +48,10 @@ form input {
 
 form select {
   margin-bottom: 16px;
+}
+
+form select:hover {
+  cursor: pointer;
 }
 
 form textarea {

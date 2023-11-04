@@ -35,7 +35,7 @@ const Layout = () => {
             <Link to='search' className='navsearch'>
               <FontAwesomeIcon icon={faMagnifyingGlass}  />
             </Link>
-          </Container> 
+          </Container>
         </Navbar>
       </nav>
 

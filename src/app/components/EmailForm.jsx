@@ -30,14 +30,14 @@ const EmailForm = () => {
 
   return (
     <aside className='pb-5'>
-        <Stack className='py-4 text-center rounded-top' style={{ backgroundColor: '#043A49', borderBottom: '3px solid #AA9465'}}>
+        <Stack className='py-4 text-center' style={{ backgroundColor: '#043A49', borderBottom: '3px solid #AA9465'}}>
           <div className='px-2'>
             <h4 className='email-form-h4'>이메일로 문의하기</h4>
             <h5 className='email-form-h5'>Fill out the form below to e-mail us.</h5>
           </div>
         </Stack>
 
-        <div className='p-3 text-center border rounded-bottom'>
+        <div className='p-3 text-center border email-form-form'>
           <form onSubmit={handleSubmit}>
             <Stack>
 
@@ -50,6 +50,7 @@ const EmailForm = () => {
                 id='name'
                 autoComplete="off"
                 className='form-control'
+                style={{ borderRadius: '0px'}}
                 value={formValues.name}
                 onChange={(e) => setFormValues({ ...formValues, name: e.target.value })}
                 required
@@ -64,6 +65,7 @@ const EmailForm = () => {
                 id='email'
                 autoComplete="off"
                 className='form-control'
+                style={{ borderRadius: '0px'}}
                 value={formValues.email}
                 onChange={(e) => setFormValues({ ...formValues, email: e.target.value })}
                 required
@@ -76,6 +78,7 @@ const EmailForm = () => {
                 name='subject'
                 id='subject'
                 className='form-control'
+                style={{ borderRadius: '0px', color: '#6A6A6A'}}
                 value={formValues.subject}
                 onChange={(e) => setFormValues({ ...formValues, subject: e.target.value })}
                 required
@@ -99,11 +102,12 @@ const EmailForm = () => {
                 id='message'
                 autoComplete="off"
                 className='form-control'
+                style={{ borderRadius: '0px'}}
                 value={formValues.message}
                 onChange={(e) => setFormValues({ ...formValues, message: e.target.value })}
               />
 
-              <Button className='mt-2'>Send</Button>
+              <button className='mt-2 email-form-button'>Send</button>
             </Stack>
           </form>
 

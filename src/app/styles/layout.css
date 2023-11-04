@@ -1,28 +1,36 @@
 .nav-container {
   background-color: #235161;
+  position: '-webkit-sticky';
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navlink {
   color: rgb(227, 241, 222);
   text-decoration: none;
   margin-right: 32px;
+  opacity: 1;
+  transition: 0.3s;
 }
 
 .navlink:hover,
 .navlink:focus {
-  color: #677D73;
+  opacity: 0.5;
 }
 
 .navsearch {
   color: rgb(227, 241, 222);
+  opacity: 1;
+  transition: 0.3s;
 }
 
 .navsearch:hover,
 .navsearch:focus {
-  color: #677D73;
+  opacity: 0.5;
 }
 
-/* 
+/*
 rgb(255, 255, 255)
 #fff
 rgb(5, 58, 74)
@@ -30,15 +38,14 @@ rgb(5, 58, 74)
 #235161
 rgb(103, 125, 115)
 #677D73
-rgb(227, 241, 222) 
+rgb(227, 241, 222)
 rgb(158, 154, 121)
 #9E9A79
 #AA9465
-rgb(255, 249, 209) 
-#FFF9D1 
+rgb(255, 249, 209)
+#FFF9D1
 
 <p> font color
 #6A6A6A;
 #9E9A79;
-#222;
-*/
+#222; */

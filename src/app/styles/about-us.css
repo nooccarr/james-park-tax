@@ -9,7 +9,8 @@
 
 .header-h1 {
   color: #222;
-  font-weight: 900;
+  font-weight: 700;
+  font-size: 37px;
   margin-bottom: 16px;
 }
 
@@ -20,6 +21,8 @@
 
 .header-span {
   color: #9E9A79;
+  font-size: 37px;
+  font-weight: 700;
 }
 
 p {

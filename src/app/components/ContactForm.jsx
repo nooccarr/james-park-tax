@@ -27,7 +27,8 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
   };
 
   return (
-    <Modal show={showContactForm} onHide={handleCloseButtonClick} animation={false}>
+    <Modal show={showContactForm} onHide={handleCloseButtonClick} animation={true}>
+      <div style={{ marginTop: '400px', display: 'none'}}></div>
       <Modal.Header closeButton>
         <Modal.Title>Schedule A Consultation</Modal.Title>
       </Modal.Header>{ console.log(formValues)}

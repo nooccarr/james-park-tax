@@ -28,8 +28,11 @@ p a {
   color: #6A6A6A;
   line-height: 24px;
   font-size: 15px;
+  opacity: 1;
+  transition: 0.3s;
 }
 
 p a:hover {
-  color: lightgrey;
+  color: gray;
+  opacity: 0.7;
 }

@@ -6,10 +6,13 @@ header {
 .header-tel {
   color: #9E9A79;
   text-decoration: none;
+  opacity: 1;
+  transition: 0.3s;
 }
 
 .header-tel:hover {
   color: #FFF9D1;
+  opacity: 0.8;
 }
 
 .text-hide {
@@ -21,12 +24,15 @@ header {
   width: 45px;
   height: 45px;
   background-image: url('../kakaotalk.svg');
+  opacity: 1;
+  transition: 0.3s;
 }
 
 .icon-kakao:hover,
 .icon-kakao:focus {
   background-image: url('../kakaotalk-force.svg');
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .offcanvas-kakao-image {
@@ -36,5 +42,5 @@ header {
 .offcanvas-background-image {
   background-image: url('../images/offcanvas-brick-wall.jpg');
   background-size: cover;
-  
+
 }

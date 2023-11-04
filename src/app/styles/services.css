@@ -11,7 +11,7 @@
   color: #FFF9D1;
   line-height: 24px;
   font-size: 20px;
-  font-weight: 900;
+  font-weight: 700;
   margin-bottom: 0px;
 }
 
@@ -22,8 +22,9 @@
   font-style: italic;
   margin-bottom: 0px;
 }
+
 .service-li {
   color: #6A6A6A;
-  line-height: 24px;
+  line-height: 30px;
   font-size: 15px;
 }
