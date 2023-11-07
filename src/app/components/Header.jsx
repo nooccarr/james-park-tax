@@ -23,15 +23,16 @@ const Header = () => {
             <Link to='/'>
               <img src={Logo} alt='' />
             </Link>
-            
+
           </Col>
+          <Col md='auto' className='my-auto '></Col>
           <Col md='auto' className='my-auto'>
-            <div>CALL US TODAY</div>
-            <a href='tel:+17183591096' className='header-tel'>(718) 359-1096</a>
+            <a href='tel:+1-718-359-1096' className='header-tel' style={{ fontSize: '20px'}}>(718) 359-1096</a>
+            &nbsp;/&nbsp;
+            <a href='tel:+1-201-625-3060' className='header-tel' style={{ fontSize: '20px'}}>(201) 625-3060</a>
+            <div style={{ fontSize: '12px', fontWeight: '500'}}>Call Us Today for a Free Consultation</div>
           </Col>
-          <Col md='auto' className='my-auto '>
-          
-          </Col>
+          <Col md='auto' className='my-auto '></Col>
           <Col md='auto' className='my-auto'>
             <a onClick={handleOffCanvasShow}>
               <span className='icon-kakao'></span>

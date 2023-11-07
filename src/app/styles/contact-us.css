@@ -7,6 +7,11 @@
   background-size: cover;
 }
 
+.contact-us-office-title {
+  color: #6A6A6A;
+  font-size: 25px;
+}
+
 span path {
   color: #9E9A79;
 }
@@ -29,6 +34,7 @@ div p {
   font-size: 15px;
   /* margin: 0px; */
 }
+
 p a {
   text-decoration: none;
   color: #6A6A6A;

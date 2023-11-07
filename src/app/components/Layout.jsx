@@ -1,7 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from "react-bootstrap/Col";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import '../styles/layout.css';
@@ -17,23 +17,23 @@ const Layout = () => {
   return (
     <>
       <nav className='nav-container'>
-        <Navbar>
-          <Container className='py-2'>
-            <Nav as='ul'>
+          <Container className='py-3'>
+            <Row>
               {NavItems.map(({ link, title }) => (
-                <Nav.Item key={link} as='li'>
+                <Col key={title}>
                   <Link to={link} className='navlink'>
-                      {title}
+                    {title}
                   </Link>
-                </Nav.Item>
+                </Col>
               ))}
-            </Nav>
 
-            <Link to='search' className='navsearch'>
-              <FontAwesomeIcon icon={faMagnifyingGlass}  />
-            </Link>
+              <Col className='text-end'>
+                <Link to='search' className='navsearch'>
+                  <FontAwesomeIcon icon={faMagnifyingGlass}  />
+                </Link>
+              </Col>
+            </Row>
           </Container>
-        </Navbar>
       </nav>
 
       <Outlet />

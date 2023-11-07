@@ -24,10 +24,14 @@ const ContactUs = () => {
       </div>
 
       <Container className='my-5'>
-        <Row>
-          <Col md={8} className='pe-5'>
-            <main>
-              {location === 'new-york-office' ? (
+        <Row className='mb-5 pb-4'>
+          <Col>
+            <ButtonGroup className='mb-4 w-100'>
+              <Button onClick={handleLocation} variant='secondary'>NEW YORK OFFICE</Button>
+              <Button onClick={handleLocation} variant='secondary'>NEW JERSEY OFFICE</Button>
+            </ButtonGroup>
+
+            {location === 'new-york-office' ? (
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12088.22206060176!2d-73.8026996!3d40.7608037!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c261502c1e2cf7%3A0x8f3b1894cd7e0382!2zSmFtZXMgUGFyayBUYXggJiBBY2NvdW50aW5nLCBJbmMuICjtmozqs4TrspXsnbgp!5e0!3m2!1sen!2sus!4v1698084181313!5m2!1sen!2sus"
                 width="100%"
@@ -48,117 +52,120 @@ const ContactUs = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
-              )}
-
-              <ButtonGroup className='my-4 w-100'>
-                <Button onClick={handleLocation} variant='secondary'>NEW YORK OFFICE</Button>
-                <Button onClick={handleLocation} variant='secondary'>NEW JERSEY OFFICE</Button>
-              </ButtonGroup>
-
-              {location === 'new-york-office' ? (
-                <section>
-                  <Container className='mt-4'>
-                    <Row xs='auto'>
-                      <Col className='ps-0'>
-                        <span>
-                          <FontAwesomeIcon icon={faLocationDot} />
-                        </span>
-                      </Col>
-                      <Col className='ps-0'>
-                        <address>
-                          163-10 Northern Boulevard, #311<br/>
-                          Flushing, NY 11358
-                        </address>
-                      </Col>
-                    </Row>
-                    <Row xs='auto'>
-                      <Col className='ps-0'>
-                        <span>
-                          <FontAwesomeIcon icon={faPhone} />
-                        </span>
-                      </Col>
-                      <Col className='ps-0'>
-                        <p>
-                          <a href='tel:+17183591096'>(718) 359-1096</a>
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row xs='auto'>
-                      <Col className='ps-0'>
-                        <span>
-                          <FontAwesomeIcon icon={faEnvelope} />
-                        </span>
-                      </Col>
-                      <Col className='ps-0'>
-                        <p>jamesparktax@gmail.com</p>
-                      </Col>
-                    </Row>                    
-                    <Row xs='auto'>
-                      <Col className='ps-0'>
-                        <span>
-                          <FontAwesomeIcon icon={faClock} />
-                        </span>
-                      </Col>
-                      <Col className='ps-0'>
-                        <p>Mon - Fri : 9 AM - 6 PM EST</p>
-                      </Col>
-                    </Row>
-                  </Container>
-                </section>
-              ): (
-                <section>
-                  <Container className='mt-4'>
-                    <Row xs='auto'>
-                      <Col className='ps-0'>
-                        <span>
-                          <FontAwesomeIcon icon={faLocationDot} />
-                        </span>
-                      </Col>
-                      <Col className='ps-0'>
-                        <address>
-                          725 Grand Avenue, #301<br/>
-                          Ridgefield, NJ 07657
-                        </address>
-                      </Col>
-                    </Row>
-                    <Row xs='auto'>
-                      <Col className='ps-0'>
-                        <span>
-                          <FontAwesomeIcon icon={faPhone} />
-                        </span>
-                      </Col>
-                      <Col className='ps-0'>
-                        <p>
-                          <a href="tel:+2016253060">(201) 625-3060</a>
-                        </p>
-                      </Col>
-                    </Row>
-                    <Row xs='auto'>
-                      <Col className='ps-0'>
-                        <span>
-                          <FontAwesomeIcon icon={faEnvelope} />
-                        </span>
-                      </Col>
-                      <Col className='ps-0'>
-                        <p>jamesparktax@gmail.com</p>
-                      </Col>
-                    </Row>                    
-                    <Row xs='auto'>
-                      <Col className='ps-0'>
-                        <span>
-                          <FontAwesomeIcon icon={faClock} />
-                        </span>
-                      </Col>
-                      <Col className='ps-0'>
-                        <p>Mon - Fri : 9 AM - 6 PM EST</p>
-                      </Col>
-                    </Row>
-                  </Container>
-                </section>
-              )}
-            </main>
+            )}
           </Col>
-          <Col md={4}>
+        </Row>
+        <Row className='mb-5'>
+          <Col md={6}>
+
+              <section>
+                <Container>
+                  <Row>
+                    <h3 className='ps-0 pb-2 contact-us-office-title'>New York Office</h3>
+                  </Row>
+                  <Row xs='auto'>
+                    <Col className='ps-0'>
+                      <span>
+                        <FontAwesomeIcon icon={faLocationDot} />
+                      </span>
+                    </Col>
+                    <Col className='ps-0'>
+                      <address className='mb-2'>
+                        163-10 Northern Boulevard, #311<br/>
+                        Flushing, NY 11358
+                      </address>
+                    </Col>
+                  </Row>
+                  <Row xs='auto'>
+                    <Col className='ps-0'>
+                      <span>
+                        <FontAwesomeIcon icon={faPhone} />
+                      </span>
+                    </Col>
+                    <Col className='ps-0'>
+                      <p className='mb-2'>
+                        <a href='tel:+1-718-359-1096'>(718) 359-1096</a>
+                      </p>
+                    </Col>
+                  </Row>
+                  <Row xs='auto'>
+                    <Col className='ps-0'>
+                      <span>
+                        <FontAwesomeIcon icon={faEnvelope} />
+                      </span>
+                    </Col>
+                    <Col className='ps-0'>
+                      <p className='mb-2'>jamesparktax@gmail.com</p>
+                    </Col>
+                  </Row>
+                  <Row xs='auto'>
+                    <Col className='ps-0'>
+                      <span>
+                        <FontAwesomeIcon icon={faClock} />
+                      </span>
+                    </Col>
+                    <Col className='ps-0'>
+                      <p className='mb-5'>Mon - Fri : 9 AM - 6 PM EST</p>
+                    </Col>
+                  </Row>
+                </Container>
+              </section>
+
+              <section>
+                <Container>
+                  <Row>
+                    <h3 className='ps-0 pb-2 contact-us-office-title'>New Jersey Office</h3>
+                  </Row>
+                  <Row xs='auto'>
+                    <Col className='ps-0'>
+                      <span>
+                        <FontAwesomeIcon icon={faLocationDot} />
+                      </span>
+                    </Col>
+                    <Col className='ps-0'>
+                      <address className='mb-2'>
+                        725 Grand Avenue, #301<br/>
+                        Ridgefield, NJ 07657
+                      </address>
+                    </Col>
+                  </Row>
+                  <Row xs='auto'>
+                    <Col className='ps-0'>
+                      <span>
+                        <FontAwesomeIcon icon={faPhone} />
+                      </span>
+                    </Col>
+                    <Col className='ps-0'>
+                      <p className='mb-2'>
+                        <a href="tel:+1-201-625-3060">(201) 625-3060</a>
+                      </p>
+                    </Col>
+                  </Row>
+                  <Row xs='auto'>
+                    <Col className='ps-0'>
+                      <span>
+                        <FontAwesomeIcon icon={faEnvelope} />
+                      </span>
+                    </Col>
+                    <Col className='ps-0'>
+                      <p className='mb-2'>jamesparktax@gmail.com</p>
+                    </Col>
+                  </Row>
+                  <Row xs='auto'>
+                    <Col className='ps-0'>
+                      <span>
+                        <FontAwesomeIcon icon={faClock} />
+                      </span>
+                    </Col>
+                    <Col className='ps-0'>
+                      <p className>Mon - Fri : 9 AM - 6 PM EST</p>
+                    </Col>
+                  </Row>
+                </Container>
+              </section>
+
+          </Col>
+          <Col md={6}>
             <EmailForm />
           </Col>
         </Row>
