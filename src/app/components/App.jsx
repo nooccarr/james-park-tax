@@ -65,33 +65,16 @@ const App = () => {
 
   const handleSearchQueryChange = (e) => {
     setSearchQuery(e.target.value);
-    // handleSearchQueryChange(e.target.value);
   };
-
-  // const handleSearchQueryChange = (query) => {
-  //   if (query.length) {
-  //     const filteredPosts = Object.entries(posts).filter(
-  //       ([_slug, { title, description }]) => title.toLowerCase().includes(query.toLowerCase()) || description.toLowerCase().includes(query.toLowerCase())
-  //     );
-  //     setSearchPosts(Object.fromEntries(filteredPosts));
-  //   } else {
-  //     setSearchPosts({});
-  //   }
-  // };
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
 
+    const filteredPosts = Object.entries(posts).filter(
+      ([_slug, { title, description }]) => title.toLowerCase().includes(searchQuery.toLowerCase()) || description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSearchPosts(Object.fromEntries(filteredPosts));
     setSearchMessage('Sorry, no results matched your search terms');
-
-    if (searchQuery.length) {
-      const filteredPosts = Object.entries(posts).filter(
-        ([_slug, { title, description }]) => title.toLowerCase().includes(searchQuery.toLowerCase()) || description.toLowerCase().includes(searchQuery.toLowerCase())
-      );
-      setSearchPosts(Object.fromEntries(filteredPosts));
-    } else {
-      setSearchPosts({});
-    }
   }
 
   return (

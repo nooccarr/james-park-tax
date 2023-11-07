@@ -17,7 +17,6 @@ const SearchParams = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit
               className='search-bar mb-0 me-auto search-shadow'
               value={searchQuery}
               onChange={handleSearchQueryChange}
-              required
               />
           <button className='search-button search-shadow'>Search</button>
         </Stack>
