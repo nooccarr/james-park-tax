@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const PostList = ({ posts, category, searchQuery }) => {
+const PostList = ({ searchMessage, posts, category }) => {
   const [categoryPosts, setCategoryPosts] = useState({});
 
   useEffect(() => {
@@ -24,10 +24,10 @@ const PostList = ({ posts, category, searchQuery }) => {
     <>
       <main>
         <Container className='mb-5'>
-          {!Object.keys(categoryPosts).length && searchQuery?.length ? (
+          {!Object.keys(categoryPosts).length ? (
             <Row className='justify-content-md-center'>
               <Col md='auto'>
-                <h2>Sorry, no results matched your search terms</h2>
+                <h2>{searchMessage}</h2>
               </Col>
             </Row>
           ) : (

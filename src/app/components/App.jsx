@@ -49,6 +49,7 @@ const App = () => {
   const [posts, setPosts] = useState({});
   const [searchPosts, setSearchPosts] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchMessage, setSearchMessage] = useState('Search Articles by Title or Description');
 
   useEffect(() => {
     requestPosts();
@@ -62,27 +63,42 @@ const App = () => {
     }
   };
 
-  const handleSearchChange = (e) => {
+  const handleSearchQueryChange = (e) => {
     setSearchQuery(e.target.value);
-    handleSearchQueryChange(e.target.value);
+    // handleSearchQueryChange(e.target.value);
   };
 
-  const handleSearchQueryChange = (query) => {
-    if (query.length) {
+  // const handleSearchQueryChange = (query) => {
+  //   if (query.length) {
+  //     const filteredPosts = Object.entries(posts).filter(
+  //       ([_slug, { title, description }]) => title.toLowerCase().includes(query.toLowerCase()) || description.toLowerCase().includes(query.toLowerCase())
+  //     );
+  //     setSearchPosts(Object.fromEntries(filteredPosts));
+  //   } else {
+  //     setSearchPosts({});
+  //   }
+  // };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+
+    setSearchMessage('Sorry, no results matched your search terms');
+
+    if (searchQuery.length) {
       const filteredPosts = Object.entries(posts).filter(
-        ([_slug, { title, description }]) => title.toLowerCase().includes(query.toLowerCase()) || description.toLowerCase().includes(query.toLowerCase())
+        ([_slug, { title, description }]) => title.toLowerCase().includes(searchQuery.toLowerCase()) || description.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setSearchPosts(Object.fromEntries(filteredPosts));
     } else {
       setSearchPosts({});
     }
-  };
+  }
 
   return (
     <>
       <Header />
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/' element={<Layout />}>{ console.log(searchQuery)}
           <Route index element={<Home />} />
           <Route path='about-us' element={<AboutUs />} />
           <Route path='services' element={<Services />} />
@@ -94,8 +110,8 @@ const App = () => {
             <Route index element={<PostList posts={posts} category='Medicare' />} />
             <Route path=':slug' element={<Post posts={posts} />} />
           </Route>
-          <Route path='search' element={<Results searchQuery={searchQuery} handleSearchChange={handleSearchChange} />}>
-            <Route index element={<PostList posts={searchPosts} searchQuery={searchQuery} />} />
+          <Route path='search' element={<Results searchQuery={searchQuery} handleSearchQueryChange={handleSearchQueryChange} handleSearchSubmit={handleSearchSubmit} />}>
+            <Route index element={<PostList posts={searchPosts} searchMessage={searchMessage} />} />
             <Route path=':slug' element={<Post posts={searchPosts} />} />
           </Route>
           <Route path='contact-us' element={<ContactUs />} />

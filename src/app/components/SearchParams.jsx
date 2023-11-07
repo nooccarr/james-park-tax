@@ -1,32 +1,27 @@
 import Stack from 'react-bootstrap/Stack';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import '../styles/search-params.css';
 
-const SearchParams = ({ searchQuery, handleSearchChange }) => {
+const SearchParams = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) => {
 
 
   return (
     <section>
-      <Stack direction='horizontal'>
-        <InputGroup>
-          <InputGroup.Text id="basic-addon1">
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </InputGroup.Text>
-          <Form.Control
-            type='search'
-            aria-label="Search"
-            aria-describedby="basic-addon1"
-            autoComplete='off'
-            value={searchQuery}
-            onChange={handleSearchChange}
-          />
-        </InputGroup>
-
-        <Button className='ms-3'>Search</Button>
-      </Stack>
+      <form onSubmit={handleSearchSubmit}>
+        <Stack direction='horizontal' gap={0}>
+          <label htmlFor='search'></label>
+          <input
+              type='search'
+              name='search'
+              id='search'
+              autoComplete='off'
+              className='search-bar mb-0 me-auto search-shadow'
+              value={searchQuery}
+              onChange={handleSearchQueryChange}
+              required
+              />
+          <button className='search-button search-shadow'>Search</button>
+        </Stack>
+      </form>
     </section>
   );
 };

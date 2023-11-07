@@ -4,6 +4,8 @@ const SUBJECTS = ['--Please choose an option--', '사업체 세금 보고', '개
 import '../styles/email-form.css';
 
 const EmailForm = () => {
+  const form = useRef(null);
+
   const [ formValues, setFormValues ] = useState({
     name: '',
     email: '',
@@ -12,23 +14,28 @@ const EmailForm = () => {
   });
   const [ showFormSuccess, setShowFormSuccess ] = useState(false);
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = {
+      name: formData.get('name') ?? '',
+      email: formData.get('email') ?? '',
+      subject: formData.get('subject') ?? '',
+      message: formData.get('message') ?? ''
+    };
+    setFormValues(data);
+
     // TODO:
     // - send email
     // - setRecords([...records, { ...formValues, id: uuidv4() }]);
-    setFormValues({
-      name: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+
     setShowFormSuccess(true);
     console.log("Email form sent");
   };
 
   return (
-    <aside className='pb-5'>
+    <aside className='pb-5'>{ console.log(formValues)}
         <Stack className='py-4 text-center' style={{ backgroundColor: '#043A49', borderBottom: '3px solid #AA9465'}}>
           <div className='px-2'>
             <h4 className='email-form-h4'>이메일로 문의하기</h4>
@@ -36,81 +43,74 @@ const EmailForm = () => {
           </div>
         </Stack>
 
-        <div className='p-3 text-center border email-form-form'>
-          <form onSubmit={handleSubmit}>
-            <Stack>
+        <div className='p-3 border email-form-form'>
+          {!showFormSuccess ? (
+            <form ref={form} onSubmit={sendEmail}>
+              <Stack>
 
-              <label htmlFor='name'>
-                Name
-              </label>
-              <input
-                type='text'
-                name='name'
-                id='name'
-                autoComplete="off"
-                className='form-control'
-                style={{ borderRadius: '0px'}}
-                value={formValues.name}
-                onChange={(e) => setFormValues({ ...formValues, name: e.target.value })}
-                required
-              />
+                <label htmlFor='name'>
+                  Name
+                </label>
+                <input
+                  type='text'
+                  name='name'
+                  id='name'
+                  autoComplete="off"
+                  className='form-control'
+                  style={{ borderRadius: '0px' }}
+                  required
+                />
 
-              <label htmlFor='email'>
-                Email
-              </label>
-              <input
-                type='email'
-                name='email'
-                id='email'
-                autoComplete="off"
-                className='form-control'
-                style={{ borderRadius: '0px'}}
-                value={formValues.email}
-                onChange={(e) => setFormValues({ ...formValues, email: e.target.value })}
-                required
-              />
+                <label htmlFor='email'>
+                  Email
+                </label>
+                <input
+                  type='email'
+                  name='email'
+                  id='email'
+                  autoComplete="off"
+                  className='form-control'
+                  style={{ borderRadius: '0px' }}
+                  required
+                />
 
-              <label htmlFor='subject'>
-                Subject
-              </label>
-              <select
-                name='subject'
-                id='subject'
-                className='form-control'
-                style={{ borderRadius: '0px', color: '#6A6A6A'}}
-                value={formValues.subject}
-                onChange={(e) => setFormValues({ ...formValues, subject: e.target.value })}
-                required
-              >
-                {SUBJECTS.map((subject, idx) => (
-                  <option
-                    key={subject}
-                    value={idx === 0 ? '' : subject}
-                    disabled={idx === 0 ? true : false}
-                  >
-                    {subject}
-                  </option>
-                ))}
-              </select>
+                <label htmlFor='subject'>
+                  Subject
+                </label>
+                <select
+                  name='subject'
+                  id='subject'
+                  className='form-control'
+                  style={{ borderRadius: '0px', color: '#6A6A6A' }}
+                  required
+                >
+                  {SUBJECTS.map((subject, idx) => (
+                    <option
+                      key={subject}
+                      value={idx === 0 ? '' : subject}
+                    >
+                      {subject}
+                    </option>
+                  ))}
+                </select>
 
-              <label htmlFor='message'>
-                Message (optional)
-              </label>
-              <textarea
-                name='message'
-                id='message'
-                autoComplete="off"
-                className='form-control'
-                style={{ borderRadius: '0px'}}
-                value={formValues.message}
-                onChange={(e) => setFormValues({ ...formValues, message: e.target.value })}
-              />
+                <label htmlFor='message'>
+                  Message (optional)
+                </label>
+                <textarea
+                  name='message'
+                  id='message'
+                  autoComplete="off"
+                  className='form-control'
+                  style={{ borderRadius: '0px' }}
+                />
 
-              <button className='mt-2 email-form-button'>Send</button>
-            </Stack>
-          </form>
-
-          {showFormSuccess && <h3>Thank you for your message. It has been sent.</h3>}
+                <button className='mt-2 email-form-button'>send</button>
+              </Stack>
+            </form>
+          ) : (
+            <h3 className='pt-3 pb-5 text-center'>Thank you for your message. It has been sent.</h3>
+          )}
         </div>
 
       </aside>

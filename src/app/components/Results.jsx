@@ -5,7 +5,7 @@ import Row from 'react-bootstrap/Row';
 import PageHeader from './PageHeader';
 import '../styles/results.css';
 
-const Results = ({ searchQuery, handleSearchChange }) => {
+const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) => {
   return (
     <>
       <div className='results-header-image'>
@@ -14,7 +14,7 @@ const Results = ({ searchQuery, handleSearchChange }) => {
 
       <Container className='pt-5'>
         <div className='pb-5'>
-          <SearchParams searchQuery={searchQuery} handleSearchChange={handleSearchChange} />
+          <SearchParams searchQuery={searchQuery} handleSearchQueryChange={handleSearchQueryChange} handleSearchSubmit={handleSearchSubmit} />
         </div>
         <Row>
           <Outlet />
