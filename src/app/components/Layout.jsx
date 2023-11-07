@@ -14,6 +14,10 @@ const NavItems = [
 ];
 
 const Layout = () => {
+  const handleLayoutItemClick = () => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  };
+
   return (
     <>
       <nav className='nav-container'>
@@ -21,14 +25,14 @@ const Layout = () => {
             <Row>
               {NavItems.map(({ link, title }) => (
                 <Col key={title}>
-                  <Link to={link} className='navlink'>
+                  <Link to={link} onClick={handleLayoutItemClick} className='navlink'>
                     {title}
                   </Link>
                 </Col>
               ))}
 
               <Col className='text-end'>
-                <Link to='search' className='navsearch'>
+                <Link to='search' onClick={handleLayoutItemClick} className='navsearch'>
                   <FontAwesomeIcon icon={faMagnifyingGlass}  />
                 </Link>
               </Col>

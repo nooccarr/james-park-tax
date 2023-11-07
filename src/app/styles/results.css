@@ -1,3 +1,10 @@
+.results-background {
+  background-image: url("../images/info-background.jpg");
+  background-position: center;
+  background-size: cover;
+  min-height: 90vh;
+}
+
 .results-header-image {
   background-image: url("../images/results-header.jpg");
 

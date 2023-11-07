@@ -49,7 +49,7 @@ const App = () => {
   const [posts, setPosts] = useState({});
   const [searchPosts, setSearchPosts] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchMessage, setSearchMessage] = useState('Search Articles by Title or Description');
+  const [searchMessage, setSearchMessage] = useState('');
 
   useEffect(() => {
     requestPosts();
@@ -70,11 +70,16 @@ const App = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault();
 
-    const filteredPosts = Object.entries(posts).filter(
-      ([_slug, { title, description }]) => title.toLowerCase().includes(searchQuery.toLowerCase()) || description.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-    setSearchPosts(Object.fromEntries(filteredPosts));
-    setSearchMessage('Sorry, no results matched your search terms');
+    if (!searchQuery) {
+      setSearchPosts({});
+      setSearchMessage('');
+    } else {
+      setSearchMessage(`Search results for "${searchQuery}"`);
+      const filteredPosts = Object.entries(posts).filter(
+        ([_slug, { title, description }]) => title.toLowerCase().includes(searchQuery.toLowerCase()) || description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setSearchPosts(Object.fromEntries(filteredPosts));
+    }
   }
 
   return (

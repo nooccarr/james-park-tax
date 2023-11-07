@@ -1,4 +1,6 @@
 import Stack from 'react-bootstrap/Stack';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import '../styles/search-params.css';
 
 const SearchParams = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) => {
@@ -8,17 +10,19 @@ const SearchParams = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit
     <section>
       <form onSubmit={handleSearchSubmit}>
         <Stack direction='horizontal' gap={0}>
-          <label htmlFor='search'></label>
-          <input
+          <FontAwesomeIcon icon={faMagnifyingGlass} className='search-icon ms-4' />
+          <label htmlFor='search' className='search-label'>
+            <input
               type='search'
               name='search'
               id='search'
               autoComplete='off'
-              className='search-bar mb-0 me-auto search-shadow'
+              placeholder='Search articles by title or description'
+              className='search-input mb-0 p-3 ps-5'
               value={searchQuery}
               onChange={handleSearchQueryChange}
-              />
-          <button className='search-button search-shadow'>Search</button>
+            />
+          </label>
         </Stack>
       </form>
     </section>

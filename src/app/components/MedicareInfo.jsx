@@ -8,7 +8,7 @@ import '../styles/medicare-info.css';
 const MedicareInfo = () => {
 
   return (
-    <>
+    <div className='medicare-info-background'>
       <div className='medicare-info-header-image'>
         <PageHeader title='Medicare 정보' />
       </div>
@@ -20,7 +20,7 @@ const MedicareInfo = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 

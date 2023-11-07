@@ -7,7 +7,7 @@ import '../styles/tax-info.css';
 
 const TaxInfo = () => {
   return (
-    <>
+    <div className='tax-info-background'>
       <div className='tax-info-header-image'>
         <PageHeader title='Tax 정보' />
       </div>
@@ -19,7 +19,7 @@ const TaxInfo = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 
