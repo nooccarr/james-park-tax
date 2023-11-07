@@ -22,8 +22,8 @@ const Footer = () => {
           </Col>
           <Col md={{ span: 3 }}>
             <div className='footer-location-title'>New Jersey</div>
-            <div className='footer-location-address'>163-10 Northern Blvd</div>
-            <div className='pb-5 footer-location-address'>Flushing, NY 11358</div>
+            <div className='footer-location-address'>725 Grand Ave</div>
+            <div className='pb-5 footer-location-address'>Ridgefield, NJ 07657</div>
           </Col>
         </Row>
         <div className='pb-5 text-end copyright-text'>
