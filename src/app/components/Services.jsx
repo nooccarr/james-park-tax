@@ -29,7 +29,7 @@ const Services = () => {
                   </span>
                 </ListGroup.Item>
               ))}
-              <ListGroup.Item as='li' className='py-3' style={{ backgroundColor: '#043A49', borderBottom: '3px solid #AA9465'}}>
+              <ListGroup.Item as='li' className='py-3 mb-5' style={{ backgroundColor: '#043A49', borderBottom: '3px solid #AA9465'}}>
                 &nbsp;
               </ListGroup.Item>
             </ListGroup>

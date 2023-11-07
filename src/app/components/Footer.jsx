@@ -26,10 +26,13 @@ const Footer = () => {
             <div className='pb-5 footer-location-address'>Ridgefield, NJ 07657</div>
           </Col>
         </Row>
-        <div className='pb-5 text-end copyright-text'>
-          For general inquiries call 718-359-1096 / 201-625-3060<br/>
+        <div className='pb-2 text-center copyright-text'>
+          For general inquiries call 718-359-1096 / 201-625-3060
+        </div>
+        <div className='pb-5 text-center copyright-text'>
           &copy; {today.getFullYear()} James Park Tax & Accounting, Inc.
         </div>
+        <div className='pb-2'>&nbsp;</div>
       </Container>
     </footer>
   );

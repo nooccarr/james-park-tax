@@ -158,7 +158,7 @@ const ContactUs = () => {
                       </span>
                     </Col>
                     <Col className='ps-0'>
-                      <p className>Mon - Fri : 9 AM - 6 PM EST</p>
+                      <p className='mb-5'>Mon - Fri : 9 AM - 6 PM EST</p>
                     </Col>
                   </Row>
                 </Container>
