@@ -1,4 +1,69 @@
 .search-message {
   color: #6A6A6A;
-  /* font-size: 28px; */
+}
+
+.article-container {
+  padding: 36px;
+  box-shadow: 3px 3px 3px lightgray;
+  border: 1px solid #E0E0E0;
+  background-color: #FFF;
+}
+
+.article-title-anchor {
+  text-decoration: none;
+}
+
+.article-title {
+  color: #222;
+  font-weight: 700;
+  font-size: 37px;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.article-title:hover {
+  color: #9E9A79;
+  opacity: 0.8;
+}
+
+.article-category-container {
+  display: flex;
+  margin-top: 18px;
+  margin-bottom: 28px;
+  font-size: 13px;
+}
+
+.article-author {
+  color: #6A6A6A;
+  text-transform: uppercase;
+}
+
+.article-category {
+  color: #9E9A79;
+  text-transform: uppercase;
+}
+
+.article-description {
+  color: #6A6A6A;
+  line-height: 24px;
+  font-size: 15px;
+}
+
+.article-button {
+  margin-top: 28px;
+  background-color: #043A49;
+  color: #FFF9D1;
+  border: none;
+  border-radius: 4px;
+  padding: 13px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.article-button:hover {
+  opacity: 0.8;
 }

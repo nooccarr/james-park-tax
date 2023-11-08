@@ -8,7 +8,7 @@ import '../styles/about-us.css';
 
 const AboutUs = () => {
   return (
-    <>
+    <div className='about-us-background'>
       <div className='about-us-header-image'>
         <PageHeader title='회사소개' />
       </div>
@@ -51,7 +51,7 @@ const AboutUs = () => {
           </Row>
         </Container>
       </main>
-    </>
+    </div>
   );
 };
 

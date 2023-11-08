@@ -9,7 +9,7 @@ const ServiceItems = ['한국거주 영주권, 시민권자 세금보고', '증�
 
 const Services = () => {
   return (
-    <>
+    <div className='services-background'>
       <div className='services-header-image'>
         <PageHeader title='서비스' />
       </div>
@@ -39,7 +39,7 @@ const Services = () => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 };
 

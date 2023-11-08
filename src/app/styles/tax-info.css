@@ -2,7 +2,9 @@
   /* background-image: url("../images/tax-info-background.jpg");
   background-position: center;
   background-size: cover;
-  min-height: 90vh; */
+  min-height: 110vh; */
+  /* background-color: rgb(243 243 243); */
+  min-height: 166vh;
 }
 
 .tax-info-header-image {

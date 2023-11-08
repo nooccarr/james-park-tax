@@ -1,3 +1,7 @@
+.services-background {
+  min-height: 120vh;
+}
+
 .services-header-image {
   background-image: url("../images/services-header.jpg");
 
