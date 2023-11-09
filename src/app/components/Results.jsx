@@ -4,8 +4,9 @@ import SearchParams from './SearchParams';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Ratio from 'react-bootstrap/Ratio';
 import PageHeader from './PageHeader';
-import SearchImg from '../images/search.png';
+import InfoFooterImg from '../images/info-footer.png';
 import '../styles/results.css';
 
 const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) => {
@@ -27,8 +28,10 @@ const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) =
           <Outlet />
         </Row>
         <Row>
-          <Col className='text-center pb-5'>
-            <img src={SearchImg} alt='' />
+          <Col className='text-center'  md={{ span: 8, offset: 2 }}>
+            <Ratio aspectRatio={49 / 80}>
+              <img src={InfoFooterImg} alt='' />
+            </Ratio>
           </Col>
         </Row>
       </Container>

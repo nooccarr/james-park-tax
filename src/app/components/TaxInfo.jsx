@@ -4,7 +4,8 @@ import PageHeader from './PageHeader';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import TaxInfoImg from '../images/tax-info.png';
+import Ratio from 'react-bootstrap/Ratio';
+import InfoFooterImg from '../images/info-footer.png';
 import '../styles/tax-info.css';
 
 const TaxInfo = () => {
@@ -26,8 +27,10 @@ const TaxInfo = () => {
           </Col>
         </Row>
         <Row>
-          <Col className='text-center'>
-            <img src={TaxInfoImg} alt='' />
+          <Col className='text-center'  md={{ span: 8, offset: 2 }}>
+            <Ratio aspectRatio={49 / 80}>
+              <img src={InfoFooterImg} alt='' />
+            </Ratio>
           </Col>
         </Row>
       </Container>

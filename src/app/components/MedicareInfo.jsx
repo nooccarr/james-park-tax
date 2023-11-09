@@ -3,8 +3,9 @@ import { Outlet } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Ratio from 'react-bootstrap/Ratio';
 import PageHeader from './PageHeader';
-import MedicareInfoImg from '../images/medicare-info.png';
+import InfoFooterImg from '../images/info-footer.png';
 import '../styles/medicare-info.css';
 
 const MedicareInfo = () => {
@@ -26,8 +27,10 @@ const MedicareInfo = () => {
           </Col>
         </Row>
         <Row>
-          <Col className='text-center pb-5'>
-            <img src={MedicareInfoImg} alt='' />
+          <Col className='text-center' md={{ span: 8, offset: 2 }}>
+              <Ratio aspectRatio={49 / 80}>
+                <img src={InfoFooterImg} alt='' />
+              </Ratio>
           </Col>
         </Row>
       </Container>

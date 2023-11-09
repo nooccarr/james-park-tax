@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -16,6 +17,10 @@ const Post = ({ posts }) => {
   const { title, article, category, path } = post;
   const articleContent = article;
   const capitalizedPath = pathToCapitalized(path);
+
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
 
   return (
 

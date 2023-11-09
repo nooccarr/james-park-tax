@@ -14,6 +14,10 @@ const PostList = ({ searchMessage, posts, category }) => {
     category ? getCategoryPosts() : setCategoryPosts(posts);
   }, [posts]);
 
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
+
   const getCategoryPosts = () => {
     const filteredPosts = Object.entries(posts).filter(
       ([_slug, post]) => post.category === category
