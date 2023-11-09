@@ -82,11 +82,17 @@ const App = () => {
     }
   }
 
+  const handleSearchReset = () => {
+    setSearchQuery('');
+    setSearchPosts({});
+    setSearchMessage('');
+  };
+
   return (
     <>
       <Header />
       <Routes>
-        <Route path='/' element={<Layout />}>
+        <Route path='/' element={<Layout handleSearchReset={handleSearchReset} />}>
           <Route index element={<Home />} />
           <Route path='about-us' element={<AboutUs />} />
           <Route path='services' element={<Services />} />
@@ -99,7 +105,7 @@ const App = () => {
             <Route path=':slug' element={<Post posts={posts} />} />
           </Route>
           <Route path='search' element={<Results searchQuery={searchQuery} handleSearchQueryChange={handleSearchQueryChange} handleSearchSubmit={handleSearchSubmit} />}>
-            <Route index element={<PostList posts={searchPosts} searchMessage={searchMessage} />} />
+            <Route index element={<PostList posts={searchPosts} searchMessage={searchMessage} handleSearchReset={handleSearchReset} />} />
             <Route path=':slug' element={<Post posts={searchPosts} />} />
           </Route>
           <Route path='contact-us' element={<ContactUs />} />

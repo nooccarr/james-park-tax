@@ -13,7 +13,7 @@ const NavItems = [
   { link: 'contact-us', title: 'Contact Us' }
 ];
 
-const Layout = () => {
+const Layout = ({ handleSearchReset }) => {
   return (
     <>
       <nav className='nav-container'>
@@ -21,7 +21,7 @@ const Layout = () => {
             <Row>
               {NavItems.map(({ link, title }) => (
                 <Col key={title}>
-                  <Link to={link} className='navlink'>
+                  <Link to={link} onClick={handleSearchReset} className='navlink'>
                     {title}
                   </Link>
                 </Col>

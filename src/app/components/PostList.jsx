@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPen, faBookmark } from "@fortawesome/free-solid-svg-icons";
 import '../styles/post-list.css';
 
-const PostList = ({ searchMessage, posts, category }) => {
+const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
   const [categoryPosts, setCategoryPosts] = useState({});
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const PostList = ({ searchMessage, posts, category }) => {
 
                 <section className='article-container mb-3'>
                   <div className='p-0 mt-2'>
-                    <Link className='article-title-anchor' to={`/${post.path}/${slug}`}>
+                    <Link className='article-title-anchor' to={`/${post.path}/${slug}`} onClick={handleSearchReset}>
                       <span className='article-title'>{post.title}</span>
                     </Link>
                     <div className='article-category-container'>
@@ -59,7 +59,7 @@ const PostList = ({ searchMessage, posts, category }) => {
                   </div>
                   <div className=''>
                     <Link to={`/${post.path}/${slug}`}>
-                      <button className='article-button'>read more</button>
+                      <button className='article-button' onClick={handleSearchReset}>read more</button>
                     </Link>
                   </div>
                 </section>
