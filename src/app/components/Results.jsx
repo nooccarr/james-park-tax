@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import SearchParams from './SearchParams';
 import Container from 'react-bootstrap/Container';
@@ -8,6 +9,11 @@ import SearchImg from '../images/search.png';
 import '../styles/results.css';
 
 const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) => {
+
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <>
       <div className='results-header-image'>

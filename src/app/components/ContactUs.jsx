@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -12,6 +12,10 @@ import '../styles/contact-us.css';
 
 const ContactUs = () => {
   const [location, setLocation] = useState('new-york-office');
+
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
 
   const handleLocation = (e) => {
     setLocation(e.target.innerText.toLowerCase().split(' ').join('-'));

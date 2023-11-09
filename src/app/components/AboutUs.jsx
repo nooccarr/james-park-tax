@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,6 +8,11 @@ import AboutUsImg from '../images/about-us.jpg';
 import '../styles/about-us.css';
 
 const AboutUs = () => {
+
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <div className='about-us-background'>
       <div className='about-us-header-image'>
