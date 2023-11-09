@@ -2,7 +2,9 @@ import { Outlet } from 'react-router-dom';
 import SearchParams from './SearchParams';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import PageHeader from './PageHeader';
+import SearchImg from '../images/search.png';
 import '../styles/results.css';
 
 const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) => {
@@ -12,11 +14,16 @@ const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) =
         <PageHeader title='Search Articles' />
       </div>
 
-      <Container className='pt-5'>
+      <Container>
         <div style={{ height: '10vh'}}>&nbsp;</div>
         <SearchParams searchQuery={searchQuery} handleSearchQueryChange={handleSearchQueryChange} handleSearchSubmit={handleSearchSubmit} />
-        <Row className='mt-5'>
+        <Row>
           <Outlet />
+        </Row>
+        <Row>
+          <Col className='text-center mb-5 pb-5'>
+            <img src={SearchImg} alt='' />
+          </Col>
         </Row>
       </Container>
     </div>

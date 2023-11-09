@@ -12,7 +12,7 @@ const TaxInfo = () => {
         <PageHeader title='Tax 정보' />
       </div>
 
-      <Container className='my-5'>
+      <Container className='mb-5'>
         <Row>
           <Col>
             <Outlet />

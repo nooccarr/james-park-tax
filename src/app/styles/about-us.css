@@ -1,6 +1,7 @@
 .about-us-background {
-  min-height: 120vh;
+  min-height: 80vh;
 }
+
 .about-us-header-image {
   background-image: url("../images/about-us-header.jpg");
 
