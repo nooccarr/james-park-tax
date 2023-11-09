@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import PageHeader from './PageHeader';
+import MedicareInfoImg from '../images/medicare-info.png';
 import '../styles/medicare-info.css';
 
 const MedicareInfo = () => {
@@ -13,10 +14,15 @@ const MedicareInfo = () => {
         <PageHeader title='Medicare 정보' />
       </div>
 
-      <Container className='mb-5'>
+      <Container>
         <Row>
           <Col>
             <Outlet />
+          </Col>
+        </Row>
+        <Row>
+          <Col className='text-center pb-5'>
+            <img src={MedicareInfoImg} alt='' />
           </Col>
         </Row>
       </Container>

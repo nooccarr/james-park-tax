@@ -9,7 +9,7 @@ import '../styles/results.css';
 
 const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) => {
   return (
-    <div className='results-background'>
+    <>
       <div className='results-header-image'>
         <PageHeader title='Search Articles' />
       </div>
@@ -21,12 +21,12 @@ const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) =
           <Outlet />
         </Row>
         <Row>
-          <Col className='text-center mb-5 pb-5'>
+          <Col className='text-center pb-5'>
             <img src={SearchImg} alt='' />
           </Col>
         </Row>
       </Container>
-    </div>
+    </>
   );
 };
 

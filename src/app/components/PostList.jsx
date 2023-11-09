@@ -27,7 +27,7 @@ const PostList = ({ searchMessage, posts, category }) => {
         <Container className='mb-5'>
           <Row className='justify-content-lg-center'>
             <Col md='auto'>
-              <h2 className='pb-5 search-message'>{searchMessage}</h2>
+              <h2 className='py-5 search-message'>{searchMessage}</h2>
             </Col>
           </Row>
 

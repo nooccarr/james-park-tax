@@ -3,6 +3,7 @@ import PageHeader from './PageHeader';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import TaxInfoImg from '../images/tax-info.png';
 import '../styles/tax-info.css';
 
 const TaxInfo = () => {
@@ -12,10 +13,15 @@ const TaxInfo = () => {
         <PageHeader title='Tax 정보' />
       </div>
 
-      <Container className='mb-5'>
+      <Container>
         <Row>
           <Col>
             <Outlet />
+          </Col>
+        </Row>
+        <Row>
+          <Col className='text-center'>
+            <img src={TaxInfoImg} alt='' />
           </Col>
         </Row>
       </Container>

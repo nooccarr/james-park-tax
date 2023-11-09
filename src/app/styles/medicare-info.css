@@ -1,9 +1,5 @@
 .medicare-info-background {
-  /* background-image: url("../images/medicare-info-background.jpg");
-  background-position: center;
-  background-size: cover; */
-  min-height: 80vh;
-  /* background-color: rgb(243 243 243); */
+  background-color: rgb(243 243 243);
 }
 
 .medicare-info-header-image {

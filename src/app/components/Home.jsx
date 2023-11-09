@@ -42,7 +42,7 @@ const Home = () => {
                     <button onClick={handleButtonClick} className='home-contact-form-button'>
                       <h2 className='mb-0'>
                         <FontAwesomeIcon className='pe-2' icon={faCalendarDays} />
-                        Schedule A Consultation
+                        Schedule a Consultation
                       </h2>
                     </button>
                     <div className='my-5 py-4'>&nbsp;</div>

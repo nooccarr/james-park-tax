@@ -29,7 +29,7 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
   return (
     <Modal show={showContactForm} onHide={handleCloseButtonClick} animation={true}>
       <Modal.Header closeButton>
-        <Modal.Title>Schedule A Consultation</Modal.Title>
+        <Modal.Title>Schedule a Consultation</Modal.Title>
       </Modal.Header>{ console.log(formValues)}
         <form onSubmit={handleSubmit}>
         <Modal.Body>
@@ -91,7 +91,7 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
           </Stack>
         </Modal.Body>
         <Modal.Footer>
-          <button onClick={handleSubmit}>Schedule A Consultation</button>
+          <button onClick={handleSubmit}>Schedule a Consultation</button>
         </Modal.Footer>
       </form>
     </Modal>
