@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import emailjs from 'emailjs-com';
 import Stack from 'react-bootstrap/Stack';
 const SUBJECTS = ['--Please choose an option--', '사업체 세금 보고', '개인 세금 보고', '은퇴연금', 'Medicare 건강보험', '저축보험', 'Other'];
 import '../styles/email-form.css';
@@ -26,9 +27,18 @@ const EmailForm = () => {
     };
     setFormValues(data);
 
+    console.log('USEREF FORM CURRENT:', form.current);
+
     // TODO:
     // - send email
     // - setRecords([...records, { ...formValues, id: uuidv4() }]);
+
+    emailjs.sendForm('', '', form.current, '')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
 
     setShowFormSuccess(true);
     console.log("Email form sent");
@@ -41,7 +51,7 @@ const EmailForm = () => {
             <h4 className='email-form-h4'>이메일로 문의하기</h4>
             <h5 className='email-form-h5'>Fill out the form below to e-mail us.</h5>
           </div>
-        </Stack>
+      </Stack>{ console.log(formValues)}
 
         <div className='p-3 border email-form-form'>
           {!showFormSuccess ? (
