@@ -12,7 +12,11 @@ const EmailForm = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_tw8y4ed', 'template_6gij2vn', form.current, process.env.REACT_APP_EMAILJS_KEY)
+    const serviceId = 'service_tw8y4ed';
+    const templateId = 'template_6gij2vn';
+    const publicKey = 'KRBE_6VJ3UIScm0ro';
+
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
       .then((result) => {
         console.log(result.text);
       }, (error) => {
