@@ -7,33 +7,16 @@ import '../styles/email-form.css';
 const EmailForm = () => {
   const form = useRef(null);
 
-  const [ formValues, setFormValues ] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
   const [ showFormSuccess, setShowFormSuccess ] = useState(false);
 
   const sendEmail = (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-    const data = {
-      name: formData.get('name') ?? '',
-      email: formData.get('email') ?? '',
-      subject: formData.get('subject') ?? '',
-      message: formData.get('message') ?? ''
-    };
-    setFormValues(data);
+    const serviceId = process.env.REACT_APP_EMAIL_API_SERVICE_ID;
+    const templateId = process.env.REACT_APP_EMAIL_API_TEMPLATE_ID;
+    const publicKey = process.env.REACT_APP_EMAIL_API_KEY;
 
-    console.log('USEREF FORM CURRENT:', form.current);
-
-    // TODO:
-    // - send email
-    // - setRecords([...records, { ...formValues, id: uuidv4() }]);
-
-    emailjs.sendForm('', '', form.current, '')
+    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
       .then((result) => {
         console.log(result.text);
       }, (error) => {
@@ -41,29 +24,38 @@ const EmailForm = () => {
       });
 
     setShowFormSuccess(true);
-    console.log("Email form sent");
+
+    // TODO:
+    // - setRecords([...records, { ...formValues, id: uuidv4() }]);
+
+    // const formData = new FormData(e.target);
+    // const data = {
+    //   name: formData.get('name') ?? '',
+    //   email: formData.get('email') ?? '',
+    //   subject: formData.get('subject') ?? '',
+    //   message: formData.get('message') ?? ''
+    // };
   };
 
   return (
-    <aside className='pb-5'>{ console.log(formValues)}
+    <aside className='pb-5'>
         <Stack className='py-4 text-center' style={{ backgroundColor: '#043A49', borderBottom: '3px solid #AA9465'}}>
           <div className='px-2'>
             <h4 className='email-form-h4'>이메일로 문의하기</h4>
             <h5 className='email-form-h5'>Fill out the form below to e-mail us.</h5>
           </div>
-      </Stack>{ console.log(formValues)}
+      </Stack>
 
         <div className='p-3 border email-form-form'>
           {!showFormSuccess ? (
             <form ref={form} onSubmit={sendEmail}>
-              <Stack>
-
+            <Stack>
                 <label htmlFor='name'>
                   Name
                 </label>
                 <input
                   type='text'
-                  name='name'
+                  name='from_name'
                   id='name'
                   autoComplete="off"
                   className='form-control'
@@ -76,7 +68,7 @@ const EmailForm = () => {
                 </label>
                 <input
                   type='email'
-                  name='email'
+                  name='reply_to'
                   id='email'
                   autoComplete="off"
                   className='form-control'
@@ -112,7 +104,7 @@ const EmailForm = () => {
                   id='message'
                   autoComplete="off"
                   className='form-control'
-                  style={{ borderRadius: '0px' }}
+                  style={{ borderRadius: '0px', minHeight: '200px' }}
                 />
 
                 <button className='mt-2 email-form-button'>send</button>
