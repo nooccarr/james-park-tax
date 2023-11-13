@@ -1,48 +1,53 @@
-#Front-end
+# Future Integrations
 
-post component
-  Features
-  [ ] like button
-  [ ] share button 
-    [ ] copy link 
-    [ ] share on Twitter 
-    [ ] share on Facebook       
-    [ ] share on LinkedIn
-  Styles
-  [ ] post page (h1, h2, h3, p, table)
-  [ ] like button
-  [ ] share button
+## Front-end
 
-post list component
-  [ ] set background color to lightgray if post list page, or to white if list page
+#### Components ####
 
-contact form component
-  Features
-  [ ] make it into a modal
-  [ ] add a form
-  [ ] integrate EmailJS
-  [ ] add CAPTCHA
-  Styles
-  [ ] contact form 
+Post
+* like button (feature)
+* share button (feature)
+    * copy link
+    * share on Twitter 
+    * share on Facebook       
+    * share on LinkedIn
+* post page [h1, h2, h3, p, table] (style)
+* like button (style)
+* share button (style)
 
-email component
-  [ ] move keys to Vite environment variables
-  [ ] add CAPTCHA
+Post List
+* set background color to lightgray if post list page, or to white if list page
 
-layout component
-  [ ] if width = mobile, show nav button with dropdown menu
+Contact Form
+* make it into a modal (feature)
+* add a form (feature)
+* integrate EmailJS (feature)
+* add CAPTCHA (feature)
+* contact form (style)
+
+Email
+* move keys to Vite environment variables
+* add CAPTCHA
+
+Layout
+* if width = mobile, show nav button with dropdown menu
   
-header component
-  [ ] if width = mobile, hide phone numbers and kakao icon in header 
+Header
+* if width = mobile, hide phone numbers and kakao icon in header 
 
-[ ] sign in / log in / log out (admin)
-[ ] CRUD articles page
+#### Authentication & Authorization ####
 
-#Back-end
+* sign in / log in / log out (admin)
+* MFA
 
-[ ] setup server
-[ ] setup database
-[ ] connect server and database to the Vite
+#### Blog Posts ####
 
-[ ] auth routes
-[ ] articles REST routes
+* CRUD articles page
+
+## Back-end
+
+* setup server
+  * setup routes
+  * setup database
+* auth routes
+* articles REST routes
