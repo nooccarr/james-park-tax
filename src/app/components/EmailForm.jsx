@@ -12,11 +12,7 @@ const EmailForm = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    const serviceId = process.env.REACT_APP_EMAIL_API_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAIL_API_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAIL_API_KEY;
-
-    emailjs.sendForm(serviceId, templateId, form.current, publicKey)
+    emailjs.sendForm('service_tw8y4ed', 'template_6gij2vn', form.current, process.env.REACT_APP_EMAILJS_KEY)
       .then((result) => {
         console.log(result.text);
       }, (error) => {
