@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
-import CloseButton from 'react-bootstrap/CloseButton';
-import Button from 'react-bootstrap/Button';
 
 const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSuccess }) => {
   const [formValues, setFormValues] = useState({
