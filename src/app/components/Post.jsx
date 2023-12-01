@@ -18,36 +18,49 @@ const Post = ({ posts }) => {
   const articleContent = article;
   const capitalizedPath = pathToCapitalized(path);
 
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
+  // useEffect(() => {
+  //   window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  // }, []);
 
   return (
 
     <main>
       <Container className='mb-5'>
         <Row>
-          <Col md={{ span: 8, offset: 2 }}>
+          <Col>
+            <h2 className='py-5'>{''}</h2>
+          </Col>
+        </Row>
 
-
-            <h3 className='post-title'>{title}</h3>
-
-            <div className='post-category-container'>
-              <div className='post-author'>
-                <FontAwesomeIcon icon={faPen} />
-                &nbsp;James Park
+        <Row>
+          <Col md={{ span: 10, offset: 1 }} className='mb-5'>
+            <section className='post-container mb-3'>
+              <div className='p-0 mt-2'>
+                <h3 className='post-title'>{title}</h3>
+                <div className='post-category-container'>
+                  <div className='post-author'>
+                    <FontAwesomeIcon icon={faPen} />
+                    &nbsp;James Park
+                  </div>
+                  <div className='px-2'>/</div>
+                  <div className='post-category'>
+                    <FontAwesomeIcon icon={faBookmark} />
+                    &nbsp;{category}
+                  </div>
+                </div>
+                <div className='post-content' dangerouslySetInnerHTML={{ __html: articleContent }} />
+                <Link to={`/${path}`} style={{ textDecoration: 'none' }}>
+                  <span className='post-link-category'>
+                    Back to {capitalizedPath}
+                  </span>
+                </Link>
+                <div>
+                  <div>previous</div>
+                  <div>next</div>
+                </div>
               </div>
-              <div className='px-2'>/</div>
-              <div className='post-category'>
-                <FontAwesomeIcon icon={faBookmark} />
-                &nbsp;{category}
-              </div>
-            </div>
+            </section>
 
-
-            {/* <h3 className='article-title'>{title}</h3> */}
-            <div className='post-content' dangerouslySetInnerHTML={{ __html: articleContent }} />
-            <Link to={`/${path}`}>Back to {capitalizedPath}</Link>
           </Col>
         </Row>
       </Container>

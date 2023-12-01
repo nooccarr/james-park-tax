@@ -6,6 +6,7 @@ import Home from './Home';
 import AboutUs from './AboutUs';
 import TaxInfo from './TaxInfo';
 import MedicareInfo from './MedicareInfo';
+import SavingsInfo from './SavingsInfo';
 import Services from './Services';
 import ContactUs from './ContactUs';
 import Results from './Results';
@@ -102,6 +103,10 @@ const App = () => {
           </Route>
           <Route path='medicare-info' element={<MedicareInfo />}>
             <Route index element={<PostList posts={posts} category='Medicare' />} />
+            <Route path=':slug' element={<Post posts={posts} />} />
+          </Route>
+          <Route path='savings-info' element={<SavingsInfo />}>
+            <Route index element={<PostList posts={posts} category='Savings' />} />
             <Route path=':slug' element={<Post posts={posts} />} />
           </Route>
           <Route path='search' element={<Results searchQuery={searchQuery} handleSearchQueryChange={handleSearchQueryChange} handleSearchSubmit={handleSearchSubmit} />}>

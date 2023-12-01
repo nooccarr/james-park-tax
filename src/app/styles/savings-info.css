@@ -1,0 +1,12 @@
+.savings-info-background {
+  background-color: rgb(243 243 243);
+}
+
+.savings-info-header-image {
+  background-image: url("../images/medicare-info-header.jpg");
+
+  /* background-attachment: fixed; */
+  background-position: center;
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+}
