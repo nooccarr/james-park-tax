@@ -54,10 +54,10 @@ const Post = ({ posts }) => {
                     Back to {capitalizedPath}
                   </span>
                 </Link>
-                <div>
+                {/* <div>
                   <div>previous</div>
                   <div>next</div>
-                </div>
+                </div> */}
               </div>
             </section>
 
