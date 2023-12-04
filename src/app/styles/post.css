@@ -79,21 +79,21 @@
   color: #6A6A6A;
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .post-content h5 {
   color: #6A6A6A;
   font-size: 18px;
   font-weight: 700;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .post-content h6 {
   color: #6A6A6A;
   font-size: 16px;
   font-weight: 700;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .post-content blockquote {
@@ -119,11 +119,23 @@
   margin-bottom: 30px;
 }
 
+strong {
+  color: #6A6A6A;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
 .post-content p {
   color: #6A6A6A;
   font-size: 16px;
   line-height: 1.5;
   margin-bottom: 30px;
+}
+
+.post-content span {
+  color: #6A6A6A;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .post-content a {
@@ -139,18 +151,13 @@
   text-decoration: underline;
 }
 
-.post-content td {
-  border: 1px solid #E0E0E0;
-  padding: 5px;
-  color: #6A6A6A;
-  font-size: 16px;
-  line-height: 1.5;
-  text-align: center;
+.post-content table {
+  margin-bottom: 30px;
 }
 
 .post-content tr {
   border: 1px solid #E0E0E0;
-  padding: 5px;
+  padding: 5px 10px;
   color: #6A6A6A;
   font-size: 16px;
   line-height: 1.5;
@@ -159,12 +166,19 @@
 
 .post-content th {
   border: 1px solid #E0E0E0;
-  padding: 5px;
+  background-color: #E0E0E0;
+  padding: 5px 10px;
   color: #6A6A6A;
   font-size: 16px;
   line-height: 1.5;
   text-align: center;
 }
 
-
-
+.post-content td {
+  border: 1px solid #E0E0E0;
+  padding: 5px 10px;
+  color: #6A6A6A;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+}

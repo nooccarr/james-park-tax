@@ -18,9 +18,9 @@ const Post = ({ posts }) => {
   const articleContent = article;
   const capitalizedPath = pathToCapitalized(path);
 
-  // useEffect(() => {
-  //   window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  // }, []);
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
 
   return (
 
@@ -54,10 +54,6 @@ const Post = ({ posts }) => {
                     Back to {capitalizedPath}
                   </span>
                 </Link>
-                {/* <div>
-                  <div>previous</div>
-                  <div>next</div>
-                </div> */}
               </div>
             </section>
 

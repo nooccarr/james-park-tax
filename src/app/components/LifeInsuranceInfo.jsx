@@ -8,7 +8,7 @@ import PageHeader from './PageHeader';
 import InfoFooterImg from '../images/info-footer.png';
 import '../styles/savings-info.css';
 
-const SavingsInfo = () => {
+const LifeInsuranceInfo = () => {
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
@@ -17,7 +17,7 @@ const SavingsInfo = () => {
   return (
     <div className='savings-info-background'>
       <div className='savings-info-header-image'>
-        <PageHeader title='저축보험 정보' />
+        <PageHeader title='Life Insurance 정보' />
       </div>
 
       <Container>
@@ -38,4 +38,4 @@ const SavingsInfo = () => {
   );
 };
 
-export default SavingsInfo;
+export default LifeInsuranceInfo;

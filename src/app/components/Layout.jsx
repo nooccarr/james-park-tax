@@ -10,7 +10,7 @@ const NavItems = [
   { link: 'services', title: '서비스' },
   { link: 'tax-info', title: 'Tax 정보' },
   { link: 'medicare-info', title: 'Medicare 정보' },
-  { link: 'savings-info', title: '저축보험 정보'},
+  { link: 'life-insurance-info', title: 'Life Insurance 정보'},
   { link: 'contact-us', title: 'Contact Us' }
 ];
 
