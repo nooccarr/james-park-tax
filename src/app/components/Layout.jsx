@@ -17,25 +17,47 @@ const NavItems = [
 ];
 
 const Layout = ({ handleSearchReset }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const onWindowResize = () => {
+      window.innerWidth <= 991 ? setIsMobile(true) : setIsMobile(false);
+    };
+    window.addEventListener('resize', onWindowResize);
+    return () => window.removeEventListener('resize', onWindowResize);
+  }, []);
+
   return (
     <>
       <nav className='nav-container'>
           <Container className='py-3'>
             <Row>
               <Stack direction='horizontal' gap={3}>
-                {NavItems.map(({ link, title }) => (
-                  <div className='py-2 pe-5' key={title}>
-                    <Link to={link} onClick={handleSearchReset} className='navlink'>
-                      {title}
+                {isMobile && (
+                  <>
+                    <div className='mx-auto'></div>
+                    <div className='py-2 navbars'>
+                      <FontAwesomeIcon icon={faBars} />
+                    </div>
+                  </>
+                )}
+
+                {!isMobile && (
+                  NavItems.map(({ link, title }) => (
+                    <div className='py-2 pe-5' key={title}>
+                      <Link to={link} onClick={handleSearchReset} className='navlink'>
+                        {title}
+                      </Link>
+                    </div>
+                  )))
+                }
+                {!isMobile && (
+                  <div className='py-2 ms-auto'>
+                    <Link to='search' className='navsearch'>
+                      <FontAwesomeIcon icon={faMagnifyingGlass}  />
                     </Link>
                   </div>
-                ))}
-
-                <div className='py-2 ms-auto'>
-                  <Link to='search' className='navsearch'>
-                    <FontAwesomeIcon icon={faMagnifyingGlass}  />
-                  </Link>
-                </div>
+                )}
               </Stack>
             </Row>
           </Container>
