@@ -18,8 +18,8 @@ const PageHeader = ({ title }) => {
 
   return (
     <Container as='section' className='py-5'>
-      <Row className={`ps-2 py-5 ${mobile}`} style={{ color: '#FFF9D1', fontSize: '3em' }}>
-        <Col className='p-0'>{title}</Col>
+      <Row className={`ps-2 py-5 ${mobile}`}>
+        <Col className='p-0' style={{ color: '#FFF9D1', fontSize: '3em', fontWeight: 500 }}>{title}</Col>
       </Row>
     </Container>
   );
