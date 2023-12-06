@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from "react-bootstrap/Col";
+import Stack from 'react-bootstrap/Stack';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import '../styles/layout.css';
 const NavItems = [
@@ -20,19 +22,21 @@ const Layout = ({ handleSearchReset }) => {
       <nav className='nav-container'>
           <Container className='py-3'>
             <Row>
-              {NavItems.map(({ link, title }) => (
-                <Col key={title}>
-                  <Link to={link} onClick={handleSearchReset} className='navlink'>
-                    {title}
-                  </Link>
-                </Col>
-              ))}
+              <Stack direction='horizontal' gap={3}>
+                {NavItems.map(({ link, title }) => (
+                  <div className='py-2 pe-5' key={title}>
+                    <Link to={link} onClick={handleSearchReset} className='navlink'>
+                      {title}
+                    </Link>
+                  </div>
+                ))}
 
-              <Col className='text-end'>
-                <Link to='search' className='navsearch'>
-                  <FontAwesomeIcon icon={faMagnifyingGlass}  />
-                </Link>
-              </Col>
+                <div className='py-2 ms-auto'>
+                  <Link to='search' className='navsearch'>
+                    <FontAwesomeIcon icon={faMagnifyingGlass}  />
+                  </Link>
+                </div>
+              </Stack>
             </Row>
           </Container>
       </nav>
