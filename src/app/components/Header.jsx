@@ -14,7 +14,7 @@ const Header = () => {
 
   useEffect(() => {
     const onWindowResize = () => {
-      window.innerWidth <= 960 ? setIsMobile(true) : setIsMobile(false);
+      window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
     };
     window.addEventListener('resize', onWindowResize);
     return () => window.removeEventListener('resize', onWindowResize);
