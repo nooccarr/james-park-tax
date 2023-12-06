@@ -20,6 +20,7 @@ const Layout = ({ handleSearchReset }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    window.innerWidth <= 991 ? setIsMobile(true) : setIsMobile(false);
     const onWindowResize = () => {
       window.innerWidth <= 991 ? setIsMobile(true) : setIsMobile(false);
     };
