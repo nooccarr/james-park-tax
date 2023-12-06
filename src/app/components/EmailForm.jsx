@@ -24,7 +24,6 @@ const EmailForm = () => {
       });
 
     setShowFormSuccess(true);
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
 
     // TODO:
     // - setRecords([...records, { ...formValues, id: uuidv4() }]);

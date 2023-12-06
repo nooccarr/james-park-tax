@@ -13,9 +13,9 @@ import '../styles/contact-us.css';
 const ContactUs = () => {
   const [location, setLocation] = useState('new-york-office');
 
-  // useEffect(() => {
-  //   window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  // }, []);
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
 
   const handleLocation = (e) => {
     setLocation(e.target.innerText.toLowerCase().split(' ').join('-'));

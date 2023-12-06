@@ -13,6 +13,8 @@ const Services = () => {
   const [isTablet, setisTablet] = useState(false);
 
   useEffect(() => {
+    window.innerWidth <= 991 ? setisTablet(true) : setisTablet(false);
+    window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
     const onWindowResize = () => {
       window.innerWidth <= 991 ? setisTablet(true) : setisTablet(false);
       window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);

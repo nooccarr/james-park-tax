@@ -11,8 +11,9 @@ import '../styles/header.css';
 const Header = () => {
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-
+  
   useEffect(() => {
+    window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
     const onWindowResize = () => {
       window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
     };
