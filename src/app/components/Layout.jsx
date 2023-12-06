@@ -18,12 +18,10 @@ const NavItems = [
 
 const Layout = ({ handleSearchReset }) => {
   const [isMobile, setIsMobile] = useState(false);
-  const [isTextCenter, setCenterText] = useState(false);
 
   useEffect(() => {
     const onWindowResize = () => {
       window.innerWidth <= 991 ? setIsMobile(true) : setIsMobile(false);
-      window.innerWidth <= 767 ? setCenterText(true) : setCenterText(false);
     };
     window.addEventListener('resize', onWindowResize);
     return () => window.removeEventListener('resize', onWindowResize);
@@ -35,19 +33,13 @@ const Layout = ({ handleSearchReset }) => {
           <Container className='py-3'>
             <Row>
               <Stack direction='horizontal' gap={3}>
-                {isMobile && !isTextCenter && (
+                {isMobile && (
                   <>
                     <div className='mx-auto'></div>
                     <div className='py-2 navbars'>
                       <FontAwesomeIcon icon={faBars} />
                     </div>
                   </>
-                )}
-
-                {isTextCenter && (
-                  <div className='py-2 navbars mx-auto'>
-                    <FontAwesomeIcon icon={faBars} />
-                  </div>
                 )}
 
                 {!isMobile && (
