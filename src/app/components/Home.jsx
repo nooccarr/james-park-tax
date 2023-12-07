@@ -15,6 +15,7 @@ const Home = () => {
 
   // TODO: changing width should properly render background image
   useEffect(() => {
+    window.innerWidth <= 1920 ? setisMobile(true) : setisMobile(false);
     const onWindowResize = () => {
       window.innerWidth <= 1920 ? setisMobile(true) : setisMobile(false);
     };
@@ -25,7 +26,7 @@ const Home = () => {
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
-  
+
   const handleCloseButtonClick = () => {
     setShowContactForm(false);
   };

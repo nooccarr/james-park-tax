@@ -1,9 +1,13 @@
 .nav-container {
-  background-color: #235161;
   position: '-webkit-sticky';
+  background-color: #235161;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.nav-mobile-view {
+  background-color: #043A49;
 }
 
 .navlink {

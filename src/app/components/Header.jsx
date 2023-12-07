@@ -11,7 +11,7 @@ import '../styles/header.css';
 const Header = () => {
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  
+
   useEffect(() => {
     window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
     const onWindowResize = () => {
@@ -24,36 +24,33 @@ const Header = () => {
   const handleOffCanvasShow = () => { setShowOffCanvas(true) };
   const handleOffCanvasClose = () => { setShowOffCanvas(false) };
 
-  const mobileClass = isMobile ? 'text-center' : '';
-
   return (
     <header>
       <Container>
-        <Row>
-          <Col className={`py-4 ${mobileClass}`}>
-            <h1 className='text-hide'>James Park Tax & Accounting</h1>
-            <Link to='/'>
-              <img src={Logo} alt='' />
-            </Link>
-          </Col>
-          {!isMobile && (
-            <>
-              <Col md='auto' className='my-auto '></Col>
-              <Col md='auto' className='my-auto'>
-                <a href='tel:+1-718-359-1096' className='header-tel' style={{ fontSize: '20px'}}>(718) 359-1096</a>
-                &nbsp;/&nbsp;
-                <a href='tel:+1-201-625-3060' className='header-tel' style={{ fontSize: '20px'}}>(201) 625-3060</a>
-                <div style={{ fontSize: '12px', fontWeight: '500'}}>Call Us Today for a Free Consultation</div>
-              </Col>
-              <Col md='auto' className='my-auto '></Col>
-              <Col md='auto' className='my-auto'>
-                <a onClick={handleOffCanvasShow}>
-                  <span className='icon-kakao'></span>
-                </a>
-              </Col>
-            </>
-          )}
-        </Row>
+        {!isMobile && (
+          <Row>
+            <Col className='py-4'>
+              <h1 className='text-hide'>James Park Tax & Accounting</h1>
+              <Link to='/'>
+                <img src={Logo} alt='' />
+              </Link>
+            </Col>
+            <Col md='auto' className='my-auto '></Col>
+            <Col md='auto' className='my-auto'>
+              <a href='tel:+1-718-359-1096' className='header-tel' style={{ fontSize: '20px'}}>(718) 359-1096</a>
+              &nbsp;/&nbsp;
+              <a href='tel:+1-201-625-3060' className='header-tel' style={{ fontSize: '20px'}}>(201) 625-3060</a>
+              <div style={{ fontSize: '12px', fontWeight: '500'}}>Call Us Today for a Free Consultation</div>
+            </Col>
+            <Col md='auto' className='my-auto '></Col>
+            <Col md='auto' className='my-auto'>
+              <a onClick={handleOffCanvasShow}>
+                <span className='icon-kakao'></span>
+              </a>
+            </Col>
+
+          </Row>
+        )}
       </Container>
 
       <Offcanvas show={showOffCanvas} placement='end' onHide={handleOffCanvasClose} className='offcanvas-background-image'>
