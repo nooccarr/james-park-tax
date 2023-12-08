@@ -11,6 +11,7 @@ const AboutUs = () => {
   const [isMobile, setisMobile] = useState(false);
 
   useEffect(() => {
+    window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
     const onWindowResize = () => {
       window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
     };
