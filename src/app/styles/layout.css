@@ -35,15 +35,29 @@
 }
 
 .navbars {
-  color: rgb(227, 241, 222);
+  color: #9E9A79;
   opacity: 1;
   transition: 0.3s;
+  padding: 0 5px;
 }
 
 .navbars:hover,
 .navbars:focus {
-  opacity: 0.5;
+  color: #FFF9D1;
+  opacity: 0.8;
   cursor: pointer;
+}
+
+.navbars-text {
+  color: #9E9A79;
+  text-transform: uppercase;
+}
+
+.nav-dropdown {
+  position: absolute;
+  background-color: #235161;
+  width: 100%;
+  list-style-type: none;
 }
 
 /*
