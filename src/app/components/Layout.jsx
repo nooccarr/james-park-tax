@@ -57,7 +57,7 @@ const Layout = ({ handleSearchReset }) => {
               {isMobile && (
                 <>
                   <Link to='/'>
-                    <img src={Logo} alt='' onClick={() => setShowDropdown(false)} />
+                    <img src={Logo} alt='' width='180px' onClick={() => setShowDropdown(false)} />
                   </Link>
                   <div className='mx-auto'></div>
                   <div className='py-2'>
