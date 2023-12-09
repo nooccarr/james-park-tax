@@ -73,9 +73,21 @@ const Footer = () => {
           </>
         )}
 
-        <div className='pb-2 text-center copyright-text'>
-          For general inquiries call 718-359-1096 / 201-625-3060
-        </div>
+        {isMobile ? (
+          <>
+            <div className='pb-2 text-center copyright-text'>
+              For general inquiries call
+            </div>
+            <div className='pb-2 text-center copyright-text'>
+              718-359-1096 / 201-625-3060
+            </div>
+          </>
+        ): (
+          <div className='pb-2 text-center copyright-text'>
+            For general inquiries call 718-359-1096 / 201-625-3060
+          </div>
+        )}
+
         <div className='pb-5 text-center copyright-text'>
           &copy; {today.getFullYear()} James Park Tax & Accounting, Inc.
         </div>
