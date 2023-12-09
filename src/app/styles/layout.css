@@ -34,30 +34,33 @@
   opacity: 0.5;
 }
 
+.navsearch-mobile {
+  color: #9E9A79;
+}
+
 .navbars {
+  border: 2px solid #5b5a4a;
+  border-radius: 3px;
   color: #9E9A79;
   opacity: 1;
   transition: 0.3s;
-  padding: 0 5px;
+  padding: 8px;
 }
 
 .navbars:hover,
 .navbars:focus {
-  color: #FFF9D1;
-  opacity: 0.8;
   cursor: pointer;
 }
 
-.navbars-text {
-  color: #9E9A79;
-  text-transform: uppercase;
+.nav-dropdown {
+  background-color: #235161;
+  list-style-type: none;
 }
 
-.nav-dropdown {
-  position: absolute;
-  background-color: #235161;
-  width: 100%;
-  list-style-type: none;
+.nav-dropdown-item {
+  line-height: 2.2;
+  border-bottom: 1px solid rgb(116, 122, 113);
+  margin-right: 28px;
 }
 
 /*
