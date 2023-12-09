@@ -15,9 +15,9 @@ const Home = () => {
 
   // TODO: changing width should properly render background image
   useEffect(() => {
-    window.innerWidth <= 1920 ? setisMobile(true) : setisMobile(false);
+    window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
     const onWindowResize = () => {
-      window.innerWidth <= 1920 ? setisMobile(true) : setisMobile(false);
+      window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
     };
     window.addEventListener('resize', onWindowResize);
     return () => window.removeEventListener('resize', onWindowResize);
@@ -41,7 +41,7 @@ const Home = () => {
       <Carousel interval='10000' fade>
         <Carousel.Item>
           {isMobile ? (
-            <img src={LandingImgOne} alt='' />
+            <img src={LandingImgOne} width='767px' alt='' />
           ): (
             <Ratio aspectRatio='16x9'>
               <img src={LandingImgOne} alt='' />
@@ -64,12 +64,12 @@ const Home = () => {
                       Schedule a Consultation
                     </h2>
                   </button>
-                  <div className='my-5 py-4'>&nbsp;</div>
+                  <div className='my-4 py-4'>&nbsp;</div>
                 </>
               ): (
                 <>
                   <h2 className='form-submit-message'>Thank you for your submission!</h2>
-                  <div className='my-5 py-4'>&nbsp;</div>
+                  <div className='my-4 py-4'>&nbsp;</div>
                 </>
               )
             }
@@ -78,14 +78,21 @@ const Home = () => {
 
         <Carousel.Item>
           {isMobile ? (
-            <img src={LandingImgTwo} alt='' />
+            <img src={LandingImgTwo} alt='' width='767px' />
           ) : (
             <Ratio aspectRatio='16x9'>
               <img src={LandingImgTwo} alt='' />
             </Ratio>
           )}
           <Carousel.Caption>
-            <h1 className='home-carousel-h1'>한국거주 영주권, 시민권자 세금보고</h1>
+            {isMobile ? (
+              <>              
+                <h1 className='home-carousel-h1'>한국거주 영주권,</h1> 
+                <h1 className='home-carousel-h1'>시민권자 세금보고</h1>
+              </>
+            ) : (
+              <h1 className='home-carousel-h1'>한국거주 영주권, 시민권자 세금보고</h1>
+            )}
             <h1 className='home-carousel-h1'>증여, 상속세, 양도세 상담</h1>
             <h1 className='home-carousel-h1'>메디케어 건강보험 안내</h1>
             <div className='my-4 py-4'>&nbsp;</div>
