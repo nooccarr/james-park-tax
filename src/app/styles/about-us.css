@@ -18,6 +18,10 @@
   margin-bottom: 16px;
 }
 
+.about-us-header-mobile {
+  margin-bottom: 0px;
+}
+
 .header-h3 {
   color: #6A6A6A;
   font-size: 18px;

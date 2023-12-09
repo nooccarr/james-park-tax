@@ -19,6 +19,7 @@
   font-size: 37px;
   opacity: 1;
   transition: 0.3s;
+  line-height: 1;
 }
 
 .article-title:hover {

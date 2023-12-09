@@ -9,7 +9,7 @@ import PageHeader from './PageHeader';
 import InfoFooterImg from '../images/info-footer.png';
 import '../styles/results.css';
 
-const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) => {
+const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit, searchLength }) => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -25,6 +25,8 @@ const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) =
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
 
+  const searchBottom = searchLength > 0 ? '0px' : '10vh';
+  console.log(searchLength)
   return (
     <>
       <div className='results-header-image'>
@@ -39,7 +41,9 @@ const Results = ({ searchQuery, handleSearchQueryChange, handleSearchSubmit }) =
         </Row>
         <Row>
           <Col className='text-center'  md={{ span: 8, offset: 2 }}>
-            {!isMobile && (
+            {isMobile ? (
+              <div style={{ height: searchBottom }}>&nbsp;</div>
+            ) : (
               <Ratio aspectRatio={49 / 80}>
                 <img src={InfoFooterImg} alt='' />
               </Ratio>

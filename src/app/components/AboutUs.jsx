@@ -54,10 +54,21 @@ const AboutUs = () => {
         <Container className='my-5'>
           <Row>
             <Col className='text-center pb-5'>
-              <h1 className='header-h1'>
-                <span className='header-span'>믿고 맡길수 있는 </span>
-                든든한 회계사
-              </h1>
+              {isMobile ? (
+                <>
+                  <h1 className='header-h1 about-us-header-mobile'>
+                    <span className='header-span'>믿고 맡길수 있는 </span>
+                  </h1>
+                  <h1 className='header-h1'>
+                    든든한 회계사
+                  </h1>
+                </>
+              ) : (
+                <h1 className='header-h1'>
+                  <span className='header-span'>믿고 맡길수 있는 </span>
+                  든든한 회계사
+                </h1>
+              )}
               <h3 className='header-h3'>탁월한 지식으로 성심성의껏 고객의 재무 안전을 책임집니다.</h3>
             </Col>
           </Row>

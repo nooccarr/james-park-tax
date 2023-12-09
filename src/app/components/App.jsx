@@ -58,6 +58,7 @@ const App = () => {
   const [searchPosts, setSearchPosts] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
   const [searchMessage, setSearchMessage] = useState('');
+  const [searchLength, setSearchLength] = useState(0);
 
   useEffect(() => {
     requestPosts();
@@ -81,14 +82,16 @@ const App = () => {
     if (!searchQuery) {
       setSearchPosts({});
       setSearchMessage('');
+      setSearchLength(0);
     } else {
       setSearchMessage(`Search results for "${searchQuery}"`);
       const filteredPosts = Object.entries(posts).filter(
         ([_slug, { title, description }]) => title.toLowerCase().includes(searchQuery.toLowerCase()) || description.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setSearchPosts(Object.fromEntries(filteredPosts));
+      setSearchLength(filteredPosts.length);
     }
-  }
+  };
 
   const handleSearchReset = () => {
     setSearchQuery('');
@@ -116,7 +119,7 @@ const App = () => {
             <Route index element={<PostList posts={posts} category='Life Insurance' />} />
             <Route path=':slug' element={<Post posts={posts} />} />
           </Route>
-          <Route path='search' element={<Results searchQuery={searchQuery} handleSearchQueryChange={handleSearchQueryChange} handleSearchSubmit={handleSearchSubmit} />}>
+          <Route path='search' element={<Results searchQuery={searchQuery} handleSearchQueryChange={handleSearchQueryChange} handleSearchSubmit={handleSearchSubmit} searchLength={searchLength} />}>
             <Route index element={<PostList posts={searchPosts} searchMessage={searchMessage} handleSearchReset={handleSearchReset} />} />
             <Route path=':slug' element={<Post posts={searchPosts} />} />
           </Route>
