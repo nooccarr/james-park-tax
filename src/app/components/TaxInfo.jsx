@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import PageHeader from './PageHeader';
 import Container from 'react-bootstrap/Container';
@@ -9,6 +9,16 @@ import InfoFooterImg from '../images/info-footer.png';
 import '../styles/tax-info.css';
 
 const TaxInfo = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+    const onWindowResize = () => {
+      window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+    };
+    window.addEventListener('resize', onWindowResize);
+    return () => window.removeEventListener('resize', onWindowResize);
+  }, []);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
@@ -28,9 +38,11 @@ const TaxInfo = () => {
         </Row>
         <Row>
           <Col className='text-center'  md={{ span: 8, offset: 2 }}>
-            <Ratio aspectRatio={49 / 80}>
-              <img src={InfoFooterImg} alt='' />
-            </Ratio>
+            {!isMobile && (
+              <Ratio aspectRatio={49 / 80}>
+                <img src={InfoFooterImg} alt='' />
+              </Ratio>
+            )}
           </Col>
         </Row>
       </Container>
