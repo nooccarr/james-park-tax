@@ -24,8 +24,10 @@ const Header = () => {
   const handleOffCanvasShow = () => { setShowOffCanvas(true) };
   const handleOffCanvasClose = () => { setShowOffCanvas(false) };
 
+  const headerMobileView = isMobile ? 'header-mobile' : '';
+
   return (
-    <header>
+    <header className={`${headerMobileView}`}>
       <Container>
         {!isMobile && (
           <Row>
@@ -49,6 +51,21 @@ const Header = () => {
               </a>
             </Col>
 
+          </Row>
+        )}
+        {isMobile && (
+          <Row>
+            <Col className='header-mobile-container text-center'>
+              <div className='header-mobile-text'>Address: 163-10 Northern Blvd, NY 11358</div>
+              <div>
+                <a 
+                  href='tel:+1-718-359-1096' 
+                  className='header-mobile-text header-mobile-link'
+                >
+                  Telephone (718) 359-1096
+                </a>
+              </div>
+            </Col>
           </Row>
         )}
       </Container>

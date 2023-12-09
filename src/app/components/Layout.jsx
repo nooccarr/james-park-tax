@@ -3,6 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Stack from 'react-bootstrap/Stack';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -21,7 +22,7 @@ const Layout = ({ handleSearchReset }) => {
   const [isMobile, setIsMobile] = useState(false);
   const [isTablet, setIsTablet] = useState(false);
   const [isDesktop, setIsDesktop] = useState(false);
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showOffCanvas, setShowOffCanvas] = useState(false);
 
   useEffect(() => {
     window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
@@ -41,9 +42,8 @@ const Layout = ({ handleSearchReset }) => {
     return () => window.removeEventListener('resize', onWindowResize);
   }, []);
 
-  const handleNavIconClick = () => {
-    setShowDropdown(!showDropdown);
-  };
+  const handleOffCanvasShow = () => { setShowOffCanvas(true) };
+  const handleOffCanvasClose = () => { setShowOffCanvas(false) };
 
   const navMobileView = isMobile ? 'nav-mobile-view' : '';
   const navItemSpacing = isDesktop ? 'pe-5 me-5' : isTablet ? 'pe-5' : 'pe-2';
@@ -57,13 +57,18 @@ const Layout = ({ handleSearchReset }) => {
               {isMobile && (
                 <>
                   <Link to='/'>
-                    <img src={Logo} alt='' width='180px' onClick={() => setShowDropdown(false)} />
+                    <img src={Logo} alt='' />
                   </Link>
                   <div className='mx-auto'></div>
-                  <div className='py-2'>
-                    <span className='navbars-text'>menu</span>
-                    <FontAwesomeIcon className='navbars' onClick={handleNavIconClick} icon={faBars} />
+                  <div>
+                    <Link to='search' className='navsearch-mobile'>
+                      <FontAwesomeIcon icon={faMagnifyingGlass}  />
+                    </Link>
                   </div>
+                  <div className='py-2'>
+                    <FontAwesomeIcon className='navbars' onClick={handleOffCanvasShow} icon={faBars} />                
+                  </div>
+                  
                 </>
               )}
 
@@ -87,17 +92,23 @@ const Layout = ({ handleSearchReset }) => {
           </Row>
         </Container>
 
-        {showDropdown && (
-          <ul className='nav-dropdown'>
-            {NavItems.map(({ link, title }) => (
-              <li className='py-2' onClick={() => setShowDropdown(false)} key={title}>
-                <Link to={link} onClick={handleSearchReset} className='navlink'>
-                  {title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        )}
+        <Offcanvas show={showOffCanvas} placement='end' onHide={handleOffCanvasClose} style={{ backgroundColor: '#235161', width: '66%' }}>
+          <Offcanvas.Header closeButton closeVariant='white' className='mb-4'>
+            <Offcanvas.Title>&nbsp;</Offcanvas.Title>
+          </Offcanvas.Header>
+          <Offcanvas.Body>
+            <ul className='nav-dropdown'>
+              {NavItems.map(({ link, title }) => (
+                <li className='py-2 nav-dropdown-item' onClick={handleOffCanvasClose} key={title}>
+                  <Link to={link} onClick={handleSearchReset} className='navlink'>
+                    {title}
+                  </Link>
+                  <vr/>
+                </li>
+              ))}
+            </ul>
+          </Offcanvas.Body>
+        </Offcanvas>
       </nav>
 
       <Outlet />
