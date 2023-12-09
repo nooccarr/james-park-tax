@@ -29,12 +29,7 @@ const Layout = ({ handleSearchReset }) => {
     window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
     window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
     const onWindowResize = () => {
-      if (window.innerWidth <= 767) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-        setShowDropdown(false);
-      }
+      window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
       window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
       window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
     };
@@ -73,20 +68,21 @@ const Layout = ({ handleSearchReset }) => {
               )}
 
               {!isMobile && (
-                NavItems.map(({ link, title }) => (
-                  <div className={`py-2 ${navItemSpacing}`} key={title}>
-                    <Link to={link} onClick={handleSearchReset} className='navlink'>
-                      {title}
+                <>
+                  {NavItems.map(({ link, title }) => (
+                    <div className={`py-2 ${navItemSpacing}`} key={title}>
+                      <Link to={link} onClick={handleSearchReset} className='navlink'>
+                        {title}
+                      </Link>
+                    </div>
+                  ))}
+                  <div className='py-2 ms-auto'>
+                    <Link to='search' className='navsearch'>
+                      <FontAwesomeIcon icon={faMagnifyingGlass}  />
                     </Link>
                   </div>
-                ))
-              )}
-              {!isMobile && (
-                <div className='py-2 ms-auto'>
-                  <Link to='search' className='navsearch'>
-                    <FontAwesomeIcon icon={faMagnifyingGlass}  />
-                  </Link>
-                </div>
+                </>
+
               )}
             </Stack>
           </Row>
