@@ -24,11 +24,13 @@ const ContactForm = ({ showContactForm, handleCloseButtonClick, setShowFormSucce
 
   };
 
+  // console.log(formValues);
+
   return (
     <Modal show={showContactForm} onHide={handleCloseButtonClick} animation={true}>
       <Modal.Header closeButton>
         <Modal.Title>Schedule a Consultation</Modal.Title>
-      </Modal.Header>{ console.log(formValues)}
+      </Modal.Header>
         <form onSubmit={handleSubmit}>
         <Modal.Body>
           <Stack>

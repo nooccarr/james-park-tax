@@ -13,7 +13,6 @@ const Home = () => {
   const [showFormSuccess, setShowFormSuccess] = useState(false);
   const [isMobile, setisMobile] = useState(false);
 
-  // TODO: changing width should properly render background image
   useEffect(() => {
     window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
     const onWindowResize = () => {
@@ -35,6 +34,8 @@ const Home = () => {
     setShowContactForm(true);
     setShowFormSuccess(false);
   };
+
+  const scheduleButtonClass = isMobile ? 'home-contact-form-button-mobile' : 'home-contact-form-button';
 
   return (
     <main>
@@ -58,7 +59,7 @@ const Home = () => {
 
             {!showFormSuccess ? (
                 <>
-                  <button onClick={handleButtonClick} className='home-contact-form-button'>
+                  <button onClick={handleButtonClick} className={scheduleButtonClass}>
                     <h2 className='mb-0'>
                       <FontAwesomeIcon className='pe-2' icon={faCalendarDays} />
                       Schedule a Consultation
@@ -86,8 +87,8 @@ const Home = () => {
           )}
           <Carousel.Caption>
             {isMobile ? (
-              <>              
-                <h1 className='home-carousel-h1'>한국거주 영주권,</h1> 
+              <>
+                <h1 className='home-carousel-h1'>한국거주 영주권,</h1>
                 <h1 className='home-carousel-h1'>시민권자 세금보고</h1>
               </>
             ) : (

@@ -61,9 +61,9 @@ const Layout = ({ handleSearchReset }) => {
                     </Link>
                   </div>
                   <div className='py-2'>
-                    <FontAwesomeIcon className='navbars' onClick={handleOffCanvasShow} icon={faBars} />                
+                    <FontAwesomeIcon className='navbars' onClick={handleOffCanvasShow} icon={faBars} />
                   </div>
-                  
+
                 </>
               )}
 
@@ -99,7 +99,6 @@ const Layout = ({ handleSearchReset }) => {
                   <Link to={link} onClick={handleSearchReset} className='navlink'>
                     {title}
                   </Link>
-                  <vr/>
                 </li>
               ))}
             </ul>
