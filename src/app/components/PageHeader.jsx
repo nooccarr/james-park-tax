@@ -1,14 +1,19 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
 
 const PageHeader = ({ title }) => {
   return (
-    <Container as='section' className='py-5'>
-      <Row className='ps-2 py-5'>
-        <Col className='p-0' style={{ color: '#FFF9D1', fontSize: '3em', fontWeight: 500 }}>{title}</Col>
-      </Row>
-    </Container>
+    <div as="section" className="py-5">
+      <div className="ps-2 py-5">
+        <div
+          className="p-0"
+          style={{ color: '#FFF9D1', fontSize: '3em', fontWeight: 500 }}
+        >
+          {title}
+        </div>
+      </div>
+    </div>
   );
 };
 

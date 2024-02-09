@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import PageHeader from './PageHeader';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Ratio from 'react-bootstrap/Ratio';
+// import div from "react-bootstrap/div";
+// import div from "react-bootstrap/div";
+// import div from "react-bootstrap/div";
+// import div from "react-bootstrap/div";
 import InfoFooterImg from '../images/info-footer.png';
 import '../styles/tax-info.css';
 
@@ -25,27 +25,27 @@ const TaxInfo = () => {
   }, []);
 
   return (
-    <div className='tax-info-background'>
-      <div className='tax-info-header-image'>
-        <PageHeader title='Tax 정보' />
+    <div className="tax-info-background">
+      <div className="services-header-image">
+        <PageHeader title="Tax 정보" />
       </div>
 
-      <Container>
-        <Row>
-          <Col>
+      <div>
+        <div>
+          <div>
             <Outlet />
-          </Col>
-        </Row>
-        <Row>
-          <Col className='text-center'  md={{ span: 8, offset: 2 }}>
-            {!isMobile && (
-              <Ratio aspectRatio={49 / 80}>
-                <img src={InfoFooterImg} alt='' />
-              </Ratio>
-            )}
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+        <div>
+          <div className="text-center" md={{ span: 8, offset: 2 }}>
+            {/* {!isMobile && (
+              <div aspectdiv={49 / 80}>
+                <img src={InfoFooterImg} alt="" />
+              </div>
+            )} */}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

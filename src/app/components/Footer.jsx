@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
 import '../styles/footer.css';
 
 const Footer = () => {
@@ -20,79 +20,71 @@ const Footer = () => {
 
   const newYorkOffice = () => (
     <>
-      <div className='footer-location-title'>New York</div>
-      <div className='footer-location-address'>163-10 Northern Blvd</div>
-      <div className='pb-5 footer-location-address'>Flushing, NY 11358</div>
+      <div className="footer-location-title">New York</div>
+      <div className="footer-location-address">163-10 Northern Blvd</div>
+      <div className="pb-5 footer-location-address">Flushing, NY 11358</div>
     </>
   );
 
   const newJerseyOffice = () => (
     <>
-      <div className='footer-location-title'>New Jersey</div>
-      <div className='footer-location-address'>725 Grand Ave</div>
-      <div className='pb-5 footer-location-address'>Ridgefield, NJ 07657</div>
+      <div className="footer-location-title">New Jersey</div>
+      <div className="footer-location-address">725 Grand Ave</div>
+      <div className="pb-5 footer-location-address">Ridgefield, NJ 07657</div>
     </>
   );
 
   return (
     <footer>
-      <Container>
+      <div>
         {isMobile ? (
           <>
-            <Row className='pt-5 pb-2'>
-              <Col className='text-center'>
-                <div className='footer-location'>LOCATIONS</div>
-              </Col>
-            </Row>
-            <Row>
-              <Col className='text-center'>
-                {newYorkOffice()}
-              </Col>
-            </Row>
-            <Row>
-              <Col className='text-center'>
-                {newJerseyOffice()}
-              </Col>
-            </Row>
+            <div className="pt-5 pb-2">
+              <div className="text-center">
+                <div className="footer-location">LOCATIONS</div>
+              </div>
+            </div>
+            <div>
+              <div className="text-center">{newYorkOffice()}</div>
+            </div>
+            <div>
+              <div className="text-center">{newJerseyOffice()}</div>
+            </div>
           </>
         ) : (
           <>
-            <Row className='pt-5 pb-2'>
-              <Col md={{ offset: 3, span: 3 }}>
-                <div className='footer-location'>LOCATIONS</div>
-              </Col>
-            </Row>
-            <Row className='mb-5'>
-              <Col md={{ offset: 3, span: 3 }}>
-                {newYorkOffice()}
-              </Col>
-              <Col md={{ span: 3 }}>
-                {newJerseyOffice()}
-              </Col>
-            </Row>
+            <div className="pt-5 pb-2">
+              <div md={{ offset: 3, span: 3 }}>
+                <div className="footer-location">LOCATIONS</div>
+              </div>
+            </div>
+            <div className="mb-5">
+              <div md={{ offset: 3, span: 3 }}>{newYorkOffice()}</div>
+              <div md={{ span: 3 }}>{newJerseyOffice()}</div>
+            </div>
           </>
         )}
 
         {isMobile ? (
           <>
-            <div className='pb-2 text-center copyright-text'>
+            <div className="pb-2 text-center copyright-text">
               For general inquiries call
             </div>
-            <div className='pb-2 text-center copyright-text'>
+            <div className="pb-2 text-center copyright-text">
               718-359-1096 / 201-625-3060
             </div>
           </>
-        ): (
-          <div className='pb-2 text-center copyright-text'>
+        ) : (
+          <div className="pb-2 text-center copyright-text">
             For general inquiries call 718-359-1096 / 201-625-3060
           </div>
         )}
 
-        <div className='pb-5 text-center copyright-text'>
+        <div className="pb-5 text-center copyright-text">
           &copy; {today.getFullYear()} James Park Tax & Accounting, Inc.
         </div>
-        <div className='pb-2'>&nbsp;</div>
-      </Container>
+        <div className="pb-2">&nbsp;</div>
+      </div>
     </footer>
   );
 };
