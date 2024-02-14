@@ -8,16 +8,16 @@ import AboutUsImg from '../images/about-us.jpg';
 import '../styles/about-us.css';
 
 const AboutUs = () => {
-  const [isMobile, setisMobile] = useState(false);
+  // const [isMobile, setisMobile] = useState(false);
 
-  useEffect(() => {
-    window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-    const onWindowResize = () => {
-      window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-    };
-    window.addEventListener('resize', onWindowResize);
-    return () => window.removeEventListener('resize', onWindowResize);
-  }, []);
+  // useEffect(() => {
+  //   window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
+  //   const onWindowResize = () => {
+  //     window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
+  //   };
+  //   window.addEventListener('resize', onWindowResize);
+  //   return () => window.removeEventListener('resize', onWindowResize);
+  // }, []);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
@@ -58,53 +58,28 @@ const AboutUs = () => {
         <PageHeader title="회사소개" />
       </div>
 
-      <main>
-        <div className="my-5">
-          <div>
-            <div className="text-center pb-5">
-              {isMobile ? (
-                <>
-                  <h1 className="header-h1 about-us-header-mobile">
-                    <span className="header-span">믿고 맡길수 있는 </span>
-                  </h1>
-                  <h1 className="header-h1">든든한 회계사</h1>
-                </>
-              ) : (
-                <h1 className="header-h1">
-                  <span className="header-span">믿고 맡길수 있는 </span>
-                  든든한 회계사
-                </h1>
-              )}
-              <h3 className="header-h3">
+      <main className="mx-5 md:mx-10">
+        <div className="mb-20">
+          <div className="my-10">
+            <div className="flex flex-wrap justify-center items-center gap-3 mb-4">
+              <span className="header-span">믿고 맡길수 있는 </span>
+              <h1 className="header-h1 mb-0">든든한 회계사</h1>
+            </div>
+            <div className="flex justify-center">
+              <h3 className="header-h3 text-center">
                 탁월한 지식으로 성심성의껏 고객의 재무 안전을 책임집니다.
               </h3>
             </div>
           </div>
-          {isMobile ? (
-            <>
-              <div>
-                <div className="mb-5">
-                  <div aspectdiv="1x1">
-                    <img src={AboutUsImg} alt="" />
-                  </div>
-                </div>
-              </div>
-              <div>
-                <div className="mb-5 text-container">
-                  {aboutUsDescription()}
-                </div>
-              </div>
-            </>
-          ) : (
-            <div>
-              <div className="mb-5 pe-5">
-                <div aspectdiv="1x1">
-                  <img src={AboutUsImg} alt="" />
-                </div>
-              </div>
-              <div className="mb-5 text-container">{aboutUsDescription()}</div>
+
+          <div className="flex flex-col md:flex-row gap-10">
+            <div className="w-full md:w-1/2  aspect-square">
+              <img src={AboutUsImg} alt="" />
             </div>
-          )}
+            <div className="w-full md:w-1/2">
+              <div className="text-container">{aboutUsDescription()}</div>
+            </div>
+          </div>
         </div>
       </main>
     </div>

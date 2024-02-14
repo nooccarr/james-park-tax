@@ -35,7 +35,7 @@ const Header = () => {
   return (
     // <header className={`${headerMobileView}`}>
     <header className=" flex flex-col">
-      <div className="px-10 py-4">
+      <div className="px-5 md:px-10 py-4">
         <div className="flex items-center">
           <div className="md:min-w-[250px]">
             <h1 className="text-hide">James Park Tax & Accounting</h1>

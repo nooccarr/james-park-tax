@@ -4,11 +4,12 @@
 
 const PageHeader = ({ title }) => {
   return (
-    <div as="section" className="py-5">
-      <div className="ps-2 py-5">
+    <div className="py-14">
+      {/* <div className="py-10"> */}
+      <div className="ps-5 md:ps-10">
         <div
-          className="p-0"
-          style={{ color: '#FFF9D1', fontSize: '3em', fontWeight: 500 }}
+          className="text-5xl text-[#FFF9D1]"
+          // style={{ color: '#FFF9D1', fontSize: '3em', fontWeight: 500 }}
         >
           {title}
         </div>
