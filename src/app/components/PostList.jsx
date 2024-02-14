@@ -31,7 +31,7 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
         <div className="mb-5">
           <div className="justify-content-lg-center">
             <div md="auto">
-              <h2 className="py-5 search-message">{searchMessage}</h2>
+              <h2 className="search-message">{searchMessage}</h2>
             </div>
           </div>
 

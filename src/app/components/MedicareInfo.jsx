@@ -9,16 +9,16 @@ import InfoFooterImg from '../images/info-footer.png';
 import '../styles/medicare-info.css';
 
 const MedicareInfo = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-    const onWindowResize = () => {
-      window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-    };
-    window.addEventListener('resize', onWindowResize);
-    return () => window.removeEventListener('resize', onWindowResize);
-  }, []);
+  // useEffect(() => {
+  //   window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+  //   const onWindowResize = () => {
+  //     window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+  //   };
+  //   window.addEventListener('resize', onWindowResize);
+  //   return () => window.removeEventListener('resize', onWindowResize);
+  // }, []);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
@@ -30,20 +30,9 @@ const MedicareInfo = () => {
         <PageHeader title="Medicare 정보" />
       </div>
 
-      <div>
+      <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
         <div>
-          <div>
-            <Outlet />
-          </div>
-        </div>
-        <div>
-          <div className="text-center" md={{ span: 8, offset: 2 }}>
-            {/* {!isMobile && (
-              <div aspectdiv={49 / 80}>
-                <img src={InfoFooterImg} alt='' />
-              </div>
-            )} */}
-          </div>
+          <Outlet />
         </div>
       </div>
     </div>

@@ -582,9 +582,9 @@ video {
   order: -9999;
 }
 
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
 }
 
 .mx-auto {
@@ -607,17 +607,16 @@ video {
   margin-bottom: 1.25rem;
 }
 
-.mx-5 {
-  margin-left: 1.25rem;
-  margin-right: 1.25rem;
-}
-
 .mb-0 {
   margin-bottom: 0px;
 }
 
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mb-20 {
+  margin-bottom: 5rem;
 }
 
 .mb-3 {
@@ -660,10 +659,6 @@ video {
   margin-top: 1.5rem;
 }
 
-.mb-20 {
-  margin-bottom: 5rem;
-}
-
 .flex {
   display: flex;
 }
@@ -684,12 +679,12 @@ video {
   aspect-ratio: 1 / 1;
 }
 
-.min-h-full {
-  min-height: 100%;
+.min-h-\[900px\] {
+  min-height: 900px;
 }
 
-.w-1\/2 {
-  width: 50%;
+.min-h-full {
+  min-height: 100%;
 }
 
 .w-full {
@@ -702,10 +697,6 @@ video {
 
 .resize {
   resize: both;
-}
-
-.flex-row {
-  flex-direction: row;
 }
 
 .flex-col {
@@ -732,8 +723,8 @@ video {
   justify-content: space-between;
 }
 
-.justify-around {
-  justify-content: space-around;
+.gap-1 {
+  gap: 0.25rem;
 }
 
 .gap-10 {
@@ -746,18 +737,6 @@ video {
 
 .gap-4 {
   gap: 1rem;
-}
-
-.gap-2 {
-  gap: 0.5rem;
-}
-
-.gap-1 {
-  gap: 0.25rem;
-}
-
-.gap-20 {
-  gap: 5rem;
 }
 
 .gap-x-6 {
@@ -821,9 +800,24 @@ video {
   padding-right: 0.875rem;
 }
 
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.py-10 {
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+.py-14 {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
 }
 
 .py-2 {
@@ -834,6 +828,11 @@ video {
 .py-2\.5 {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .py-24 {
@@ -856,24 +855,9 @@ video {
   padding-bottom: 1.25rem;
 }
 
-.px-5 {
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
-.py-10 {
-  padding-top: 2.5rem;
-  padding-bottom: 2.5rem;
-}
-
-.py-12 {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
-.py-14 {
-  padding-top: 3.5rem;
-  padding-bottom: 3.5rem;
+.py-28 {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
 }
 
 .py-16 {
@@ -905,10 +889,6 @@ video {
   padding-inline-start: 0px;
 }
 
-.ps-2 {
-  padding-inline-start: 0.5rem;
-}
-
 .ps-5 {
   padding-inline-start: 1.25rem;
 }
@@ -921,6 +901,18 @@ video {
   padding-top: 1.25rem;
 }
 
+.pb-40 {
+  padding-bottom: 10rem;
+}
+
+.pt-20 {
+  padding-top: 5rem;
+}
+
+.pb-20 {
+  padding-bottom: 5rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -928,6 +920,11 @@ video {
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
 }
 
 .text-base {
@@ -945,11 +942,6 @@ video {
   line-height: 2.5rem;
 }
 
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
-}
-
 .font-bold {
   font-weight: 700;
 }
@@ -958,20 +950,17 @@ video {
   font-weight: 600;
 }
 
-.font-normal {
-  font-weight: 400;
-}
-
 .leading-7 {
   line-height: 1.75rem;
 }
 
-.leading-5 {
-  line-height: 1.25rem;
-}
-
 .tracking-tight {
   letter-spacing: -0.025em;
+}
+
+.text-\[\#FFF9D1\] {
+  --tw-text-opacity: 1;
+  color: rgb(255 249 209 / var(--tw-text-opacity));
 }
 
 .text-blue-500 {
@@ -997,15 +986,6 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
-.text-\[\'\#FFF9D1\'\] {
-  color: '#FFF9D1';
-}
-
-.text-\[\#FFF9D1\] {
-  --tw-text-opacity: 1;
-  color: rgb(255 249 209 / var(--tw-text-opacity));
 }
 
 .shadow-sm {
@@ -1045,11 +1025,6 @@ video {
     padding-bottom: 8rem;
   }
 
-  .sm\:px-10 {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-  }
-
   .sm\:text-5xl {
     font-size: 3rem;
     line-height: 1;
@@ -1070,10 +1045,6 @@ video {
     display: inline-block;
   }
 
-  .md\:flex {
-    display: flex;
-  }
-
   .md\:hidden {
     display: none;
   }
@@ -1086,16 +1057,8 @@ video {
     min-width: 250px;
   }
 
-  .md\:flex-none {
-    flex: none;
-  }
-
   .md\:flex-row {
     flex-direction: row;
-  }
-
-  .md\:gap-10 {
-    gap: 2.5rem;
   }
 
   .md\:gap-20 {
@@ -1107,8 +1070,22 @@ video {
     padding-right: 2.5rem;
   }
 
+  .md\:py-28 {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
   .md\:ps-10 {
     padding-inline-start: 2.5rem;
+  }
+
+  .md\:pb-40 {
+    padding-bottom: 10rem;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 
