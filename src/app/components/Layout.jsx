@@ -5,7 +5,7 @@ import { Link, Outlet } from 'react-router-dom';
 // import div from 'react-bootstrap/div';
 // import div from 'react-bootstrap/div';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+
 import {
   faMagnifyingGlass,
   faPenToSquare,
@@ -23,23 +23,23 @@ const NavItems = [
 ];
 
 const Layout = ({ handleSearchReset }) => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
+  // const [isTablet, setIsTablet] = useState(false);
+  // const [isDesktop, setIsDesktop] = useState(false);
   const [showOffCanvas, setShowOffCanvas] = useState(false);
 
-  useEffect(() => {
-    window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-    window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
-    window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
-    const onWindowResize = () => {
-      window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-      window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
-      window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
-    };
-    window.addEventListener('resize', onWindowResize);
-    return () => window.removeEventListener('resize', onWindowResize);
-  }, []);
+  // useEffect(() => {
+  //   window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+  //   window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
+  //   window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
+  //   const onWindowResize = () => {
+  //     window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+  //     window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
+  //     window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
+  //   };
+  //   window.addEventListener('resize', onWindowResize);
+  //   return () => window.removeEventListener('resize', onWindowResize);
+  // }, []);
 
   const handleOffCanvasShow = () => {
     setShowOffCanvas(true);
@@ -48,73 +48,49 @@ const Layout = ({ handleSearchReset }) => {
     setShowOffCanvas(false);
   };
 
-  const navMobileView = isMobile ? 'nav-mobile-view' : '';
-  const navItemSpacing = isDesktop ? 'pe-5 me-5' : isTablet ? 'pe-5' : 'pe-2';
+  // const navMobileView = isMobile ? 'nav-mobile-view' : '';
+  // const navItemSpacing = isDesktop ? 'pe-5 me-5' : isTablet ? 'pe-5' : 'pe-2';
 
   return (
     <>
-      <nav className={`nav-container ${navMobileView}`}>
+      <nav className="hidden md:block nav-container px-10">
         <div className="py-3">
           <div>
-            <div direction="horizontal" gap={4}>
-              {isMobile && (
-                <>
-                  <Link to="/">
-                    <img src={Logo} alt="" />
+            <div className="flex justify-between">
+              {NavItems.map(({ link, title }) => (
+                <div className="py-2" key={title}>
+                  <Link
+                    to={link}
+                    onClick={handleSearchReset}
+                    className="navlink"
+                  >
+                    {title}
                   </Link>
-                  <div className="mx-auto"></div>
-                  <div>
-                    <Link to="search" className="navsearch-mobile">
-                      <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </Link>
-                  </div>
-                  <div className="py-2">
-                    <FontAwesomeIcon
-                      className="navbars"
-                      onClick={handleOffCanvasShow}
-                      icon={faBars}
-                    />
-                  </div>
-                </>
-              )}
+                </div>
+              ))}
 
-              {!isMobile && (
-                <>
-                  {NavItems.map(({ link, title }) => (
-                    <div className={`py-2 ${navItemSpacing}`} key={title}>
-                      <Link
-                        to={link}
-                        onClick={handleSearchReset}
-                        className="navlink"
-                      >
-                        {title}
-                      </Link>
-                    </div>
-                  ))}
-                  <div className="py-2 ms-auto">
-                    <div className="">
-                      <Link to="search" className="navsearch">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </Link>
-                    </div>
-                    <div>
-                      <Link to="search" className="navsearch">
-                        <FontAwesomeIcon icon={faPenToSquare} />
-                      </Link>
-                    </div>
-                    <div>
-                      <Link to="search" className="navsearch">
-                        <FontAwesomeIcon icon={faUser} />
-                      </Link>
-                    </div>
-                  </div>
-                </>
-              )}
+              <div className="flex items-center gap-4">
+                <div className="">
+                  <Link to="search" className="navsearch">
+                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  </Link>
+                </div>
+                <div>
+                  <Link to="search" className="navsearch">
+                    <FontAwesomeIcon icon={faPenToSquare} />
+                  </Link>
+                </div>
+                <div>
+                  <Link to="search" className="navsearch">
+                    <FontAwesomeIcon icon={faUser} />
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div
+        {/* <div
           show={showOffCanvas}
           placement="end"
           onHide={handleOffCanvasClose}
@@ -125,7 +101,7 @@ const Layout = ({ handleSearchReset }) => {
           </div>
           <div>
             <ul className="nav-dropdown">
-              {/* {NavItems.map(({ link, title }) => ( TODO:
+              {NavItems.map(({ link, title }) => ( // TODO:
                 <li
                   className="py-2 nav-dropdown-item"
                   onClick={handleOffCanvasClose}
@@ -139,10 +115,10 @@ const Layout = ({ handleSearchReset }) => {
                     {title}
                   </Link>
                 </li>
-              ))} */}
+              ))}
             </ul>
           </div>
-        </div>
+        </div> */}
       </nav>
 
       <Outlet />

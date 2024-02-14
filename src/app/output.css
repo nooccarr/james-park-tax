@@ -578,6 +578,10 @@ video {
   }
 }
 
+.order-first {
+  order: -9999;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -596,6 +600,11 @@ video {
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
+}
+
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
 }
 
 .mb-0 {
@@ -646,6 +655,14 @@ video {
   margin-top: 1.5rem;
 }
 
+.me-10 {
+  margin-inline-end: 2.5rem;
+}
+
+.me-4 {
+  margin-inline-end: 1rem;
+}
+
 .flex {
   display: flex;
 }
@@ -658,12 +675,28 @@ video {
   display: grid;
 }
 
+.hidden {
+  display: none;
+}
+
 .min-h-full {
   min-height: 100%;
 }
 
+.min-w-\[250px\] {
+  min-width: 250px;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
 .resize {
   resize: both;
+}
+
+.flex-col {
+  flex-direction: column;
 }
 
 .place-items-center {
@@ -676,6 +709,26 @@ video {
 
 .justify-center {
   justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .gap-x-6 {
@@ -704,6 +757,16 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-blue-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#235161\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(35 81 97 / var(--tw-bg-opacity));
 }
 
 .p-0 {
@@ -764,6 +827,11 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.px-10 {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -813,11 +881,6 @@ video {
   line-height: 2.25rem;
 }
 
-.text-4xl {
-  font-size: 2.25rem;
-  line-height: 2.5rem;
-}
-
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -859,14 +922,14 @@ video {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .text-indigo-600 {
   --tw-text-opacity: 1;
   color: rgb(79 70 229 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .shadow-sm {
@@ -909,6 +972,24 @@ video {
   .sm\:text-5xl {
     font-size: 3rem;
     line-height: 1;
+  }
+}
+
+@media (min-width: 768px) {
+  .md\:block {
+    display: block;
+  }
+
+  .md\:inline-block {
+    display: inline-block;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
+  .md\:min-w-\[250px\] {
+    min-width: 250px;
   }
 }
 
