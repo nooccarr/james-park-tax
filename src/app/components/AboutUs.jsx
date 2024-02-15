@@ -59,7 +59,7 @@ const AboutUs = () => {
       </div>
 
       <main className="mx-5 md:mx-10">
-        <div className="mb-20">
+        <div className="mb-20 md:mb-40">
           <div className="my-10">
             <div className="flex flex-wrap justify-center items-center gap-3 mb-4">
               <span className="header-span">믿고 맡길수 있는 </span>
