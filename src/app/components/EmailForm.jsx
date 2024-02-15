@@ -49,13 +49,7 @@ const EmailForm = () => {
 
   return (
     <aside className="pb-5">
-      <div
-        className="py-4 text-center"
-        style={{
-          backgroundColor: '#043A49',
-          borderBottom: '3px solid #AA9465',
-        }}
-      >
+      <div className="py-5 text-center bg-[#043A49] border-b-[3px] border-[#AA9465]">
         <div className="px-2">
           <h4 className="email-form-h4">이메일로 문의하기</h4>
           <h5 className="email-form-h5">
@@ -64,58 +58,52 @@ const EmailForm = () => {
         </div>
       </div>
 
-      <div className="p-3 border email-form-form">
+      <div className="p-4 border email-form-form">
         {!showFormSuccess ? (
           <form ref={form} onSubmit={sendEmail}>
-            <div>
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                name="from_name"
-                id="name"
-                autoComplete="off"
-                className="form-control"
-                style={{ borderRadius: '0px' }}
-                required
-              />
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="from_name"
+              id="name"
+              autoComplete="off"
+              className="form-control p-2 border border-1 block w-full"
+              required
+            />
 
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                name="reply_to"
-                id="email"
-                autoComplete="off"
-                className="form-control"
-                style={{ borderRadius: '0px' }}
-                required
-              />
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="reply_to"
+              id="email"
+              autoComplete="off"
+              className="form-control p-2 border border-1 block w-full"
+              required
+            />
 
-              <label htmlFor="subject">Subject</label>
-              <select
-                name="subject"
-                id="subject"
-                className="form-control"
-                style={{ borderRadius: '0px', color: '#6A6A6A' }}
-                required
-              >
-                {SUBJECTS.map((subject, idx) => (
-                  <option key={subject} value={idx === 0 ? '' : subject}>
-                    {subject}
-                  </option>
-                ))}
-              </select>
+            <label htmlFor="subject">Subject</label>
+            <select
+              name="subject"
+              id="subject"
+              className="form-control p-2 border border-1 block w-full text-[#6A6A6A]"
+              required
+            >
+              {SUBJECTS.map((subject, idx) => (
+                <option key={subject} value={idx === 0 ? '' : subject}>
+                  {subject}
+                </option>
+              ))}
+            </select>
 
-              <label htmlFor="message">Message (optional)</label>
-              <textarea
-                name="message"
-                id="message"
-                autoComplete="off"
-                className="form-control"
-                style={{ borderRadius: '0px', minHeight: '200px' }}
-              />
+            <label htmlFor="message">Message (optional)</label>
+            <textarea
+              name="message"
+              id="message"
+              autoComplete="off"
+              className="form-control p-2 min-h-[200px] border border-1 block w-full"
+            />
 
-              <button className="mt-2 email-form-button">send</button>
-            </div>
+            <button className="mt-2 email-form-button w-full">send</button>
           </form>
         ) : (
           <h3 className="pt-3 pb-5 text-center">

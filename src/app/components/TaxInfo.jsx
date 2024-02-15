@@ -30,8 +30,8 @@ const TaxInfo = () => {
         <PageHeader title="Tax 정보" />
       </div>
 
-      <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
-        <div>
+      <div className="max-w-[2240px] mx-auto">
+        <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
           <Outlet />
         </div>
       </div>

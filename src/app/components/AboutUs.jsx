@@ -58,8 +58,8 @@ const AboutUs = () => {
         <PageHeader title="회사소개" />
       </div>
 
-      <main className="mx-5 md:mx-10">
-        <div className="mb-20 md:mb-40">
+      <main className="max-w-[2240px] mx-auto">
+        <div className="mx-5 md:mx-10 mb-20 md:mb-40">
           <div className="my-10">
             <div className="flex flex-wrap justify-center items-center gap-3 mb-4">
               <span className="header-span">믿고 맡길수 있는 </span>
@@ -72,7 +72,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-10">
+          <div className="flex flex-col md:flex-row gap-14">
             <div className="w-full md:w-1/2  aspect-square">
               <img src={AboutUsImg} alt="" />
             </div>

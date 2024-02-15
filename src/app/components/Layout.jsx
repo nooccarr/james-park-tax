@@ -55,70 +55,72 @@ const Layout = ({ handleSearchReset }) => {
     <>
       <nav className="hidden md:block nav-container px-10">
         <div className="py-3">
-          <div>
-            <div className="flex justify-between">
-              {NavItems.map(({ link, title }) => (
-                <div className="py-2" key={title}>
-                  <Link
-                    to={link}
-                    onClick={handleSearchReset}
-                    className="navlink"
-                  >
-                    {title}
-                  </Link>
-                </div>
-              ))}
+          <div className="max-w-[2240px] mx-auto">
+            <div>
+              <div className="flex justify-between">
+                {NavItems.map(({ link, title }) => (
+                  <div className="py-2" key={title}>
+                    <Link
+                      to={link}
+                      onClick={handleSearchReset}
+                      className="navlink"
+                    >
+                      {title}
+                    </Link>
+                  </div>
+                ))}
 
-              <div className="flex items-center gap-4">
-                <div className="">
-                  <Link to="search" className="navsearch">
-                    <FontAwesomeIcon icon={faMagnifyingGlass} />
-                  </Link>
-                </div>
-                <div>
-                  <Link to="search" className="navsearch">
-                    <FontAwesomeIcon icon={faPenToSquare} />
-                  </Link>
-                </div>
-                <div>
-                  <Link to="search" className="navsearch">
-                    <FontAwesomeIcon icon={faUser} />
-                  </Link>
+                <div className="flex items-center gap-4">
+                  <div className="">
+                    <Link to="search" className="navsearch">
+                      <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </Link>
+                  </div>
+                  <div>
+                    <Link to="search" className="navsearch">
+                      <FontAwesomeIcon icon={faPenToSquare} />
+                    </Link>
+                  </div>
+                  <div>
+                    <Link to="search" className="navsearch">
+                      <FontAwesomeIcon icon={faUser} />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* <div
+          {/* <div
           show={showOffCanvas}
           placement="end"
           onHide={handleOffCanvasClose}
           style={{ backgroundColor: '#235161', width: '66%' }}
-        >
+          >
           <div closeButton closeVariant="white" className="mb-4">
-            <div>&nbsp;</div>
+          <div>&nbsp;</div>
           </div>
           <div>
-            <ul className="nav-dropdown">
-              {NavItems.map(({ link, title }) => ( // TODO:
-                <li
-                  className="py-2 nav-dropdown-item"
-                  onClick={handleOffCanvasClose}
-                  key={title}
-                >
-                  <Link
-                    to={link}
-                    onClick={handleSearchReset}
-                    className="navlink"
-                  >
-                    {title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <ul className="nav-dropdown">
+          {NavItems.map(({ link, title }) => ( // TODO:
+          <li
+          className="py-2 nav-dropdown-item"
+          onClick={handleOffCanvasClose}
+          key={title}
+          >
+          <Link
+          to={link}
+          onClick={handleSearchReset}
+          className="navlink"
+          >
+          {title}
+          </Link>
+          </li>
+          ))}
+          </ul>
           </div>
         </div> */}
+        </div>
       </nav>
 
       <Outlet />

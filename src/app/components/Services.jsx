@@ -16,27 +16,27 @@ const ServiceItems = [
 ];
 
 const Services = () => {
-  const [isMobile, setisMobile] = useState(false);
-  const [isTablet, setisTablet] = useState(false);
+  // const [isMobile, setisMobile] = useState(false);
+  // const [isTablet, setisTablet] = useState(false);
 
-  useEffect(() => {
-    window.innerWidth <= 991 ? setisTablet(true) : setisTablet(false);
-    window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-    const onWindowResize = () => {
-      window.innerWidth <= 991 ? setisTablet(true) : setisTablet(false);
-      window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-    };
-    window.addEventListener('resize', onWindowResize);
-    return () => window.removeEventListener('resize', onWindowResize);
-  }, []);
+  // useEffect(() => {
+  //   window.innerWidth <= 991 ? setisTablet(true) : setisTablet(false);
+  //   window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
+  //   const onWindowResize = () => {
+  //     window.innerWidth <= 991 ? setisTablet(true) : setisTablet(false);
+  //     window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
+  //   };
+  //   window.addEventListener('resize', onWindowResize);
+  //   return () => window.removeEventListener('resize', onWindowResize);
+  // }, []);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
 
-  const servicePadding = isMobile ? '' : 'pe-5';
-  const serviceWidth = isTablet ? 7 : 8;
-  const emailFormWidth = isTablet ? 5 : 4;
+  // const servicePadding = isMobile ? '' : 'pe-5';
+  // const serviceWidth = isTablet ? 7 : 8;
+  // const emailFormWidth = isTablet ? 5 : 4;
 
   return (
     <div className="services-background">
@@ -44,42 +44,31 @@ const Services = () => {
         <PageHeader title="서비스" />
       </div>
 
-      <div className="my-5">
-        <div>
-          <div md={serviceWidth} className={servicePadding}>
-            <div as="ul" className="text-center rounded-0">
-              <div
-                as="li"
-                className="py-4"
-                style={{ backgrounddivor: '#043A49' }}
-              >
+      <div className="max-w-[2240px] mx-auto">
+        <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
+          <div className="flex flex-col md:flex-row gap-14">
+            <div className="w-full md:w-1/2 lg:w-3/5 text-center rounded-0">
+              <div className="py-5 bg-[#043a49]">
                 <h4 className="service-li-h4">감사 및 회계 업무</h4>
                 <h5 className="service-li-h5">exceptional service</h5>
               </div>
-              {ServiceItems.map((item) => (
-                <div
-                  as="li"
-                  key={item}
-                  className="border-white"
-                  style={{ backgrounddivor: '#F1F1F1' }}
-                >
-                  <span className="service-li">{item}</span>
-                </div>
-              ))}
-              <div
-                as="li"
-                className="py-3 mb-5"
-                style={{
-                  backgrounddivor: '#043A49',
-                  borderBottom: '3px solid #AA9465',
-                }}
-              >
+              <ul>
+                {ServiceItems.map((item) => (
+                  <li
+                    key={item}
+                    className="border-b border-white bg-[#F1F1F1] py-3"
+                  >
+                    <span className="service-li">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="py-4 mb-10 md:mb-0 bg-[#043a49] border-b-[3px] border-[#AA9465]">
                 &nbsp;
               </div>
             </div>
-          </div>
-          <div md={emailFormWidth}>
-            <EmailForm />
+            <div className="w-full md:w-1/2 lg:w-2/5">
+              <EmailForm />
+            </div>
           </div>
         </div>
       </div>
