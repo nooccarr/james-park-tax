@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 // import div from 'react-bootstrap/div';
 // import div from 'react-bootstrap/div';
 // import div from 'react-bootstrap/div';
@@ -9,6 +9,8 @@ import '../styles/post-list.css';
 
 const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
   const [categoryPosts, setCategoryPosts] = useState({});
+
+  const { '*': path } = useParams();
 
   useEffect(() => {
     category ? getCategoryPosts() : setCategoryPosts(posts);
@@ -25,13 +27,19 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
     setCategoryPosts(Object.fromEntries(filteredPosts));
   };
 
+  const searchClass = path === 'search' ? 'pt-10 pb-16' : '';
+
   return (
     <>
       <main>
         <div className="mb-5">
           <div className="justify-content-lg-center">
-            <div md="auto">
-              <h2 className="search-message">{searchMessage}</h2>
+            <div>
+              <h2
+                className={`search-message text-2xl md:text-[32px] font-semibold ${searchClass}`}
+              >
+                {searchMessage}
+              </h2>
             </div>
           </div>
 

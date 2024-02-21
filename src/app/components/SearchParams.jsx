@@ -11,10 +11,10 @@ const SearchParams = ({
   return (
     <section>
       <form onSubmit={handleSearchSubmit}>
-        <div direction="horizontal" gap={0}>
+        <div className="">
           <FontAwesomeIcon
             icon={faMagnifyingGlass}
-            className="search-icon ms-4"
+            className="search-icon m-5"
           />
           <label htmlFor="search" className="search-label">
             <input
@@ -23,7 +23,7 @@ const SearchParams = ({
               id="search"
               autoComplete="off"
               placeholder="Search articles by title or description"
-              className="search-input mb-0 p-3 ps-5"
+              className="search-input py-4 ps-12 pe-5"
               value={searchQuery}
               onChange={handleSearchQueryChange}
             />

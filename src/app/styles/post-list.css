@@ -1,12 +1,12 @@
 .search-message {
-  color: #6A6A6A;
+  color: #6a6a6a;
 }
 
 .article-container {
   padding: 36px;
   box-shadow: 3px 3px 3px lightgray;
-  border: 1px solid #E0E0E0;
-  background-color: #FFF;
+  border: 1px solid #e0e0e0;
+  background-color: #fff;
 }
 
 .article-title-anchor {
@@ -23,7 +23,7 @@
 }
 
 .article-title:hover {
-  color: #9E9A79;
+  color: #9e9a79;
   opacity: 0.8;
 }
 
@@ -35,25 +35,25 @@
 }
 
 .article-author {
-  color: #6A6A6A;
+  color: #6a6a6a;
   text-transform: uppercase;
 }
 
 .article-category {
-  color: #9E9A79;
+  color: #9e9a79;
   text-transform: uppercase;
 }
 
 .article-description {
-  color: #6A6A6A;
+  color: #6a6a6a;
   line-height: 24px;
   font-size: 15px;
 }
 
 .article-button {
   margin-top: 28px;
-  background-color: #043A49;
-  color: #FFF9D1;
+  background-color: #043a49;
+  color: #fff9d1;
   border: none;
   border-radius: 4px;
   padding: 13px 16px;

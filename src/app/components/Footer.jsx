@@ -36,13 +36,13 @@ const Footer = () => {
 
   return (
     <footer>
-      <div>
+      <div className="py-10">
         <>
-          <div className="text-center pt-5 pb-2">
+          <div className="text-center pb-2">
             <div className="footer-location">LOCATIONS</div>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center md:gap-20">
+          <div className="flex flex-col md:flex-row justify-center md:gap-20 md:pb-10">
             <div className="text-center">{newYorkOffice()}</div>
 
             <div className="text-center">{newJerseyOffice()}</div>
