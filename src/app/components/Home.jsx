@@ -49,7 +49,7 @@ const Home = () => {
           </div>
           <button
             onClick={handleButtonClick}
-            className="absolute top-[50%] md:top-[70%] left-[50%] text-md md:text-xl font-semibold home-contact-form-button p-3 md:p-5"
+            className="absolute top-[50%] md:top-[70%] left-[50%] text-md md:text-xl font-semibold home-contact-form-button p-3 md:p-5 min-w-[222px]"
             style={{ transform: 'translate(-50%, -50%)' }}
           >
             <h2 className="">
@@ -80,28 +80,24 @@ const Home = () => {
         </div>
       </Carousel>
 
-      {/* <div>
-            {showContactForm && (
-              <ContactForm
-                showContactForm={showContactForm}
-                handleCloseButtonClick={handleCloseButtonClick}
-                setShowFormSuccess={setShowFormSuccess}
-              />
-            )}
+      {/* {showContactForm && (
+      <ContactForm
+        showContactForm={showContactForm}
+        handleCloseButtonClick={handleCloseButtonClick}
+        setShowFormSuccess={setShowFormSuccess}
+      />
+    )} */}
 
-            {!showFormSuccess ? (
-              <>
-
-              </>
-            ) : (
-              <>
-                <h2 className="form-submit-message">
-                  Thank you for your submission!
-                </h2>
-                <div className="my-4 py-4">&nbsp;</div>
-              </>
-            )}
-          </div> */}
+      {/* {!showFormSuccess ? (
+          <div></div>
+        ) : (
+          <>
+            <h2 className="form-submit-message">
+              Thank you for your submission!
+            </h2>
+            <div className="my-4 py-4">&nbsp;</div>
+          </>
+        )} */}
     </main>
   );
 };

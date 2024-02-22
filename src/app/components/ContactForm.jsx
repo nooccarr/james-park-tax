@@ -34,11 +34,11 @@ const ContactForm = ({
       onHide={handleCloseButtonClick}
       animation={true}
     >
-      <div.Header closeButton>
-        <div.Title>Schedule a Consultation</div.Title>
-      </div.Header>
+      <div closeButton>
+        <h2>Schedule a Consultation</h2>
+      </div>
       <form onSubmit={handleSubmit}>
-        <div.Body>
+        <div>
           <div>
             <label htmlFor="name">Name</label>
             <input
@@ -95,10 +95,10 @@ const ContactForm = ({
               }
             />
           </div>
-        </div.Body>
-        <div.Footer>
+        </div>
+        <div>
           <button onClick={handleSubmit}>Schedule a Consultation</button>
-        </div.Footer>
+        </div>
       </form>
     </div>
   );

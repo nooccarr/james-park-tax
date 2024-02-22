@@ -724,24 +724,12 @@ video {
   top: 5%;
 }
 
-.top-\[70\%\] {
-  top: 70%;
-}
-
-.top-\[var\(--navbar-height\)\] {
-  top: var(--navbar-height);
-}
-
 .top-\[50\%\] {
   top: 50%;
 }
 
-.top-\[80\%\] {
-  top: 80%;
-}
-
-.top-\[60\%\] {
-  top: 60%;
+.top-\[var\(--navbar-height\)\] {
+  top: var(--navbar-height);
 }
 
 .-z-30 {
@@ -1010,10 +998,6 @@ video {
   aspect-ratio: 1 / 1;
 }
 
-.aspect-auto {
-  aspect-ratio: auto;
-}
-
 .aspect-video {
   aspect-ratio: 16 / 9;
 }
@@ -1183,6 +1167,10 @@ video {
   min-height: 200px;
 }
 
+.min-h-\[500px\] {
+  min-height: 500px;
+}
+
 .min-h-full {
   min-height: 100%;
 }
@@ -1209,22 +1197,6 @@ video {
 
 .min-h-unit-8 {
   min-height: var(--nextui-spacing-unit-8);
-}
-
-.min-h-screen {
-  min-height: 100vh;
-}
-
-.min-h-\[50\%\] {
-  min-height: 50%;
-}
-
-.min-h-\[767px\] {
-  min-height: 767px;
-}
-
-.min-h-\[500px\] {
-  min-height: 500px;
 }
 
 .w-1 {
@@ -1367,6 +1339,10 @@ video {
   min-width: 200px;
 }
 
+.min-w-\[225px\] {
+  min-width: 225px;
+}
+
 .min-w-full {
   min-width: 100%;
 }
@@ -1410,6 +1386,22 @@ video {
 
 .min-w-unit-8 {
   min-width: var(--nextui-spacing-unit-8);
+}
+
+.min-w-\[224px\] {
+  min-width: 224px;
+}
+
+.min-w-\[223px\] {
+  min-width: 223px;
+}
+
+.min-w-\[222px\] {
+  min-width: 222px;
+}
+
+.min-w-\[221px\] {
+  min-width: 221px;
 }
 
 .max-w-2xl {
@@ -1831,11 +1823,6 @@ video {
 .gap-x-6 {
   -moz-column-gap: 1.5rem;
        column-gap: 1.5rem;
-}
-
-.gap-x-2 {
-  -moz-column-gap: 0.5rem;
-       column-gap: 0.5rem;
 }
 
 .space-x-0 > :not([hidden]) ~ :not([hidden]) {
@@ -2344,11 +2331,6 @@ video {
   background-color: hsl(var(--nextui-foreground) / 0.1);
 }
 
-.bg-indigo-600 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
-}
-
 .bg-overlay\/30 {
   background-color: hsl(var(--nextui-overlay) / 0.3);
 }
@@ -2507,11 +2489,6 @@ video {
   padding-right: 0.75rem;
 }
 
-.px-3\.5 {
-  padding-left: 0.875rem;
-  padding-right: 0.875rem;
-}
-
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2605,11 +2582,6 @@ video {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
-}
-
-.py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
 }
 
 .\!pb-0 {
@@ -2763,6 +2735,11 @@ video {
   line-height: 2.5rem;
 }
 
+.text-5xl {
+  font-size: 3rem;
+  line-height: 1;
+}
+
 .text-\[0\.55rem\] {
   font-size: 0.55rem;
 }
@@ -2783,6 +2760,11 @@ video {
 .text-large {
   font-size: var(--nextui-font-size-large);
   line-height: var(--nextui-line-height-large);
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-medium {
@@ -2808,16 +2790,6 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-5xl {
-  font-size: 3rem;
-  line-height: 1;
 }
 
 .font-bold {
@@ -2949,11 +2921,6 @@ video {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-
-.text-indigo-600 {
-  --tw-text-opacity: 1;
-  color: rgb(79 70 229 / var(--tw-text-opacity));
 }
 
 .text-inherit {
@@ -4916,11 +4883,6 @@ video {
   background-color: hsl(var(--nextui-default-100) / var(--nextui-default-100-opacity, var(--tw-bg-opacity)));
 }
 
-.hover\:bg-indigo-500:hover {
-  --tw-bg-opacity: 1;
-  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
-}
-
 .hover\:\!text-danger-foreground:hover {
   --tw-text-opacity: 1 !important;
   color: hsl(var(--nextui-danger-foreground) / var(--nextui-danger-foreground-opacity, var(--tw-text-opacity))) !important;
@@ -5010,10 +4972,6 @@ video {
   outline-offset: 2px;
 }
 
-.focus-visible\:outline:focus-visible {
-  outline-style: solid;
-}
-
 .focus-visible\:outline-2:focus-visible {
   outline-width: 2px;
 }
@@ -5024,10 +4982,6 @@ video {
 
 .focus-visible\:outline-focus:focus-visible {
   outline-color: hsl(var(--nextui-focus) / var(--nextui-focus-opacity, 1));
-}
-
-.focus-visible\:outline-indigo-600:focus-visible {
-  outline-color: #4f46e5;
 }
 
 .active\:bg-default-200:active {
@@ -7246,14 +7200,6 @@ video {
     display: none;
   }
 
-  .md\:aspect-video {
-    aspect-ratio: 16 / 9;
-  }
-
-  .md\:min-h-screen {
-    min-height: 100vh;
-  }
-
   .md\:w-1\/2 {
     width: 50%;
   }
@@ -7272,10 +7218,6 @@ video {
 
   .md\:gap-20 {
     gap: 5rem;
-  }
-
-  .md\:gap-2 {
-    gap: 0.5rem;
   }
 
   .md\:gap-4 {
@@ -7308,6 +7250,11 @@ video {
     padding-inline-start: 2.5rem;
   }
 
+  .md\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .md\:text-5xl {
     font-size: 3rem;
     line-height: 1;
@@ -7320,11 +7267,6 @@ video {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .md\:text-3xl {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
   }
 }
 
