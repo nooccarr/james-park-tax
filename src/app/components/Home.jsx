@@ -41,13 +41,18 @@ const Home = () => {
     <main>
       <Carousel autoPlay interval="10000" infiniteLoop showThumbs={false}>
         <div>
-          <img className="brightness-90" src={LandingImgOne} />
+          <div className="min-h-[500px] aspect-video">
+            <img
+              className="brightness-90 w-full h-full object-cover"
+              src={LandingImgOne}
+            />
+          </div>
           <button
             onClick={handleButtonClick}
-            className="absolute top-[70%] left-[50%] text-4xl font-semibold home-contact-form-button"
+            className="absolute top-[50%] md:top-[70%] left-[50%] text-md md:text-xl font-semibold home-contact-form-button p-3 md:p-5"
             style={{ transform: 'translate(-50%, -50%)' }}
           >
-            <h2 className="mb-0">
+            <h2 className="">
               <FontAwesomeIcon className="pe-2" icon={faCalendarDays} />
               Schedule a Consultation
             </h2>
@@ -55,14 +60,20 @@ const Home = () => {
         </div>
 
         <div>
-          <img className="brightness-90" src={LandingImgTwo} />
+          <div className="min-h-[500px] aspect-video">
+            <img
+              className="brightness-90 w-full h-full object-cover"
+              src={LandingImgTwo}
+            />
+          </div>
           <div
-            className="absolute top-[70%] left-[50%] text-4xl font-semibold flex flex-col gap-4"
+            className="absolute top-[50%] md:top-[70%] left-[50%] w-full text-lg md:text-3xl font-semibold flex flex-col md:gap-4"
             style={{ transform: 'translate(-50%, -50%)' }}
           >
             <h1 className="home-carousel-h1">
               한국거주 영주권, 시민권자 세금보고
             </h1>
+
             <h1 className="home-carousel-h1">증여, 상속세, 양도세 상담</h1>
             <h1 className="home-carousel-h1">메디케어 건강보험 안내</h1>
           </div>

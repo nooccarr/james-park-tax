@@ -1,9 +1,9 @@
 .home-contact-form-button {
-  background-color: #043A49;
-  color: #FFF9D1;
+  background-color: #043a49;
+  color: #fff9d1;
   border: none;
   border-radius: 10px;
-  padding: 25px;
+  /* padding: 25px; */
   opacity: 0.6;
   transition: 0.5s;
 }
@@ -13,8 +13,8 @@
 }
 
 .home-contact-form-button-mobile {
-  background-color: #043A49;
-  color: #FFF9D1;
+  background-color: #043a49;
+  color: #fff9d1;
   border: none;
   border-radius: 10px;
   padding: 15px;
@@ -27,12 +27,12 @@
 }
 
 .form-submit-message {
-  color: #FFF9D1;
+  color: #fff9d1;
   padding-bottom: 25px;
   font-weight: 400;
 }
 
 .home-carousel-h1 {
-  color: #FFF9D1;
+  color: #fff9d1;
   font-weight: 400;
 }

@@ -35,8 +35,8 @@ const Footer = () => {
   );
 
   return (
-    <footer>
-      <div className="py-10">
+    <footer className="px-5 md:px-10 pt-10 pb-20">
+      <div className="max-w-[2240px] mx-auto">
         <>
           <div className="text-center pb-2">
             <div className="footer-location">LOCATIONS</div>
@@ -48,20 +48,20 @@ const Footer = () => {
             <div className="text-center">{newJerseyOffice()}</div>
           </div>
         </>
-
-        <div className="flex flex-wrap justify-center gap-1">
-          <div className="pb-2 text-center copyright-text">
-            For general inquiries call
+        <div className="tracking-tight">
+          <div className="flex flex-wrap justify-center gap-1">
+            <div className="text-center copyright-text">
+              For general inquiries call
+            </div>
+            <div className="text-center copyright-text">
+              718-359-1096 / 201-625-3060
+            </div>
           </div>
-          <div className="pb-2 text-center copyright-text">
-            718-359-1096 / 201-625-3060
+
+          <div className="text-center copyright-text">
+            &copy; {today.getFullYear()} James Park Tax & Accounting, Inc.
           </div>
         </div>
-
-        <div className="pb-5 text-center copyright-text">
-          &copy; {today.getFullYear()} James Park Tax & Accounting, Inc.
-        </div>
-        <div className="pb-2">&nbsp;</div>
       </div>
     </footer>
   );
