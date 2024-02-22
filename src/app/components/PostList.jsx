@@ -6,6 +6,7 @@ import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import '../styles/post-list.css';
+import Pagination from './Pagination';
 
 const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
   const [categoryPosts, setCategoryPosts] = useState({});
@@ -84,6 +85,13 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
               </div>
             </div>
           ))}
+        </div>
+
+        <div className="mt-20">
+          <Pagination
+            itemsPerPage={5}
+            totalItems={Object.keys(categoryPosts).length}
+          />
         </div>
       </main>
     </>
