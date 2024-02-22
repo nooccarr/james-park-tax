@@ -87,12 +87,14 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
           ))}
         </div>
 
-        <div className="mt-20">
-          <Pagination
-            itemsPerPage={5}
-            totalItems={Object.keys(categoryPosts).length}
-          />
-        </div>
+        {Object.keys(categoryPosts).length ? (
+          <div className="mt-20">
+            <Pagination
+              itemsPerPage={5}
+              totalItems={Object.keys(categoryPosts).length}
+            />
+          </div>
+        ) : null}
       </main>
     </>
   );
