@@ -24,9 +24,9 @@ const Home = () => {
   //   return () => window.removeEventListener('resize', onWindowResize);
   // }, []);
 
-  // useEffect(() => {
-  //   window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  // }, []);
+  useEffect(() => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  }, []);
 
   const handleCloseButtonClick = () => {
     setShowContactForm(false);
