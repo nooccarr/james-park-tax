@@ -57,9 +57,9 @@ const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
           <div className="py-3">
             <div className="max-w-[2240px] mx-auto">
               <div>
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-2">
                   {NavItems.map(({ link, title }) => (
-                    <div className="py-2" key={title}>
+                    <div className="" key={title}>
                       <Link
                         to={link}
                         onClick={handleSearchReset}
@@ -77,12 +77,12 @@ const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
                       </Link>
                     </div>
                     <div>
-                      <Link to="" className="navsearch">
+                      <Link className="navsearch">
                         <FontAwesomeIcon icon={faPenToSquare} />
                       </Link>
                     </div>
                     <div>
-                      <Link to="" className="navsearch">
+                      <Link className="navsearch">
                         <FontAwesomeIcon icon={faUser} />
                       </Link>
                     </div>
@@ -94,8 +94,8 @@ const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
         </div>
 
         {showOffCanvas ? (
-          <div className="md:hidden absolute z-10 top-0 right-0 w-full">
-            <ul className="nav-dropdown px-10 pt-5 pb-96">
+          <div className="md:hidden absolute z-10 top-0 right-0 w-full h-screen">
+            <ul className="nav-dropdown px-10 pt-5 h-screen">
               {NavItems.map(({ link, title }) => (
                 <li
                   className="py-2 nav-dropdown-item mr-0"

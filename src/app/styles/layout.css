@@ -3,11 +3,11 @@
   background-color: #235161;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 5;
 }
 
 .nav-mobile-view {
-  background-color: #043A49;
+  background-color: #043a49;
 }
 
 .navlink {
@@ -35,13 +35,13 @@
 }
 
 .navsearch-mobile {
-  color: #9E9A79;
+  color: #9e9a79;
 }
 
 .navbars {
   border: 2px solid #5b5a4a;
   border-radius: 3px;
-  color: #9E9A79;
+  color: #9e9a79;
   opacity: 1;
   transition: 0.3s;
   padding: 8px;

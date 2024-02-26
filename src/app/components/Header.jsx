@@ -7,10 +7,15 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../images/logo.png';
-import Kakaotalk from '../images/kakaotalk-offcanvas.png';
+
 import '../styles/header.css';
 
-const Header = ({ showOffCanvas, setShowOffCanvas }) => {
+const Header = ({
+  showOffCanvas,
+  setShowOffCanvas,
+  showKakaoCanvas,
+  setShowKakaoCanvas,
+}) => {
   // const [isMobile, setIsMobile] = useState(false);
 
   // useEffect(() => {
@@ -27,6 +32,10 @@ const Header = ({ showOffCanvas, setShowOffCanvas }) => {
   };
   const handleOffCanvasClose = () => {
     setShowOffCanvas(false);
+  };
+
+  const handleKakaoCanvasShow = () => {
+    setShowKakaoCanvas(true);
   };
 
   // const headerMobileView = isMobile ? 'header-mobile' : '';
@@ -76,27 +85,14 @@ const Header = ({ showOffCanvas, setShowOffCanvas }) => {
               </div>
             </div>
             <div className="hidden md:inline-block">
-              <a onClick={handleOffCanvasShow}>
+              <a onClick={handleKakaoCanvasShow}>
                 <span className="icon-kakao"></span>
               </a>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* <div
-      show={showOffCanvas} TODO:
-      placement="end"
-      onHide={handleOffCanvasClose}
-      className="offcanvas-background-image"
-      >
-      <div closeButton closeVariant="white" className="mb-4">
-      <div>&nbsp;</div>
-      </div>
-      <div>
-      <img src={Kakaotalk} alt="" className="offcanvas-kakao-image" /> TODO:
-      </div>
-    </div> */}
-      </div>
       <div className="order-first bg-[#235161] md:hidden">
         <div className="header-mobile-container text-center">
           <div className="header-mobile-text">
