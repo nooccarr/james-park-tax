@@ -2767,6 +2767,26 @@ video {
   padding-bottom: 2.5rem;
 }
 
+.pb-32 {
+  padding-bottom: 8rem;
+}
+
+.pb-36 {
+  padding-bottom: 9rem;
+}
+
+.pb-40 {
+  padding-bottom: 10rem;
+}
+
+.pb-\[100\%\] {
+  padding-bottom: 100%;
+}
+
+.pb-96 {
+  padding-bottom: 24rem;
+}
+
 .text-left {
   text-align: left;
 }
@@ -2861,6 +2881,11 @@ video {
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .font-bold {

@@ -22,11 +22,10 @@ const NavItems = [
   { link: 'contact-us', title: 'Contact Us' },
 ];
 
-const Layout = ({ handleSearchReset }) => {
+const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
   // const [isMobile, setIsMobile] = useState(false);
   // const [isTablet, setIsTablet] = useState(false);
   // const [isDesktop, setIsDesktop] = useState(false);
-  const [showOffCanvas, setShowOffCanvas] = useState(false);
 
   // useEffect(() => {
   //   window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
@@ -94,9 +93,9 @@ const Layout = ({ handleSearchReset }) => {
           </div>
         </div>
 
-        {!showOffCanvas ? (
+        {showOffCanvas ? (
           <div className="md:hidden absolute z-10 top-0 right-0 w-full">
-            <ul className="nav-dropdown px-10 pt-5 pb-20">
+            <ul className="nav-dropdown px-10 pt-5 pb-96">
               {NavItems.map(({ link, title }) => (
                 <li
                   className="py-2 nav-dropdown-item mr-0"

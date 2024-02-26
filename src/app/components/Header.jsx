@@ -10,8 +10,7 @@ import Logo from '../images/logo.png';
 import Kakaotalk from '../images/kakaotalk-offcanvas.png';
 import '../styles/header.css';
 
-const Header = () => {
-  const [showOffCanvas, setShowOffCanvas] = useState(false);
+const Header = ({ showOffCanvas, setShowOffCanvas }) => {
   // const [isMobile, setIsMobile] = useState(false);
 
   // useEffect(() => {
@@ -41,7 +40,7 @@ const Header = () => {
             <div className="md:min-w-[250px]">
               <h1 className="text-hide">James Park Tax & Accounting</h1>
               <Link to="/">
-                <img src={Logo} alt="" />
+                <img src={Logo} onClick={handleOffCanvasClose} alt="" />
               </Link>
             </div>
             <div className="flex-1"></div>
@@ -49,35 +48,30 @@ const Header = () => {
             <div className="ms-4 md:hidden flex items-center gap-4">
               <div className="">
                 <Link to="search" className="navsearch-mobile">
-                  <FontAwesomeIcon icon={faMagnifyingGlass} />
+                  <FontAwesomeIcon
+                    icon={faMagnifyingGlass}
+                    onClick={handleOffCanvasClose}
+                  />
                 </Link>
               </div>
               <div className="py-2">
                 <FontAwesomeIcon
                   className="navbars"
-                  onClick={handleOffCanvasShow}
+                  onClick={() => setShowOffCanvas(!showOffCanvas)}
                   icon={faBars}
                 />
               </div>
             </div>
 
             <div className="hidden md:inline-block me-10">
-              <a
-                href="tel:+1-718-359-1096"
-                className="header-tel"
-                style={{ fontSize: '20px' }}
-              >
+              <a href="tel:+1-718-359-1096" className="header-tel text-xl">
                 (718) 359-1096
               </a>
               &nbsp;/&nbsp;
-              <a
-                href="tel:+1-201-625-3060"
-                className="header-tel"
-                style={{ fontSize: '20px' }}
-              >
+              <a href="tel:+1-201-625-3060" className="header-tel text-xl">
                 (201) 625-3060
               </a>
-              <div style={{ fontSize: '12px', fontWeight: '500' }}>
+              <div className="text-xs font-medium">
                 Call Us Today for a Free Consultation
               </div>
             </div>
