@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Stack from 'react-bootstrap/Stack';
-import Offcanvas from 'react-bootstrap/Offcanvas';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+
+import {
+  faMagnifyingGlass,
+  faPenToSquare,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
 import Logo from '../images/logo.png';
 import '../styles/layout.css';
 const NavItems = [
@@ -14,101 +18,107 @@ const NavItems = [
   { link: 'services', title: '서비스' },
   { link: 'tax-info', title: 'Tax 정보' },
   { link: 'medicare-info', title: 'Medicare 정보' },
-  { link: 'life-insurance-info', title: 'Life Insurance 정보'},
-  { link: 'contact-us', title: 'Contact Us' }
+  { link: 'life-insurance-info', title: 'Life Insurance 정보' },
+  { link: 'contact-us', title: 'Contact Us' },
 ];
 
-const Layout = ({ handleSearchReset }) => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTablet, setIsTablet] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(false);
-  const [showOffCanvas, setShowOffCanvas] = useState(false);
+const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
+  // const [isMobile, setIsMobile] = useState(false);
+  // const [isTablet, setIsTablet] = useState(false);
+  // const [isDesktop, setIsDesktop] = useState(false);
 
-  useEffect(() => {
-    window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-    window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
-    window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
-    const onWindowResize = () => {
-      window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-      window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
-      window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
-    };
-    window.addEventListener('resize', onWindowResize);
-    return () => window.removeEventListener('resize', onWindowResize);
-  }, []);
+  // useEffect(() => {
+  //   window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+  //   window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
+  //   window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
+  //   const onWindowResize = () => {
+  //     window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+  //     window.innerWidth > 991 ? setIsTablet(true) : setIsTablet(false);
+  //     window.innerWidth > 1400 ? setIsDesktop(true) : setIsDesktop(false);
+  //   };
+  //   window.addEventListener('resize', onWindowResize);
+  //   return () => window.removeEventListener('resize', onWindowResize);
+  // }, []);
 
-  const handleOffCanvasShow = () => { setShowOffCanvas(true) };
-  const handleOffCanvasClose = () => { setShowOffCanvas(false) };
+  const handleOffCanvasShow = () => {
+    setShowOffCanvas(true);
+  };
+  const handleOffCanvasClose = () => {
+    setShowOffCanvas(false);
+  };
 
-  const navMobileView = isMobile ? 'nav-mobile-view' : '';
-  const navItemSpacing = isDesktop ? 'pe-5 me-5' : isTablet ? 'pe-5' : 'pe-2';
+  // const navMobileView = isMobile ? 'nav-mobile-view' : '';
+  // const navItemSpacing = isDesktop ? 'pe-5 me-5' : isTablet ? 'pe-5' : 'pe-2';
 
   return (
     <>
-      <nav className={`nav-container ${navMobileView}`}>
-        <Container className='py-3'>
-          <Row>
-            <Stack direction='horizontal' gap={4}>
-              {isMobile && (
-                <>
-                  <Link to='/'>
-                    <img src={Logo} alt='' />
-                  </Link>
-                  <div className='mx-auto'></div>
-                  <div>
-                    <Link to='search' className='navsearch-mobile'>
-                      <FontAwesomeIcon icon={faMagnifyingGlass}  />
-                    </Link>
-                  </div>
-                  <div className='py-2'>
-                    <FontAwesomeIcon className='navbars' onClick={handleOffCanvasShow} icon={faBars} />
-                  </div>
-
-                </>
-              )}
-
-              {!isMobile && (
-                <>
+      <nav className="relative">
+        <div className="hidden md:block nav-container px-10">
+          <div className="py-3">
+            <div className="max-w-[2240px] mx-auto">
+              <div>
+                <div className="flex justify-between gap-2">
                   {NavItems.map(({ link, title }) => (
-                    <div className={`py-2 ${navItemSpacing}`} key={title}>
-                      <Link to={link} onClick={handleSearchReset} className='navlink'>
+                    <div className="" key={title}>
+                      <Link
+                        to={link}
+                        onClick={handleSearchReset}
+                        className="navlink"
+                      >
                         {title}
                       </Link>
                     </div>
                   ))}
-                  <div className='py-2 ms-auto'>
-                    <Link to='search' className='navsearch'>
-                      <FontAwesomeIcon icon={faMagnifyingGlass}  />
-                    </Link>
+
+                  <div className="flex items-center gap-4">
+                    <div className="">
+                      <Link to="search" className="navsearch">
+                        <FontAwesomeIcon icon={faMagnifyingGlass} />
+                      </Link>
+                    </div>
+                    <div>
+                      <Link className="navsearch">
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                      </Link>
+                    </div>
+                    <div>
+                      <Link className="navsearch">
+                        <FontAwesomeIcon icon={faUser} />
+                      </Link>
+                    </div>
                   </div>
-                </>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-              )}
-            </Stack>
-          </Row>
-        </Container>
-
-        <Offcanvas show={showOffCanvas} placement='end' onHide={handleOffCanvasClose} style={{ backgroundColor: '#235161', width: '66%' }}>
-          <Offcanvas.Header closeButton closeVariant='white' className='mb-4'>
-            <Offcanvas.Title>&nbsp;</Offcanvas.Title>
-          </Offcanvas.Header>
-          <Offcanvas.Body>
-            <ul className='nav-dropdown'>
+        {showOffCanvas ? (
+          <div className="md:hidden absolute z-10 top-0 right-0 w-full h-screen">
+            <ul className="nav-dropdown px-10 pt-5 h-screen">
               {NavItems.map(({ link, title }) => (
-                <li className='py-2 nav-dropdown-item' onClick={handleOffCanvasClose} key={title}>
-                  <Link to={link} onClick={handleSearchReset} className='navlink'>
+                <li
+                  className="py-2 nav-dropdown-item mr-0"
+                  onClick={handleOffCanvasClose}
+                  key={title}
+                >
+                  <Link
+                    to={link}
+                    onClick={handleSearchReset}
+                    className="navlink"
+                  >
                     {title}
                   </Link>
                 </li>
               ))}
             </ul>
-          </Offcanvas.Body>
-        </Offcanvas>
+          </div>
+        ) : null}
       </nav>
 
       <Outlet />
     </>
-  )
+  );
 };
 
 export default Layout;

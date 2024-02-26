@@ -1,14 +1,22 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
 
 const PageHeader = ({ title }) => {
   return (
-    <Container as='section' className='py-5'>
-      <Row className='ps-2 py-5'>
-        <Col className='p-0' style={{ color: '#FFF9D1', fontSize: '3em', fontWeight: 500 }}>{title}</Col>
-      </Row>
-    </Container>
+    <div className="max-w-[2240px] mx-auto">
+      <div className="py-16 md:py-28">
+        {/* <div className="py-10"> */}
+        <div className="ps-5 md:ps-10 flex justify-center md:justify-start">
+          <div
+            className="text-4xl md:text-5xl font-semibold text-[#FFF9D1] text-center"
+            // style={{ color: '#FFF9D1', fontSize: '3em', fontWeight: 500 }}
+          >
+            {title}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

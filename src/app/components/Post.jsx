@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen, faBookmark } from "@fortawesome/free-solid-svg-icons";
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
+// import div from 'react-bootstrap/div';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import pathToCapitalized from '../utils/pathToCapitalized';
 import '../styles/post.css';
 
@@ -23,43 +23,44 @@ const Post = ({ posts }) => {
   }, []);
 
   return (
-
     <main>
-      <Container className='mb-5'>
-        <Row>
-          <Col>
-            <h2 className='py-5'>{''}</h2>
-          </Col>
-        </Row>
+      <div className="mb-5">
+        <div>
+          <div>
+            <h2 className="py-5">{''}</h2>
+          </div>
+        </div>
 
-        <Row>
-          <Col md={{ span: 10, offset: 1 }} className='mb-5'>
-            <section className='post-container mb-3'>
-              <div className='p-0 mt-2'>
-                <h3 className='post-title'>{title}</h3>
-                <div className='post-category-container'>
-                  <div className='post-author'>
+        <div>
+          <div md={{ span: 10, offset: 1 }} className="mb-5">
+            <section className="post-container mb-3">
+              <div className="p-0 mt-2">
+                <h3 className="post-title">{title}</h3>
+                <div className="post-category-container">
+                  <div className="post-author">
                     <FontAwesomeIcon icon={faPen} />
                     &nbsp;James Park
                   </div>
-                  <div className='px-2'>/</div>
-                  <div className='post-category'>
+                  <div className="px-2">/</div>
+                  <div className="post-category">
                     <FontAwesomeIcon icon={faBookmark} />
                     &nbsp;{category}
                   </div>
                 </div>
-                <div className='post-content' dangerouslySetInnerHTML={{ __html: articleContent }} />
+                <div
+                  className="post-content"
+                  dangerouslySetInnerHTML={{ __html: articleContent }}
+                />
                 <Link to={`/${path}`} style={{ textDecoration: 'none' }}>
-                  <span className='post-link-category'>
+                  <span className="post-link-category">
                     Back to {capitalizedPath}
                   </span>
                 </Link>
               </div>
             </section>
-
-          </Col>
-        </Row>
-      </Container>
+          </div>
+        </div>
+      </div>
     </main>
   );
 };

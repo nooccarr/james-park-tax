@@ -18,11 +18,11 @@ app.use('/posts', require('./lib/routes/postRoutes'));
 
 // Handle client routing, return all requests to the app
 app.get('*', (_, res) => {
-  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), err => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
     if (err) console.log(err);
   });
 });
 
 const server = app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-})
+});

@@ -1,51 +1,40 @@
 import { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Ratio from 'react-bootstrap/Ratio';
+// import div from "react-bootstrap/div";
+// import div from "react-bootstrap/div";
+// import div from "react-bootstrap/div";
+// import div from "react-bootstrap/div";
 import PageHeader from './PageHeader';
 import InfoFooterImg from '../images/info-footer.png';
 import '../styles/medicare-info.css';
 
 const MedicareInfo = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  // const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-    const onWindowResize = () => {
-      window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-    };
-    window.addEventListener('resize', onWindowResize);
-    return () => window.removeEventListener('resize', onWindowResize);
-  }, []);
+  // useEffect(() => {
+  //   window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+  //   const onWindowResize = () => {
+  //     window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
+  //   };
+  //   window.addEventListener('resize', onWindowResize);
+  //   return () => window.removeEventListener('resize', onWindowResize);
+  // }, []);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
 
   return (
-    <div className='medicare-info-background'>
-      <div className='medicare-info-header-image'>
-        <PageHeader title='Medicare 정보' />
+    <div className="medicare-info-background">
+      <div className="medicare-info-header-image">
+        <PageHeader title="Medicare 정보" />
       </div>
 
-      <Container>
-        <Row>
-          <Col>
-            <Outlet />
-          </Col>
-        </Row>
-        <Row>
-          <Col className='text-center' md={{ span: 8, offset: 2 }}>
-            {!isMobile && (
-              <Ratio aspectRatio={49 / 80}>
-                <img src={InfoFooterImg} alt='' />
-              </Ratio>
-            )}
-          </Col>
-        </Row>
-      </Container>
+      <div className="max-w-[2240px] mx-auto">
+        <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
+          <Outlet />
+        </div>
+      </div>
     </div>
   );
 };
