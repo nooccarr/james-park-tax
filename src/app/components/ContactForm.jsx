@@ -1,6 +1,4 @@
 import { useState } from 'react';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
 
 const ContactForm = ({
   showContactForm,

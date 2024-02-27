@@ -1,25 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import PageHeader from './PageHeader';
-// import div from "react-bootstrap/div";
-// import div from "react-bootstrap/div";
-// import div from "react-bootstrap/div";
-// import div from "react-bootstrap/div";
-import InfoFooterImg from '../images/info-footer.png';
 import '../styles/tax-info.css';
 
 const TaxInfo = () => {
-  // const [isMobile, setIsMobile] = useState(false);
-
-  // useEffect(() => {
-  //   window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-  //   const onWindowResize = () => {
-  //     window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-  //   };
-  //   window.addEventListener('resize', onWindowResize);
-  //   return () => window.removeEventListener('resize', onWindowResize);
-  // }, []);
-
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }, []);

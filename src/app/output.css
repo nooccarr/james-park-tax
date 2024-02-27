@@ -7282,10 +7282,6 @@ video {
     position: absolute;
   }
 
-  .md\:relative {
-    position: relative;
-  }
-
   .md\:top-\[70\%\] {
     top: 70%;
   }

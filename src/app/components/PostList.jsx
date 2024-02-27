@@ -1,12 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faBookmark } from '@fortawesome/free-solid-svg-icons';
-import '../styles/post-list.css';
 import Pagination from './Pagination';
+import '../styles/post-list.css';
 
 const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
   const [categoryPosts, setCategoryPosts] = useState({});

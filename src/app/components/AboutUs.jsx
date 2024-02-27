@@ -1,24 +1,9 @@
-import { useEffect, useState } from 'react';
-// import div from "react-bootstrap/div";
-// import div from "react-bootstrap/div";
-// import div from "react-bootstrap/div";
-// import div from "react-bootstrap/div";
+import { useEffect } from 'react';
 import PageHeader from './PageHeader';
 import AboutUsImg from '../images/about-us.jpg';
 import '../styles/about-us.css';
 
 const AboutUs = () => {
-  // const [isMobile, setisMobile] = useState(false);
-
-  // useEffect(() => {
-  //   window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-  //   const onWindowResize = () => {
-  //     window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-  //   };
-  //   window.addEventListener('resize', onWindowResize);
-  //   return () => window.removeEventListener('resize', onWindowResize);
-  // }, []);
-
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }, []);

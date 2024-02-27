@@ -1,15 +1,6 @@
 import { useRef, useState } from 'react';
 import emailjs from 'emailjs-com';
-// import div from 'react-bootstrap/div';
-const SUBJECTS = [
-  '--Please choose an option--',
-  '사업체 세금 보고',
-  '개인 세금 보고',
-  '은퇴연금',
-  'Medicare 건강보험',
-  '저축보험',
-  'Other',
-];
+import { SUBJECTS } from '../data/emailSubjects';
 import '../styles/email-form.css';
 
 const EmailForm = () => {
@@ -67,7 +58,7 @@ const EmailForm = () => {
               name="from_name"
               id="name"
               autoComplete="off"
-              className="form-control p-2 border border-1 block w-full"
+              className="form-control p-2 border-1 block w-full"
               required
             />
 
@@ -77,7 +68,7 @@ const EmailForm = () => {
               name="reply_to"
               id="email"
               autoComplete="off"
-              className="form-control p-2 border border-1 block w-full"
+              className="form-control p-2 border-1 block w-full"
               required
             />
 
@@ -85,7 +76,7 @@ const EmailForm = () => {
             <select
               name="subject"
               id="subject"
-              className="form-control p-2 border border-1 block w-full text-[#6A6A6A]"
+              className="form-control p-2 border-1 block w-full text-[#6A6A6A]"
               required
             >
               {SUBJECTS.map((subject, idx) => (
@@ -100,7 +91,7 @@ const EmailForm = () => {
               name="message"
               id="message"
               autoComplete="off"
-              className="form-control p-2 min-h-[200px] border border-1 block w-full"
+              className="form-control p-2 min-h-[200px] border-1 block w-full"
             />
 
             <button className="mt-2 email-form-button w-full">send</button>
