@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react';
-// import div from "react-bootstrap/div";
-// import div from "react-bootstrap/div";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import ContactForm from './ContactForm';
@@ -13,16 +11,6 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [showFormSuccess, setShowFormSuccess] = useState(false);
-  // const [isMobile, setisMobile] = useState(false);
-
-  // useEffect(() => {
-  //   window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-  //   const onWindowResize = () => {
-  //     window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-  //   };
-  //   window.addEventListener('resize', onWindowResize);
-  //   return () => window.removeEventListener('resize', onWindowResize);
-  // }, []);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });

@@ -1,35 +1,10 @@
-import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../images/logo.png';
-
 import '../styles/header.css';
 
-const Header = ({
-  showOffCanvas,
-  setShowOffCanvas,
-  showKakaoCanvas,
-  setShowKakaoCanvas,
-}) => {
-  // const [isMobile, setIsMobile] = useState(false);
-
-  // useEffect(() => {
-  //   window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-  //   const onWindowResize = () => {
-  //     window.innerWidth <= 767 ? setIsMobile(true) : setIsMobile(false);
-  //   };
-  //   window.addEventListener('resize', onWindowResize);
-  //   return () => window.removeEventListener('resize', onWindowResize);
-  // }, []);
-
-  const handleOffCanvasShow = () => {
-    setShowOffCanvas(true);
-  };
+const Header = ({ showOffCanvas, setShowOffCanvas, setShowKakaoCanvas }) => {
   const handleOffCanvasClose = () => {
     setShowOffCanvas(false);
   };
@@ -38,10 +13,7 @@ const Header = ({
     setShowKakaoCanvas(true);
   };
 
-  // const headerMobileView = isMobile ? 'header-mobile' : '';
-
   return (
-    // <header className={`${headerMobileView}`}>
     <header className=" flex flex-col">
       <div className="px-5 md:px-10 py-4">
         <div className="max-w-[2240px] mx-auto">

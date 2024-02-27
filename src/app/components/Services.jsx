@@ -1,42 +1,13 @@
-import { useEffect, useState } from 'react';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
+import { useEffect } from 'react';
 import EmailForm from './EmailForm';
 import PageHeader from './PageHeader';
+import ServiceItems from '../data/serviceItems';
 import '../styles/services.css';
-const ServiceItems = [
-  '한국거주 영주권, 시민권자 세금보고',
-  '증여, 상속세, 양도세 상담 (한국 및 미국)',
-  '사업체 세금 및 개인 세금 보고',
-  '세금공제용 은퇴연금 (IRA, SEP IRA, 401K) 전문',
-  '메디케어 건강보험 안내 (65세 이상)',
-  '저축보험 (가족의 보장+ 노후준비)',
-];
 
 const Services = () => {
-  // const [isMobile, setisMobile] = useState(false);
-  // const [isTablet, setisTablet] = useState(false);
-
-  // useEffect(() => {
-  //   window.innerWidth <= 991 ? setisTablet(true) : setisTablet(false);
-  //   window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-  //   const onWindowResize = () => {
-  //     window.innerWidth <= 991 ? setisTablet(true) : setisTablet(false);
-  //     window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-  //   };
-  //   window.addEventListener('resize', onWindowResize);
-  //   return () => window.removeEventListener('resize', onWindowResize);
-  // }, []);
-
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
-
-  // const servicePadding = isMobile ? '' : 'pe-5';
-  // const serviceWidth = isTablet ? 7 : 8;
-  // const emailFormWidth = isTablet ? 5 : 4;
 
   return (
     <div className="services-background">

@@ -1,17 +1,17 @@
 import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import PageHeader from './PageHeader';
-import '../styles/savings-info.css';
+import '../styles/medicare-info.css';
 
-const LifeInsuranceInfo = () => {
+const InsuranceInfo = () => {
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
 
   return (
-    <div className="savings-info-background">
-      <div className="savings-info-header-image">
-        <PageHeader title="Life Insurance 정보" />
+    <div className="medicare-info-background">
+      <div className="medicare-info-header-image">
+        <PageHeader title="Insurance 정보" />
       </div>
 
       <div className="max-w-[2240px] mx-auto">
@@ -23,4 +23,4 @@ const LifeInsuranceInfo = () => {
   );
 };
 
-export default LifeInsuranceInfo;
+export default InsuranceInfo;

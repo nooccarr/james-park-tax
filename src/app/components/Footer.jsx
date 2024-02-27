@@ -1,21 +1,6 @@
-import { useState, useEffect } from 'react';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
 import '../styles/footer.css';
 
 const Footer = () => {
-  // const [isMobile, setisMobile] = useState(false);
-
-  // useEffect(() => {
-  //   window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-  //   const onWindowResize = () => {
-  //     window.innerWidth <= 767 ? setisMobile(true) : setisMobile(false);
-  //   };
-  //   window.addEventListener('resize', onWindowResize);
-  //   return () => window.removeEventListener('resize', onWindowResize);
-  // }, []);
-
   const today = new Date();
 
   const newYorkOffice = () => (

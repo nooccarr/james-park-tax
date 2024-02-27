@@ -1,4 +1,3 @@
-// import div from 'react-bootstrap/div';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import '../styles/search-params.css';

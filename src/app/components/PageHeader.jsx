@@ -1,17 +1,9 @@
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
-
 const PageHeader = ({ title }) => {
   return (
     <div className="max-w-[2240px] mx-auto">
       <div className="py-16 md:py-28">
-        {/* <div className="py-10"> */}
         <div className="ps-5 md:ps-10 flex justify-center md:justify-start">
-          <div
-            className="text-4xl md:text-5xl font-semibold text-[#FFF9D1] text-center"
-            // style={{ color: '#FFF9D1', fontSize: '3em', fontWeight: 500 }}
-          >
+          <div className="text-4xl md:text-5xl font-semibold text-[#FFF9D1] text-center">
             {title}
           </div>
         </div>

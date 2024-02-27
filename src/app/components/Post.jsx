@@ -1,8 +1,5 @@
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
-// import div from 'react-bootstrap/div';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import pathToCapitalized from '../utils/pathToCapitalized';
