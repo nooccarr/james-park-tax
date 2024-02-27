@@ -7282,8 +7282,8 @@ video {
     position: absolute;
   }
 
-  .md\:sticky {
-    position: sticky;
+  .md\:relative {
+    position: relative;
   }
 
   .md\:top-\[70\%\] {
