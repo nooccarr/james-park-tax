@@ -53,7 +53,7 @@ const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
   return (
     <>
       <nav className="relative">
-        <div className="hidden md:block nav-container px-10">
+        <div className="nav-container hidden md:block px-10">
           <div className="py-3">
             <div className="max-w-[2240px] mx-auto">
               <div>
