@@ -20,7 +20,7 @@ const Posts = {
   '401K-403B-Traditional-IRA-Roth-IRA': {
     category: 'Tax',
     path: 'tax-info',
-    title: '401K, 403B, 트래디셔널 IRA, Roth IRA',
+    title: '401K, 403B, Traditional IRA, Roth IRA',
     description:
       '401K, 403B, Traditional IRA, Roth IRA  1. 401K, 403B Retirement Plan * 401K, 403B(Traditional, 세금공제) -회사에서 가입하는 은퇴연금으로 회사는 가입금액에 %로 Matchup 해줍니다. 본인이 가입한 금액은 Gross Income(총 소득)에서 공제가 되어 세금을 적게 납부합니다. 은퇴후 일정금액씩 찾아 사용할 수 있으며 그 금액만큼 그해 소득에 포함됩니다. * 401K...',
     article:
