@@ -29,9 +29,6 @@ const Results = ({
 
           <Outlet />
         </div>
-        <div>
-          <div className="text-center"></div>
-        </div>
       </div>
     </>
   );

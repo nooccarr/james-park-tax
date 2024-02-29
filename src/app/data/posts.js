@@ -1,8 +1,26 @@
 const Posts = {
+  'living-trust': {
+    category: 'Tax',
+    path: 'tax-info',
+    title: 'Living Trust',
+    description:
+      '리빙트러스트란 부동산, 현금, 사업체,동산 등 자산 가치가 있는 것을 위탁돤리자(Trustee)에게 맡겨서 위탁 관리를 시킨 후 일정 기간이 지나면 원래 수헤자(Benificiary)에게 증여하는 것을 말한다. 트러스트를 설정하는 이유는 유언이나 상속과는 달리 Probate Court를 거치지 않는다는 장점 때문이다. 예를 들면 부모가 사망시, 유언장을 작성하였든 하지 않았던간에 모든 부모의 재산은 Probate Court의 결정에 따라 분배되...',
+    article:
+      '<p>리빙트러스트란 부동산, 현금, 사업체,동산 등 자산 가치가 있는 것을 위탁돤리자(Trustee)에게 맡겨서 위탁 관리를 시킨 후 일정 기간이 지나면 원래 수헤자(Benificiary)에게 증여하는 것을 말한다.</p> <p>트러스트를 설정하는 이유는 유언이나 상속과는 달리 Probate Court를 거치지 않는다는 장점 때문이다. 예를 들면 부모가 사망시, 유언장을 작성하였든 하지 않았던간에 모든 부모의 재산은 Probate Court의 결정에 따라 분배되도록 법률로 정해져 있다. Probate Court는 사망한 부모의 모든 재산을 관리하며 사망 시 현존하는 모든 부채를 지불하고 유언장의 사실 확인을 거친 후 유언과 상속법에 의거해서 재산을 분배하는 법적 절차이다. 이는 비용도 많이 들고 시간도 오래 걸리고 Probate court 의 결정이 날때까지 재산를 관리할수없는 단점이 있다.</p> <p>그러나 Living Trust를 설정한 경우에는 위의 열거한 Probate Court의 절차를 거치지않고 수혜자(Benificiary)에게 전달되므로 많은 장점이 있게 되며, 또한 세금에 대해서도 혜택를 보게 되므로 트러스트를 설정하는 것이 바랍직한 방법이라고 하겠다.</p> <p>예를 들면 홍길동이라는 사람이 ABC Living Trust 를 설립하고, 본인 스스로를 위탁관리자로 지정하고, 자녀인 지혜를 수혜자로 지정한 다음, 본인이 소유하고 있던 부동산의 소유권을 이 ABC Living Trust로 이전하였다면 , 홍길동이 Trustor와 Trustee가 되고, 지혜가 Benificiary가 되는 것이다.</p> <p>이 위탁부동산의 소유권자는 ‘홍길동, Trustee of ABC Living Trust’로 등기하게 된다. 이 트러스트는 법적으로 해체하기 전까지는 영속적으로 존재할 수 있다는 장점이 있고, 여러 가지 세금혜택, 상속이나 증여의 한 벙법으로 사용되기도 한다. 트러스트 종류에는 다음의 두가지가 있다.</p> <p><strong>취소 불가능 트러스트 (Irrevocable Trust)</strong> : 신탁자가 수혜자의 동의없이는 신탁을 취소할 수 없을 뿐만 아니라 신탁자의 채권자로부터 재산이 보호 된다는 점이고, 취소 가능한 트러스트는 신탁자가 언제라도 신탁을 취소할 수 있기 때문에 채권자로 부터 신탁 재산을 보호받지 못한다는 점이다.</p> <p><strong>취소가능한 트러스트 (Revocable Trust)</strong> : 일반적으로 신탁자가 텍스보고하는 Form 1040에 신탁자의 Social Security Number로 신탁재산에서 발생한 모든 수입을 보고하고, 취소 불가능한 트러스트(Irrevocable Trust) 는 IRS로부터 텍스 넘버를 받아 텍스 Form 1041 신탁재산에서 발생한 수입을 보고해야한다.</p>',
+  },
+  'child-tax-credit-자녀양육-세금공제': {
+    category: 'Tax',
+    path: 'tax-info',
+    title: 'Child Tax Credit(자녀양육 세금공제)',
+    description:
+      'Child Tax Credit(자녀양육 세금공제) Child Tax Credit(자녀양육 세금공제)는 납부할 세금을 차감해주거나 Refund(환급)을 해주는 세액공제 제도 이며 Taxable Income(과세표준 금액, 1040 Line15)을 줄여주는 Deduction(소득공제)와는 차이가 있다. 1. Credit(세금공제) 1) 자녀 1인당 $2,000 2) 납부할 세금이 적어서 $2,000을 다 받지 못하면 $1,400 지급 2. Inco...',
+    article:
+      '<h6>Child Tax Credit(자녀양육 세금공제)</h6> <p>Child Tax Credit(자녀양육 세금공제)는 납부할 세금을 차감해주거나 Refund(환급)을 해주는 세액공제 제도 이며 Taxable Income(과세표준 금액, 1040 Line15)을 줄여주는 Deduction(소득공제)와는 차이가 있다.</p> <p>1. Credit(세금공제) <br/>1) 자녀 1인당 $2,000 <br/>2) 납부할 세금이 적어서 $2,000을 다 받지 못하면 2023년 보고 $1,800, 2024년 보고 $1900, 2025년 보고 $2,000로 매년 $100씩 상향 지급</p> <p>2. Income(부모의 소득) <br/>Income(부모의 소득) 즉, Modified AGI(1040 L11)가 MFJ(부부합산보고): $400,000 나 Single(개인보고): $200,000 의 소득을 초과하면 세금공제 금액이 줄어든다.</p> <p>3. 자녀기준 <br/>- 세금보고년도말 기준 만 16세까지 <br/>- 자녀, 수양자녀, 입양자녀, 형제,자매가 해당됨 <br/>- 부모가 연간 생활비의 50%이상을 지원해야하고 함께 거주를 반년이상 해야한다.</p> <h6>Other Dependant Credit(기타양육 세금공제)</h6> <p>1. 기준 : dependant의 나이와 상관없음(18세 이상 부모, 친척및 타인도 가능) <br/>2. 소셜번호 혹은 Tax-ID가 있어야함 <br/>3. 세금공제 금액 : 1인당 $500이며 납부해야할 세금이 있어야 공제 가능하며 납부할 세금이 없으면 환급되지 읺습니다.</p>',
+  },
   '401K-403B-Traditional-IRA-Roth-IRA': {
     category: 'Tax',
     path: 'tax-info',
-    title: '401K, 403B, 트래디셔널 IRA, Roth IRA',
+    title: '401K, 403B, Traditional IRA, Roth IRA',
     description:
       '401K, 403B, Traditional IRA, Roth IRA  1. 401K, 403B Retirement Plan * 401K, 403B(Traditional, 세금공제) -회사에서 가입하는 은퇴연금으로 회사는 가입금액에 %로 Matchup 해줍니다. 본인이 가입한 금액은 Gross Income(총 소득)에서 공제가 되어 세금을 적게 납부합니다. 은퇴후 일정금액씩 찾아 사용할 수 있으며 그 금액만큼 그해 소득에 포함됩니다. * 401K...',
     article:
