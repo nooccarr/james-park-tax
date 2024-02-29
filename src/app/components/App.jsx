@@ -146,8 +146,7 @@ const App = () => {
               </svg>
             </div>
           </div>
-          <div className="p-4">&nbsp;</div>
-          <div className="flex justify-center">
+          <div className="mt-12 flex justify-center">
             <img src={Kakaotalk} alt="" className="offcanvas-kakao-image" />
           </div>
         </div>
