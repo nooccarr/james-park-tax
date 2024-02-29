@@ -43,7 +43,7 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
 
           {Object.entries(categoryPosts).map(([slug, post]) => (
             <div key={slug}>
-              <div md={{ span: 10, offset: 1 }} className="mb-5">
+              <div className="md:mx-10 mb-5">
                 <section className="article-container mb-3">
                   <div className="p-0 mt-2">
                     <Link
@@ -85,7 +85,7 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
         </div>
 
         {Object.keys(categoryPosts).length ? (
-          <div className="mt-20">
+          <div className="md:px-10 mt-20">
             <Pagination
               itemsPerPage={5}
               totalItems={Object.keys(categoryPosts).length}
