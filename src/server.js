@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '..', 'dist')));
 
 // Serve requests from the router
-app.use('/users', require('./lib/routes/userRoutes'));
-app.use('/posts', require('./lib/routes/postRoutes'));
+app.use('/users', require(path.join(__dirname, 'lib', 'routes', 'userRoutes')));
+app.use('/posts', require(path.join(__dirname, 'lib', 'routes', 'postRoutes')));
 
 // Handle client routing, return all requests to the app
 app.get('*', (_, res) => {
