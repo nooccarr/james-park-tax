@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": "dist",
   "builds": [
     {
       "src": "./src/lib/server.js",
@@ -8,12 +11,6 @@
     {
       "src": "./dist/index.html",
       "use": "@vercel/static"
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "./src/lib/server.js"
     }
   ]
 }
