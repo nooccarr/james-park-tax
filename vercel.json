@@ -7,7 +7,7 @@
       "config": {
         "command": "npm run build"
       }
-    }
+    },
     {
       "src": "./src/lib/server.js",
       "use": "@vercel/node",
