@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "/src/server.js",
+  "home": "https://james-park-tax-two.vercel.app/",
   "scripts": {
     "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",
     "client:dev": "vite",
