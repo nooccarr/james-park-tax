@@ -8,5 +8,11 @@
         "command": "npm run build && npm start"
       }
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
   ]
 }
