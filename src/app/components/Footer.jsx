@@ -6,7 +6,7 @@ const Footer = () => {
   const newYorkOffice = () => (
     <>
       <div className="footer-location-title">New York</div>
-      <div className="footer-location-address">163-10 Northern Blvd</div>
+      <div className="footer-location-address">163-10 Northern Blvd, #311</div>
       <div className="pb-5 footer-location-address">Flushing, NY 11358</div>
     </>
   );
@@ -14,7 +14,7 @@ const Footer = () => {
   const newJerseyOffice = () => (
     <>
       <div className="footer-location-title">New Jersey</div>
-      <div className="footer-location-address">725 Grand Ave</div>
+      <div className="footer-location-address">725 Grand Ave, #301</div>
       <div className="pb-5 footer-location-address">Ridgefield, NJ 07657</div>
     </>
   );
