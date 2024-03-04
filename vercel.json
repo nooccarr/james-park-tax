@@ -15,11 +15,5 @@
       "source": "/(.*)",
       "destination": "./src/lib/server.js"
     }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/"
-    }
   ]
 }
