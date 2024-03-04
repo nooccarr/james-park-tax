@@ -2,13 +2,6 @@
   "version": 2,
   "builds": [
     {
-      "src": "./dist/index.html",
-      "use": "@vercel/static",
-      "config": {
-        "command": "npm run build"
-      }
-    },
-    {
       "src": "./src/lib/server.js",
       "use": "@vercel/node",
       "config": {
