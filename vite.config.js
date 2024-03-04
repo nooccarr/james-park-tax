@@ -4,11 +4,10 @@ dotenv.config();
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
-// const { PORT = 4000 } = process.env;
+const { PORT = 4000 } = process.env;
 
 export default defineConfig({
   plugins: [react()],
-  base: '/',
   build: {
     outDir: 'dist', // The directory to output the built files in
   },
