@@ -89,6 +89,8 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
             <Pagination
               itemsPerPage={5}
               totalItems={Object.keys(categoryPosts).length}
+              paginate={() => {}}
+              path={path}
             />
           </div>
         ) : null}

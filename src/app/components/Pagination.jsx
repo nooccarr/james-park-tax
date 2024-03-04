@@ -1,4 +1,4 @@
-const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
+const Pagination = ({ itemsPerPage, totalItems, paginate, path }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
@@ -36,9 +36,9 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
           <p className="text-sm text-gray-700">Showing</p>
           <span className="font-medium">1</span>
           <p className="text-sm text-gray-700">to</p>
-          <span className="font-medium">10</span>
+          <span className="font-medium">{totalItems}</span>
           <p className="text-sm text-gray-700">of</p>
-          <span className="font-medium">97</span>
+          <span className="font-medium">{totalItems}</span>
           <p className="text-sm text-gray-700">results</p>
         </div>
         <div>
@@ -64,46 +64,24 @@ const Pagination = ({ itemsPerPage, totalItems, paginate }) => {
                 />
               </svg>
             </a>
-            <a
-              href="#"
-              aria-current="page"
-              className="relative z-10 inline-flex items-center bg-[#9e9a79] px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-            >
-              1
-            </a>
-            <a
-              href="#"
-              className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-            >
-              2
-            </a>
-            <a
+            {pageNumbers.map((number) => (
+              <a
+                key={number}
+                href={`${path}/page/${number}`}
+                onClick={() => paginate(number)}
+                aria-current="page"
+                className="relative z-10 inline-flex items-center bg-[#9e9a79] px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              >
+                {number}
+              </a>
+            ))}
+            {/* TODO: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0" */}
+            {/* <a
               href="#"
               className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
             >
               3
-            </a>
-            <span className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-300 focus:outline-offset-0">
-              ...
-            </span>
-            <a
-              href="#"
-              className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-            >
-              8
-            </a>
-            <a
-              href="#"
-              className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-            >
-              9
-            </a>
-            <a
-              href="#"
-              className="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
-            >
-              10
-            </a>
+            </a> */}
             <a
               href="#"
               className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
