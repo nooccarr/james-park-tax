@@ -8,15 +8,17 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  // server: {
-  //   proxy: {
-  //     '/api': {
-  //       target: `http://localhost:${PORT}`,
-  //       changeOrigin: true,
-  //     },
-  //   },
-  // },
-  // build: {
-  //   outDir: 'dist'
-  // }
+  base: '/',
+  build: {
+    outDir: 'dist', // The directory to output the built files in
+  },
+  server: {
+    port: 4000,
+    proxy: {
+      '/api': {
+        target: `http://localhost:${PORT}`,
+        changeOrigin: true,
+      },
+    },
+  },
 });
