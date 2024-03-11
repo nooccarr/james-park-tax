@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
-
+const dbConn = require('./lib/config/dbConn');
+const { default: mongoose } = require('mongoose');
 const { PORT = 4000 } = process.env;
 
 const app = express();
@@ -14,7 +15,7 @@ app.use('/', express.static(path.join(__dirname, '..', 'dist')));
 
 // Serve requests from the router
 app.use('/users', require(path.join(__dirname, 'lib', 'routes', 'userRoutes')));
-app.use('/posts', require(path.join(__dirname, 'lib', 'routes', 'postRoutes')));
+app.use('/blogs', require(path.join(__dirname, 'lib', 'routes', 'blogRoutes')));
 
 // Handle client routing, return all requests to the app
 app.get('*', (_, res) => {
@@ -23,6 +24,16 @@ app.get('*', (_, res) => {
   });
 });
 
-const server = app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+dbConn();
+
+mongoose.connection.once('open', () => {
+  console.log('Connected to MongoDB');
+
+  const server = app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+});
+
+mongoose.connection.on('error', (error) => {
+  console.error('Error connecting to MongoDB', error);
 });
