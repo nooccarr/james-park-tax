@@ -5,10 +5,12 @@ const blogsController = require('../controllers/blogsController');
 router
   .route('/')
   .get(blogsController.getAllBlogs)
-  .post(blogsController.createNewBlog)
-  .patch(blogsController.updateBlog)
-  .delete(blogsController.deleteBlog);
+  .post(blogsController.createNewBlog);
 
-router.route('/:id').get(blogsController.getBlogById);
+router
+  .route('/:id')
+  .get(blogsController.getBlogById)
+  .put(blogsController.updateBlog)
+  .delete(blogsController.deleteBlog);
 
 module.exports = router;
