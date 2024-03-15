@@ -158,6 +158,7 @@ strong {
 
 .post-content table {
   margin-bottom: 30px;
+  white-space: nowrap;
 }
 
 .post-content tr {
