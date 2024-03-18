@@ -31,7 +31,8 @@
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.17.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "vite-node": "^1.4.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.1.0",
