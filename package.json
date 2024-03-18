@@ -11,7 +11,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "start": "node src/server.js",
-    "tw": "npx tailwindcss -i ./src/app/input.css -o ./src/app/output.css --watch"
+    "tw": "npx tailwindcss -i ./src/app/input.css -o ./src/app/output.css --watch",
+    "kill": "lsof -i tcp:4000 | awk 'NR!=1 {print $2}' | xargs kill"
   },
   "keywords": [],
   "author": "",
@@ -30,7 +31,8 @@
     "react-dom": "^18.2.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.17.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "vite-node": "^1.4.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.1.0",
