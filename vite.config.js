@@ -8,9 +8,9 @@ const { PORT = 4000 } = process.env;
 
 export default defineConfig({
   plugins: [react()],
-  build: {
-    outDir: 'dist', // The directory to output the built files in
-  },
+  // build: {
+  //   outDir: 'dist', // The directory to output the built files in
+  // },
   server: {
     port: 4000,
     proxy: {

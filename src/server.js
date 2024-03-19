@@ -2,9 +2,6 @@ const express = require('express');
 const path = require('path');
 const dbConn = require('./lib/config/dbConn');
 const { default: mongoose } = require('mongoose');
-const { createServer } = require('vite');
-const { ViteNodeServer } = require('vite-node/server');
-const { installSourcemapsSupport } = require('vite-node/source-map');
 const { PORT = 4000 } = process.env;
 
 const app = express();
@@ -29,28 +26,12 @@ app.get('*', (_, res) => {
 
 dbConn();
 
-mongoose.connection.once('open', async () => {
+mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
 
   const server = app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
-
-  const viteServer = await createServer({
-    optimizeDeps: {
-      disabled: true,
-    },
-  });
-
-  await viteServer.pluginContainer.buildStart({});
-
-  const node = new ViteNodeServer(viteServer);
-
-  installSourcemapsSupport({
-    getSourceMap: (source) => node.getSourceMap(source),
-  });
-
-  await viteServer.close();
 });
 
 mongoose.connection.on('error', (error) => {
