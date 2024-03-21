@@ -1,3 +1,4 @@
+const compression = require('compression');
 const express = require('express');
 const path = require('path');
 const dbConn = require('./config/dbConn');
@@ -6,6 +7,7 @@ const { PORT = 4000 } = process.env;
 
 const app = express();
 
+app.use(compression());
 // Middleware that looks at requests where the Content-Type header matches the type option, and converts the body into a JavaScript object
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
