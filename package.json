@@ -3,16 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
-  "home": "https://james-park-tax-two.vercel.app/",
+  "home": "https://www.jamesparktax.com/",
   "scripts": {
-    "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",
-    "client:dev": "vite",
-    "server:dev": "nodemon api/index.ts",
+    "dev": "concurrently \"npm run client\" \"npm run server\"",
+    "client": "vite",
+    "server": "nodemon api/index.ts",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node api/index.ts",
     "tw": "npx tailwindcss -i ./src/app/input.css -o ./src/app/output.css --watch",
-    "kill": "kill -9 $(lsof -t -i:4000)"
+    "kill": "kill -9 $(lsof -t -i:3000) && kill -9 $(lsof -t -i:4000)"
   },
   "keywords": [],
   "author": "",
@@ -38,6 +37,7 @@
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.1",
     "tailwindcss": "^3.4.1",
+    "ts-node": "^10.9.2",
     "vite": "^4.4.11"
   }
 }

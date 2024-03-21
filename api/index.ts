@@ -18,8 +18,8 @@ app.use('/users', require(path.join(__dirname, 'routes', 'userRoutes')));
 app.use('/blogs', require(path.join(__dirname, 'routes', 'blogRoutes')));
 
 // Handle client routing, return all requests to the app
-app.get('*', (_, res) => {
-  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
+app.get('*', (_: any, res: any) => {
+  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err: any) => {
     if (err) console.log(err);
   });
 });
@@ -34,7 +34,7 @@ mongoose.connection.once('open', () => {
   });
 });
 
-mongoose.connection.on('error', (error) => {
+mongoose.connection.on('error', (error: any) => {
   console.error('Error connecting to MongoDB', error);
 });
 
