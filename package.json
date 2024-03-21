@@ -10,6 +10,7 @@
     "server": "nodemon api/index.ts",
     "build": "vite build",
     "preview": "vite preview",
+    "start": "ts-node api/index.ts",
     "tw": "npx tailwindcss -i ./src/app/input.css -o ./src/app/output.css --watch",
     "kill": "kill -9 $(lsof -t -i:3000) && kill -9 $(lsof -t -i:4000)"
   },
