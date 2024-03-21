@@ -2,15 +2,15 @@
   "name": "jamesparktax",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "index.js",
   "home": "https://www.jamesparktax.com/",
   "scripts": {
     "dev": "concurrently \"npm run client\" \"npm run server\"",
     "client": "vite",
-    "server": "nodemon api/index.ts",
+    "server": "nodemon api/index.js",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "",
+    "start": "node api/index.js",
     "tw": "npx tailwindcss -i ./src/app/input.css -o ./src/app/output.css --watch",
     "kill": "kill -9 $(lsof -t -i:3000) && kill -9 $(lsof -t -i:4000)"
   },
@@ -38,7 +38,6 @@
     "concurrently": "^8.2.2",
     "nodemon": "^3.0.1",
     "tailwindcss": "^3.4.1",
-    "ts-node": "^10.9.2",
     "vite": "^4.4.11"
   }
 }
