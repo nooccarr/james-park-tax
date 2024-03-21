@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const dbConn = require('./lib/config/dbConn');
+const dbConn = require('./config/dbConn');
 const { default: mongoose } = require('mongoose');
 const { PORT = 4000 } = process.env;
 
@@ -14,8 +14,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', express.static(path.join(__dirname, '..', 'dist')));
 
 // Serve requests from the router
-app.use('/users', require(path.join(__dirname, 'lib', 'routes', 'userRoutes')));
-app.use('/blogs', require(path.join(__dirname, 'lib', 'routes', 'blogRoutes')));
+app.use('/users', require(path.join(__dirname, 'routes', 'userRoutes')));
+app.use('/blogs', require(path.join(__dirname, 'routes', 'blogRoutes')));
 
 // Handle client routing, return all requests to the app
 app.get('*', (_, res) => {
@@ -37,3 +37,5 @@ mongoose.connection.once('open', () => {
 mongoose.connection.on('error', (error) => {
   console.error('Error connecting to MongoDB', error);
 });
+
+module.exports = app;

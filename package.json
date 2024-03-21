@@ -2,15 +2,15 @@
   "name": "jamesparktax",
   "version": "1.0.0",
   "description": "",
-  "main": "/src/server.js",
+  "main": "index.ts",
   "home": "https://james-park-tax-two.vercel.app/",
   "scripts": {
     "dev": "concurrently \"npm run client:dev\" \"npm run server:dev\"",
     "client:dev": "vite",
-    "server:dev": "nodemon src/server.js",
+    "server:dev": "nodemon api/index.ts",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node src/server.js",
+    "start": "node api/index.ts",
     "tw": "npx tailwindcss -i ./src/app/input.css -o ./src/app/output.css --watch",
     "kill": "kill -9 $(lsof -t -i:4000)"
   },
