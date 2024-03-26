@@ -9,7 +9,12 @@ const Post = ({ posts }) => {
   const { slug } = useParams();
   const post = posts[slug];
 
-  if (!post) return <span>The post you've requested doesn't exist.</span>;
+  if (!post)
+    return (
+      <span className="flex justify-center text-xl">
+        The post you've requested doesn't exist.
+      </span>
+    );
 
   const { title, article, category, path } = post;
   const articleContent = article;

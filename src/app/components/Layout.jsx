@@ -40,12 +40,12 @@ const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
                       </Link>
                     </div>
                     <div>
-                      <Link className="navsearch">
+                      <Link to="new-post" className="navsearch">
                         <FontAwesomeIcon icon={faPenToSquare} />
                       </Link>
                     </div>
                     <div>
-                      <Link className="navsearch">
+                      <Link to="login" className="navsearch">
                         <FontAwesomeIcon icon={faUser} />
                       </Link>
                     </div>

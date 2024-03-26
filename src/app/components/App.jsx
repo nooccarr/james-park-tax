@@ -11,6 +11,9 @@ import ContactUs from './ContactUs';
 import Results from './Results';
 import PostList from './PostList';
 import Post from './Post';
+import NewPost from './NewPost';
+import EditPost from './EditPost';
+import Login from './Login';
 import NoMatch from './NoMatch';
 import Footer from './Footer';
 import Kakaotalk from '../images/kakaotalk-offcanvas.png';
@@ -128,6 +131,9 @@ const App = () => {
             <Route path=":slug" element={<Post posts={searchPosts} />} />
           </Route>
           <Route path="contact-us" element={<ContactUs />} />
+          <Route path="new-post" element={<NewPost />} />
+          <Route path="edit-post" element={<EditPost />} />
+          <Route path="login" element={<Login />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
