@@ -18,10 +18,11 @@ const NewPost = () => {
     const data = {
       user: '65f1ee2a444a71cb5af846bd',
       slug: titleToSlug(formData.get('title')),
+      // TODO: trim properly
       category: formData.get('category') ?? '',
       path: categoryToPath(formData.get('category')),
-      title: formData.get('title') ?? '',
-      description: stripHTML(content),
+      title: formData.get('title').trim() ?? '',
+      description: stripHTML(content).trim(),
       article: content,
       hidden: formData.get('hidden') ?? false,
     };
@@ -60,7 +61,11 @@ const NewPost = () => {
         </label>
 
         <TipTap setContent={setContent} />
-        <button type="submit">Create Post</button>
+        <div>
+          <button type="submit" className="email-form-button bg-[#043a49]">
+            Create Post
+          </button>
+        </div>
       </form>
     </div>
   );
