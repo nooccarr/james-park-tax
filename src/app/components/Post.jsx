@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faBookmark } from '@fortawesome/free-solid-svg-icons';
-import pathToCapitalized from '../utils/pathToCapitalized';
+import { pathToCapitalize } from '../utils/convertText';
 import '../styles/post.css';
 
 const Post = ({ posts }) => {
@@ -18,7 +18,7 @@ const Post = ({ posts }) => {
 
   const { title, article, category, path } = post;
   const articleContent = article;
-  const capitalizedPath = pathToCapitalized(path);
+  const capitalizedPath = pathToCapitalize(path);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
