@@ -4,7 +4,7 @@ import PageHeader from './PageHeader';
 import usePostData from '../hooks/usePostData';
 import TipTap from './TipTap';
 import stripHTML from '../utils/stripHTML';
-import { titleToSlug, categoryToPath } from '../utils/convertText';
+import { formatTitle, categoryToPath } from '../utils/convertText';
 
 const NewPost = () => {
   const [content, setContent] = useState('');
@@ -17,12 +17,11 @@ const NewPost = () => {
     const formData = new FormData(event.target);
     const data = {
       user: '65f1ee2a444a71cb5af846bd',
-      slug: titleToSlug(formData.get('title')),
-      // TODO: trim properly
+      slug: formatTitle(formData.get('title'), ' '),
       category: formData.get('category') ?? '',
       path: categoryToPath(formData.get('category')),
-      title: formData.get('title').trim() ?? '',
-      description: stripHTML(content).trim(),
+      title: formatTitle(formData.get('title'), '-') ?? '',
+      description: stripHTML(content),
       article: content,
       hidden: formData.get('hidden') ?? false,
     };

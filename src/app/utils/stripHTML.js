@@ -1,5 +1,5 @@
 const stripHtml = (html) => {
-  const strippedHtml = html.replace(/<[^>]+>/g, '');
+  const strippedHtml = html.replace(/<[^>]+>/g, '').trim();
   if (strippedHtml.length < 250) return strippedHtml;
   return `${strippedHtml.slice(0, 250)}...`;
 };
