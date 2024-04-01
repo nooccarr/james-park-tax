@@ -27,7 +27,7 @@ const NewPost = () => {
     };
 
     console.log(data);
-    // postData(data);
+    postData(data);
   };
 
   return (
