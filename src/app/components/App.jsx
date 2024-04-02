@@ -17,6 +17,7 @@ import Login from './Login';
 import NoMatch from './NoMatch';
 import Footer from './Footer';
 import Kakaotalk from '../images/kakaotalk-offcanvas.png';
+import useFetchData from '../hooks/useFetchData';
 import '../styles/app.css';
 import Posts from '../data/posts';
 
@@ -28,18 +29,21 @@ const App = () => {
   const [searchLength, setSearchLength] = useState(0);
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const [showKakaoCanvas, setShowKakaoCanvas] = useState(false);
+  const [data, error] = useFetchData('/blogs');
 
   useEffect(() => {
-    requestPosts();
+    // const requestPosts = () => { TODO:
+    //   try {
+    const myposts = data();
+    //     console.log('POSTS:', myposts);
+    //     setPosts(Posts);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
+    // requestPosts();
+    console.log('DATA:', data);
   }, []);
-
-  const requestPosts = async () => {
-    try {
-      setPosts(Posts);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   const handleSearchQueryChange = (e) => {
     setSearchQuery(e.target.value);

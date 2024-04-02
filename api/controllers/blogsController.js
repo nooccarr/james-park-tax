@@ -1,6 +1,4 @@
 const Blog = require('../models/Blog');
-const multer = require('multer');
-const upload = multer(); // TODO: figure out multer
 
 const getAllBlogs = async (_, res) => {
   const blogs = await Blog.find({});
@@ -15,21 +13,14 @@ const getBlogById = async (req, res) => {
 
 const createNewBlog = async (req, res) => {
   // const { user, slug, category, path, title, description, article, hidden } = req.body;
+  const newBlog = new Blog(req.body);
 
-  upload.none()(req, res, async (err) => {
-    if (err) {
-      return res.status(400).json({ message: err.message });
-    }
-
-    const newBlog = new Blog(req.body);
-    console.log(req.body);
-    try {
-      const savedBlog = await newBlog.save();
-      res.json(savedBlog);
-    } catch (error) {
-      res.status(400).json({ message: error.message });
-    }
-  });
+  try {
+    const savedBlog = await newBlog.save();
+    res.json(savedBlog);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
 
 // blogs/:slug

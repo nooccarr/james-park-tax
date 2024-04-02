@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
-const usePostData = (url, data) => {
+const usePostData = (url) => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const postData = async () => {
+  const postData = async (data) => {
     setIsLoading(true);
+    console.log('DATA:', data);
     try {
       const result = await fetch(url, {
         method: 'POST',
@@ -16,8 +17,8 @@ const usePostData = (url, data) => {
         body: JSON.stringify(data),
       });
       const responseJson = await result.json();
-      setResponse(responseJson);
       setIsLoading(false);
+      console.log('RESPONSE:', responseJson);
     } catch (error) {
       setError(error);
       setIsLoading(false);

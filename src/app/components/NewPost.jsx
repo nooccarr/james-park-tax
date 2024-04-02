@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import PageHeader from './PageHeader';
-// import useFetchData from '../hooks/useFetchData';
 import usePostData from '../hooks/usePostData';
 import TipTap from './TipTap';
 import stripHTML from '../utils/stripHTML';
@@ -8,7 +7,6 @@ import { formatTitle, categoryToPath } from '../utils/convertText';
 
 const NewPost = () => {
   const [content, setContent] = useState('');
-  // const { data, error } = useFetchData('/blogs');
   const [postData, { response, error, isLoading }] = usePostData('/blogs');
 
   const handleSubmit = (event) => {
@@ -26,7 +24,7 @@ const NewPost = () => {
       hidden: formData.get('hidden') ?? false,
     };
 
-    console.log(data);
+    console.log('NEW POST DATA:', data);
     postData(data);
   };
 
