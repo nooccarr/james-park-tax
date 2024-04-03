@@ -55,18 +55,18 @@
 
 .post-content h1 {
   color: #6a6a6a;
-  font-size: 30px;
+  font-size: 32px;
   font-weight: 700;
   margin-bottom: 30px;
-  line-height: 1;
+  line-height: 1.5;
 }
 
 .post-content h2 {
   color: #6a6a6a;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
   margin-bottom: 30px;
-  line-height: 1;
+  line-height: 1.5;
 }
 
 .post-content h3 {
@@ -74,7 +74,7 @@
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 30px;
-  line-height: 1;
+  line-height: 1.5;
 }
 
 .post-content h4 {
@@ -104,7 +104,7 @@
   font-weight: 700;
   margin-bottom: 30px;
   border-left: 5px solid #9e9a79;
-  padding-left: 10px;
+  padding-left: 12px;
   line-height: 1.5;
 }
 

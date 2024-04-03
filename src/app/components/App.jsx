@@ -11,13 +11,18 @@ import ContactUs from './ContactUs';
 import Results from './Results';
 import PostList from './PostList';
 import Post from './Post';
+import NewPost from './NewPost';
+import EditPost from './EditPost';
+import Login from './Login';
 import NoMatch from './NoMatch';
 import Footer from './Footer';
 import Kakaotalk from '../images/kakaotalk-offcanvas.png';
+import useFetchData from '../hooks/useFetchData';
 import '../styles/app.css';
 import Posts from '../data/posts';
 
 const App = () => {
+  const [data, error] = useFetchData('/blogs');
   const [posts, setPosts] = useState({});
   const [searchPosts, setSearchPosts] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
@@ -27,16 +32,9 @@ const App = () => {
   const [showKakaoCanvas, setShowKakaoCanvas] = useState(false);
 
   useEffect(() => {
-    requestPosts();
-  }, []);
-
-  const requestPosts = async () => {
-    try {
-      setPosts(Posts);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    setPosts(Posts);
+    // setPosts(data);
+  }, [data]);
 
   const handleSearchQueryChange = (e) => {
     setSearchQuery(e.target.value);
@@ -128,6 +126,9 @@ const App = () => {
             <Route path=":slug" element={<Post posts={searchPosts} />} />
           </Route>
           <Route path="contact-us" element={<ContactUs />} />
+          <Route path="new-post" element={<NewPost />} />
+          <Route path="edit-post" element={<EditPost />} />
+          <Route path="login" element={<Login />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
