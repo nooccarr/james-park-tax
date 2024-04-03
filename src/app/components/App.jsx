@@ -22,6 +22,7 @@ import '../styles/app.css';
 import Posts from '../data/posts';
 
 const App = () => {
+  const [data, error] = useFetchData('/blogs');
   const [posts, setPosts] = useState({});
   const [searchPosts, setSearchPosts] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
@@ -29,21 +30,11 @@ const App = () => {
   const [searchLength, setSearchLength] = useState(0);
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const [showKakaoCanvas, setShowKakaoCanvas] = useState(false);
-  const [data, error] = useFetchData('/blogs');
 
   useEffect(() => {
-    // const requestPosts = () => { TODO:
-    //   try {
-    const myposts = data();
-    //     console.log('POSTS:', myposts);
-    //     setPosts(Posts);
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // };
-    // requestPosts();
-    console.log('DATA:', data);
-  }, []);
+    setPosts(Posts);
+    // setPosts(data);
+  }, [data]);
 
   const handleSearchQueryChange = (e) => {
     setSearchQuery(e.target.value);

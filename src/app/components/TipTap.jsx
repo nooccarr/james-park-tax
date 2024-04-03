@@ -28,7 +28,7 @@ const MenuBar = ({ setContent }) => {
   }, [editor]);
 
   return (
-    <div className="flex flex-wrap gap-2 pb-10">
+    <div className="flex flex-wrap gap-2 mb-10 border border-blue-500">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={!editor.can().chain().focus().toggleBold().run()}
@@ -400,15 +400,24 @@ const extensions = [
 // </table>
 // `;
 
-const content = '';
+const content = '<p>Hello World!</p>';
 
 const TipTap = ({ setContent }) => {
   return (
-    <div className="p-10">
+    <div className="p-10 border border-black">
       <EditorProvider
         slotBefore={<MenuBar setContent={setContent} />}
         extensions={extensions}
         content={content}
+        editorProps={{
+          attributes: {
+            class:
+              'prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto focus:outline-none bg-gray-200 p-1 h-96',
+          },
+          // transformPastedText(text) {
+          //   return text.toUpperCase();
+          // },
+        }}
       ></EditorProvider>
     </div>
   );

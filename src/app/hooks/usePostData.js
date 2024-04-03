@@ -7,7 +7,6 @@ const usePostData = (url) => {
 
   const postData = async (data) => {
     setIsLoading(true);
-    console.log('DATA:', data);
     try {
       const result = await fetch(url, {
         method: 'POST',
@@ -18,7 +17,7 @@ const usePostData = (url) => {
       });
       const responseJson = await result.json();
       setIsLoading(false);
-      console.log('RESPONSE:', responseJson);
+      // console.log('RESPONSE:', responseJson);
     } catch (error) {
       setError(error);
       setIsLoading(false);
