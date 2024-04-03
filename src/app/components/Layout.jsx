@@ -1,6 +1,12 @@
 import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from '@clerk/clerk-react';
+import {
   faMagnifyingGlass,
   faPenToSquare,
   faUser,
@@ -33,22 +39,28 @@ const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
                     </div>
                   ))}
 
-                  <div className="flex items-center gap-4">
-                    <div className="">
-                      <Link to="search" className="navsearch">
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                      </Link>
-                    </div>
-                    <div>
+                  <div className="flex items-center gap-6">
+                    <Link to="search" className="navsearch">
+                      <FontAwesomeIcon icon={faMagnifyingGlass} />
+                    </Link>
+
+                    <SignedIn>
                       <Link to="new-post" className="navsearch">
                         <FontAwesomeIcon icon={faPenToSquare} />
                       </Link>
-                    </div>
-                    <div>
-                      <Link to="login" className="navsearch">
-                        <FontAwesomeIcon icon={faUser} />
-                      </Link>
-                    </div>
+                      <UserButton afterSignOutUrl="/" />
+                    </SignedIn>
+
+                    <SignedOut>
+                      <SignInButton>
+                        <div className="hover:cursor-pointer">
+                          <FontAwesomeIcon
+                            icon={faUser}
+                            className="navsearch"
+                          />
+                        </div>
+                      </SignInButton>
+                    </SignedOut>
                   </div>
                 </div>
               </div>
