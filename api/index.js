@@ -1,19 +1,31 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const dbConn = require('./config/dbConn');
 const { default: mongoose } = require('mongoose');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const { PORT = 4000 } = process.env;
 
 const app = express();
 
+app.use(
+  cors({
+    origin: ['http://localhost:4000', 'https://www.jamesparktax.com'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  })
+);
 // Middleware that looks at requests where the Content-Type header matches the type option, and converts the body into a JavaScript object
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // Serve static files from the React app
 app.use('/', express.static(path.join(__dirname, '..', 'dist')));
 
 // Serve requests from the router
+app.use('/', require(path.join(__dirname, 'routes', 'authRoutes')));
 app.use('/users', require(path.join(__dirname, 'routes', 'userRoutes')));
 app.use('/blogs', require(path.join(__dirname, 'routes', 'blogRoutes')));
 
