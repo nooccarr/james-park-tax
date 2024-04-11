@@ -9,10 +9,10 @@ const signUp = async (req, res, next) => {
 
     if (existingUser) {
       if (existingUser.email === email) {
-        return res.json({ message: 'Email already exists' });
+        return res.status(409).json({ message: 'Email already exists' });
       }
       if (existingUser.username === username) {
-        return res.json({ message: 'Username already exists' });
+        return res.status(409).json({ message: 'Username already exists' });
       }
     }
     const user = await User.create(req.body);
@@ -27,6 +27,7 @@ const signUp = async (req, res, next) => {
     next();
   } catch (error) {
     console.error(error);
+    return res.status(400).json({ message: error.message });
   }
 };
 
