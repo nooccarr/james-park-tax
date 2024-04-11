@@ -13,7 +13,8 @@ import PostList from './PostList';
 import Post from './Post';
 import NewPost from './NewPost';
 import EditPost from './EditPost';
-// import Login from './Login';
+import Login from './Login';
+import Signup from './Signup';
 import KakaoCanvas from './KakaoCanvas';
 import NoMatch from './NoMatch';
 import Footer from './Footer';
@@ -128,7 +129,8 @@ const App = () => {
           <Route path="contact-us" element={<ContactUs />} />
           <Route path="new-post" element={<NewPost />} />
           <Route path="edit-post" element={<EditPost />} />
-          {/* <Route path="login" element={<Login />} /> */}
+          <Route path="login" element={<Login />} />
+          <Route path="signup" element={<Signup />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
