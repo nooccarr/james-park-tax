@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useCookies } from 'react-cookie';
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import ContactForm from './ContactForm';
@@ -13,42 +10,12 @@ import '../styles/home.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
-  const [username, setUsername] = useState('');
   const [showContactForm, setShowContactForm] = useState(false);
   const [showFormSuccess, setShowFormSuccess] = useState(false);
 
   useEffect(() => {
     window.scroll({ top: 0, left: 0, behavior: 'smooth' });
   }, []);
-
-  // TODO: work on navigation
-  useEffect(() => {
-    const verifyCookie = async () => {
-      if (!cookies.token) {
-        navigate('/login');
-      }
-      const { data } = await axios.post(
-        'http://localhost:4000',
-        {},
-        { withCredentials: true }
-      );
-      const { status, user } = data;
-      setUsername(user);
-      return status
-        ? toast(`Hello ${user}`, {
-            position: 'top-right',
-          })
-        : (removeCookie('token'), navigate('/login'));
-    };
-    verifyCookie();
-  }, [cookies, navigate, removeCookie]);
-
-  const Logout = () => {
-    removeCookie('token');
-    navigate('/signup');
-  };
 
   const handleCloseButtonClick = () => {
     setShowContactForm(false);
@@ -120,16 +87,6 @@ const Home = () => {
             <div className="my-4 py-4">&nbsp;</div>
           </>
         )} */}
-
-      <>
-        <div className="home_page">
-          <h4>
-            Welcome <span>{username}</span>
-          </h4>
-          <button onClick={Logout}>LOGOUT</button>
-        </div>
-        <ToastContainer />
-      </>
     </main>
   );
 };

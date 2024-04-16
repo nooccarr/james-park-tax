@@ -5,10 +5,17 @@ import {
   faPenToSquare,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 import NavItems from '../data/navItems';
 import '../styles/layout.css';
 
-const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
+const Layout = ({
+  handleSearchReset,
+  showOffCanvas,
+  setShowOffCanvas,
+  username,
+}) => {
+  const navigate = useNavigate();
   const handleOffCanvasClose = () => {
     setShowOffCanvas(false);
   };
@@ -37,12 +44,16 @@ const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
                     <Link to="search" className="navsearch">
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
+                    {username && (
+                      <Link to="new-post" className="navsearch">
+                        <FontAwesomeIcon icon={faPenToSquare} />
+                      </Link>
+                    )}
 
-                    <Link to="new-post" className="navsearch">
-                      <FontAwesomeIcon icon={faPenToSquare} />
-                    </Link>
-
-                    <div className="hover:cursor-pointer">
+                    <div
+                      className="hover:cursor-pointer"
+                      onClick={() => navigate(username ? '/logout' : '/login')}
+                    >
                       <FontAwesomeIcon icon={faUser} className="navsearch" />
                     </div>
                   </div>

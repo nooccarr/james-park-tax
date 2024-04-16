@@ -14,6 +14,7 @@ import Post from './Post';
 import NewPost from './NewPost';
 import EditPost from './EditPost';
 import Login from './Login';
+import Logout from './Logout';
 import Signup from './Signup';
 import KakaoCanvas from './KakaoCanvas';
 import NoMatch from './NoMatch';
@@ -21,6 +22,10 @@ import Footer from './Footer';
 import useFetchData from '../hooks/useFetchData';
 import '../styles/app.css';
 import Posts from '../data/posts';
+
+import { useNavigate } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
+import axios from 'axios';
 
 const App = () => {
   const [data, error] = useFetchData('/blogs');
@@ -31,6 +36,29 @@ const App = () => {
   const [searchLength, setSearchLength] = useState(0);
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const [showKakaoCanvas, setShowKakaoCanvas] = useState(false);
+
+  const navigate = useNavigate();
+  const [cookies, removeCookie] = useCookies([]);
+  const [username, setUsername] = useState('');
+
+  useEffect(() => {
+    const verifyCookie = async () => {
+      if (!cookies.token) {
+        navigate('/');
+      }
+      // console.log('COOKIES TOKEN:', cookies);
+      const { data } = await axios.post(
+        'http://localhost:4000',
+        {},
+        { withCredentials: true }
+      );
+      // console.log('DATA:', data);
+      const { status, user } = data;
+      setUsername(user);
+      return !status && removeCookie('token');
+    };
+    verifyCookie();
+  }, [cookies, navigate, removeCookie]);
 
   useEffect(() => {
     setPosts(Posts);
@@ -86,6 +114,7 @@ const App = () => {
               handleSearchReset={handleSearchReset}
               showOffCanvas={showOffCanvas}
               setShowOffCanvas={setShowOffCanvas}
+              username={username}
             />
           }
         >
@@ -130,7 +159,11 @@ const App = () => {
           <Route path="new-post" element={<NewPost />} />
           <Route path="edit-post" element={<EditPost />} />
           <Route path="login" element={<Login />} />
-          <Route path="signup" element={<Signup />} />
+          <Route
+            path="logout"
+            element={<Logout username={username} removeCookie={removeCookie} />}
+          />
+          {/* <Route path="signup" element={<Signup />} /> */}
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
