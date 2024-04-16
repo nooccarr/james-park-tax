@@ -3,7 +3,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import '../styles/login.css';
-const baseURL = process?.env.REACT_APP_BASE_URL ?? 'http://localhost:4000';
+// const baseURL = import.meta.env.BASE_URL ?? 'http://localhost:4000';
+const { baseURL = 'http://localhost:4000' } = import.meta.env.BASE_URL;
 
 const Signup = () => {
   const navigate = useNavigate();
