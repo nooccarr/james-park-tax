@@ -1,20 +1,21 @@
 import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  SignedIn,
-  SignedOut,
-  SignInButton,
-  UserButton,
-} from '@clerk/clerk-react';
-import {
   faMagnifyingGlass,
   faPenToSquare,
   faUser,
 } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 import NavItems from '../data/navItems';
 import '../styles/layout.css';
 
-const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
+const Layout = ({
+  handleSearchReset,
+  showOffCanvas,
+  setShowOffCanvas,
+  username,
+}) => {
+  const navigate = useNavigate();
   const handleOffCanvasClose = () => {
     setShowOffCanvas(false);
   };
@@ -43,24 +44,18 @@ const Layout = ({ handleSearchReset, showOffCanvas, setShowOffCanvas }) => {
                     <Link to="search" className="navsearch">
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
-
-                    <SignedIn>
+                    {username && (
                       <Link to="new-post" className="navsearch">
                         <FontAwesomeIcon icon={faPenToSquare} />
                       </Link>
-                      <UserButton afterSignOutUrl="/" />
-                    </SignedIn>
+                    )}
 
-                    <SignedOut>
-                      <SignInButton>
-                        <div className="hover:cursor-pointer">
-                          <FontAwesomeIcon
-                            icon={faUser}
-                            className="navsearch"
-                          />
-                        </div>
-                      </SignInButton>
-                    </SignedOut>
+                    <div
+                      className="hover:cursor-pointer"
+                      onClick={() => navigate(username ? '/logout' : '/login')}
+                    >
+                      <FontAwesomeIcon icon={faUser} className="navsearch" />
+                    </div>
                   </div>
                 </div>
               </div>

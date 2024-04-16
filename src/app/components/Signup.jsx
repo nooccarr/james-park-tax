@@ -5,13 +5,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import '../styles/login.css';
 const baseURL = process?.env.REACT_APP_BASE_URL ?? 'http://localhost:4000';
 
-const Login = () => {
+const Signup = () => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: '',
     password: '',
+    username: '',
   });
-  const { email, password } = inputValue;
+  const { email, password, username } = inputValue;
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({
@@ -26,20 +27,19 @@ const Login = () => {
     });
   const handleSuccess = (msg) =>
     toast.success(msg, {
-      position: 'bottom-left',
+      position: 'bottom-right',
     });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `${baseURL}/login`,
+        `${baseURL}/signup`,
         {
           ...inputValue,
         },
         { withCredentials: true }
       );
-      // console.log(data);
       const { success, message } = data;
       if (success) {
         handleSuccess(message);
@@ -56,13 +56,14 @@ const Login = () => {
       ...inputValue,
       email: '',
       password: '',
+      username: '',
     });
   };
 
   return (
     <div className="flex justify-center py-20">
       <div className="form_container">
-        <h2>Login Account</h2>
+        <h2>Signup Account</h2>
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email">Email</label>
@@ -71,6 +72,16 @@ const Login = () => {
               name="email"
               value={email}
               placeholder="Enter your email"
+              onChange={handleOnChange}
+            />
+          </div>
+          <div>
+            <label htmlFor="email">Username</label>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              placeholder="Enter your username"
               onChange={handleOnChange}
             />
           </div>
@@ -85,9 +96,9 @@ const Login = () => {
             />
           </div>
           <button type="submit">Submit</button>
-          {/* <span>
-            Already have an account? <Link to={'/signup'}>Signup</Link>
-          </span> */}
+          <span>
+            Already have an account? <Link to={'/login'}>Login</Link>
+          </span>
         </form>
         <ToastContainer />
       </div>
@@ -95,4 +106,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Signup;

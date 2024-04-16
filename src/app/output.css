@@ -1820,20 +1820,16 @@ video {
   gap: 1rem;
 }
 
+.gap-6 {
+  gap: 1.5rem;
+}
+
 .gap-unit-2 {
   gap: var(--nextui-spacing-unit-2);
 }
 
 .gap-unit-3 {
   gap: var(--nextui-spacing-unit-3);
-}
-
-.gap-6 {
-  gap: 1.5rem;
-}
-
-.gap-8 {
-  gap: 2rem;
 }
 
 .gap-x-6 {
@@ -2649,6 +2645,11 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .\!pb-0 {
   padding-bottom: 0px !important;
 }
@@ -3087,6 +3088,11 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#043a49\] {
+  --tw-text-opacity: 1;
+  color: rgb(4 58 73 / var(--tw-text-opacity));
 }
 
 .underline {
