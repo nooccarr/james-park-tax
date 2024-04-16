@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import '../styles/login.css';
-const baseURL = process.env.REACT_APP_BASE_URL ?? 'http://localhost:4000';
+const baseURL = process?.env.REACT_APP_BASE_URL ?? 'http://localhost:4000';
 
 const Login = () => {
   const navigate = useNavigate();
