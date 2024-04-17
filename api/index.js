@@ -9,7 +9,16 @@ const { PORT = 4000 } = process.env;
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      'https://www.jamesparktax.com',
+      'http://localhost:3000',
+      'http://localhost:4000',
+    ],
+    credentials: true,
+  })
+);
 // Middleware that looks at requests where the Content-Type header matches the type option, and converts the body into a JavaScript object
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
