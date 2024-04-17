@@ -3,8 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import '../styles/login.css';
-// const baseURL = import.meta.env.BASE_URL ?? 'http://localhost:4000';
-const { baseURL = 'http://localhost:4000' } = import.meta.env.BASE_URL;
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +18,7 @@ const Login = () => {
       [name]: value,
     });
   };
-  // console.log(import.meta.env.BASE_URL);
+
   const handleError = (err) =>
     toast.error(err, {
       position: 'bottom-left',
@@ -34,7 +32,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        `${baseURL}/login`,
+        `${import.meta.env.VITE_BASE_URL}/login`,
         {
           ...inputValue,
         },
