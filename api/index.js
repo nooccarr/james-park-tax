@@ -13,6 +13,7 @@ app.use(
   cors({
     origin: [
       'https://www.jamesparktax.com',
+      'https://james-park-tax.vercel.app',
       'http://localhost:3000',
       'http://localhost:4000',
     ],
