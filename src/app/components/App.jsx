@@ -46,11 +46,13 @@ const App = () => {
       if (!cookies.token) {
         navigate('/');
       }
-      console.log('BASE_URL:', import.meta.env.VITE_BASE_URL);
+      // console.log('BASE_URL:', import.meta.env.VITE_BASE_URL);
       // console.log('COOKIES TOKEN:', cookies);
       try {
         const { data } = await axios.post(
-          `${import.meta.env.VITE_BASE_URL}`,
+          // `${import.meta.env.VITE_BASE_URL}`,
+          'https://jamesparktax.com',
+          // 'http://localhost:4000',
           {},
           { withCredentials: true }
         );
