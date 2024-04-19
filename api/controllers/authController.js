@@ -34,10 +34,13 @@ const Login = async (req, res, next) => {
       return res.status(400).json({ message: 'All fields are required' }); // 400 Bad Request
     }
     const user = await User.findOne({ email });
+    console.log('BODY:', req.body);
+    console.log('USER:', user);
     if (!user) {
       return res.status(401).json({ message: 'Incorrect password or email' }); // 401 Unauthorized
     }
     const auth = await bcrypt.compare(password, user.password);
+    console.log('AUTH:', auth);
     if (!auth) {
       return res.status(401).json({ message: 'Incorrect password or email' }); // 401 Unauthorized
     }

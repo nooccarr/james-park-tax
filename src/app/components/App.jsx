@@ -48,7 +48,7 @@ const App = () => {
       }
       // console.log('COOKIES TOKEN:', cookies);
       const { data } = await axios.post(
-        'http://localhost:4000',
+        `${import.meta.env.VITE_BASE_URL}`,
         {},
         { withCredentials: true }
       );
@@ -163,7 +163,7 @@ const App = () => {
             path="logout"
             element={<Logout username={username} removeCookie={removeCookie} />}
           />
-          {/* <Route path="signup" element={<Signup />} /> */}
+          <Route path="signup" element={<Signup />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>

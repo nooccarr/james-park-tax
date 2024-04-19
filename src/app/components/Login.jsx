@@ -10,6 +10,7 @@ const Login = () => {
     email: '',
     password: '',
   });
+  const [error, setError] = useState(false);
   const { email, password } = inputValue;
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -23,10 +24,12 @@ const Login = () => {
     toast.error(err, {
       position: 'bottom-left',
     });
-  const handleSuccess = (msg) =>
+
+  const handleSuccess = (msg) => {
     toast.success(msg, {
       position: 'bottom-left',
     });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -50,6 +53,7 @@ const Login = () => {
       }
     } catch (error) {
       console.log(error);
+      setError(error.response.data.message);
     }
     setInputValue({
       ...inputValue,
@@ -71,6 +75,7 @@ const Login = () => {
               value={email}
               placeholder="Enter your email"
               onChange={handleOnChange}
+              required
             />
           </div>
           <div>
@@ -81,7 +86,9 @@ const Login = () => {
               value={password}
               placeholder="Enter your password"
               onChange={handleOnChange}
+              required
             />
+            <p className="text-red-500">{error}</p>
           </div>
           <button type="submit">Submit</button>
           {/* <span>
