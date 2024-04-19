@@ -12,6 +12,7 @@ const app = express();
 app.use(
   cors({
     origin: [
+      'https://jamesparktax.com',
       'https://www.jamesparktax.com',
       'https://james-park-tax.vercel.app',
       'http://localhost:3000',

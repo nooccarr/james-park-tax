@@ -50,8 +50,8 @@ const App = () => {
       // console.log('COOKIES TOKEN:', cookies);
       try {
         const { data } = await axios.post(
+          'https://www.jamesparktax.com',
           // `${import.meta.env.VITE_BASE_URL}`,
-          'https://jamesparktax.com',
           // 'http://localhost:4000',
           {},
           { withCredentials: true }
