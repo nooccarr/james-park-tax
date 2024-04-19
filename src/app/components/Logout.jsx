@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Logout = ({ username, removeCookie }) => {
   const navigate = useNavigate();
-
+  console.log({ username, removeCookie });
   const handleLogout = () => {
     removeCookie('token');
     navigate('/');

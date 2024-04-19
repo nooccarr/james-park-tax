@@ -59,7 +59,7 @@ const App = () => {
         setUsername(user);
         return !status && removeCookie('token');
       } catch (error) {
-        console.log(error);
+        console.log('VERIFY COOKIE ERROR:', error);
         // removeCookie('token');
         // navigate('/');
       }
