@@ -4,7 +4,7 @@ const Logout = ({ username, removeCookie }) => {
   const navigate = useNavigate();
   console.log({ username, removeCookie });
   const handleLogout = () => {
-    removeCookie('token');
+    removeCookie('token', { httpOnly: true, sameSite: 'None', secure: true });
     navigate('/');
   };
 

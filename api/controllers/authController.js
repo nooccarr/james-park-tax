@@ -33,21 +33,23 @@ const Login = async (req, res, next) => {
     if (!email || !password) {
       return res.status(400).json({ message: 'All fields are required' }); // 400 Bad Request
     }
-    const user = await User.findOne({ email });
+    const foundUser = await User.findOne({ email }).exec();
     // console.log('BODY:', req.body);
     // console.log('USER:', user);
-    if (!user) {
+    if (!foundUser) {
       return res.status(401).json({ message: 'Incorrect password or email' }); // 401 Unauthorized
     }
-    const auth = await bcrypt.compare(password, user.password);
+    const match = await bcrypt.compare(password, foundUser.password);
     // console.log('AUTH:', auth);
-    if (!auth) {
+    if (!match) {
       return res.status(401).json({ message: 'Incorrect password or email' }); // 401 Unauthorized
     }
-    const token = createSecretToken(user._id);
+    const token = createSecretToken(foundUser._id);
+
     res.cookie('token', token, {
       withCredentials: true,
-      httpOnly: false,
+      httpOnly: true,
+      sameSite: 'None', //cross-site cookie
     });
     res
       .status(201)

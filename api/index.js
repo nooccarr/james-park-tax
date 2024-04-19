@@ -7,18 +7,30 @@ const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { PORT = 4000 } = process.env;
 
+dbConn();
+
 const app = express();
 
 app.use(
   cors({
-    origin: [
-      'https://jamesparktax.com',
-      'https://www.jamesparktax.com',
-      'https://james-park-tax.vercel.app',
-      'http://localhost:3000',
-      'http://localhost:4000',
-    ],
+    origin: (origin, callback) => {
+      if (
+        [
+          'https://jamesparktax.com',
+          'https://www.jamesparktax.com',
+          'https://james-park-tax.vercel.app',
+          'http://localhost:3000',
+          'http://localhost:4000',
+        ].indexOf(origin) !== -1 ||
+        !origin
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
+    optionsSuccessStatus: 200,
   })
 );
 // Middleware that looks at requests where the Content-Type header matches the type option, and converts the body into a JavaScript object
@@ -35,13 +47,11 @@ app.use('/users', require(path.join(__dirname, 'routes', 'userRoutes')));
 app.use('/blogs', require(path.join(__dirname, 'routes', 'blogRoutes')));
 
 // Handle client routing, return all requests to the app
-app.get('*', (_, res) => {
+app.all('*', (_, res) => {
   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
     if (err) console.log(err);
   });
 });
-
-dbConn();
 
 mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
