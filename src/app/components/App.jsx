@@ -47,15 +47,21 @@ const App = () => {
         navigate('/');
       }
       // console.log('COOKIES TOKEN:', cookies);
-      const { data } = await axios.post(
-        `${import.meta.env.VITE_BASE_URL}`,
-        {},
-        { withCredentials: true }
-      );
-      // console.log('DATA:', data);
-      const { status, user } = data;
-      setUsername(user);
-      return !status && removeCookie('token');
+      try {
+        const { data } = await axios.post(
+          `${import.meta.env.VITE_BASE_URL}`,
+          {},
+          { withCredentials: true }
+        );
+        // console.log('DATA:', data);
+        const { status, user } = data;
+        setUsername(user);
+        return !status && removeCookie('token');
+      } catch (error) {
+        console.log(error);
+        removeCookie('token');
+        navigate('/');
+      }
     };
     verifyCookie();
   }, [cookies, navigate, removeCookie]);
