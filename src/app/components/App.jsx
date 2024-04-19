@@ -59,8 +59,8 @@ const App = () => {
         return !status && removeCookie('token');
       } catch (error) {
         console.log(error);
-        removeCookie('token');
-        navigate('/');
+        // removeCookie('token');
+        // navigate('/');
       }
     };
     verifyCookie();
