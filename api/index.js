@@ -16,11 +16,12 @@ app.use(
     origin: (origin, callback) => {
       if (
         [
-          'https://jamesparktax.com',
-          'https://www.jamesparktax.com',
-          'https://james-park-tax.vercel.app',
-          'http://localhost:3000',
-          'http://localhost:4000',
+          // 'https://jamesparktax.com',
+          // 'https://www.jamesparktax.com',
+          // 'https://james-park-tax.vercel.app',
+          // 'http://localhost:3000',
+          // 'http://localhost:4000',
+          '*', // allow all
         ].indexOf(origin) !== -1 ||
         !origin
       ) {
