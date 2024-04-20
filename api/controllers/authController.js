@@ -20,7 +20,7 @@ const signUp = async (req, res, next) => {
     res
       .status(201)
       .json({ message: 'User signed in successfully', success: true, user });
-    next();
+    // next();
   } catch (error) {
     console.error(error);
     return res.status(400).json({ message: error.message });
@@ -35,12 +35,12 @@ const Login = async (req, res, next) => {
     }
     const foundUser = await User.findOne({ email }).exec();
     // console.log('BODY:', req.body);
-    // console.log('USER:', user);
+    // console.log('USER:', foundUser);
     if (!foundUser) {
       return res.status(401).json({ message: 'Incorrect password or email' }); // 401 Unauthorized
     }
     const match = await bcrypt.compare(password, foundUser.password);
-    // console.log('AUTH:', auth);
+    // console.log('MATCH:', match);
     if (!match) {
       return res.status(401).json({ message: 'Incorrect password or email' }); // 401 Unauthorized
     }
@@ -50,11 +50,12 @@ const Login = async (req, res, next) => {
       withCredentials: true,
       httpOnly: true,
       sameSite: 'None', //cross-site cookie
+      secure: true, // cookie is only sent over HTTPS
     });
     res
       .status(201)
       .json({ message: 'User logged in successfully', success: true });
-    next();
+    // next();
   } catch (error) {
     console.error(error);
     return res.status(400).json({ message: error.message });
