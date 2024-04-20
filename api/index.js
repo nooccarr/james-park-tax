@@ -13,23 +13,23 @@ const app = express();
 
 app.use(
   cors({
-    origin: '*',
-    //   (origin, callback) => {
-    //   if (
-    //     [
-    //       'https://jamesparktax.com',
-    //       'https://www.jamesparktax.com',
-    //       'https://james-park-tax.vercel.app',
-    //       'http://localhost:3000',
-    //       'http://localhost:4000',
-    //     ].indexOf(origin) !== -1 ||
-    //     !origin
-    //   ) {
-    //     callback(null, true);
-    //   } else {
-    //     callback(new Error('Not allowed by CORS'));
-    //   }
-    // },
+    origin: (origin, callback) => {
+      if (
+        [
+          // 'https://jamesparktax.com',
+          // 'https://www.jamesparktax.com',
+          // 'https://james-park-tax.vercel.app',
+          // 'http://localhost:3000',
+          // 'http://localhost:4000',
+          '*', // allow all
+        ].indexOf(origin) !== -1 ||
+        !origin
+      ) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
     optionsSuccessStatus: 200,
   })
