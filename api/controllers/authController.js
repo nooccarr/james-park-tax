@@ -17,7 +17,7 @@ const signUp = async (req, res, next) => {
       withCredentials: true,
       httpOnly: false,
     });
-    res
+    return res
       .status(201)
       .json({ message: 'User signed in successfully', success: true, user });
     // next();
@@ -48,11 +48,9 @@ const Login = async (req, res, next) => {
 
     res.cookie('token', token, {
       withCredentials: true,
-      httpOnly: true,
-      sameSite: 'None', //cross-site cookie
-      secure: true, // cookie is only sent over HTTPS
+      httpOnly: false,
     });
-    res
+    return res
       .status(201)
       .json({ message: 'User logged in successfully', success: true });
     // next();
