@@ -67,15 +67,15 @@ const Header = ({ showOffCanvas, setShowOffCanvas, setShowKakaoCanvas }) => {
 
       <div className="order-first bg-[#235161] md:hidden">
         <div className="header-mobile-container text-center">
-          <div className="header-mobile-text">
-            Address: 163-10 Northern Blvd, NY 11358
+          <div className="header-mobile-text text-wrap">
+            163-10 Northern Blvd, #311, Flushing, NY 11358
           </div>
           <div>
             <a
               href="tel:+1-718-359-1096"
               className="header-mobile-text header-mobile-link"
             >
-              Telephone: (718) 359-1096
+              (718) 359-1096
             </a>
           </div>
         </div>

@@ -44,22 +44,19 @@ const App = () => {
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
+        console.log('NO COOKIE TOKEN');
         navigate('/');
       }
       // console.log('BASE_URL:', import.meta.env.VITE_BASE_URL);
       // console.log('COOKIES TOKEN:', cookies);
       try {
-        const { data } = await axios.post(
-          'https://www.jamesparktax.com/',
-          // 'http://localhost:4000',
-          // `${import.meta.env.VITE_BASE_URL}`,
-          {},
-          { withCredentials: true }
-        );
+        const { data } = await axios.post('/', {}, { withCredentials: true });
         console.log('DATA:', data);
         const { status, user } = data;
-        setUsername(user);
-        return !status && removeCookie('token');
+
+        console.log(user);
+        console.log(cookies.token);
+        return status ? setUsername(user) : removeCookie('token');
       } catch (error) {
         console.log('VERIFY COOKIE ERROR:', error);
         // removeCookie('token');
