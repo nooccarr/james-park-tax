@@ -43,10 +43,10 @@ const App = () => {
 
   useEffect(() => {
     const verifyCookie = async () => {
-      if (!cookies.token) {
-        console.log('NO COOKIE TOKEN');
-        navigate('/');
-      }
+      // if (!cookies.token) {
+      //   console.log('NO COOKIE TOKEN');
+      //   navigate('/');
+      // }
       // console.log('BASE_URL:', import.meta.env.VITE_BASE_URL);
       // console.log('COOKIES TOKEN:', cookies);
       try {
