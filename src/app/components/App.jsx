@@ -53,7 +53,11 @@ const App = () => {
       // console.log('BASE_URL:', import.meta.env.VITE_BASE_URL);
       // console.log('COOKIES TOKEN:', cookies);
       try {
-        const { data } = await axios.post('/', {}, { withCredentials: true });
+        const { data } = await axios.post(
+          '/verify',
+          {},
+          { withCredentials: true }
+        );
         console.log('DATA:', data);
         const { status, user } = data;
 
