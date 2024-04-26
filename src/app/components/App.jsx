@@ -59,7 +59,8 @@ const App = () => {
 
         console.log('USER:', user);
         console.log('COOKIE:', cookies.token);
-        return status ? setUsername(user) : removeCookie('token');
+        setUsername(user ? user : '');
+        !status && removeCookie('token');
       } catch (error) {
         console.log('VERIFY COOKIE ERROR:', error);
         // removeCookie('token');
