@@ -16,12 +16,16 @@ const Home = () => {
 
   useScrollToTop();
 
-  const handleCloseButtonClick = () => {
+  const handleContactFormOpen = () => {
+    setShowContactForm(true);
+  };
+
+  const handleContactFormClose = () => {
     setShowContactForm(false);
   };
 
   const handleButtonClick = () => {
-    setShowContactForm(true);
+    handleContactFormOpen();
     setShowFormSuccess(false);
   };
 
@@ -35,16 +39,26 @@ const Home = () => {
               src={LandingImgOne}
             />
           </div>
-          <button
-            onClick={handleButtonClick}
-            className="absolute top-[50%] md:top-[70%] left-[50%] text-md md:text-xl font-semibold home-contact-form-button p-3 md:p-5 min-w-[222px]"
-            style={{ transform: 'translate(-50%, -50%)' }}
-          >
-            <h2 className="">
-              <FontAwesomeIcon className="pe-2" icon={faCalendarDays} />
-              Schedule a Consultation
+
+          {!showFormSuccess ? (
+            <button
+              onClick={handleButtonClick}
+              className="absolute top-[50%] md:top-[70%] left-[50%] text-md md:text-xl font-semibold home-contact-form-button p-3 md:p-5 min-w-[222px]"
+              style={{ transform: 'translate(-50%, -50%)' }}
+            >
+              <h2 className="">
+                <FontAwesomeIcon className="pe-2" icon={faCalendarDays} />
+                Schedule a Consultation
+              </h2>
+            </button>
+          ) : (
+            <h2
+              className="form-submit-message absolute top-[50%] md:top-[70%] left-[50%] min-w-[222px]"
+              style={{ transform: 'translate(-50%, -50%)' }}
+            >
+              Thank you for your submission!
             </h2>
-          </button>
+          )}
         </div>
 
         <div>
@@ -68,24 +82,11 @@ const Home = () => {
         </div>
       </Carousel>
 
-      {/* {showContactForm && (
       <ContactForm
         showContactForm={showContactForm}
-        handleCloseButtonClick={handleCloseButtonClick}
+        handleContactFormClose={handleContactFormClose}
         setShowFormSuccess={setShowFormSuccess}
       />
-    )} */}
-
-      {/* {!showFormSuccess ? (
-          <div></div>
-        ) : (
-          <>
-            <h2 className="form-submit-message">
-              Thank you for your submission!
-            </h2>
-            <div className="my-4 py-4">&nbsp;</div>
-          </>
-        )} */}
     </main>
   );
 };
