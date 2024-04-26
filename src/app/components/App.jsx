@@ -46,29 +46,17 @@ const App = () => {
 
   useEffect(() => {
     const verifyCookie = async () => {
-      // if (!cookies.token) {
-      //   console.log('NO COOKIE TOKEN:', cookies.token);
-      //   navigate('/');
-      // }
-      // console.log('BASE_URL:', import.meta.env.VITE_BASE_URL);
-      // console.log('COOKIES TOKEN:', cookies);
       try {
         const { data } = await axios.post(
           '/verify',
           {},
           { withCredentials: true }
         );
-        console.log('DATA:', data);
         const { status, user } = data;
-
-        console.log('USER:', user);
-        console.log('COOKIE:', cookies.token);
         setUsername(user ? user : '');
         !status && removeCookie('token');
       } catch (error) {
-        console.log('VERIFY COOKIE ERROR:', error);
-        // removeCookie('token');
-        // navigate('/');
+        console.log(error);
       }
     };
     verifyCookie();
