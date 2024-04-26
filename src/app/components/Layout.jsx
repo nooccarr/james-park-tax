@@ -8,15 +8,21 @@ import {
 import { useNavigate } from 'react-router-dom';
 import NavItems from '../data/navItems';
 import Modal from 'react-modal';
+import isToken from '../utils/isToken';
 import '../styles/layout.css';
 
 const Layout = ({
   handleSearchReset,
   showOffCanvas,
   handleOffCanvasClose,
-  username,
+  cookies,
 }) => {
   const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    const token = isToken(cookies);
+    navigate(token ? '/logout' : '/login');
+  };
 
   return (
     <>
@@ -42,7 +48,7 @@ const Layout = ({
                     <Link to="search" className="navsearch">
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
-                    {username && (
+                    {isToken(cookies) && (
                       <Link to="new-post" className="navsearch">
                         <FontAwesomeIcon icon={faPenToSquare} />
                       </Link>
@@ -50,7 +56,7 @@ const Layout = ({
 
                     <div
                       className="hover:cursor-pointer"
-                      onClick={() => navigate(username ? '/logout' : '/login')}
+                      onClick={handleNavigate}
                     >
                       <FontAwesomeIcon icon={faUser} className="navsearch" />
                     </div>

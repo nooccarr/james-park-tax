@@ -41,13 +41,13 @@ const App = () => {
   const [showKakaoCanvas, setShowKakaoCanvas] = useState(false);
 
   const navigate = useNavigate();
-  const [cookies, removeCookie] = useCookies([]);
+  const [cookies, removeCookie] = useCookies(['token']);
   const [username, setUsername] = useState('');
 
   useEffect(() => {
     const verifyCookie = async () => {
       // if (!cookies.token) {
-      //   console.log('NO COOKIE TOKEN');
+      //   console.log('NO COOKIE TOKEN:', cookies.token);
       //   navigate('/');
       // }
       // console.log('BASE_URL:', import.meta.env.VITE_BASE_URL);
@@ -67,7 +67,7 @@ const App = () => {
       }
     };
     verifyCookie();
-  }, [cookies, navigate, removeCookie]);
+  }, [navigate, removeCookie]);
 
   useEffect(() => {
     setPosts(Posts);
@@ -134,7 +134,7 @@ const App = () => {
               handleSearchReset={handleSearchReset}
               showOffCanvas={showOffCanvas}
               handleOffCanvasClose={handleOffCanvasClose}
-              username={username}
+              cookies={cookies}
             />
           }
         >
