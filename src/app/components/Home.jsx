@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
@@ -13,9 +14,7 @@ const Home = () => {
   const [showContactForm, setShowContactForm] = useState(false);
   const [showFormSuccess, setShowFormSuccess] = useState(false);
 
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
+  useScrollToTop();
 
   const handleCloseButtonClick = () => {
     setShowContactForm(false);

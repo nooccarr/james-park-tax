@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import useScrollToTop from '../hooks/useScrollToTop';
 import { Outlet } from 'react-router-dom';
 import SearchParams from './SearchParams';
 import PageHeader from './PageHeader';
@@ -9,9 +9,7 @@ const Results = ({
   handleSearchQueryChange,
   handleSearchSubmit,
 }) => {
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
+  useScrollToTop();
 
   return (
     <>

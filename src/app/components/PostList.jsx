@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import useScrollToTop from '../hooks/useScrollToTop';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faBookmark } from '@fortawesome/free-solid-svg-icons';
@@ -10,13 +11,10 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
 
   const { '*': path } = useParams();
 
+  useScrollToTop();
   useEffect(() => {
     category ? getCategoryPosts() : setCategoryPosts(posts);
   }, [posts]);
-
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
 
   const getCategoryPosts = () => {
     const filteredPosts = Object.entries(posts).filter(

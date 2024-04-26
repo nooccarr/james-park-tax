@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import useScrollToTop from '../hooks/useScrollToTop';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faClock,
@@ -12,9 +13,7 @@ import { Tabs, Tab, Card, CardBody } from '@nextui-org/react';
 import '../styles/contact-us.css';
 
 const ContactUs = () => {
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
+  useScrollToTop();
 
   const newYorkOfficeContactInfo = () => (
     <section className="mb-10">

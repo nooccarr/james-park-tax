@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import useScrollToTop from '../hooks/useScrollToTop';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faBookmark } from '@fortawesome/free-solid-svg-icons';
@@ -20,9 +20,7 @@ const Post = ({ posts }) => {
   const articleContent = article;
   const capitalizedPath = pathToCapitalize(path);
 
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
+  useScrollToTop();
 
   return (
     <main>

@@ -1,13 +1,11 @@
-import { useEffect } from 'react';
+import useScrollToTop from '../hooks/useScrollToTop';
 import EmailForm from './EmailForm';
 import PageHeader from './PageHeader';
 import ServiceItems from '../data/serviceItems';
 import '../styles/services.css';
 
 const Services = () => {
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
+  useScrollToTop();
 
   return (
     <div className="services-background">

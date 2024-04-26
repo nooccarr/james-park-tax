@@ -1,12 +1,10 @@
-import { useEffect } from 'react';
+import useScrollToTop from '../hooks/useScrollToTop';
 import { Outlet } from 'react-router-dom';
 import PageHeader from './PageHeader';
 import '../styles/medicare-info.css';
 
 const InsuranceInfo = () => {
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
+  useScrollToTop();
 
   return (
     <div className="medicare-info-background">

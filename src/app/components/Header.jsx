@@ -4,15 +4,11 @@ import { faBars, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../images/logo.png';
 import '../styles/header.css';
 
-const Header = ({ showOffCanvas, setShowOffCanvas, setShowKakaoCanvas }) => {
-  const handleOffCanvasClose = () => {
-    setShowOffCanvas(false);
-  };
-
-  const handleKakaoCanvasShow = () => {
-    setShowKakaoCanvas(true);
-  };
-
+const Header = ({
+  handleOffCanvasToggle,
+  handleOffCanvasClose,
+  handleKakaoCanvasOpen,
+}) => {
   return (
     <header className=" flex flex-col">
       <div className="px-5 md:px-10 py-4">
@@ -38,7 +34,7 @@ const Header = ({ showOffCanvas, setShowOffCanvas, setShowKakaoCanvas }) => {
               <div className="py-2">
                 <FontAwesomeIcon
                   className="navbars"
-                  onClick={() => setShowOffCanvas(!showOffCanvas)}
+                  onClick={handleOffCanvasToggle}
                   icon={faBars}
                 />
               </div>
@@ -57,7 +53,7 @@ const Header = ({ showOffCanvas, setShowOffCanvas, setShowKakaoCanvas }) => {
               </div>
             </div>
             <div className="hidden md:inline-block">
-              <a onClick={handleKakaoCanvasShow}>
+              <a onClick={handleKakaoCanvasOpen}>
                 <span className="icon-kakao"></span>
               </a>
             </div>

@@ -1,8 +1,15 @@
+import React from 'react';
+import Modal from 'react-modal';
 import Kakaotalk from '../images/kakaotalk-offcanvas.png';
 
-const KakaoCanvas = ({ handleKakaoCanvasClose }) => {
+const KakaoCanvas = ({ showKakaoCanvas, handleKakaoCanvasClose }) => {
   return (
-    <div className="offcanvas-background-image md:absolute w-[370px] h-screen top-0 right-0 z-10 p-5">
+    <Modal
+      isOpen={showKakaoCanvas}
+      onRequestClose={handleKakaoCanvasClose}
+      className="offcanvas-background-image w-[370px] h-screen p-5 absolute right-0"
+      overlayClassName="fixed inset-0 z-10"
+    >
       <div className="flex justify-end">
         <div onClick={handleKakaoCanvasClose}>
           <svg
@@ -18,7 +25,7 @@ const KakaoCanvas = ({ handleKakaoCanvasClose }) => {
       <div className="mt-12 flex justify-center">
         <img src={Kakaotalk} alt="" className="offcanvas-kakao-image" />
       </div>
-    </div>
+    </Modal>
   );
 };
 

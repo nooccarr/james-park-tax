@@ -1,12 +1,10 @@
-import { useEffect } from 'react';
 import PageHeader from './PageHeader';
 import AboutUsImg from '../images/about-us.jpg';
+import useScrollToTop from '../hooks/useScrollToTop';
 import '../styles/about-us.css';
 
 const AboutUs = () => {
-  useEffect(() => {
-    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
-  }, []);
+  useScrollToTop();
 
   const aboutUsDescription = () => (
     <>

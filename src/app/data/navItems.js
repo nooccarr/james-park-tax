@@ -1,4 +1,5 @@
 const NavItems = [
+  { link: '', title: 'Home' },
   { link: 'about-us', title: '회사소개' },
   { link: 'services', title: '서비스' },
   { link: 'tax-info', title: 'Tax 정보' },

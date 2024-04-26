@@ -22,10 +22,13 @@ import Footer from './Footer';
 import useFetchData from '../hooks/useFetchData';
 import '../styles/app.css';
 import Posts from '../data/posts';
+import Modal from 'react-modal';
 
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
+
+Modal.setAppElement('#root');
 
 const App = () => {
   const [data, error] = useFetchData('/blogs');
@@ -54,8 +57,8 @@ const App = () => {
         console.log('DATA:', data);
         const { status, user } = data;
 
-        console.log(user);
-        console.log(cookies.token);
+        console.log('USER:', user);
+        console.log('COOKIE:', cookies.token);
         return status ? setUsername(user) : removeCookie('token');
       } catch (error) {
         console.log('VERIFY COOKIE ERROR:', error);
@@ -100,17 +103,28 @@ const App = () => {
     setSearchMessage('');
   };
 
+  const handleOffCanvasToggle = () => {
+    setShowOffCanvas(!showOffCanvas);
+  };
+
+  const handleOffCanvasClose = () => {
+    setShowOffCanvas(false);
+  };
+
+  const handleKakaoCanvasOpen = () => {
+    setShowKakaoCanvas(true);
+  };
+
   const handleKakaoCanvasClose = () => {
     setShowKakaoCanvas(false);
   };
 
   return (
-    <div className="relative">
+    <>
       <Header
-        showOffCanvas={showOffCanvas}
-        setShowOffCanvas={setShowOffCanvas}
-        showKakaoCanvas={showKakaoCanvas}
-        setShowKakaoCanvas={setShowKakaoCanvas}
+        handleOffCanvasToggle={handleOffCanvasToggle}
+        handleOffCanvasClose={handleOffCanvasClose}
+        handleKakaoCanvasOpen={handleKakaoCanvasOpen}
       />
       <Routes>
         <Route
@@ -119,7 +133,7 @@ const App = () => {
             <Layout
               handleSearchReset={handleSearchReset}
               showOffCanvas={showOffCanvas}
-              setShowOffCanvas={setShowOffCanvas}
+              handleOffCanvasClose={handleOffCanvasClose}
               username={username}
             />
           }
@@ -174,10 +188,11 @@ const App = () => {
         </Route>
       </Routes>
       <Footer />
-      {showKakaoCanvas && (
-        <KakaoCanvas handleKakaoCanvasClose={handleKakaoCanvasClose} />
-      )}
-    </div>
+      <KakaoCanvas
+        showKakaoCanvas={showKakaoCanvas}
+        handleKakaoCanvasClose={handleKakaoCanvasClose}
+      />
+    </>
   );
 };
 

@@ -7341,6 +7341,10 @@ video {
     position: absolute;
   }
 
+  .md\:sticky {
+    position: sticky;
+  }
+
   .md\:top-\[70\%\] {
     top: 70%;
   }

@@ -7,18 +7,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import NavItems from '../data/navItems';
+import Modal from 'react-modal';
 import '../styles/layout.css';
 
 const Layout = ({
   handleSearchReset,
   showOffCanvas,
-  setShowOffCanvas,
+  handleOffCanvasClose,
   username,
 }) => {
   const navigate = useNavigate();
-  const handleOffCanvasClose = () => {
-    setShowOffCanvas(false);
-  };
 
   return (
     <>
@@ -63,27 +61,38 @@ const Layout = ({
           </div>
         </div>
 
-        {showOffCanvas ? (
-          <div className="md:hidden absolute z-10 top-0 right-0 w-full h-screen">
-            <ul className="nav-dropdown px-10 pt-5 h-screen">
-              {NavItems.map(({ link, title }) => (
-                <li
-                  className="py-2 nav-dropdown-item mr-0"
-                  onClick={handleOffCanvasClose}
-                  key={title}
+        <Modal
+          isOpen={showOffCanvas}
+          onRequestClose={handleOffCanvasClose}
+          className="md:hidden"
+          overlayClassName="fixed inset-0 z-10"
+        >
+          <ul className="nav-dropdown px-10 pt-5 h-screen">
+            <div className="flex justify-end">
+              <div onClick={handleOffCanvasClose}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 384 512"
+                  className="h-5 w-5 hover:cursor-pointer"
+                  fill="#fff9d1"
                 >
-                  <Link
-                    to={link}
-                    onClick={handleSearchReset}
-                    className="navlink"
-                  >
-                    {title}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
+                  <path d="M376.6 84.5c11.3-13.6 9.5-33.8-4.1-45.1s-33.8-9.5-45.1 4.1L192 206 56.6 43.5C45.3 29.9 25.1 28.1 11.5 39.4S-3.9 70.9 7.4 84.5L150.3 256 7.4 427.5c-11.3 13.6-9.5 33.8 4.1 45.1s33.8 9.5 45.1-4.1L192 306 327.4 468.5c11.3 13.6 31.5 15.4 45.1 4.1s15.4-31.5 4.1-45.1L233.7 256 376.6 84.5z" />
+                </svg>
+              </div>
+            </div>
+            {NavItems.map(({ link, title }) => (
+              <li
+                className="py-2 nav-dropdown-item mr-0"
+                onClick={handleOffCanvasClose}
+                key={title}
+              >
+                <Link to={link} onClick={handleSearchReset} className="navlink">
+                  {title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Modal>
       </nav>
 
       <Outlet />
