@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PageHeader from './PageHeader';
 import usePostData from '../hooks/usePostData';
-import TipTap from './TipTap';
+import TinyEditor from './TinyEditor';
 import stripHTML from '../utils/stripHTML';
 import { formatTitle, categoryToPath } from '../utils/convertText';
 
@@ -33,37 +33,50 @@ const NewPost = () => {
       <div className="services-header-image">
         <PageHeader title="New Post" />
       </div>
-      <form onSubmit={handleSubmit} className="flex flex-col m-10">
-        <div className="flex gap-4">
-          <label>
-            Tax 정보&nbsp;
-            <input type="radio" id="tax" name="category" value="Tax" required />
-          </label>
+      <div className="max-w-[2240px] mx-auto">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col my-10 mx-5 md:mx-10 mb-20 md:mb-40"
+        >
+          <h4 className="font-semibold text-gray-600 pb-4">Category</h4>
+          <div className="flex gap-4">
+            <label>
+              <input
+                type="radio"
+                id="tax"
+                name="category"
+                value="Tax"
+                required
+              />
+              &nbsp;Tax 정보
+            </label>
 
-          <label>
-            Insurance 정보&nbsp;
-            <input
-              type="radio"
-              id="insurance"
-              name="category"
-              value="Insurance"
-              required
-            />
-          </label>
-        </div>
+            <label>
+              <input
+                type="radio"
+                id="insurance"
+                name="category"
+                value="Insurance"
+                required
+              />
+              &nbsp;Insurance 정보
+            </label>
+          </div>
 
-        <label htmlFor="title">
-          Title:
-          <input type="text" id="title" name="title" required />
-        </label>
+          <h4 className="font-semibold text-gray-600 pt-2 pb-4">Content</h4>
+          <label htmlFor="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            className="border-2 border-gray-100 rounded-lg focused:border-blue-600 px-4 py-2"
+            required
+          />
 
-        <TipTap setContent={setContent} />
-        <div>
-          <button type="submit" className="email-form-button bg-[#043a49]">
-            Create Post
-          </button>
-        </div>
-      </form>
+          <label>Body</label>
+          <TinyEditor setContent={setContent} />
+        </form>
+      </div>
     </div>
   );
 };
