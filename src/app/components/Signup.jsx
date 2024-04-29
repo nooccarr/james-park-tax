@@ -44,7 +44,7 @@ const Signup = () => {
         handleSuccess(message);
         setTimeout(() => {
           navigate('/');
-        }, 3000);
+        }, 1500);
       } else {
         handleError(message);
       }

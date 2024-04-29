@@ -13,6 +13,7 @@ const TinyEditor = ({ setContent }) => {
   return (
     <>
       <Editor
+        id="content-body"
         apiKey={import.meta.env.VITE_TINYMCE_API_KEY}
         onInit={(_evt, editor) => (editorRef.current = editor)}
         initialValue="<p></p>"
@@ -39,11 +40,10 @@ const TinyEditor = ({ setContent }) => {
             'help',
             'wordcount',
           ],
-          toolbar:
-            'undo redo | bold italic underline | blocks | ' +
-            'alignleft aligncenter ' +
-            '| bullist numlist outdent indent | forecolor |' +
-            'removeformat | table | preview | help',
+          toolbar: [
+            'undo redo | blocks | bold italic underline | forecolor | link table',
+            'alignleft aligncenter | outdent indent | bullist numlist | removeformat | preview | help',
+          ],
           content_style:
             'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
         }}
