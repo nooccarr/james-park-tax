@@ -14,7 +14,7 @@ const NewPost = ({ cookies }) => {
 
   useEffect(() => {
     const token = isToken(cookies);
-    if (!isToken(token)) navigate('/login');
+    if (!token) navigate('/login');
   }, [cookies]);
 
   const handleSubmit = (event) => {
@@ -41,7 +41,7 @@ const NewPost = ({ cookies }) => {
       <div className="services-header-image">
         <PageHeader title="New Post" />
       </div>
-      <div className="max-w-[2240px] mx-auto">
+      <div className="max-w-[900px] mx-auto">
         <form
           onSubmit={handleSubmit}
           className="flex flex-col my-10 mx-5 md:mx-10 mb-20 md:mb-40"
