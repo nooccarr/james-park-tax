@@ -81,7 +81,7 @@ const NewPost = ({ cookies }) => {
             required
           />
 
-          <label htmlFor="content-body">Body</label>
+          <p htmlFor="content-body">Body</p>
           <TinyEditor setContent={setContent} />
         </form>
       </div>

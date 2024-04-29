@@ -68,20 +68,23 @@ const Login = () => {
         <h2>Login Account</h2>
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="email">Email</label>
+            <label htmlFor="emailInput">Email</label>
             <input
               type="email"
+              id="emailInput"
               name="email"
               value={email}
               placeholder="Enter your email"
               onChange={handleOnChange}
+              autocomplete="off"
               required
             />
           </div>
           <div>
-            <label htmlFor="password">Password</label>
+            <label htmlFor="passwordInput">Password</label>
             <input
               type="password"
+              id="passwordInput"
               name="password"
               value={password}
               placeholder="Enter your password"

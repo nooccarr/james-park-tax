@@ -13,10 +13,9 @@ const TinyEditor = ({ setContent }) => {
   return (
     <>
       <Editor
-        id="content-body"
         apiKey={import.meta.env.VITE_TINYMCE_API_KEY}
         onInit={(_evt, editor) => (editorRef.current = editor)}
-        initialValue="<p></p>"
+        initialValue=""
         init={{
           height: 600,
           menubar: false,
