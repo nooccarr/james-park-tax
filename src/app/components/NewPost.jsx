@@ -15,7 +15,7 @@ const NewPost = ({ cookies }) => {
   useEffect(() => {
     const token = isToken(cookies);
     if (!isToken(token)) navigate('/login');
-  }, []);
+  }, [cookies]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
