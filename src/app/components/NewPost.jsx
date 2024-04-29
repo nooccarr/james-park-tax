@@ -1,13 +1,21 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageHeader from './PageHeader';
 import usePostData from '../hooks/usePostData';
 import TinyEditor from './TinyEditor';
 import stripHTML from '../utils/stripHTML';
+import { useNavigate } from 'react-router-dom';
 import { formatTitle, categoryToPath } from '../utils/convertText';
+import isToken from '../utils/isToken';
 
-const NewPost = () => {
+const NewPost = ({ cookies }) => {
+  const navigate = useNavigate();
   const [content, setContent] = useState('');
   const [postData, { response, error, isLoading }] = usePostData('/blogs');
+
+  useEffect(() => {
+    const token = isToken(cookies);
+    if (!isToken(token)) navigate('/login');
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();

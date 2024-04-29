@@ -169,8 +169,8 @@ const App = () => {
             <Route path=":slug" element={<Post posts={searchPosts} />} />
           </Route>
           <Route path="contact-us" element={<ContactUs />} />
-          <Route path="new-post" element={<NewPost />} />
-          <Route path="edit-post" element={<EditPost />} />
+          <Route path="new-post" element={<NewPost cookies={cookies} />} />
+          <Route path="edit-post" element={<EditPost cookies={cookies} />} />
           <Route path="login" element={<Login />} />
           <Route
             path="logout"
