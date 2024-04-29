@@ -825,6 +825,11 @@ video {
   margin-right: 0.25rem;
 }
 
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -870,11 +875,6 @@ video {
   margin-bottom: 4rem;
 }
 
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
 .my-\[calc\(\(theme\(spacing\.5\)-theme\(spacing\.1\)\)\/2\)\] {
   margin-top: calc((1.25rem - 0.25rem) / 2);
   margin-bottom: calc((1.25rem - 0.25rem) / 2);
@@ -893,11 +893,6 @@ video {
 .my-auto {
   margin-top: auto;
   margin-bottom: auto;
-}
-
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
 }
 
 .-mr-2 {
@@ -1304,6 +1299,10 @@ video {
   width: 2.25rem;
 }
 
+.w-\[320px\] {
+  width: 320px;
+}
+
 .w-\[370px\] {
   width: 370px;
 }
@@ -1351,10 +1350,6 @@ video {
 
 .w-screen {
   width: 100vw;
-}
-
-.w-\[320px\] {
-  width: 320px;
 }
 
 .min-w-10 {
@@ -2705,6 +2700,31 @@ video {
   padding-bottom: 1.25rem;
 }
 
+.py-\[11px\] {
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+
+.py-\[12px\] {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.py-\[13px\] {
+  padding-top: 13px;
+  padding-bottom: 13px;
+}
+
+.py-\[14px\] {
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+
+.py-\[13\.5px\] {
+  padding-top: 13.5px;
+  padding-bottom: 13.5px;
+}
+
 .\!pb-0 {
   padding-bottom: 0px !important;
 }
@@ -2944,10 +2964,6 @@ video {
 
 .font-semibold {
   font-weight: 600;
-}
-
-.capitalize {
-  text-transform: capitalize;
 }
 
 .normal-case {
