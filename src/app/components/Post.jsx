@@ -7,7 +7,7 @@ import '../styles/post.css';
 
 const Post = ({ posts }) => {
   const { slug } = useParams();
-  const post = posts.find((post) => post.slug === slug);
+  const post = posts?.find((post) => post.slug === slug);
 
   if (!post)
     return (

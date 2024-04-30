@@ -21,7 +21,7 @@ import NoMatch from './NoMatch';
 import Footer from './Footer';
 import useFetchData from '../hooks/useFetchData';
 import '../styles/app.css';
-import Posts from '../data/posts';
+// import Posts from '../data/posts';
 import Modal from 'react-modal';
 
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +44,7 @@ const App = () => {
   const [cookies, removeCookie] = useCookies(['token']);
   const [username, setUsername] = useState('');
 
-  console.log('POSTS', posts);
+  // console.log('POSTS', posts);
 
   useEffect(() => {
     const verifyCookie = async () => {
@@ -66,7 +66,7 @@ const App = () => {
 
   useEffect(() => {
     // setPosts(Posts);
-    setPosts(blogs);
+    setPosts(blogs ?? []);
   }, [blogs]);
 
   const handleSearchQueryChange = (e) => {
@@ -82,13 +82,13 @@ const App = () => {
       setSearchLength(0);
     } else {
       setSearchMessage(`Search results for "${searchQuery}"`);
-      const filteredPosts = posts.filter(
+      const filteredPosts = posts?.filter(
         ({ title, description }) =>
           title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           description.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setSearchPosts(filteredPosts);
-      setSearchLength(filteredPosts.length);
+      setSearchLength(filteredPosts?.length ?? 0);
     }
   };
 

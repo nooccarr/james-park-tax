@@ -8,7 +8,6 @@ import '../styles/post-list.css';
 
 const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
   const [categoryPosts, setCategoryPosts] = useState([]);
-
   const { '*': path } = useParams();
 
   useScrollToTop();
@@ -17,7 +16,7 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
   }, [posts]);
 
   const getCategoryPosts = () => {
-    const filteredPosts = posts.filter((post) => post.category === category);
+    const filteredPosts = posts?.filter((post) => post.category === category);
     setCategoryPosts(filteredPosts);
   };
 
@@ -37,7 +36,7 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
             </div>
           </div>
 
-          {categoryPosts.map((post) => (
+          {categoryPosts?.map((post) => (
             <div key={post._id}>
               <div className="md:mx-10 mb-5">
                 <section className="article-container mb-3">
@@ -80,11 +79,11 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
           ))}
         </div>
 
-        {categoryPosts.length ? (
+        {categoryPosts?.length ? (
           <div className="md:px-10 mt-20">
             <Pagination
               itemsPerPage={5}
-              totalItems={categoryPosts.length}
+              totalItems={categoryPosts?.length}
               paginate={() => {}}
               path={path}
             />
