@@ -34,11 +34,7 @@ app.use(
   isAuthenticated,
   require(path.join(__dirname, 'routes', 'userRoutes'))
 );
-app.use(
-  '/blogs',
-  isAuthenticated,
-  require(path.join(__dirname, 'routes', 'blogRoutes'))
-);
+app.use('/blogs', require(path.join(__dirname, 'routes', 'blogRoutes')));
 
 // Handle client routing, return all requests to the app
 app.all('*', (_, res) => {

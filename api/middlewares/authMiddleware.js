@@ -1,6 +1,7 @@
 const User = require('../models/User');
 require('dotenv').config();
 const jwt = require('jsonwebtoken');
+const path = require('path');
 
 const userVerification = (req, res) => {
   const token = req.cookies.token;
@@ -22,12 +23,22 @@ const userVerification = (req, res) => {
 const isAuthenticated = (req, res, next) => {
   const token = req.cookies.token;
   if (token === undefined || token === 'undefined') {
-    return res.status(401).json({ message: 'Unauthorized access' });
+    return res.sendFile(
+      path.join(__dirname, '..', '..', 'dist', 'index.html'),
+      (err) => {
+        if (err) console.log(err);
+      }
+    );
   }
   const secretKey = process.env.JWT_SECRET_KEY;
   jwt.verify(token, secretKey, async (err, _) => {
     if (err) {
-      return res.json({ message: 'Unauthorized user' });
+      return res.sendFile(
+        path.join(__dirname, '..', '..', 'dist', 'index.html'),
+        (err) => {
+          if (err) console.log(err);
+        }
+      );
     } else {
       next();
     }

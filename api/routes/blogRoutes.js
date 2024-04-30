@@ -1,16 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const blogsController = require('../controllers/blogsController');
+const { isAuthenticated } = require('../middlewares/authMiddleware');
 
 router
   .route('/')
   .get(blogsController.getAllBlogs)
-  .post(blogsController.createNewBlog);
+  .post(isAuthenticated, blogsController.createNewBlog);
 
 router
   .route('/:id')
   .get(blogsController.getBlogById)
-  .put(blogsController.updateBlog)
-  .delete(blogsController.deleteBlog);
+  .put(isAuthenticated, blogsController.updateBlog)
+  .delete(isAuthenticated, blogsController.deleteBlog);
 
 module.exports = router;
