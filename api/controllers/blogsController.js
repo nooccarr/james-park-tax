@@ -33,12 +33,11 @@ const createNewBlog = async (req, res) => {
 
 // blogs/:slug
 const updateBlog = async (req, res) => {
-  const { id, slug, category, path, title, description, article, hidden } =
+  const { _id, slug, category, path, title, description, article, hidden } =
     req.body;
-
   try {
     const updatedBlog = await Blog.findByIdAndUpdate(
-      id,
+      _id,
       {
         slug,
         category,

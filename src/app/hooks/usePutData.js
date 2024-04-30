@@ -1,31 +1,31 @@
 import { useState } from 'react';
 
-const usePostData = (url) => {
+const usePutData = () => {
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const postData = async (data) => {
+  const putData = async (url, data) => {
     setIsLoading(true);
+
     try {
       const result = await fetch(url, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
       const responseJson = await result.json();
-      setIsLoading(false);
       setResponse(responseJson);
-      console.log('RESPONSE:', responseJson);
+      setIsLoading(false);
     } catch (error) {
       setError(error);
       setIsLoading(false);
     }
   };
 
-  return [postData, { response, error, isLoading }];
+  return [putData, { response, error, isLoading }];
 };
 
-export default usePostData;
+export default usePutData;

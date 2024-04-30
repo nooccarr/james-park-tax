@@ -137,13 +137,24 @@ const App = () => {
           <Route path="about-us" element={<AboutUs />} />
           <Route path="services" element={<Services />} />
           <Route path="tax-info" element={<TaxInfo />}>
-            <Route index element={<PostList posts={posts} category="Tax" />} />
+            <Route
+              index
+              element={
+                <PostList posts={posts} category="Tax" cookies={cookies} />
+              }
+            />
             <Route path=":slug" element={<Post posts={posts} />} />
           </Route>
           <Route path="insurance-info" element={<InsuranceInfo />}>
             <Route
               index
-              element={<PostList posts={posts} category="Insurance" />}
+              element={
+                <PostList
+                  posts={posts}
+                  category="Insurance"
+                  cookies={cookies}
+                />
+              }
             />
             <Route path=":slug" element={<Post posts={posts} />} />
           </Route>
