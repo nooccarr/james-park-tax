@@ -5,7 +5,4 @@ dist
 .env
 .env.local
 
-temp.md
 .vercel
-
-*.md

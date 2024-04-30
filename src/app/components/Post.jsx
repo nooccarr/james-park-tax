@@ -7,7 +7,7 @@ import '../styles/post.css';
 
 const Post = ({ posts }) => {
   const { slug } = useParams();
-  const post = posts[slug];
+  const post = posts?.find((post) => post.slug === slug);
 
   if (!post)
     return (
@@ -27,12 +27,12 @@ const Post = ({ posts }) => {
       <div className="mb-5">
         <div>
           <div>
-            <h2 className="py-5">{''}</h2>
+            <h2 className="py-5">&nbsp;</h2>
           </div>
         </div>
 
         <div>
-          <div md={{ span: 10, offset: 1 }} className="mb-5">
+          <div className="mb-5">
             <section className="post-container mb-3">
               <div className="p-0 mt-2">
                 <h3 className="post-title">{title}</h3>
