@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 const userVerification = (req, res) => {
   const token = req.cookies.token;
-  if (!token) {
+  if (token === undefined || token === 'undefined') {
     return res.json({ status: false });
   }
   const secretKey = process.env.JWT_SECRET_KEY;
@@ -19,4 +19,19 @@ const userVerification = (req, res) => {
   });
 };
 
-module.exports = { userVerification };
+const isAuthenticated = (req, res, next) => {
+  const token = req.cookies.token;
+  if (token === undefined || token === 'undefined') {
+    return res.status(401).json({ message: 'Unauthorized access' });
+  }
+  const secretKey = process.env.JWT_SECRET_KEY;
+  jwt.verify(token, secretKey, async (err, _) => {
+    if (err) {
+      return res.json({ message: 'Unauthorized user' });
+    } else {
+      next();
+    }
+  });
+};
+
+module.exports = { userVerification, isAuthenticated };

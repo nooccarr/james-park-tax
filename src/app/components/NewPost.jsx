@@ -23,10 +23,10 @@ const NewPost = ({ cookies }) => {
     const formData = new FormData(event.target);
     const data = {
       user: '6621ac64db80e29ffedb9afc',
-      slug: formatTitle(formData.get('title'), ' '),
+      slug: formatTitle(formData.get('title'), '-') ?? '',
       category: formData.get('category') ?? '',
       path: categoryToPath(formData.get('category')),
-      title: formatTitle(formData.get('title'), '-') ?? '',
+      title: formatTitle(formData.get('title'), ' '),
       description: stripHTML(content),
       article: content,
       hidden: formData.get('hidden') ?? false,

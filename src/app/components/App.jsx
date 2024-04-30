@@ -31,7 +31,7 @@ import axios from 'axios';
 Modal.setAppElement('#root');
 
 const App = () => {
-  const [data, error] = useFetchData('/blogs');
+  const [blogs, error] = useFetchData('/blogs');
   const [posts, setPosts] = useState({});
   const [searchPosts, setSearchPosts] = useState({});
   const [searchQuery, setSearchQuery] = useState('');
@@ -44,6 +44,7 @@ const App = () => {
   const [cookies, removeCookie] = useCookies(['token']);
   const [username, setUsername] = useState('');
 
+  // console.log('blogs', blogs);
   useEffect(() => {
     const verifyCookie = async () => {
       try {
@@ -65,7 +66,7 @@ const App = () => {
   useEffect(() => {
     setPosts(Posts);
     // setPosts(data);
-  }, [data]);
+  }, [blogs]);
 
   const handleSearchQueryChange = (e) => {
     setSearchQuery(e.target.value);

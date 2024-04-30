@@ -5,6 +5,7 @@ const dbConn = require('./config/dbConn');
 const { default: mongoose } = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const { isAuthenticated } = require('./middlewares/authMiddleware');
 const { PORT = 4000 } = process.env;
 
 dbConn();
@@ -28,8 +29,16 @@ app.use('/', express.static(path.join(__dirname, '..', 'dist')));
 
 // Serve requests from the router
 app.use('/', require(path.join(__dirname, 'routes', 'authRoutes')));
-app.use('/users', require(path.join(__dirname, 'routes', 'userRoutes')));
-app.use('/blogs', require(path.join(__dirname, 'routes', 'blogRoutes')));
+app.use(
+  '/users',
+  isAuthenticated,
+  require(path.join(__dirname, 'routes', 'userRoutes'))
+);
+app.use(
+  '/blogs',
+  isAuthenticated,
+  require(path.join(__dirname, 'routes', 'blogRoutes'))
+);
 
 // Handle client routing, return all requests to the app
 app.all('*', (_, res) => {
