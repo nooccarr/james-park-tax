@@ -45,11 +45,11 @@ const Layout = ({
                   ))}
 
                   <div className="flex items-center gap-6">
-                    <Link to="search" className="navsearch">
+                    <Link to="/search" className="navsearch">
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
                     {isToken(cookies) && (
-                      <Link to="new-post" className="navsearch">
+                      <Link to="/new-post" className="navsearch">
                         <FontAwesomeIcon icon={faPenToSquare} />
                       </Link>
                     )}
