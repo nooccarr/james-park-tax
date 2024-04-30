@@ -32,8 +32,8 @@ Modal.setAppElement('#root');
 
 const App = () => {
   const [blogs, error] = useFetchData('/blogs');
-  const [posts, setPosts] = useState({});
-  const [searchPosts, setSearchPosts] = useState({});
+  const [posts, setPosts] = useState([]);
+  const [searchPosts, setSearchPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchMessage, setSearchMessage] = useState('');
   const [searchLength, setSearchLength] = useState(0);
@@ -44,7 +44,8 @@ const App = () => {
   const [cookies, removeCookie] = useCookies(['token']);
   const [username, setUsername] = useState('');
 
-  // console.log('blogs', blogs);
+  console.log('POSTS', posts);
+
   useEffect(() => {
     const verifyCookie = async () => {
       try {
@@ -64,8 +65,8 @@ const App = () => {
   }, [navigate, removeCookie]);
 
   useEffect(() => {
-    setPosts(Posts);
-    // setPosts(data);
+    // setPosts(Posts);
+    setPosts(blogs);
   }, [blogs]);
 
   const handleSearchQueryChange = (e) => {
@@ -76,24 +77,24 @@ const App = () => {
     e.preventDefault();
 
     if (!searchQuery) {
-      setSearchPosts({});
+      setSearchPosts([]);
       setSearchMessage('');
       setSearchLength(0);
     } else {
       setSearchMessage(`Search results for "${searchQuery}"`);
-      const filteredPosts = Object.entries(posts).filter(
-        ([_slug, { title, description }]) =>
+      const filteredPosts = posts.filter(
+        ({ title, description }) =>
           title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           description.toLowerCase().includes(searchQuery.toLowerCase())
       );
-      setSearchPosts(Object.fromEntries(filteredPosts));
+      setSearchPosts(filteredPosts);
       setSearchLength(filteredPosts.length);
     }
   };
 
   const handleSearchReset = () => {
     setSearchQuery('');
-    setSearchPosts({});
+    setSearchPosts([]);
     setSearchMessage('');
   };
 

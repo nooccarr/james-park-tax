@@ -7,7 +7,7 @@ import Pagination from './Pagination';
 import '../styles/post-list.css';
 
 const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
-  const [categoryPosts, setCategoryPosts] = useState({});
+  const [categoryPosts, setCategoryPosts] = useState([]);
 
   const { '*': path } = useParams();
 
@@ -17,10 +17,8 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
   }, [posts]);
 
   const getCategoryPosts = () => {
-    const filteredPosts = Object.entries(posts).filter(
-      ([_slug, post]) => post.category === category
-    );
-    setCategoryPosts(Object.fromEntries(filteredPosts));
+    const filteredPosts = posts.filter((post) => post.category === category);
+    setCategoryPosts(filteredPosts);
   };
 
   const searchClass = path === 'search' ? 'pt-10 pb-16' : '';
@@ -39,14 +37,14 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
             </div>
           </div>
 
-          {Object.entries(categoryPosts).map(([slug, post]) => (
-            <div key={slug}>
+          {categoryPosts.map((post) => (
+            <div key={post._id}>
               <div className="md:mx-10 mb-5">
                 <section className="article-container mb-3">
                   <div className="p-0 mt-2">
                     <Link
                       className="article-title-anchor"
-                      to={`/${post.path}/${slug}`}
+                      to={`/${post.path}/${post.slug}`}
                       onClick={handleSearchReset}
                     >
                       <span className="article-title">{post.title}</span>
@@ -67,7 +65,7 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
                     </div>
                   </div>
                   <div className="">
-                    <Link to={`/${post.path}/${slug}`}>
+                    <Link to={`/${post.path}/${post.slug}`}>
                       <button
                         className="article-button"
                         onClick={handleSearchReset}
@@ -82,11 +80,11 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
           ))}
         </div>
 
-        {Object.keys(categoryPosts).length ? (
+        {categoryPosts.length ? (
           <div className="md:px-10 mt-20">
             <Pagination
               itemsPerPage={5}
-              totalItems={Object.keys(categoryPosts).length}
+              totalItems={categoryPosts.length}
               paginate={() => {}}
               path={path}
             />
