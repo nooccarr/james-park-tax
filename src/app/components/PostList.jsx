@@ -17,7 +17,10 @@ const PostList = ({ searchMessage, posts, category, handleSearchReset }) => {
 
   const getCategoryPosts = () => {
     const filteredPosts = posts?.filter((post) => post.category === category);
-    setCategoryPosts(filteredPosts);
+    const sortedPosts = filteredPosts?.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+    setCategoryPosts(sortedPosts);
   };
 
   const searchClass = path === 'search' ? 'pt-10 pb-16' : '';
