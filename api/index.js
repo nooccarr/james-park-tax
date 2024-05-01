@@ -37,10 +37,17 @@ app.use(
 app.use('/blogs', require(path.join(__dirname, 'routes', 'blogRoutes')));
 
 // Handle client routing, return all requests to the app
-app.all('*', (_, res) => {
-  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
-    if (err) console.log(err);
-  });
+app.all('*', (req, res) => {
+  // res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
+  //   if (err) console.log(err);
+  // });
+  if (req.accepts('html')) {
+    res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+  } else if (req.accepts('json')) {
+    res.json({ message: '404 Not Found' });
+  } else {
+    res.type('txt').send('404 Not Found');
+  }
 });
 
 mongoose.connection.once('open', () => {
