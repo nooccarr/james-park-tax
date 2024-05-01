@@ -6,7 +6,6 @@ const { default: mongoose } = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { isAuthenticated } = require('./middlewares/authMiddleware');
-const fs = require('fs');
 const { PORT = 4000 } = process.env;
 
 dbConn();
@@ -37,25 +36,12 @@ app.use(
 );
 app.use('/blogs', require(path.join(__dirname, 'routes', 'blogRoutes')));
 
-// Serve JavaScript files
-app.get('*.js', (req, res, next) => {
-  const filePath = path.join(__dirname, '..', 'dist', req.path);
-  fs.exists(filePath, (exists) => {
-    if (exists) {
-      res.sendFile(filePath);
-    } else {
-      res.status(404).send('File not found');
-    }
-  });
-});
-
 // Handle client routing, return all requests to the app
 app.all('*', (req, res) => {
-  // res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
-  //   if (err) console.log(err);
-  // });
   if (req.accepts('html')) {
-    res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
+      if (err) console.log(err);
+    });
   } else if (req.accepts('json')) {
     res.json({ message: '404 Not Found' });
   } else {
