@@ -21,16 +21,15 @@ const PostList = ({
 
   useScrollToTop();
   useEffect(() => {
+    const getCategoryPosts = () => {
+      const filteredPosts = posts?.filter((post) => post.category === category);
+      const sortedPosts = filteredPosts?.sort(
+        (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+      );
+      setCategoryPosts(sortedPosts);
+    };
     category ? getCategoryPosts() : setCategoryPosts(posts);
   }, [posts]);
-
-  const getCategoryPosts = () => {
-    const filteredPosts = posts?.filter((post) => post.category === category);
-    const sortedPosts = filteredPosts?.sort(
-      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
-    );
-    setCategoryPosts(sortedPosts);
-  };
 
   const handleToggleHidePost = (id) => {
     const updatedPosts = categoryPosts.map((post) => {
