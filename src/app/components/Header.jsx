@@ -24,7 +24,7 @@ const Header = ({
 
             <div className="ms-4 md:hidden flex items-center gap-4">
               <div className="">
-                <Link to="search" className="navsearch-mobile">
+                <Link to="/search" className="navsearch-mobile">
                   <FontAwesomeIcon
                     icon={faMagnifyingGlass}
                     onClick={handleOffCanvasClose}

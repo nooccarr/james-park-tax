@@ -29,7 +29,7 @@ const PostList = ({
       setCategoryPosts(sortedPosts);
     };
     category ? getCategoryPosts() : setCategoryPosts(posts);
-  }, [posts]);
+  }, [posts, category]);
 
   const handleToggleHidePost = (id) => {
     const updatedPosts = categoryPosts.map((post) => {
