@@ -1,8 +1,11 @@
+import useScrollToTop from '../hooks/useScrollToTop';
+
 const TermsAndConditions = () => {
+  useScrollToTop();
   return (
     <div className="max-w-[2240px] mx-auto">
       <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
-        <h2 className="mb-2 text-2xl font-semibold text-[#9E9A79]">
+        <h2 className="mb-6 text-2xl font-semibold text-[#9E9A79]">
           Terms and Conditions
         </h2>
 
