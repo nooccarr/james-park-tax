@@ -17,13 +17,13 @@ const signUp = async (req, res, next) => {
       withCredentials: true,
       httpOnly: false,
     });
-    return res
+    res
       .status(201)
       .json({ message: 'User signed in successfully', success: true, user });
     // next();
   } catch (error) {
     console.error(error);
-    return res.status(400).json({ message: error.message });
+    res.status(400).json({ message: error.message });
   }
 };
 
@@ -50,13 +50,13 @@ const Login = async (req, res, next) => {
       withCredentials: true,
       httpOnly: false,
     });
-    return res
+    res
       .status(201)
       .json({ message: 'User logged in successfully', success: true });
     // next();
   } catch (error) {
     console.error(error);
-    return res.status(400).json({ message: error.message });
+    res.status(400).json({ message: error.message });
   }
 };
 

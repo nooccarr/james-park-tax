@@ -11,11 +11,11 @@ const userVerification = (req, res) => {
   const secretKey = process.env.JWT_SECRET_KEY;
   jwt.verify(token, secretKey, async (err, data) => {
     if (err) {
-      return res.json({ status: false });
+      res.json({ status: false });
     } else {
       const user = await User.findById(data.id);
-      if (user) return res.json({ status: true, user: user.username });
-      else return res.json({ status: false });
+      if (user) res.json({ status: true, user: user.username });
+      else res.json({ status: false });
     }
   });
 };
@@ -33,7 +33,7 @@ const isAuthenticated = (req, res, next) => {
   const secretKey = process.env.JWT_SECRET_KEY;
   jwt.verify(token, secretKey, async (err, _) => {
     if (err) {
-      return res.sendFile(
+      res.sendFile(
         path.join(__dirname, '..', '..', 'dist', 'index.html'),
         (err) => {
           if (err) console.log(err);

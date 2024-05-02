@@ -51,14 +51,13 @@ app.all('*', (req, res) => {
 
 mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');
-
-  const server = app.listen(PORT, () => {
+  app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
   });
 });
 
 mongoose.connection.on('error', (error) => {
-  console.error('Error connecting to MongoDB', error);
+  console.log('Error connecting to MongoDB', error);
 });
 
 module.exports = app;
