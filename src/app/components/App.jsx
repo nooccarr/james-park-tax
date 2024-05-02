@@ -15,7 +15,8 @@ import NewPost from './NewPost';
 import EditPost from './EditPost';
 import Login from './Login';
 import Logout from './Logout';
-import Signup from './Signup';
+import TermsAndConditions from './TermsAndConditions';
+// import Signup from './Signup';
 import KakaoCanvas from './KakaoCanvas';
 import NoMatch from './NoMatch';
 import Footer from './Footer';
@@ -189,7 +190,11 @@ const App = () => {
             path="/logout"
             element={<Logout username={username} removeCookie={removeCookie} />}
           />
-          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
+          />
+          {/* <Route path="/signup" element={<Signup />} /> */}
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
