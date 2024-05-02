@@ -1,14 +1,22 @@
 const User = require('../models/User');
 
 const getAllUsers = async (_, res) => {
-  const users = await User.find({});
-  res.json(users);
+  try {
+    const users = await User.find({});
+    res.json(users);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
 
 // users/:username
 const getUserById = async (req, res) => {
-  const { id } = req.params;
-  res.json({ message: `Here is user number ${id}` });
+  try {
+    const { id } = req.params;
+    res.json({ message: `Here is user number ${id}` });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
 
 const createNewUser = async (req, res) => {

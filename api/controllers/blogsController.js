@@ -1,14 +1,22 @@
 const Blog = require('../models/Blog');
 
 const getAllBlogs = async (_, res) => {
-  const blogs = await Blog.find({});
-  res.json(blogs);
+  try {
+    const blogs = await Blog.find({});
+    res.json(blogs);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
 
 // blogs/:slug
 const getBlogById = async (req, res) => {
-  const { id } = req.params;
-  res.json({ message: `Here is blog number ${id}` });
+  try {
+    const { id } = req.params;
+    res.json({ message: `Here is blog number ${id}` });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
 
 const createNewBlog = async (req, res) => {
