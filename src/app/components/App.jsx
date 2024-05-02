@@ -134,9 +134,9 @@ const App = () => {
           }
         >
           <Route index element={<Home />} />
-          <Route path="about-us" element={<AboutUs />} />
-          <Route path="services" element={<Services />} />
-          <Route path="tax-info" element={<TaxInfo />}>
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/tax-info" element={<TaxInfo />}>
             <Route
               index
               element={
@@ -145,7 +145,7 @@ const App = () => {
             />
             <Route path=":slug" element={<Post posts={posts} />} />
           </Route>
-          <Route path="insurance-info" element={<InsuranceInfo />}>
+          <Route path="/insurance-info" element={<InsuranceInfo />}>
             <Route
               index
               element={
@@ -159,7 +159,7 @@ const App = () => {
             <Route path=":slug" element={<Post posts={posts} />} />
           </Route>
           <Route
-            path="search"
+            path="/search"
             element={
               <Results
                 searchQuery={searchQuery}
@@ -181,15 +181,15 @@ const App = () => {
             />
             <Route path=":slug" element={<Post posts={searchPosts} />} />
           </Route>
-          <Route path="contact-us" element={<ContactUs />} />
-          <Route path="new-post" element={<NewPost cookies={cookies} />} />
-          <Route path="edit-post" element={<EditPost cookies={cookies} />} />
-          <Route path="login" element={<Login />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/new-post" element={<NewPost cookies={cookies} />} />
+          <Route path="/edit-post" element={<EditPost cookies={cookies} />} />
+          <Route path="/login" element={<Login />} />
           <Route
-            path="logout"
+            path="/logout"
             element={<Logout username={username} removeCookie={removeCookie} />}
           />
-          <Route path="signup" element={<Signup />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
