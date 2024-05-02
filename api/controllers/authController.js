@@ -2,7 +2,7 @@ const User = require('../models/User');
 const { createSecretToken } = require('../utils/secretToken');
 const bcrypt = require('bcrypt');
 
-const signUp = async (req, res, next) => {
+const signUp = async (req, res) => {
   try {
     const { email } = req.body;
     const existingUser = await User.findOne({ email });
@@ -20,14 +20,13 @@ const signUp = async (req, res, next) => {
     res
       .status(201)
       .json({ message: 'User signed in successfully', success: true, user });
-    // next();
   } catch (error) {
     console.error(error);
     res.status(400).json({ message: error.message });
   }
 };
 
-const Login = async (req, res, next) => {
+const Login = async (req, res) => {
   try {
     const { email, password } = req.body;
     if (!email || !password) {
@@ -53,7 +52,6 @@ const Login = async (req, res, next) => {
     res
       .status(201)
       .json({ message: 'User logged in successfully', success: true });
-    // next();
   } catch (error) {
     console.error(error);
     res.status(400).json({ message: error.message });

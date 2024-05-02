@@ -7,6 +7,7 @@ import react from '@vitejs/plugin-react';
 const { PORT = 3000 } = process.env;
 
 export default defineConfig({
+  base: '/',
   plugins: [react()],
   // build: {
   //   outDir: 'dist', // The directory to output the built files in
