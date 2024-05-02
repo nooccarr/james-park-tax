@@ -25,7 +25,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // Serve static files from the React app
-app.use('/', express.static(path.join(__dirname, '..', 'dist')));
+app.use(
+  '/',
+  express.static(path.join(__dirname, '..', 'dist'), { extensions: ['js'] })
+);
 
 // Serve requests from the router
 app.use('/', require(path.join(__dirname, 'routes', 'authRoutes')));
@@ -39,7 +42,6 @@ app.use('/blogs', require(path.join(__dirname, 'routes', 'blogRoutes')));
 // Handle client routing, return all requests to the app
 app.all('*', (req, res) => {
   if (req.accepts('html')) {
-    console.log('HTML:', req.url);
     res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'), (err) => {
       if (err) console.log(err);
     });
