@@ -27,7 +27,7 @@ app.use(cookieParser());
 // Serve static files from the React app
 app.use(
   '/',
-  express.static(path.join(__dirname, '..', 'dist'), { extensions: ['js'] })
+  express.static(path.join(__dirname, '..', 'dist'), { maxAge: '1d' })
 );
 
 // Serve requests from the router
