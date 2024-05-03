@@ -18,7 +18,7 @@ const usePostData = (url) => {
       const responseJson = await result.json();
       setIsLoading(false);
       setResponse(responseJson);
-      console.log('RESPONSE:', responseJson);
+      // console.log('RESPONSE:', responseJson);
     } catch (error) {
       setError(error);
       setIsLoading(false);

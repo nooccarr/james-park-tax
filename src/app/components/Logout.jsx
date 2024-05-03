@@ -1,13 +1,31 @@
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Logout = ({ username, removeCookie }) => {
   const navigate = useNavigate();
   // console.log({ username, removeCookie });
+  const handleError = (err) =>
+    toast.error(err, {
+      position: 'bottom-left',
+    });
+
+  const handleSuccess = (msg) => {
+    toast.success(msg, {
+      position: 'bottom-left',
+    });
+  };
+
   const handleLogout = () => {
-    setTimeout(() => {
+    try {
       removeCookie('token');
-      navigate('/');
-    }, 500);
+      handleSuccess('Logged out successfully!');
+      setTimeout(() => {
+        navigate('/');
+      }, 1500);
+    } catch (error) {
+      console.log(error);
+      handleError(error.response.data.message);
+    }
   };
 
   return (
@@ -20,6 +38,7 @@ const Logout = ({ username, removeCookie }) => {
         <div>
           <button onClick={handleLogout}>Log out</button>
         </div>
+        <ToastContainer />
       </div>
     </div>
   );

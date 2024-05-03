@@ -5,17 +5,26 @@ import TinyEditor from './TinyEditor';
 import stripHTML from '../utils/stripHTML';
 import { useNavigate } from 'react-router-dom';
 import { formatTitle, categoryToPath } from '../utils/convertText';
-import isToken from '../utils/isToken';
+import { toast, ToastContainer } from 'react-toastify';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 const NewPost = ({ cookies }) => {
   const navigate = useNavigate();
   const [content, setContent] = useState('');
   const [postData, { response, error, isLoading }] = usePostData('/blogs');
 
-  useEffect(() => {
-    const token = isToken(cookies);
-    if (!token) navigate('/login');
-  }, [cookies]);
+  useScrollToTop();
+
+  const handleError = (err) =>
+    toast.error(err, {
+      position: 'bottom-left',
+    });
+
+  const handleSuccess = (msg) => {
+    toast.success(msg, {
+      position: 'bottom-left',
+    });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -32,8 +41,16 @@ const NewPost = ({ cookies }) => {
       hidden: formData.get('hidden') ?? false,
     };
 
-    console.log('NEW POST DATA:', data);
-    postData(data);
+    try {
+      postData(data);
+      handleSuccess('Post created successfully!');
+      setTimeout(() => {
+        navigate('/');
+      }, 1500);
+    } catch (error) {
+      console.log(error);
+      handleError(error.response.data.message);
+    }
   };
 
   return (
@@ -84,6 +101,7 @@ const NewPost = ({ cookies }) => {
           <p htmlFor="content-body">Body</p>
           <TinyEditor setContent={setContent} />
         </form>
+        <ToastContainer />
       </div>
     </div>
   );
