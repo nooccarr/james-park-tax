@@ -13,14 +13,11 @@ const useFetchData = (url, retryCount = 3) => {
       setData(data);
       setIsLoading(false);
     } catch (error) {
-      console.log('RETRY COUNT:', retryCount);
       if (retryCount === 0) {
         setError(error);
         setIsLoading(false);
       } else {
-        setTimeout(() => {
-          fetchData(retryCount - 1);
-        }, 1500);
+        fetchData(retryCount - 1);
       }
     }
   };
