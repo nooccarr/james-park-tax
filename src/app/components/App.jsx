@@ -64,12 +64,9 @@ const App = () => {
         setUsername(user ? user : '');
         !status && removeCookie('token');
       } catch (error) {
-        console.log('RETRY COUNT:', retryCount);
         console.log(error);
         if (retryCount > 0) {
-          setTimeout(() => {
-            verifyCookie(retryCount - 1);
-          }, 1500);
+          verifyCookie(retryCount - 1);
         }
       }
     };
