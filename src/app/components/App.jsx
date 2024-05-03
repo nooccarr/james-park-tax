@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './Header';
 import Layout from './Layout';
 import Home from './Home';
@@ -28,11 +28,14 @@ import Modal from 'react-modal';
 import { useNavigate } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
+import isToken from '../utils/isToken';
+import isProtectedPath from '../utils/isProtectedPath';
 
 Modal.setAppElement('#root');
 
 const App = () => {
-  const [blogs, error] = useFetchData('/blogs');
+  const location = useLocation();
+  const [blogs, error, isLoading] = useFetchData('/blogs');
   const [posts, setPosts] = useState([]);
   const [searchPosts, setSearchPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -46,9 +49,11 @@ const App = () => {
   const [username, setUsername] = useState('');
 
   // console.log('POSTS', posts);
-
   useEffect(() => {
-    const verifyCookie = async () => {
+    const verifyCookie = async (retryCount = 3) => {
+      const token = isToken(cookies);
+      const protectedPath = isProtectedPath(location.pathname);
+      if (!token && protectedPath) navigate('/login');
       try {
         const { data } = await axios.post(
           '/verify',
@@ -59,7 +64,13 @@ const App = () => {
         setUsername(user ? user : '');
         !status && removeCookie('token');
       } catch (error) {
+        console.log('RETRY COUNT:', retryCount);
         console.log(error);
+        if (retryCount > 0) {
+          setTimeout(() => {
+            verifyCookie(retryCount - 1);
+          }, 1500);
+        }
       }
     };
     verifyCookie();
