@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import PageHeader from './PageHeader';
 import usePostData from '../hooks/usePostData';
 import TinyEditor from './TinyEditor';
@@ -8,7 +8,7 @@ import { formatTitle, categoryToPath } from '../utils/convertText';
 import { toast, ToastContainer } from 'react-toastify';
 import useScrollToTop from '../hooks/useScrollToTop';
 
-const NewPost = ({ cookies }) => {
+const NewPost = () => {
   const navigate = useNavigate();
   const [content, setContent] = useState('');
   const [postData, { response, error, isLoading }] = usePostData('/blogs');
@@ -54,14 +54,14 @@ const NewPost = ({ cookies }) => {
   };
 
   return (
-    <div>
+    <div className="tax-info-background">
       <div className="services-header-image">
         <PageHeader title="New Post" />
       </div>
       <div className="max-w-[900px] mx-auto">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col my-10 mx-5 md:mx-10 mb-20 md:mb-40"
+          className="flex flex-col py-10 mx-5 md:mx-10 pb-20 md:pb-40"
         >
           <h4 className="font-semibold text-gray-600 pb-4">Category</h4>
           <div className="flex gap-4">

@@ -152,6 +152,7 @@ const App = () => {
                 <PostList posts={posts} category={'Tax'} cookies={cookies} />
               }
             />
+            <Route path="edit/:slug" element={<EditPost posts={posts} />} />
             <Route path=":slug" element={<Post posts={posts} />} />
           </Route>
           <Route path="/insurance-info" element={<InsuranceInfo />}>
@@ -191,8 +192,8 @@ const App = () => {
             <Route path=":slug" element={<Post posts={searchPosts} />} />
           </Route>
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/new-post" element={<NewPost cookies={cookies} />} />
-          <Route path="/edit-post" element={<EditPost cookies={cookies} />} />
+          <Route path="/new-post" element={<NewPost />} />
+
           <Route path="/login" element={<Login />} />
           <Route
             path="/logout"
