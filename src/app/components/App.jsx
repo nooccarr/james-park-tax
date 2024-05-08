@@ -35,7 +35,9 @@ Modal.setAppElement('#root');
 
 const App = () => {
   const location = useLocation();
-  const [blogs, error, isLoading] = useFetchData('/blogs');
+  const [blogs, error, isLoading] = useFetchData(
+    `${import.meta.env.DEV ? 'http://localhost:4000' : ''}/blogs`
+  );
   const [posts, setPosts] = useState([]);
   const [searchPosts, setSearchPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -43,7 +45,6 @@ const App = () => {
   const [searchLength, setSearchLength] = useState(0);
   const [showOffCanvas, setShowOffCanvas] = useState(false);
   const [showKakaoCanvas, setShowKakaoCanvas] = useState(false);
-
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies(['token']);
   const [username, setUsername] = useState('');
@@ -56,7 +57,7 @@ const App = () => {
       if (!token && protectedPath) navigate('/login');
       try {
         const { data } = await axios.post(
-          '/verify',
+          `${import.meta.env.DEV ? 'http://localhost:4000' : ''}/verify`,
           {},
           { withCredentials: true }
         );
@@ -166,6 +167,7 @@ const App = () => {
                 />
               }
             />
+            <Route path="edit/:slug" element={<EditPost posts={posts} />} />
             <Route path=":slug" element={<Post posts={posts} />} />
           </Route>
           <Route

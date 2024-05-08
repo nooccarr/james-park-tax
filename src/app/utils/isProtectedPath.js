@@ -1,4 +1,6 @@
 const isProtectedPath = (currentPath) =>
-  ['/new-post', '/edit-post'].some((path) => currentPath === path);
+  ['/new-post', '/tax-info/edit', '/insurance-info/edit'].some((path) =>
+    currentPath.startsWith(path)
+  );
 
 export default isProtectedPath;

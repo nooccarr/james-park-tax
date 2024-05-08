@@ -43,6 +43,7 @@ const createNewBlog = async (req, res) => {
 const updateBlog = async (req, res) => {
   const { _id, slug, category, path, title, description, article, hidden } =
     req.body;
+  console.log('req.body', req.body);
   try {
     const updatedBlog = await Blog.findByIdAndUpdate(
       _id,

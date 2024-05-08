@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import usePostData from '../hooks/usePostData';
+import { useRef, useState, useEffect } from 'react';
+import usePutData from '../hooks/usePutData';
 import TinyEditor from './TinyEditor';
 import stripHTML from '../utils/stripHTML';
 import { useNavigate, useParams, Link } from 'react-router-dom';
@@ -8,26 +8,35 @@ import { toast, ToastContainer } from 'react-toastify';
 import useScrollToTop from '../hooks/useScrollToTop';
 
 const EditPost = ({ posts }) => {
+  const formRef = useRef(null);
   const navigate = useNavigate();
-  const [content, setContent] = useState('');
-  const [postData, { response, error, isLoading }] = usePostData('/blogs');
-
   const { slug } = useParams();
+  const [content, setContent] = useState('');
+  const [putData, { response, error, isLoading }] = usePutData();
+
   const post = posts?.find((post) => post.slug === slug);
 
-  if (!post)
-    return (
-      <span className="flex justify-center text-xl">
-        The post you've requested doesn't exist.
-      </span>
-    );
+  // console.log(post);
 
-  console.log(post);
+  useEffect(() => {
+    if (formRef.current && post) {
+      formRef.current.elements.category.value = post.category;
+      formRef.current.elements.title.value = post.title;
+    }
+  }, [formRef, post]);
+
+  useScrollToTop();
+
+  // if (!post)
+  //   return (
+  //     <span className="flex justify-center text-xl">
+  //       The post you've requested doesn't exist.
+  //     </span>
+  //   );
+
   // const { title, article, category, path } = post;
   // const articleContent = article;
   // const capitalizedPath = pathToCapitalize(path);
-
-  useScrollToTop();
 
   const handleError = (err) =>
     toast.error(err, {
@@ -44,20 +53,15 @@ const EditPost = ({ posts }) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    const data = {
-      user: '6621ac64db80e29ffedb9afc',
-      slug: formatTitle(formData.get('title'), '-') ?? '',
-      category: formData.get('category') ?? '',
-      path: categoryToPath(formData.get('category')),
-      title: formatTitle(formData.get('title'), ' '),
-      description: stripHTML(content),
-      article: content,
-      hidden: formData.get('hidden') ?? false,
-    };
-
+    post.slug = formatTitle(formData.get('title'), '-') ?? '';
+    post.category = formData.get('category') ?? '';
+    post.path = categoryToPath(formData.get('category'));
+    post.title = formatTitle(formData.get('title'), ' ');
+    post.description = stripHTML(content);
+    post.article = content;
     try {
-      postData(data);
-      handleSuccess('Post created successfully!');
+      putData(`/blogs/${slug}`, post);
+      handleSuccess('Post updated successfully!');
       setTimeout(() => {
         navigate('/');
       }, 1500);
@@ -69,7 +73,7 @@ const EditPost = ({ posts }) => {
 
   return (
     <div className="max-w-[900px] mx-auto">
-      <form onSubmit={handleSubmit} className="flex flex-col">
+      <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col">
         <h4 className="font-semibold text-gray-600 pb-4">Category</h4>
         <div className="flex gap-4">
           <label>
@@ -100,11 +104,15 @@ const EditPost = ({ posts }) => {
         />
 
         <p htmlFor="content-body">Body</p>
-        <TinyEditor setContent={setContent} />
+        <TinyEditor article={post?.article} setContent={setContent} />
       </form>
-      <Link to={`/${post?.path}`} style={{ textDecoration: 'none' }}>
-        <span className="post-link-category">Back to {post?.category}</span>
-      </Link>
+      <div className="pt-10">
+        <Link to={`/${post?.path}`} style={{ textDecoration: 'none' }}>
+          <span className="post-link-category">
+            Back to {post?.category} Info
+          </span>
+        </Link>
+      </div>
       <ToastContainer />
     </div>
   );

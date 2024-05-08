@@ -1,8 +1,8 @@
 import './styles.scss';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 
-const TinyEditor = ({ setContent }) => {
+const TinyEditor = ({ article, setContent }) => {
   const editorRef = useRef(null);
   const log = () => {
     if (editorRef.current) {
@@ -15,7 +15,7 @@ const TinyEditor = ({ setContent }) => {
       <Editor
         apiKey={import.meta.env.VITE_TINYMCE_API_KEY}
         onInit={(_evt, editor) => (editorRef.current = editor)}
-        initialValue=""
+        initialValue={article ?? ''}
         init={{
           height: 600,
           menubar: false,
@@ -52,7 +52,7 @@ const TinyEditor = ({ setContent }) => {
         onClick={log}
         className="email-form-button bg-[#043a49] mt-4 normal-case"
       >
-        Create Post
+        {article ? 'Edit' : 'Create'} Post
       </button>
     </>
   );
