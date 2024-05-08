@@ -5,20 +5,25 @@ const usePostData = (url) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const postData = async (data) => {
+  const postData = async (data, setPosts) => {
     setIsLoading(true);
     try {
-      const result = await fetch(url, {
+      const createPost = await fetch(url, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(data),
       });
-      const responseJson = await result.json();
+      const responseJson = await createPost.json();
       setIsLoading(false);
       setResponse(responseJson);
-      // console.log('RESPONSE:', responseJson);
+
+      const fetchPosts = await fetch(
+        `${import.meta.env.DEV ? 'http://localhost:4000' : ''}/blogs`
+      );
+      const posts = await fetchPosts.json();
+      setPosts(posts);
     } catch (error) {
       setError(error);
       setIsLoading(false);

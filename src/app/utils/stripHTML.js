@@ -1,5 +1,10 @@
 const stripHtml = (html) => {
-  const strippedHtml = html.replace(/<[^>]+>/g, '').trim();
+  const strippedHtml = html
+    .replace(/<[^>]+>/g, '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, 'and')
+    .trim();
+
   if (strippedHtml.length < 250) return strippedHtml;
   return `${strippedHtml.slice(0, 250)}...`;
 };
