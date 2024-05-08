@@ -17,7 +17,7 @@ app.use(
     origin: [
       'http://localhost:3000',
       'http://localhost:4000',
-      'https://jamesparktax.com',
+      'https://www.jamesparktax.com',
     ],
     credentials: true,
     optionsSuccessStatus: 200,

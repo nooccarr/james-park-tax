@@ -53,17 +53,17 @@ const EditPost = ({ posts }) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    post.slug = formatTitle(formData.get('title'), '-') ?? '';
-    post.category = formData.get('category') ?? '';
-    post.path = categoryToPath(formData.get('category'));
-    post.title = formatTitle(formData.get('title'), ' ');
+    post.slug = formatTitle(formData.get('title'), '-') || post.slug;
+    post.category = formData.get('category') || post.category;
+    post.path = categoryToPath(formData.get('category')) || post.path;
+    post.title = formatTitle(formData.get('title'), ' ') || post.title;
     post.description = stripHTML(content);
-    post.article = content;
+    post.article = content || post.article;
     try {
       putData(`/blogs/${slug}`, post);
       handleSuccess('Post updated successfully!');
       setTimeout(() => {
-        navigate('/');
+        navigate(`/${post.path}`);
       }, 1500);
     } catch (error) {
       console.log(error);

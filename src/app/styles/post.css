@@ -109,6 +109,9 @@
 }
 
 .post-content ul {
+  margin-left: 10px;
+  padding-left: 10px;
+  list-style-type: disc;
   color: #6a6a6a;
   font-size: 16px;
   line-height: 1.5;
@@ -117,6 +120,8 @@
 }
 
 .post-content ol {
+  margin-left: 10px;
+  padding-left: 10px;
   color: #6a6a6a;
   font-size: 16px;
   line-height: 1.5;

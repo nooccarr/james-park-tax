@@ -9,6 +9,8 @@ const Post = ({ posts }) => {
   const { slug } = useParams();
   const post = posts?.find((post) => post.slug === slug);
 
+  useScrollToTop();
+
   if (!post)
     return (
       <span className="flex justify-center text-xl">
@@ -19,8 +21,6 @@ const Post = ({ posts }) => {
   const { title, article, category, path } = post;
   const articleContent = article;
   const capitalizedPath = pathToCapitalize(path);
-
-  useScrollToTop();
 
   return (
     <main>

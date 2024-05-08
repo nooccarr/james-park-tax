@@ -8,7 +8,7 @@ import { formatTitle, categoryToPath } from '../utils/convertText';
 import { toast, ToastContainer } from 'react-toastify';
 import useScrollToTop from '../hooks/useScrollToTop';
 
-const NewPost = () => {
+const NewPost = ({ setPosts }) => {
   const navigate = useNavigate();
   const [content, setContent] = useState('');
   const [postData, { response, error, isLoading }] = usePostData('/blogs');
@@ -42,10 +42,10 @@ const NewPost = () => {
     };
 
     try {
-      postData(data);
+      postData(data, setPosts);
       handleSuccess('Post created successfully!');
       setTimeout(() => {
-        navigate('/');
+        navigate(`/${data.path}`);
       }, 1500);
     } catch (error) {
       console.log(error);
