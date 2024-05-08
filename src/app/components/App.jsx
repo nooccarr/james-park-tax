@@ -150,7 +150,12 @@ const App = () => {
             <Route
               index
               element={
-                <PostList posts={posts} category={'Tax'} cookies={cookies} />
+                <PostList
+                  posts={posts}
+                  category={'Tax'}
+                  cookies={cookies}
+                  isLoading={isLoading}
+                />
               }
             />
             <Route path="edit/:slug" element={<EditPost posts={posts} />} />
@@ -164,6 +169,7 @@ const App = () => {
                   posts={posts}
                   category={'Insurance'}
                   cookies={cookies}
+                  isLoading={isLoading}
                 />
               }
             />
