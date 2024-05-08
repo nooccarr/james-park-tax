@@ -14,7 +14,11 @@ const app = express();
 
 app.use(
   cors({
-    origin: '*',
+    origin: [
+      'http://localhost:3000',
+      'http://localhost:4000',
+      'https://jamesparktax.com',
+    ],
     credentials: true,
     optionsSuccessStatus: 200,
   })

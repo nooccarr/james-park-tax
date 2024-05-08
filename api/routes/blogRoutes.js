@@ -11,7 +11,7 @@ router
 router
   .route('/:id')
   .get(blogsController.getBlogById)
-  .put(isAuthenticated, blogsController.updateBlog)
-  .delete(isAuthenticated, blogsController.deleteBlog);
+  .put(isAuthenticated, blogsController.updateBlog);
+// .delete(isAuthenticated, blogsController.deleteBlog);
 
 module.exports = router;

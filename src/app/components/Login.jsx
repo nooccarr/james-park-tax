@@ -35,7 +35,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        '/login',
+        `${import.meta.env.DEV ? 'http://localhost:4000' : ''}/login`,
         {
           ...inputValue,
         },
@@ -76,7 +76,7 @@ const Login = () => {
               value={email}
               placeholder="Enter your email"
               onChange={handleOnChange}
-              autocomplete="off"
+              autoComplete="off"
               required
             />
           </div>
