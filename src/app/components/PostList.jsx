@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import useScrollToTop from '../hooks/useScrollToTop';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -16,10 +16,12 @@ const PostList = ({
   cookies,
 }) => {
   const [categoryPosts, setCategoryPosts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   const [putData, { response, error, isLoading }] = usePutData();
   const { '*': path } = useParams();
 
   useScrollToTop();
+
   useEffect(() => {
     const getCategoryPosts = () => {
       const filteredPosts = posts?.filter((post) => post.category === category);
@@ -30,6 +32,13 @@ const PostList = ({
     };
     category ? getCategoryPosts() : setCategoryPosts(posts);
   }, [posts, category]);
+
+  const pageSize = 5;
+  const currentPosts = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * pageSize;
+    const lastPageIndex = firstPageIndex + pageSize;
+    return categoryPosts.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, categoryPosts]);
 
   const handleToggleHidePost = (id) => {
     const updatedPosts = categoryPosts.map((post) => {
@@ -80,7 +89,7 @@ const PostList = ({
               </div>
             </div>
 
-            {categoryPosts?.map((post) => (
+            {currentPosts?.map((post) => (
               <div
                 key={post._id}
                 className={`${post.hidden && !isToken(cookies) && 'hidden'}`}
@@ -176,10 +185,10 @@ const PostList = ({
         {categoryPosts?.length ? (
           <div className="md:px-10 mt-20">
             <Pagination
-              itemsPerPage={5}
-              totalItems={categoryPosts?.length}
-              paginate={() => {}}
-              path={path}
+              totalCount={categoryPosts?.length}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              onPageChange={(page) => setCurrentPage(page)}
             />
           </div>
         ) : null}
