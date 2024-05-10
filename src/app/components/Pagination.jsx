@@ -1,54 +1,86 @@
-const Pagination = ({ itemsPerPage, totalItems, paginate, path }) => {
-  const pageNumbers = [];
+import { usePagination, DOTS } from '../hooks/usePagination';
 
-  for (let i = 1; i <= Math.ceil(totalItems / itemsPerPage); i++) {
-    pageNumbers.push(i);
+const Pagination = ({
+  totalCount,
+  currentPage,
+  pageSize,
+  onPageChange,
+  siblingCount = 1,
+}) => {
+  const paginationRange = usePagination({
+    totalCount,
+    pageSize,
+    siblingCount,
+    currentPage,
+  });
+
+  // If there are less than 2 times in pagination range we shall not render the component
+  if (currentPage === 0 || paginationRange.length < 2) {
+    return null;
   }
 
-  return (
-    // <nav>
-    //   <ul className="pagination">
-    //     {pageNumbers.map((number) => (
-    //       <li key={number} className="page-item">
-    //         <a
-    //           onClick={() => paginate(number)}
-    //           href="/tax-info/page/2"
-    //           className="page-link"
-    //         >
-    //           {number}
-    //         </a>
-    //       </li>
-    //     ))}
-    //   </ul>
-    // </nav>
+  const scrollToTop = () => {
+    window.scroll({ top: 0, left: 0, behavior: 'smooth' });
+  };
 
+  const onNext = () => {
+    onPageChange(currentPage + 1);
+    scrollToTop();
+  };
+
+  const onPrevious = () => {
+    onPageChange(currentPage - 1);
+    scrollToTop();
+  };
+
+  let lastPage = paginationRange[paginationRange.length - 1];
+
+  const handlePageChange = (page) => {
+    onPageChange(page);
+    scrollToTop();
+  };
+
+  return (
     <div className="flex items-center justify-between border border-gray-200 shadow-sm bg-white px-4 py-3 sm:px-6">
-      <div className="flex flex-1 justify-between sm:hidden">
-        <a href="#" className="article-button m-0">
+      <div className="flex flex-1 justify-between md:hidden">
+        <button
+          className="article-button m-0 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:text-white"
+          onClick={onPrevious}
+          disabled={currentPage === 1 ? true : false}
+        >
           Previous
-        </a>
-        <a href="#" className="article-button m-0">
+        </button>
+        <button
+          className="article-button m-0 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:text-white"
+          onClick={onNext}
+          disabled={currentPage === lastPage}
+        >
           Next
-        </a>
+        </button>
       </div>
-      <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between">
+      <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
         <div className="flex gap-1 items-baseline">
           <p className="text-sm text-gray-700">Showing</p>
-          <span className="font-medium">1</span>
+          <span className="font-medium">
+            {(currentPage - 1) * pageSize + 1}
+          </span>
           <p className="text-sm text-gray-700">to</p>
-          <span className="font-medium">{totalItems}</span>
+          <span className="font-medium">
+            {Math.min((currentPage - 1) * pageSize + pageSize, totalCount)}
+          </span>
           <p className="text-sm text-gray-700">of</p>
-          <span className="font-medium">{totalItems}</span>
+          <span className="font-medium">{totalCount}</span>
           <p className="text-sm text-gray-700">results</p>
         </div>
-        <div>
+        <div className="">
           <nav
             className="isolate inline-flex -space-x-px rounded-md shadow-sm"
             aria-label="Pagination"
           >
-            <a
-              href="#"
-              className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+            <button
+              className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0  disabled:cursor-not-allowed disabled:bg-gray-300"
+              onClick={onPrevious}
+              disabled={currentPage === 1 ? true : false}
             >
               <span className="sr-only">Previous</span>
               <svg
@@ -63,28 +95,34 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, path }) => {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
-            {pageNumbers.map((number) => (
-              <a
-                key={number}
-                href={`${path}/page/${number}`}
-                onClick={() => paginate(number)}
-                aria-current="page"
-                className="relative z-10 inline-flex items-center bg-[#9e9a79] px-4 py-2 text-sm font-semibold text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                {number}
-              </a>
-            ))}
-            {/* TODO: "text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0" */}
-            {/* <a
-              href="#"
-              className="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex"
-            >
-              3
-            </a> */}
-            <a
-              href="#"
-              className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0"
+            </button>
+            {paginationRange.map((pageNumber) => {
+              if (pageNumber === DOTS) {
+                return (
+                  <button className="relative items-center px-3 pb-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 inline-flex">
+                    &#8230;
+                  </button>
+                );
+              }
+              return (
+                <button
+                  key={pageNumber}
+                  onClick={() => handlePageChange(pageNumber)}
+                  className={`${
+                    pageNumber === currentPage
+                      ? 'relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold bg-[#9e9a79] text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                      : 'relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex'
+                  }`}
+                  disabled={pageNumber === currentPage ? true : false}
+                >
+                  {pageNumber}
+                </button>
+              );
+            })}
+            <button
+              className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0  disabled:cursor-not-allowed disabled:bg-gray-300"
+              onClick={onNext}
+              disabled={currentPage === lastPage}
             >
               <span className="sr-only">Next</span>
               <svg
@@ -99,7 +137,7 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, path }) => {
                   clipRule="evenodd"
                 />
               </svg>
-            </a>
+            </button>
           </nav>
         </div>
       </div>

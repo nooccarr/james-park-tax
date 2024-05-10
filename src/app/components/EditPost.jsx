@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react';
 import usePutData from '../hooks/usePutData';
 import TinyEditor from './TinyEditor';
 import stripHTML from '../utils/stripHTML';
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { formatTitle, categoryToPath } from '../utils/convertText';
 import { toast, ToastContainer } from 'react-toastify';
 import useScrollToTop from '../hooks/useScrollToTop';
@@ -63,7 +63,7 @@ const EditPost = ({ posts }) => {
       putData(`/blogs/${slug}`, post);
       handleSuccess('Post updated successfully!');
       setTimeout(() => {
-        navigate(`/${post.path}`);
+        navigate(-1);
       }, 1500);
     } catch (error) {
       console.log(error);
@@ -107,11 +107,9 @@ const EditPost = ({ posts }) => {
         <TinyEditor article={post?.article} setContent={setContent} />
       </form>
       <div className="pt-10">
-        <Link to={`/${post?.path}`} style={{ textDecoration: 'none' }}>
-          <span className="post-link-category">
-            Back to {post?.category} Info
-          </span>
-        </Link>
+        <button className="post-link-category" onClick={() => navigate(-1)}>
+          Back to {post?.category} Info
+        </button>
       </div>
       <ToastContainer />
     </div>

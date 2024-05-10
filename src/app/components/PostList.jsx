@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import useScrollToTop from '../hooks/useScrollToTop';
 import { Link, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,12 +14,15 @@ const PostList = ({
   category,
   handleSearchReset,
   cookies,
+  currentPage,
+  setCurrentPage,
 }) => {
   const [categoryPosts, setCategoryPosts] = useState([]);
   const [putData, { response, error, isLoading }] = usePutData();
   const { '*': path } = useParams();
 
   useScrollToTop();
+
   useEffect(() => {
     const getCategoryPosts = () => {
       const filteredPosts = posts?.filter((post) => post.category === category);
@@ -30,6 +33,13 @@ const PostList = ({
     };
     category ? getCategoryPosts() : setCategoryPosts(posts);
   }, [posts, category]);
+
+  const pageSize = 5;
+  const currentPosts = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * pageSize;
+    const lastPageIndex = firstPageIndex + pageSize;
+    return categoryPosts.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, categoryPosts]);
 
   const handleToggleHidePost = (id) => {
     const updatedPosts = categoryPosts.map((post) => {
@@ -48,22 +58,22 @@ const PostList = ({
       <main>
         {isLoading && (
           <div className="flex flex-col gap-4">
-            <div role="status" className="animate-pulse bg-white p-4 mx-10">
-              <div className="h-4 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px] mb-2.5"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+            <div role="status" className="animate-pulse bg-white p-10 mx-10">
+              <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-1/2 mb-8"></div>
+              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-1/5 mb-8"></div>
+              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-2/3 mb-8"></div>
+              <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-[100px]"></div>
               <span className="sr-only">Loading...</span>
             </div>
-            <div role="status" className="animate-pulse bg-white p-4 mx-10">
-              <div className="h-4 bg-gray-200 rounded-full dark:bg-gray-700 w-48 mb-4"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px] mb-2.5"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[330px] mb-2.5"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[300px] mb-2.5"></div>
-              <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[360px]"></div>
+            <div role="status" className="animate-pulse bg-white p-10 mx-10">
+              <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-1/2 mb-8"></div>
+              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-1/5 mb-8"></div>
+              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+              <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-2/3 mb-8"></div>
+              <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-[100px]"></div>
               <span className="sr-only">Loading...</span>
             </div>
           </div>
@@ -80,7 +90,7 @@ const PostList = ({
               </div>
             </div>
 
-            {categoryPosts?.map((post) => (
+            {currentPosts?.map((post) => (
               <div
                 key={post._id}
                 className={`${post.hidden && !isToken(cookies) && 'hidden'}`}
@@ -176,10 +186,10 @@ const PostList = ({
         {categoryPosts?.length ? (
           <div className="md:px-10 mt-20">
             <Pagination
-              itemsPerPage={5}
-              totalItems={categoryPosts?.length}
-              paginate={() => {}}
-              path={path}
+              totalCount={categoryPosts?.length}
+              currentPage={currentPage}
+              pageSize={pageSize}
+              onPageChange={(page) => setCurrentPage(page)}
             />
           </div>
         ) : null}

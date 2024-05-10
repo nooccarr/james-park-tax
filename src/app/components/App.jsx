@@ -48,6 +48,7 @@ const App = () => {
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies(['token']);
   const [username, setUsername] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
 
   // console.log('POSTS', posts);
   useEffect(() => {
@@ -75,7 +76,6 @@ const App = () => {
   }, [navigate, removeCookie]);
 
   useEffect(() => {
-    // setPosts(Posts);
     setPosts(blogs ?? []);
   }, [blogs]);
 
@@ -100,6 +100,7 @@ const App = () => {
       setSearchPosts(filteredPosts);
       setSearchLength(filteredPosts?.length ?? 0);
     }
+    setCurrentPage(1);
   };
 
   const handleSearchReset = () => {
@@ -155,6 +156,8 @@ const App = () => {
                   category={'Tax'}
                   cookies={cookies}
                   isLoading={isLoading}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
                 />
               }
             />
@@ -170,6 +173,8 @@ const App = () => {
                   category={'Insurance'}
                   cookies={cookies}
                   isLoading={isLoading}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
                 />
               }
             />
@@ -194,6 +199,8 @@ const App = () => {
                   posts={searchPosts}
                   searchMessage={searchMessage}
                   handleSearchReset={handleSearchReset}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
                 />
               }
             />
