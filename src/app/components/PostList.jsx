@@ -14,9 +14,10 @@ const PostList = ({
   category,
   handleSearchReset,
   cookies,
+  currentPage,
+  setCurrentPage,
 }) => {
   const [categoryPosts, setCategoryPosts] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const [putData, { response, error, isLoading }] = usePutData();
   const { '*': path } = useParams();
 
