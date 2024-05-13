@@ -8188,18 +8188,6 @@ video {
     margin-bottom: 4rem;
   }
 
-  .sm\:flex {
-    display: flex;
-  }
-
-  .sm\:hidden {
-    display: none;
-  }
-
-  .sm\:flex-1 {
-    flex: 1 1 0%;
-  }
-
   .sm\:items-start {
     align-items: flex-start;
   }
@@ -8210,10 +8198,6 @@ video {
 
   .sm\:items-center {
     align-items: center;
-  }
-
-  .sm\:justify-between {
-    justify-content: space-between;
   }
 
   .sm\:px-6 {
