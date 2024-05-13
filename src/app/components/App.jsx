@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  useLocation,
+  createSearchParams,
+} from 'react-router-dom';
 import Header from './Header';
 import Layout from './Layout';
 import Home from './Home';
@@ -25,7 +30,7 @@ import '../styles/app.css';
 // import Posts from '../data/posts';
 import Modal from 'react-modal';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import isToken from '../utils/isToken';
@@ -49,8 +54,17 @@ const App = () => {
   const [cookies, removeCookie] = useCookies(['token']);
   const [username, setUsername] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchParams] = useSearchParams();
 
+  useEffect(() => {
+    // TODO: set search from URL query
+    const query = searchParams.get('query') || '';
+    setSearchQuery(query);
+    console.log('QUERY:', query);
+  }, [searchParams]);
+  console.log('SEARCH QUERY:', searchQuery);
   // console.log('POSTS', posts);
+
   useEffect(() => {
     const verifyCookie = async (retryCount = 3) => {
       const token = isToken(cookies);
@@ -99,6 +113,12 @@ const App = () => {
       );
       setSearchPosts(filteredPosts);
       setSearchLength(filteredPosts?.length ?? 0);
+      // TODO: update URL query
+      // navigate(`/search?query=${searchQuery}`);
+      navigate({
+        pathname: '/search',
+        search: `?${createSearchParams({ query: searchQuery })}`,
+      });
     }
     setCurrentPage(1);
   };
