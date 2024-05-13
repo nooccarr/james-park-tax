@@ -54,7 +54,7 @@ const Post = ({ posts }) => {
                 />
                 <button
                   className="post-link-category"
-                  onClick={() => navigate(-1)}
+                  onClick={() => navigate(`/${path}`)}
                 >
                   Back to {capitalizedPath}
                 </button>
