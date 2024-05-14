@@ -56,14 +56,30 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams] = useSearchParams();
 
+  const query = searchParams.get('query') || '';
+  const page = searchParams.get('page') || '1';
+
   useEffect(() => {
-    // TODO: set search from URL query
-    const query = searchParams.get('query') || '';
+    if (!query) {
+      console.log('HI');
+      setSearchPosts([]);
+      setSearchMessage('');
+      setSearchLength(0);
+      if (location.pathname === '/search') searchParams.set('page', '1');
+    } else {
+      setSearchMessage(`Search results for "${query}"`);
+      const filteredPosts = posts?.filter(
+        ({ title, description }) =>
+          title.toLowerCase().includes(query.toLowerCase()) ||
+          description.toLowerCase().includes(query.toLowerCase())
+      );
+      setSearchPosts(filteredPosts);
+      setSearchLength(filteredPosts?.length ?? 0);
+    }
+
     setSearchQuery(query);
-    console.log('QUERY:', query);
-  }, [searchParams]);
-  console.log('SEARCH QUERY:', searchQuery);
-  // console.log('POSTS', posts);
+    setCurrentPage(Number(page));
+  }, [searchParams, posts]);
 
   useEffect(() => {
     const verifyCookie = async (retryCount = 3) => {
@@ -113,16 +129,18 @@ const App = () => {
       );
       setSearchPosts(filteredPosts);
       setSearchLength(filteredPosts?.length ?? 0);
-      // TODO: update URL query
-      // navigate(`/search?query=${searchQuery}`);
       navigate({
         pathname: '/search',
-        search: `?${createSearchParams({ query: searchQuery })}`,
+        search: `?${createSearchParams({
+          query: searchQuery,
+          page: page,
+        })}`,
       });
     }
     setCurrentPage(1);
   };
-
+  console.log('CURRENT PAGE', currentPage);
+  console.log('PAGE', page);
   const handleSearchReset = () => {
     setSearchQuery('');
     setSearchPosts([]);
@@ -143,6 +161,40 @@ const App = () => {
 
   const handleKakaoCanvasClose = () => {
     setShowKakaoCanvas(false);
+  };
+
+  const onSearchPageChange = (page) => {
+    setCurrentPage(page);
+    searchParams.set('page', page);
+    navigate({
+      pathname: '/search',
+      search: `?${createSearchParams({
+        query: searchQuery,
+        page: page,
+      })}`,
+    });
+  };
+
+  const onTaxInfoPageChange = (page) => {
+    setCurrentPage(page);
+    searchParams.set('page', page);
+    navigate({
+      pathname: '/tax-info',
+      search: `?${createSearchParams({
+        page: page,
+      })}`,
+    });
+  };
+
+  const onInsuranceInfoPageChange = (page) => {
+    setCurrentPage(page);
+    searchParams.set('page', page);
+    navigate({
+      pathname: '/insurance-info',
+      search: `?${createSearchParams({
+        page: page,
+      })}`,
+    });
   };
 
   return (
@@ -177,7 +229,7 @@ const App = () => {
                   cookies={cookies}
                   isLoading={isLoading}
                   currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
+                  onPageChange={onTaxInfoPageChange}
                 />
               }
             />
@@ -194,7 +246,7 @@ const App = () => {
                   cookies={cookies}
                   isLoading={isLoading}
                   currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
+                  onPageChange={onInsuranceInfoPageChange}
                 />
               }
             />
@@ -220,7 +272,7 @@ const App = () => {
                   searchMessage={searchMessage}
                   handleSearchReset={handleSearchReset}
                   currentPage={currentPage}
-                  setCurrentPage={setCurrentPage}
+                  onPageChange={onSearchPageChange}
                 />
               }
             />

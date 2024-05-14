@@ -15,7 +15,7 @@ const PostList = ({
   handleSearchReset,
   cookies,
   currentPage,
-  setCurrentPage,
+  onPageChange,
 }) => {
   const [categoryPosts, setCategoryPosts] = useState([]);
   const [putData, { response, error, isLoading }] = usePutData();
@@ -189,7 +189,7 @@ const PostList = ({
               totalCount={categoryPosts?.length}
               currentPage={currentPage}
               pageSize={pageSize}
-              onPageChange={(page) => setCurrentPage(page)}
+              onPageChange={onPageChange}
             />
           </div>
         ) : null}
