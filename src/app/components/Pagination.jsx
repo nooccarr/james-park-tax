@@ -1,4 +1,4 @@
-import { usePagination, DOTS } from '../hooks/usePagination';
+import { usePagination } from '../hooks/usePagination';
 
 const Pagination = ({
   totalCount,
@@ -41,25 +41,9 @@ const Pagination = ({
   };
 
   return (
-    <div className="flex items-center justify-between border border-gray-200 shadow-sm bg-white px-4 py-3 sm:px-6">
-      <div className="flex flex-1 justify-between md:hidden">
-        <button
-          className="article-button m-0 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:text-white"
-          onClick={onPrevious}
-          disabled={currentPage === 1 ? true : false}
-        >
-          Previous
-        </button>
-        <button
-          className="article-button m-0 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:text-white"
-          onClick={onNext}
-          disabled={currentPage === lastPage}
-        >
-          Next
-        </button>
-      </div>
-      <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
-        <div className="flex gap-1 items-baseline">
+    <div className="flex items-center justify-center md:justify-between md:border md:border-gray-200 md:shadow-md md:bg-white px-4 py-3 sm:px-6">
+      <div className="flex md:flex-1 items-center justify-between">
+        <div className="hidden md:flex gap-1 items-baseline">
           <p className="text-sm text-gray-700">Showing</p>
           <span className="font-medium">
             {(currentPage - 1) * pageSize + 1}
@@ -74,11 +58,11 @@ const Pagination = ({
         </div>
         <div className="">
           <nav
-            className="isolate inline-flex -space-x-px rounded-md shadow-sm"
+            className="isolate inline-flex -space-x-px rounded-md shadow-md md:shadow-none"
             aria-label="Pagination"
           >
             <button
-              className="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0  disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="relative inline-flex items-center rounded-l-md px-2 py-2 bg-white text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0  disabled:cursor-not-allowed disabled:bg-gray-300"
               onClick={onPrevious}
               disabled={currentPage === 1 ? true : false}
             >
@@ -97,16 +81,6 @@ const Pagination = ({
               </svg>
             </button>
             {paginationRange.map((pageNumber) => {
-              if (pageNumber === DOTS) {
-                return (
-                  <button
-                    key={pageNumber}
-                    className="relative items-center px-3 pb-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 inline-flex"
-                  >
-                    &#8230;
-                  </button>
-                );
-              }
               return (
                 <button
                   key={pageNumber}
@@ -114,7 +88,7 @@ const Pagination = ({
                   className={`${
                     pageNumber === currentPage
                       ? 'relative z-10 inline-flex items-center px-4 py-2 text-sm font-semibold bg-[#9e9a79] text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
-                      : 'relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex'
+                      : 'relative items-center px-4 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset bg-white ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 md:inline-flex'
                   }`}
                   disabled={pageNumber === currentPage ? true : false}
                 >
@@ -123,7 +97,7 @@ const Pagination = ({
               );
             })}
             <button
-              className="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0  disabled:cursor-not-allowed disabled:bg-gray-300"
+              className="relative inline-flex items-center rounded-r-md px-2 py-2 bg-white text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0  disabled:cursor-not-allowed disabled:bg-gray-300"
               onClick={onNext}
               disabled={currentPage === lastPage}
             >
