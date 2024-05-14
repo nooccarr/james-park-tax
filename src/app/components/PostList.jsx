@@ -56,7 +56,7 @@ const PostList = ({
   return (
     <>
       <main>
-        {isLoading && (
+        {!currentPosts?.length ? (
           <div className="flex flex-col gap-4">
             <div role="status" className="animate-pulse bg-white p-10 mx-10">
               <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-1/2 mb-8"></div>
@@ -77,8 +77,7 @@ const PostList = ({
               <span className="sr-only">Loading...</span>
             </div>
           </div>
-        )}
-        {!isLoading && (
+        ) : (
           <div className="mb-5">
             <div className="justify-content-lg-center">
               <div>
