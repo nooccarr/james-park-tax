@@ -99,7 +99,10 @@ const Pagination = ({
             {paginationRange.map((pageNumber) => {
               if (pageNumber === DOTS) {
                 return (
-                  <button className="relative items-center px-3 pb-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 inline-flex">
+                  <button
+                    key={pageNumber}
+                    className="relative items-center px-3 pb-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0 inline-flex"
+                  >
                     &#8230;
                   </button>
                 );
