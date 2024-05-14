@@ -61,7 +61,6 @@ const App = () => {
 
   useEffect(() => {
     if (!query) {
-      console.log('HI');
       setSearchPosts([]);
       setSearchMessage('');
       setSearchLength(0);
@@ -139,8 +138,7 @@ const App = () => {
     }
     setCurrentPage(1);
   };
-  console.log('CURRENT PAGE', currentPage);
-  console.log('PAGE', page);
+
   const handleSearchReset = () => {
     setSearchQuery('');
     setSearchPosts([]);
