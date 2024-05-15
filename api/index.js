@@ -34,9 +34,9 @@ app.use(
   express.static(path.join(__dirname, '..', 'dist'), { maxAge: '0' })
 );
 
-app.get(/^(?!\/api).\*/, (_, res) => {
-  res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
-});
+// app.get(/^(?!\/api).\*/, (_, res) => {
+//   res.sendFile(path.join(__dirname, '..', 'dist', 'index.html'));
+// });
 
 // Serve requests from the router
 app.use('/', require(path.join(__dirname, 'routes', 'authRoutes')));

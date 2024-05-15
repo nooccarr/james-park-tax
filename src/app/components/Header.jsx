@@ -17,7 +17,13 @@ const Header = ({
             <div className="md:min-w-[250px]">
               <h1 className="text-hide">James Park Tax & Accounting</h1>
               <Link to="/">
-                <img src={Logo} onClick={handleOffCanvasClose} alt="" />
+                <img
+                  src={Logo}
+                  onClick={handleOffCanvasClose}
+                  alt=""
+                  width={250}
+                  height={100}
+                />
               </Link>
             </div>
             <div className="flex-1"></div>
