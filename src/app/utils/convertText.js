@@ -1,9 +1,5 @@
-export const pathToCapitalize = (path) => {
-  const pathArray = path.split('-');
-  const capitalizedPathArray = pathArray.map((path) => {
-    return path.charAt(0).toUpperCase() + path.slice(1);
-  });
-  return capitalizedPathArray.join(' ');
+export const pathToText = (path) => {
+  return path.split('-').join(' ');
 };
 
 export const formatTitle = (title, join) => {

@@ -64,30 +64,21 @@ const PostList = ({
               </div>
             </div>
             <div className="flex flex-col gap-6">
-              <div
-                role="status"
-                className="animate-pulse bg-white p-10 mx-10 border-2 border-gray-200"
-              >
-                <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-1/2 mb-8"></div>
-                <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-1/5 mb-8"></div>
-                <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-                <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-                <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-2/3 mb-8"></div>
-                <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-[100px]"></div>
-                <span className="sr-only">Loading...</span>
-              </div>
-              <div
-                role="status"
-                className="animate-pulse bg-white p-10 mx-10 border-2 border-gray-200"
-              >
-                <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-1/2 mb-8"></div>
-                <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-1/5 mb-8"></div>
-                <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-                <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
-                <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-2/3 mb-8"></div>
-                <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-[100px]"></div>
-                <span className="sr-only">Loading...</span>
-              </div>
+              {[...Array(3)].map((_, index) => (
+                <div
+                  key={index}
+                  role="status"
+                  className="animate-pulse bg-white p-10 mx-10 border-2 border-gray-200"
+                >
+                  <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-1/2 mb-8"></div>
+                  <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-1/5 mb-8"></div>
+                  <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                  <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+                  <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-2/3 mb-8"></div>
+                  <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-[100px]"></div>
+                  <span className="sr-only">Loading...</span>
+                </div>
+              ))}
             </div>
           </>
         ) : (
