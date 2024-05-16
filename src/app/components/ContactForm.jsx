@@ -11,9 +11,14 @@ const ContactForm = ({
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailHelper(form.current);
-    handleContactFormClose();
-    setShowFormSuccess(true);
+    try {
+      emailHelper(form.current);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      handleContactFormClose();
+      setShowFormSuccess(true);
+    }
   };
 
   return (

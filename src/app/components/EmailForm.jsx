@@ -10,8 +10,13 @@ const EmailForm = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    emailHelper(form.current);
-    setShowFormSuccess(true);
+    try {
+      emailHelper(form.current);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setShowFormSuccess(true);
+    }
   };
 
   return (
