@@ -138,7 +138,7 @@ const ContactUs = () => {
       </div>
       <div className="max-w-[2240px] mx-auto">
         <div className="mx-5 md:mx-10 mb-20">
-          <div className="flex flex-col mt-20">
+          <div className="flex flex-col mt-20 h-[540px]">
             <Tabs aria-label="Options">
               <Tab
                 key="ny-office"
