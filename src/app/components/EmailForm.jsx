@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import emailjs from 'emailjs-com';
+import { emailHelper } from '../helpers/emailHelper';
 import { SUBJECTS } from '../data/emailSubjects';
 import '../styles/email-form.css';
 
@@ -10,32 +10,8 @@ const EmailForm = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-
-    const serviceId = 'service_tw8y4ed';
-    const templateId = 'template_6gij2vn';
-    const publicKey = 'KRBE_6VJ3UIScm0ro';
-
-    emailjs.sendForm(serviceId, templateId, form.current, publicKey).then(
-      (result) => {
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
-
+    emailHelper(form.current);
     setShowFormSuccess(true);
-
-    // TODO:
-    // - setRecords([...records, { ...formValues, id: uuidv4() }]);
-
-    // const formData = new FormData(e.target);
-    // const data = {
-    //   name: formData.get('name') ?? '',
-    //   email: formData.get('email') ?? '',
-    //   subject: formData.get('subject') ?? '',
-    //   message: formData.get('message') ?? ''
-    // };
   };
 
   return (

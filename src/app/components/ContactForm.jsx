@@ -1,31 +1,20 @@
-import { useState } from 'react';
+import { useRef } from 'react';
 import Modal from 'react-modal';
+import { emailHelper } from '../helpers/emailHelper';
 
 const ContactForm = ({
   showContactForm,
   handleContactFormClose,
   setShowFormSuccess,
 }) => {
-  const [formValues, setFormValues] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
+  const form = useRef(null);
 
-  const handleSubmit = (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-
-    // TODO:
-    // - send email
-    // - setRecords([...records, { ...formValues, id: uuidv4() }]);
+    emailHelper(form.current);
     handleContactFormClose();
     setShowFormSuccess(true);
-
-    console.log('Contact form sent');
   };
-
-  // console.log(formValues);
 
   return (
     <Modal
@@ -49,35 +38,26 @@ const ContactForm = ({
           </svg>
         </div>
       </div>
-      <form onSubmit={handleSubmit}>
+      <form ref={form} onSubmit={sendEmail}>
         <div className="flex flex-col p-5">
           <label htmlFor="name">Name</label>
           <input
             type="text"
-            name="name"
+            name="from_name"
             id="name"
             autoComplete="off"
+            className="form-control p-2"
             required
-            className="form-control"
-            value={formValues.name}
-            onChange={(e) =>
-              setFormValues({ ...formValues, name: e.target.value })
-            }
           />
-          {/* <div className='valid-feedback'>Gooood</div> */}
 
           <label htmlFor="email">Email</label>
           <input
             type="email"
-            name="email"
+            name="reply_to"
             id="email"
             autoComplete="off"
+            className="form-control p-2"
             required
-            className="form-control"
-            value={formValues.email}
-            onChange={(e) =>
-              setFormValues({ ...formValues, email: e.target.value })
-            }
           />
 
           <label htmlFor="subject">Subject</label>
@@ -86,12 +66,8 @@ const ContactForm = ({
             name="subject"
             id="subject"
             autoComplete="off"
+            className="form-control p-2"
             required
-            className="form-control"
-            value={formValues.subject}
-            onChange={(e) =>
-              setFormValues({ ...formValues, subject: e.target.value })
-            }
           />
 
           <label htmlFor="message">Message</label>
@@ -99,16 +75,9 @@ const ContactForm = ({
             name="message"
             id="message"
             autoComplete="off"
-            className="form-control"
-            value={formValues.message}
-            onChange={(e) =>
-              setFormValues({ ...formValues, message: e.target.value })
-            }
+            className="form-control p-2"
           />
-          <button
-            className="email-form-button normal-case"
-            onClick={handleSubmit}
-          >
+          <button className="email-form-button normal-case" type="submit">
             Schedule a Consultation
           </button>
         </div>
