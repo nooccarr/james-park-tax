@@ -31,8 +31,19 @@ app.use(cookieParser());
 // Serve static files from the React app
 app.use(
   '/',
-  express.static(path.join(__dirname, '..', 'dist'), { maxAge: '0' })
+  express.static(path.join(__dirname, '..', 'dist'), {
+    maxAge: '0',
+    setHeaders: function (res, _, _) {
+      res.set('Cache-Control', 'no-cache');
+    },
+  })
 );
+
+// Set Cache-Control header for all other requests
+app.use((_, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  next();
+});
 
 // request handler for any route that does not start with /api
 app.get(/^(?!\/api).\*/, (_, res) => {
