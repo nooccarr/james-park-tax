@@ -40,7 +40,7 @@ const Post = ({ posts }) => {
         <div>
           <div className="mb-5">
             {posts?.length && !post?.title ? (
-              <div className="flex flex-col gap-6 justify-center items-center">
+              <div className="flex flex-col gap-20 justify-center items-center">
                 <p className="text-xl">
                   The post you've requested doesn't exist.
                 </p>
@@ -67,6 +67,19 @@ const Post = ({ posts }) => {
                 ))}
                 <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-1/5 mb-8"></div>
                 <span className="sr-only">Loading...</span>
+              </div>
+            ) : post?.hidden ? (
+              <div className="flex flex-col gap-20 justify-center items-center">
+                <p className="text-xl">
+                  The post you're looking for has been removed by the
+                  administrator.
+                </p>
+                <button
+                  className="post-link-category"
+                  onClick={() => navigate(`/${currentPath}`)}
+                >
+                  Back to {pathToText(currentPath)} page
+                </button>
               </div>
             ) : (
               <section className="post-container mb-3">
