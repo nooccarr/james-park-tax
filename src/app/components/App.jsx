@@ -44,6 +44,7 @@ const App = () => {
     `${import.meta.env.DEV ? 'http://localhost:4000' : ''}/blogs`
   );
   const [posts, setPosts] = useState([]);
+  const [categoryPosts, setCategoryPosts] = useState([]);
   const [searchPosts, setSearchPosts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [searchMessage, setSearchMessage] = useState('');
@@ -57,7 +58,15 @@ const App = () => {
   const [searchParams] = useSearchParams();
 
   const query = searchParams.get('query') || '';
-  const page = searchParams.get('page') || '1';
+  let page = searchParams.get('page') || '1';
+
+  useEffect(() => {
+    const maxPage = Math.ceil(categoryPosts.length / 5);
+    if (Number(page) < 1 || (categoryPosts.length && Number(page) > maxPage)) {
+      setCurrentPage(1);
+      navigate(location.pathname);
+    }
+  }, [page, categoryPosts]);
 
   useEffect(() => {
     if (!query) {
@@ -227,6 +236,8 @@ const App = () => {
               element={
                 <PostList
                   posts={posts}
+                  categoryPosts={categoryPosts}
+                  setCategoryPosts={setCategoryPosts}
                   category={'Tax'}
                   cookies={cookies}
                   isLoading={isLoading}
@@ -244,6 +255,8 @@ const App = () => {
               element={
                 <PostList
                   posts={posts}
+                  categoryPosts={categoryPosts}
+                  setCategoryPosts={setCategoryPosts}
                   category={'Insurance'}
                   cookies={cookies}
                   isLoading={isLoading}
@@ -271,6 +284,8 @@ const App = () => {
               element={
                 <PostList
                   posts={searchPosts}
+                  categoryPosts={categoryPosts}
+                  setCategoryPosts={setCategoryPosts}
                   searchMessage={searchMessage}
                   handleSearchReset={handleSearchReset}
                   currentPage={currentPage}

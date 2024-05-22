@@ -9,6 +9,8 @@ import isToken from '../utils/isToken';
 import '../styles/post-list.css';
 
 const PostList = ({
+  categoryPosts,
+  setCategoryPosts,
   searchMessage,
   posts,
   category,
@@ -19,24 +21,20 @@ const PostList = ({
   searchQuery,
   postsSize,
 }) => {
-  const [categoryPosts, setCategoryPosts] = useState([]);
   const [putData, { response, error, isLoading }] = usePutData();
   const { '*': path } = useParams();
 
   useScrollToTop();
 
   useEffect(() => {
-    const currentPosts = posts?.length ? posts : [];
     const getCategoryPosts = () => {
-      const filteredPosts = currentPosts.filter(
-        (post) => post.category === category
-      );
+      const filteredPosts = posts.filter((post) => post.category === category);
       const sortedPosts = filteredPosts.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
       setCategoryPosts(sortedPosts);
     };
-    category ? getCategoryPosts() : setCategoryPosts(currentPosts);
+    category ? getCategoryPosts() : setCategoryPosts(posts);
   }, [posts, category]);
 
   const pageSize = 5;
@@ -60,7 +58,7 @@ const PostList = ({
   return (
     <>
       <main>
-        {(!currentPosts?.length && path !== 'search') ||
+        {(!currentPosts.length && path !== 'search') ||
         (!postsSize && searchQuery?.length) ? (
           <>
             <div className={`${path === 'search' ? 'mt-8 pb-8' : 'hidden'}`}>
