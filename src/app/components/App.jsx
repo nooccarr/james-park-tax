@@ -172,6 +172,7 @@ const App = () => {
         page: page,
       })}`,
     });
+    window.scrollTo(0, 0);
   };
 
   const onTaxInfoPageChange = (page) => {
@@ -183,6 +184,7 @@ const App = () => {
         page: page,
       })}`,
     });
+    window.scrollTo(0, 0);
   };
 
   const onInsuranceInfoPageChange = (page) => {
@@ -194,6 +196,7 @@ const App = () => {
         page: page,
       })}`,
     });
+    window.scrollTo(0, 0);
   };
 
   return (
