@@ -16,6 +16,8 @@ const PostList = ({
   cookies,
   currentPage,
   onPageChange,
+  searchQuery,
+  postsSize,
 }) => {
   const [categoryPosts, setCategoryPosts] = useState([]);
   const [putData, { response, error, isLoading }] = usePutData();
@@ -24,17 +26,21 @@ const PostList = ({
   useScrollToTop();
 
   useEffect(() => {
+    const currentPosts = posts?.length ? posts : [];
     const getCategoryPosts = () => {
-      const filteredPosts = posts?.filter((post) => post.category === category);
-      const sortedPosts = filteredPosts?.sort(
+      const filteredPosts = currentPosts.filter(
+        (post) => post.category === category
+      );
+      const sortedPosts = filteredPosts.sort(
         (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
       );
       setCategoryPosts(sortedPosts);
     };
-    category ? getCategoryPosts() : setCategoryPosts(posts);
+    category ? getCategoryPosts() : setCategoryPosts(currentPosts);
   }, [posts, category]);
 
   const pageSize = 5;
+
   const currentPosts = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * pageSize;
     const lastPageIndex = firstPageIndex + pageSize;
@@ -51,12 +57,11 @@ const PostList = ({
     putData(`/blogs/${id}`, updatedPost);
   };
 
-  const searchClass = path === 'search' ? 'pt-10 pb-16' : '';
-
   return (
     <>
       <main>
-        {!currentPosts?.length && path !== 'search' ? (
+        {(!currentPosts?.length && path !== 'search') ||
+        (!postsSize && searchQuery?.length) ? (
           <>
             <div className={`${path === 'search' ? 'mt-8 pb-8' : 'hidden'}`}>
               <div role="status" className="animate-pulse">
@@ -86,7 +91,9 @@ const PostList = ({
             <div className="justify-content-lg-center">
               <div>
                 <h2
-                  className={`search-message text-2xl md:text-[32px] font-semibold ${searchClass}`}
+                  className={`search-message text-2xl md:text-[32px] font-semibold ${
+                    path === 'search' ? 'pt-10 pb-16' : ''
+                  }`}
                 >
                   {searchMessage}
                 </h2>

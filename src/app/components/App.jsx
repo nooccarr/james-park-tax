@@ -67,13 +67,13 @@ const App = () => {
       if (location.pathname === '/search') searchParams.set('page', '1');
     } else {
       setSearchMessage(`Search results for "${query}"`);
-      const filteredPosts = posts?.filter(
+      const filteredPosts = posts.filter(
         ({ title, description }) =>
           title.toLowerCase().includes(query.toLowerCase()) ||
           description.toLowerCase().includes(query.toLowerCase())
       );
       setSearchPosts(filteredPosts);
-      setSearchLength(filteredPosts?.length ?? 0);
+      setSearchLength(filteredPosts.length);
     }
 
     setSearchQuery(query);
@@ -92,7 +92,7 @@ const App = () => {
           { withCredentials: true }
         );
         const { status, user } = data;
-        setUsername(user ? user : '');
+        if (user) setUsername(user);
         !status && removeCookie('token');
       } catch (error) {
         console.log(error);
@@ -105,7 +105,8 @@ const App = () => {
   }, [navigate, removeCookie]);
 
   useEffect(() => {
-    setPosts(blogs ?? []);
+    const currentBlogs = blogs?.length ? blogs : [];
+    setPosts(currentBlogs);
   }, [blogs]);
 
   const handleSearchQueryChange = (e) => {
@@ -121,13 +122,13 @@ const App = () => {
       setSearchLength(0);
     } else {
       setSearchMessage(`Search results for "${searchQuery}"`);
-      const filteredPosts = posts?.filter(
+      const filteredPosts = posts.filter(
         ({ title, description }) =>
           title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           description.toLowerCase().includes(searchQuery.toLowerCase())
       );
       setSearchPosts(filteredPosts);
-      setSearchLength(filteredPosts?.length ?? 0);
+      setSearchLength(filteredPosts.length);
       navigate({
         pathname: '/search',
         search: `?${createSearchParams({
@@ -271,6 +272,8 @@ const App = () => {
                   handleSearchReset={handleSearchReset}
                   currentPage={currentPage}
                   onPageChange={onSearchPageChange}
+                  searchQuery={searchQuery}
+                  postsSize={posts.length}
                 />
               }
             />
