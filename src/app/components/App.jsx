@@ -19,7 +19,7 @@ import Post from './Post';
 import NewPost from './NewPost';
 import EditPost from './EditPost';
 import Login from './Login';
-import Logout from './Logout';
+import AdminPortal from './AdminPortal';
 import TermsAndConditions from './TermsAndConditions';
 // import Signup from './Signup';
 import KakaoCanvas from './KakaoCanvas';
@@ -36,6 +36,7 @@ import axios from 'axios';
 import isToken from '../utils/isToken';
 import isProtectedPath from '../utils/isProtectedPath';
 import ScrollButton from './ScrollButton';
+import MagiCalculator from './MagiCalculator';
 
 Modal.setAppElement('#root');
 
@@ -120,34 +121,35 @@ const App = () => {
   }, [blogs]);
 
   const handleSearchQueryChange = (e) => {
-    setSearchQuery(e.target.value);
-  };
+    const value = e.target.value;
+    setSearchQuery(value);
 
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-
-    if (!searchQuery) {
+    if (!value) {
       setSearchPosts([]);
       setSearchMessage('');
       setSearchLength(0);
     } else {
-      setSearchMessage(`Search results for "${searchQuery}"`);
+      setSearchMessage(`Search results for "${value}"`);
       const filteredPosts = posts.filter(
         ({ title, description }) =>
-          title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          description.toLowerCase().includes(searchQuery.toLowerCase())
+          title.toLowerCase().includes(value.toLowerCase()) ||
+          description.toLowerCase().includes(value.toLowerCase())
       );
       setSearchPosts(filteredPosts);
       setSearchLength(filteredPosts.length);
       navigate({
         pathname: '/search',
         search: `?${createSearchParams({
-          query: searchQuery,
+          query: value,
           page: page,
         })}`,
       });
     }
     setCurrentPage(1);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
   };
 
   const handleSearchReset = () => {
@@ -205,6 +207,8 @@ const App = () => {
       })}`,
     });
   };
+
+  const postsSize = posts.length;
 
   return (
     <>
@@ -295,7 +299,7 @@ const App = () => {
                   currentPage={currentPage}
                   onPageChange={onSearchPageChange}
                   searchQuery={searchQuery}
-                  postsSize={posts.length}
+                  postsSize={postsSize}
                 />
               }
             />
@@ -309,13 +313,16 @@ const App = () => {
 
           <Route path="/login" element={<Login />} />
           <Route
-            path="/logout"
-            element={<Logout username={username} removeCookie={removeCookie} />}
+            path="/admin-portal"
+            element={
+              <AdminPortal username={username} removeCookie={removeCookie} />
+            }
           />
           <Route
             path="/terms-and-conditions"
             element={<TermsAndConditions />}
           />
+          <Route path="/magi-calculator" element={<MagiCalculator />} />
           {/* <Route path="/signup" element={<Signup />} /> */}
           <Route path="*" element={<NoMatch />} />
         </Route>

@@ -1,10 +1,6 @@
 import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faMagnifyingGlass,
-  faPenToSquare,
-  faUser,
-} from '@fortawesome/free-solid-svg-icons';
+import { faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import NavItems from '../data/navItems';
 import Modal from 'react-modal';
@@ -21,7 +17,7 @@ const Layout = ({
 
   const handleNavigate = () => {
     const token = isToken(cookies);
-    navigate(token ? '/logout' : '/login');
+    navigate(token ? '/admin-portal' : '/login');
   };
 
   return (
@@ -32,28 +28,25 @@ const Layout = ({
             <div className="max-w-[2240px] mx-auto">
               <div>
                 <div className="flex justify-between gap-2">
-                  {NavItems.map(({ link, title }) => (
-                    <div className="" key={title}>
-                      <Link
-                        to={link}
-                        onClick={handleSearchReset}
-                        className="navlink"
-                      >
-                        {title}
-                      </Link>
-                    </div>
-                  ))}
+                  {NavItems.map(({ link, title }) => {
+                    if (title === 'Login' || title === 'Admin Portal') return;
+                    return (
+                      <div className="" key={title}>
+                        <Link
+                          to={link}
+                          onClick={handleSearchReset}
+                          className="navlink"
+                        >
+                          {title}
+                        </Link>
+                      </div>
+                    );
+                  })}
 
                   <div className="flex items-center gap-6">
                     <Link to="/search" className="navsearch">
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
-                    {isToken(cookies) && (
-                      <Link to="/new-post" className="navsearch">
-                        <FontAwesomeIcon icon={faPenToSquare} />
-                      </Link>
-                    )}
-
                     <div
                       className="hover:cursor-pointer"
                       onClick={handleNavigate}
@@ -86,17 +79,22 @@ const Layout = ({
                 </svg>
               </div>
             </div>
-            {NavItems.map(({ link, title }) => (
-              <li
-                className="py-[13.5px] nav-dropdown-item mr-0"
-                onClick={handleOffCanvasClose}
-                key={title}
-              >
-                <Link to={link} onClick={handleSearchReset}>
-                  <span className="navlink block">{title}</span>
-                </Link>
-              </li>
-            ))}
+            {NavItems.map(({ link, title }) => {
+              const token = isToken(cookies);
+              if (token && title === 'Login') return;
+              else if (!token && title === 'Admin Portal') return;
+              return (
+                <li
+                  className="py-[13.5px] nav-dropdown-item mr-0"
+                  onClick={handleOffCanvasClose}
+                  key={title}
+                >
+                  <Link to={link} onClick={handleSearchReset}>
+                    <span className="navlink block">{title}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </Modal>
       </nav>

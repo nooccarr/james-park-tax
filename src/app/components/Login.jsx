@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
+import PageHeader from './PageHeader';
 import '../styles/login.css';
 
 const Login = () => {
@@ -63,42 +64,47 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center py-20">
-      <div className="form_container">
-        <h2>Login Account</h2>
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="emailInput">Email</label>
-            <input
-              type="email"
-              id="emailInput"
-              name="email"
-              value={email}
-              placeholder="Enter your email"
-              onChange={handleOnChange}
-              autoComplete="off"
-              required
-            />
-          </div>
-          <div>
-            <label htmlFor="passwordInput">Password</label>
-            <input
-              type="password"
-              id="passwordInput"
-              name="password"
-              value={password}
-              placeholder="Enter your password"
-              onChange={handleOnChange}
-              required
-            />
-            <p className="text-red-500">{error}</p>
-          </div>
-          <button type="submit">Submit</button>
-          {/* <span>
+    <div className="tax-info-background">
+      <div className="services-header-image">
+        <PageHeader title="Login" />
+      </div>
+      <div className="flex justify-center pt-20 pb-40 mx-5 md:mx-0">
+        <div className="form_container">
+          <h2>Login Account</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="emailInput">Email</label>
+              <input
+                type="email"
+                id="emailInput"
+                name="email"
+                value={email}
+                placeholder="Enter your email"
+                onChange={handleOnChange}
+                autoComplete="off"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="passwordInput">Password</label>
+              <input
+                type="password"
+                id="passwordInput"
+                name="password"
+                value={password}
+                placeholder="Enter your password"
+                onChange={handleOnChange}
+                required
+              />
+              <p className="text-red-500">{error}</p>
+            </div>
+            <button type="submit">Submit</button>
+            {/* <span>
             Already have an account? <Link to={'/signup'}>Signup</Link>
           </span> */}
-        </form>
-        <ToastContainer />
+          </form>
+          <ToastContainer />
+        </div>
       </div>
     </div>
   );

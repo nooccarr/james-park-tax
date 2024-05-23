@@ -71,7 +71,7 @@ const PostList = ({
                 <div
                   key={index}
                   role="status"
-                  className="animate-pulse bg-white p-10 mx-10 border-2 border-gray-200"
+                  className="animate-pulse bg-white p-10 md:mx-10 border-2 border-gray-200"
                 >
                   <div className="h-10 bg-gray-200 rounded-full dark:bg-gray-700 w-1/2 mb-8"></div>
                   <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-1/5 mb-8"></div>
@@ -97,8 +97,8 @@ const PostList = ({
                 </h2>
               </div>
             </div>
-
-            {currentPosts?.map((post) => (
+            {posts.length === 0 && <div className="h-[130px]">&nbsp;</div>}
+            {currentPosts.map((post) => (
               <div
                 key={post._id}
                 className={`${post.hidden && !isToken(cookies) && 'hidden'}`}
@@ -191,7 +191,7 @@ const PostList = ({
             ))}
           </div>
         )}
-        {categoryPosts?.length ? (
+        {categoryPosts.length ? (
           <div className="md:px-10 mt-20">
             <Pagination
               totalCount={categoryPosts?.length}

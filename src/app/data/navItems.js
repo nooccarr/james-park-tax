@@ -7,6 +7,8 @@ const NavItems = [
   // { link: 'medicare-info', title: 'Medicare 정보' },
   // { link: 'life-insurance-info', title: 'Life Insurance 정보' },
   { link: '/contact-us', title: 'Contact Us' },
+  { link: '/login', title: 'Login' },
+  { link: '/admin-portal', title: 'Admin Portal' },
 ];
 
 export default NavItems;

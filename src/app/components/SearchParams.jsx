@@ -10,7 +10,7 @@ const SearchParams = ({
   return (
     <section>
       <form onSubmit={handleSearchSubmit}>
-        <div className="">
+        <div>
           <FontAwesomeIcon
             icon={faMagnifyingGlass}
             className="search-icon m-5"
