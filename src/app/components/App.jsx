@@ -58,7 +58,7 @@ const App = () => {
   const [searchParams] = useSearchParams();
 
   const query = searchParams.get('query') || '';
-  let page = searchParams.get('page') || '1';
+  const page = searchParams.get('page') || '1';
 
   useEffect(() => {
     const maxPage = Math.ceil(categoryPosts.length / 5);
@@ -181,7 +181,6 @@ const App = () => {
         page: page,
       })}`,
     });
-    window.scrollTo(0, 0);
   };
 
   const onTaxInfoPageChange = (page) => {
@@ -193,7 +192,6 @@ const App = () => {
         page: page,
       })}`,
     });
-    window.scrollTo(0, 0);
   };
 
   const onInsuranceInfoPageChange = (page) => {
@@ -205,7 +203,6 @@ const App = () => {
         page: page,
       })}`,
     });
-    window.scrollTo(0, 0);
   };
 
   return (
@@ -247,7 +244,10 @@ const App = () => {
               }
             />
             <Route path="edit/:slug" element={<EditPost posts={posts} />} />
-            <Route path=":slug" element={<Post posts={posts} />} />
+            <Route
+              path=":slug"
+              element={<Post posts={posts} cookies={cookies} />}
+            />
           </Route>
           <Route path="/insurance-info" element={<InsuranceInfo />}>
             <Route
@@ -265,7 +265,10 @@ const App = () => {
                 />
               }
             />
-            <Route path="edit/:slug" element={<EditPost posts={posts} />} />
+            <Route
+              path="edit/:slug"
+              element={<EditPost posts={posts} cookies={cookies} />}
+            />
             <Route path=":slug" element={<Post posts={posts} />} />
           </Route>
           <Route
@@ -295,7 +298,10 @@ const App = () => {
                 />
               }
             />
-            <Route path=":slug" element={<Post posts={searchPosts} />} />
+            <Route
+              path=":slug"
+              element={<Post posts={searchPosts} cookies={cookies} />}
+            />
           </Route>
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/new-post" element={<NewPost setPosts={setPosts} />} />

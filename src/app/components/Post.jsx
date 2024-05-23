@@ -4,9 +4,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import { pathToText } from '../utils/convertText';
 import { useEffect, useState } from 'react';
+import isToken from '../utils/isToken';
 import '../styles/post.css';
 
-const Post = ({ posts }) => {
+const Post = ({ posts, cookies }) => {
   const navigate = useNavigate();
   const { slug } = useParams();
   const [post, setPost] = useState({});
@@ -27,6 +28,8 @@ const Post = ({ posts }) => {
   };
 
   const currentPath = getPath(window.location.pathname);
+
+  const token = isToken(cookies);
 
   return (
     <main>
@@ -68,7 +71,7 @@ const Post = ({ posts }) => {
                 <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 w-1/5 mb-8"></div>
                 <span className="sr-only">Loading...</span>
               </div>
-            ) : post?.hidden ? (
+            ) : post?.hidden && !token ? (
               <div className="flex flex-col gap-20 justify-center items-center">
                 <p className="text-xl">
                   The post you're looking for has been removed by the
