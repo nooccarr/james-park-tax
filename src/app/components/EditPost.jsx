@@ -73,7 +73,20 @@ const EditPost = ({ posts }) => {
 
   return (
     <div className="max-w-[900px] mx-auto">
-      <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col">
+      <div className="flex flex-col gap-20 justify-center items-center py-20 mx-5 pb-60 md:hidden">
+        <p className="text-xl text-center">
+          For the best experience, please access this page using a laptop or
+          desktop computer.
+        </p>
+        <button className="post-link-category" onClick={() => navigate(-1)}>
+          Back to {post?.category} Info
+        </button>
+      </div>
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit}
+        className="hidden md:flex flex-col"
+      >
         <h4 className="font-semibold text-gray-600 pb-4">Category</h4>
         <div className="flex gap-4">
           <label>
@@ -106,7 +119,7 @@ const EditPost = ({ posts }) => {
         <p htmlFor="content-body">Body</p>
         <TinyEditor article={post?.article} setContent={setContent} />
       </form>
-      <div className="pt-10">
+      <div className="hidden md:inline-block pt-10">
         <button className="post-link-category" onClick={() => navigate(-1)}>
           Back to {post?.category} Info
         </button>

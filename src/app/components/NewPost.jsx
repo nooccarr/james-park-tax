@@ -59,9 +59,21 @@ const NewPost = ({ setPosts }) => {
         <PageHeader title="New Post" />
       </div>
       <div className="max-w-[900px] mx-auto">
+        <div className="flex flex-col gap-20 justify-center items-center pt-20 mx-5 pb-80 md:hidden">
+          <p className="text-xl text-center">
+            For the best experience, please access this page using a laptop or
+            desktop computer.
+          </p>
+          <button
+            className="post-link-category"
+            onClick={() => navigate('/admin-portal')}
+          >
+            Back to Admin Portal
+          </button>
+        </div>
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col py-10 mx-5 md:mx-10 pb-20 md:pb-40"
+          className="hidden md:flex flex-col py-10 mx-5 md:mx-10 pb-20 md:pb-40"
         >
           <h4 className="font-semibold text-gray-600 pb-4">Category</h4>
           <div className="flex gap-4">
