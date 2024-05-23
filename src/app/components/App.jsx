@@ -35,6 +35,7 @@ import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import isToken from '../utils/isToken';
 import isProtectedPath from '../utils/isProtectedPath';
+import ScrollButton from './ScrollButton';
 
 Modal.setAppElement('#root');
 
@@ -324,6 +325,7 @@ const App = () => {
         showKakaoCanvas={showKakaoCanvas}
         handleKakaoCanvasClose={handleKakaoCanvasClose}
       />
+      <ScrollButton />
     </>
   );
 };

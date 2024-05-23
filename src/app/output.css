@@ -1075,6 +1075,11 @@ video {
   aspect-ratio: 16 / 9;
 }
 
+.size-6 {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .\!h-auto {
   height: auto !important;
 }
@@ -8208,6 +8213,10 @@ video {
   .sm\:my-16 {
     margin-top: 4rem;
     margin-bottom: 4rem;
+  }
+
+  .sm\:block {
+    display: block;
   }
 
   .sm\:items-start {
