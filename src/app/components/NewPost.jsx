@@ -100,6 +100,14 @@ const NewPost = ({ setPosts }) => {
 
           <p htmlFor="content-body">Body</p>
           <TinyEditor setContent={setContent} />
+          <div className="pt-10">
+            <button
+              className="post-link-category"
+              onClick={() => navigate('/admin-portal')}
+            >
+              Back to Admin Portal
+            </button>
+          </div>
         </form>
         <ToastContainer />
       </div>

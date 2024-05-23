@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import PageHeader from './PageHeader';
 import calculateMagi from '../utils/calculateMagi';
+import { useNavigate } from 'react-router-dom';
 
 const MagiCalculator = () => {
+  const navigate = useNavigate();
   const [socialSecurity, setSocialSecurity] = useState('0');
   const [income, setIncome] = useState('0');
 
@@ -29,7 +31,7 @@ const MagiCalculator = () => {
       <div className="services-header-image">
         <PageHeader title="MAGI Calculator" />
       </div>
-      <div className="flex justify-center pt-20 pb-40 mx-5 md:mx-0">
+      <div className="flex flex-col justify-center items-center pt-20 pb-40 mx-5 md:mx-0">
         <div className="form_container">
           <form onSubmit={handleSubmit}>
             <div>
@@ -66,6 +68,14 @@ const MagiCalculator = () => {
               </div>
             </div>
           </form>
+        </div>
+        <div className="pt-10">
+          <button
+            className="post-link-category"
+            onClick={() => navigate('/admin-portal')}
+          >
+            Back to Admin Portal
+          </button>
         </div>
       </div>
     </div>

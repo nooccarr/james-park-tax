@@ -35,18 +35,17 @@ const AdminPortal = ({ username, removeCookie }) => {
         <PageHeader title="Admin Portal" />
       </div>
       <div className="flex justify-center pt-20 pb-40 mx-5 md:mx-0">
-        <div className="form_container">
+        <div className="admin_container">
           <div className="font-semibold text-center pb-5">
             <h4>Logged in as</h4>
-            <span className="text-[#043a49]">{username}</span>
+            <span className="text-[#043a49]">
+              {username ? username : '&nbsp;'}
+            </span>
           </div>
           <div>
             <div className="mb-2">
               <button
-                style={{
-                  backgroundColor: '#9e9a79',
-                  color: '#fffad8',
-                }}
+                className="admin_container_button hidden md:block"
                 onClick={() => {
                   navigate('/new-post');
                 }}
@@ -56,10 +55,7 @@ const AdminPortal = ({ username, removeCookie }) => {
             </div>
             <div className="mb-2">
               <button
-                style={{
-                  backgroundColor: '#9e9a79',
-                  color: '#fffad8',
-                }}
+                className="admin_container_button"
                 onClick={() => {
                   navigate('/magi-calculator');
                 }}
@@ -69,7 +65,9 @@ const AdminPortal = ({ username, removeCookie }) => {
             </div>
             <hr />
             <div className="mt-2">
-              <button onClick={handleLogout}>Log out</button>
+              <button className="admin_container_logout" onClick={handleLogout}>
+                Log out
+              </button>
             </div>
           </div>
           <ToastContainer />

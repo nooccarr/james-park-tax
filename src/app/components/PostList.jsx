@@ -140,7 +140,10 @@ const PostList = ({
                       <div className="flex gap-4">
                         {isToken(cookies) && (
                           <>
-                            <Link to={`edit/${post.slug}`}>
+                            <Link
+                              to={`edit/${post.slug}`}
+                              className="hidden md:inline-block"
+                            >
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 viewBox="0 0 24 24"
