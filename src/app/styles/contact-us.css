@@ -1,35 +1,33 @@
 .contact-us-header-image {
-  background-image: url("../images/contact-us-header.jpg");
-
-  /* background-attachment: fixed; */
+  background-image: url('../images/contact-us-header.jpg');
+  background-color: #e0e0e0;
   background-position: center;
-  /* background-repeat: no-repeat; */
   background-size: cover;
 }
 
 .contact-us-office-title {
-  color: #6A6A6A;
+  color: #6a6a6a;
   font-size: 25px;
 }
 
 span path {
-  color: #9E9A79;
+  color: #9e9a79;
 }
 
 div address {
-  color: #6A6A6A;
+  color: #6a6a6a;
   line-height: 24px;
   font-size: 15px;
 }
 
 div span {
-  color: #6A6A6A;
+  color: #6a6a6a;
   line-height: 24px;
   font-size: 15px;
 }
 
 div p {
-  color: #6A6A6A;
+  color: #6a6a6a;
   line-height: 24px;
   font-size: 15px;
   /* margin: 0px; */
@@ -37,7 +35,7 @@ div p {
 
 p a {
   text-decoration: none;
-  color: #6A6A6A;
+  color: #6a6a6a;
   line-height: 24px;
   font-size: 15px;
   opacity: 1;

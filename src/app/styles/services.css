@@ -4,6 +4,7 @@
 
 .services-header-image {
   background-image: url('../images/services-header.jpg');
+  background-color: #e0e0e0;
   background-position: center;
   background-size: cover;
 }

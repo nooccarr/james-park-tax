@@ -54,5 +54,6 @@ header {
 
 .offcanvas-background-image {
   background-image: url('../images/offcanvas-brick-wall.jpg');
+  background-color: #faefe0;
   background-size: cover;
 }

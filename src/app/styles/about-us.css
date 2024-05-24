@@ -3,11 +3,9 @@
 }
 
 .about-us-header-image {
-  background-image: url("../images/about-us-header.jpg");
-
-  /* background-attachment: fixed; */
+  background-image: url('../images/about-us-header.jpg');
+  background-color: #e0e0e0;
   background-position: center;
-  /* background-repeat: no-repeat; */
   background-size: cover;
 }
 
@@ -23,18 +21,18 @@
 }
 
 .header-h3 {
-  color: #6A6A6A;
+  color: #6a6a6a;
   font-size: 18px;
 }
 
 .header-span {
-  color: #9E9A79;
+  color: #9e9a79;
   font-size: 37px;
   font-weight: 700;
 }
 
 .text-container p {
-  color: #6A6A6A;
+  color: #6a6a6a;
   line-height: 24px;
   font-size: 15px;
   margin: 0px;
