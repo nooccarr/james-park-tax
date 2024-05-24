@@ -37,6 +37,7 @@ const Home = () => {
             <img
               className="brightness-90 w-full h-full object-cover"
               src={LandingImgOne}
+              fetchpriority="high"
             />
           </div>
 
@@ -66,6 +67,7 @@ const Home = () => {
             <img
               className="brightness-90 w-full h-full object-cover"
               src={LandingImgTwo}
+              fetchpriority="high"
             />
           </div>
           <div

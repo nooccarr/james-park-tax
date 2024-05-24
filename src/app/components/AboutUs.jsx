@@ -58,7 +58,7 @@ const AboutUs = () => {
 
           <div className="flex flex-col md:flex-row gap-10 lg:gap-14">
             <div className="w-full md:w-1/2  aspect-square">
-              <img src={AboutUsImg} alt="" />
+              <img src={AboutUsImg} alt="" fetchpriority="high" />
             </div>
             <div className="w-full md:w-1/2">
               <div className="text-container">{aboutUsDescription()}</div>
