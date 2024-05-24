@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import PageHeader from './PageHeader';
+import useScrollToTop from '../hooks/useScrollToTop';
 import '../styles/login.css';
 
 const Login = () => {
@@ -12,7 +13,11 @@ const Login = () => {
     password: '',
   });
   const [error, setError] = useState(false);
+
+  useScrollToTop();
+
   const { email, password } = inputValue;
+
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     setInputValue({

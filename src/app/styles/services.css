@@ -3,16 +3,13 @@
 }
 
 .services-header-image {
-  background-image: url("../images/services-header.jpg");
-
-  /* background-attachment: fixed; */
+  background-image: url('../images/services-header.jpg');
   background-position: center;
-  /* background-repeat: no-repeat; */
   background-size: cover;
 }
 
 .service-li-h4 {
-  color: #FFF9D1;
+  color: #fff9d1;
   line-height: 24px;
   font-size: 20px;
   font-weight: 700;
@@ -20,7 +17,7 @@
 }
 
 .service-li-h5 {
-  color: #FFF9D1;
+  color: #fff9d1;
   font-size: 15px;
   font-weight: 400;
   font-style: italic;
@@ -28,7 +25,7 @@
 }
 
 .service-li {
-  color: #6A6A6A;
+  color: #6a6a6a;
   line-height: 30px;
   font-size: 15px;
 }

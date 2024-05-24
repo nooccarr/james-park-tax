@@ -1,10 +1,13 @@
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import PageHeader from './PageHeader';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 const AdminPortal = ({ username, removeCookie }) => {
   const navigate = useNavigate();
   // console.log({ username, removeCookie });
+  useScrollToTop();
+
   const handleError = (err) =>
     toast.error(err, {
       position: 'bottom-left',

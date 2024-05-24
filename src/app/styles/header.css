@@ -52,10 +52,6 @@ header {
   text-decoration: none;
 }
 
-.offcanvas-kakao-image {
-  /* width: 90%; */
-}
-
 .offcanvas-background-image {
   background-image: url('../images/offcanvas-brick-wall.jpg');
   background-size: cover;

@@ -23,7 +23,7 @@ const KakaoCanvas = ({ showKakaoCanvas, handleKakaoCanvasClose }) => {
         </div>
       </div>
       <div className="mt-12 flex justify-center">
-        <img src={Kakaotalk} alt="" className="offcanvas-kakao-image" />
+        <img src={Kakaotalk} alt="" />
       </div>
     </Modal>
   );
