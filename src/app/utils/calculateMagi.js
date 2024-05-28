@@ -15,11 +15,11 @@ const calculateMagi = (
     const optionA = lessSocialSecurityMath + magiMath;
     const optionB = socialSecurity * 0.85;
     const lessOptionIncomeMath = Math.min(optionA, optionB);
-    return ordinaryIncome + lessOptionIncomeMath;
+    return (ordinaryIncome + lessOptionIncomeMath).toFixed(2);
   } else if (MAGI > lowerAmount) {
-    return ordinaryIncome + lessSocialSecurityMath;
+    return (ordinaryIncome + lessSocialSecurityMath).toFixed(2);
   } else {
-    return ordinaryIncome;
+    return ordinaryIncome.toFixed(2);
   }
 };
 
