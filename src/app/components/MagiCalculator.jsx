@@ -5,8 +5,13 @@ import { useNavigate } from 'react-router-dom';
 
 const MagiCalculator = () => {
   const navigate = useNavigate();
+  const [filingStatus, setFilingStatus] = useState('Single');
   const [socialSecurity, setSocialSecurity] = useState('0');
   const [income, setIncome] = useState('0');
+
+  const handleFilingStatusChange = (e) => {
+    setFilingStatus(e.target.value);
+  };
 
   const handleFocus = (e) => {
     e.target.select();
@@ -34,6 +39,41 @@ const MagiCalculator = () => {
       <div className="flex flex-col justify-center items-center pt-20 pb-40 mx-5 md:mx-0">
         <div className="form_container">
           <form onSubmit={handleSubmit}>
+            <h4 className="font-semibold text-gray-600 text-lg">
+              Filing Status
+            </h4>
+            <div className="flex gap-4">
+              <label>
+                <input
+                  type="radio"
+                  id="single"
+                  name="filing-status"
+                  value="Single"
+                  checked={filingStatus === 'Single'}
+                  onChange={handleFilingStatusChange}
+                  required
+                />
+                &nbsp;Single
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  id="married-filing-jointly"
+                  name="filing-status"
+                  value="MFS"
+                  checked={filingStatus === 'MFS'}
+                  onChange={handleFilingStatusChange}
+                  required
+                />
+                &nbsp;Married Filing Jointly
+              </label>
+            </div>
+
+            <h4 className="font-semibold text-gray-600 text-lg">
+              MAGI Calculator
+            </h4>
+
             <div>
               <label htmlFor="socialSecurity">Social Security benefits</label>
               <input
@@ -64,7 +104,7 @@ const MagiCalculator = () => {
             <div>
               <div className="text-[15px] text-[#6a6a6a]">Total Income</div>
               <div className="ps-2 text-[24px] text-[#235161] font-semibold">
-                {calculateMagi(socialSecurity, income)}
+                {calculateMagi(filingStatus, socialSecurity, income)}
               </div>
             </div>
           </form>

@@ -2195,6 +2195,10 @@ video {
   border-bottom-width: var(--nextui-border-width-medium);
 }
 
+.border-b-0 {
+  border-bottom-width: 0px;
+}
+
 .border-solid {
   border-style: solid;
 }
@@ -2289,6 +2293,20 @@ video {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
+}
+
+.border-gray-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(75 85 99 / var(--tw-border-opacity));
+}
+
+.border-gray-600\/80 {
+  border-color: rgb(75 85 99 / 0.8);
+}
+
+.border-\[\#808080\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(128 128 128 / var(--tw-border-opacity));
 }
 
 .border-x-transparent {
