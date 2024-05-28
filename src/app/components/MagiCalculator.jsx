@@ -86,7 +86,7 @@ const MagiCalculator = () => {
                 id="social-security"
                 name="socialSecurity"
                 value={socialSecurity}
-                className="text-[#6a6a6a] ms-0.5"
+                className="text-[#6a6a6a]"
                 onChange={handleOnChange}
                 onFocus={handleFocus}
                 autoComplete="off"
@@ -103,7 +103,7 @@ const MagiCalculator = () => {
                 id="income"
                 name="income"
                 value={income}
-                className="text-[#6a6a6a] ms-0.5"
+                className="text-[#6a6a6a]"
                 onChange={handleOnChange}
                 onFocus={handleFocus}
                 required
