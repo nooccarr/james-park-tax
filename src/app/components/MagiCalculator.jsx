@@ -76,15 +76,17 @@ const MagiCalculator = () => {
             <h4 className="font-semibold text-gray-600 text-lg">
               MAGI Calculator
             </h4>
-
             <div>
               <label htmlFor="socialSecurity">Social Security benefits</label>
+              <span className="text-[#6a6a6a] absolute pt-[38px] text-md">
+                $
+              </span>
               <input
                 type="number"
                 id="social-security"
                 name="socialSecurity"
                 value={socialSecurity}
-                className="text-[#6a6a6a]"
+                className="text-[#6a6a6a] ms-0.5"
                 onChange={handleOnChange}
                 onFocus={handleFocus}
                 autoComplete="off"
@@ -93,12 +95,15 @@ const MagiCalculator = () => {
             </div>
             <div>
               <label htmlFor="income">Ordinary Income</label>
+              <span className="text-[#6a6a6a] absolute pt-[37px] text-md">
+                $
+              </span>
               <input
                 type="number"
                 id="income"
                 name="income"
                 value={income}
-                className="text-[#6a6a6a]"
+                className="text-[#6a6a6a] ms-0.5"
                 onChange={handleOnChange}
                 onFocus={handleFocus}
                 required
@@ -106,8 +111,8 @@ const MagiCalculator = () => {
             </div>
             <div>
               <div className="text-[15px] text-[#6a6a6a]">Total Income</div>
-              <div className="ps-2 text-[24px] text-[#235161] font-semibold">
-                {calculateMagi(filingStatus, socialSecurity, income)}
+              <div className="text-[24px] text-[#235161] font-semibold">
+                ${calculateMagi(filingStatus, socialSecurity, income)}
               </div>
             </div>
           </form>
