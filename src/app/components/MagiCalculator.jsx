@@ -2,12 +2,15 @@ import { useState } from 'react';
 import PageHeader from './PageHeader';
 import calculateMagi from '../utils/calculateMagi';
 import { useNavigate } from 'react-router-dom';
+import useScrollToTop from '../hooks/useScrollToTop';
 
 const MagiCalculator = () => {
   const navigate = useNavigate();
   const [filingStatus, setFilingStatus] = useState('Single');
   const [socialSecurity, setSocialSecurity] = useState('0');
   const [income, setIncome] = useState('0');
+
+  useScrollToTop();
 
   const handleFilingStatusChange = (e) => {
     setFilingStatus(e.target.value);

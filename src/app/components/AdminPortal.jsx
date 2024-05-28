@@ -41,9 +41,7 @@ const AdminPortal = ({ username, removeCookie }) => {
         <div className="admin_container">
           <div className="font-semibold text-center pb-5">
             <h4>Logged in as</h4>
-            <span className="text-[#043a49]">
-              {username ? username : '&nbsp;'}
-            </span>
+            <span className="text-[#043a49]">&nbsp;{username}&nbsp;</span>
           </div>
           <div>
             <div className="mb-2">
