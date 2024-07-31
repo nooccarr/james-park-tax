@@ -1,3 +1,4 @@
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import App from './components/App';
 import { NextUIProvider } from '@nextui-org/react';
@@ -11,13 +12,15 @@ import './output.css';
 const container = document.getElementById('root');
 const root = createRoot(container);
 root.render(
-  <NextUIProvider>
-    <CookiesProvider defaultSetOptions={{ path: '/' }}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/*" element={<App />} />
-        </Routes>
-      </BrowserRouter>
-    </CookiesProvider>
-  </NextUIProvider>
+  <StrictMode>
+    <NextUIProvider>
+      <CookiesProvider defaultSetOptions={{ path: '/' }}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/*" element={<App />} />
+          </Routes>
+        </BrowserRouter>
+      </CookiesProvider>
+    </NextUIProvider>
+  </StrictMode>
 );

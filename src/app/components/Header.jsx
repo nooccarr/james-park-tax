@@ -20,9 +20,11 @@ const Header = ({
                 <img
                   src={Logo}
                   onClick={handleOffCanvasClose}
-                  alt=""
+                  alt="James Park Tax and Accounting Company Logo"
                   width={250}
                   height={100}
+                  loading="eager"
+                  fetchpriority="high"
                 />
               </Link>
             </div>

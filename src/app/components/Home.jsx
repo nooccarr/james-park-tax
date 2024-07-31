@@ -5,7 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import ContactForm from './ContactForm';
 import LandingImgOne from '../images/landing-1.jpg';
+import LandingImgOneMedium from '../images/landing-1-md.jpg';
+import LandingImgOneSmall from '../images/landing-1-sm.jpg';
 import LandingImgTwo from '../images/landing-2.jpg';
+import LandingImgTwoMedium from '../images/landing-2-md.jpg';
+import LandingImgTwoSmall from '../images/landing-2-sm.jpg';
 import { Carousel } from 'react-responsive-carousel';
 import '../styles/home.css';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -38,6 +42,10 @@ const Home = () => {
               className="brightness-90 w-full h-full object-cover"
               src={LandingImgOne}
               fetchpriority="high"
+              srcSet={`${LandingImgOneSmall} 500w, ${LandingImgOneMedium} 1000w, ${LandingImgOne} 1500w`}
+              sizes="(max-width: 500px) 500px, (max-width: 1000px) 1000px, 1500px"
+              loading="eager"
+              alt="Skyline of lower Manhattan, New York City at dusk, featuring the One World Trade Center and illuminated buildings reflecting in the water."
             />
           </div>
 
@@ -68,6 +76,10 @@ const Home = () => {
               className="brightness-90 w-full h-full object-cover"
               src={LandingImgTwo}
               fetchpriority="high"
+              srcSet={`${LandingImgTwoSmall} 500w, ${LandingImgTwoMedium} 1000w, ${LandingImgTwo} 1500w`}
+              sizes="(max-width: 500px) 500px, (max-width: 1000px) 1000px, 1500px"
+              loading="eager"
+              alt="Close-up of two people shaking hands across a wooden table, symbolizing agreement or partnership."
             />
           </div>
           <div
