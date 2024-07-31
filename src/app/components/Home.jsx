@@ -30,7 +30,7 @@ const Home = () => {
   };
 
   return (
-    <main>
+    <main className="animate-fadeIn">
       <Carousel autoPlay interval="10000" infiniteLoop showThumbs={false}>
         <div>
           <div className="min-h-[500px] aspect-video">

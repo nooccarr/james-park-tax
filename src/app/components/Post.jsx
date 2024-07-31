@@ -32,7 +32,7 @@ const Post = ({ posts, cookies }) => {
   const token = isToken(cookies);
 
   return (
-    <main>
+    <main className="animate-fadeIn">
       <div className="mb-5">
         <div>
           <div>

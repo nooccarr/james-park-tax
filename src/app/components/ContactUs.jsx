@@ -15,7 +15,7 @@ import '../styles/contact-us.css';
 const ContactUs = () => {
   useScrollToTop();
 
-  const newYorkOfficeContactInfo = () => (
+  const newYorkOfficeContactInfo = (
     <section className="mb-10">
       <div>
         <div>
@@ -73,7 +73,7 @@ const ContactUs = () => {
     </section>
   );
 
-  const newJerseryOfficeContactInfo = () => (
+  const newJerseryOfficeContactInfo = (
     <section>
       <div>
         <div>
@@ -132,11 +132,11 @@ const ContactUs = () => {
   );
 
   return (
-    <>
+    <div className="animate-fadeIn">
       <div className="services-header-image">
         <PageHeader title="Contact Us" />
       </div>
-      <div className="max-w-[2240px] mx-auto">
+      <main className="max-w-[2240px] mx-auto">
         <div className="mx-5 md:mx-10 mb-20">
           <div className="flex flex-col mt-20 h-[540px]">
             <Tabs aria-label="Options">
@@ -181,16 +181,16 @@ const ContactUs = () => {
 
           <div className="flex flex-col md:flex-row gap-10 lg:gap-14 mt-20">
             <div className="w-full md:w-1/2">
-              {newYorkOfficeContactInfo()}
-              {newJerseryOfficeContactInfo()}
+              {newYorkOfficeContactInfo}
+              {newJerseryOfficeContactInfo}
             </div>
             <div className="w-full md:w-1/2">
               <EmailForm />
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </main>
+    </div>
   );
 };
 

@@ -37,7 +37,7 @@ const AboutUs = () => {
   );
 
   return (
-    <div className="about-us-background">
+    <div className="about-us-background animate-fadeIn">
       <div className="services-header-image">
         <PageHeader title="회사소개" />
       </div>

@@ -54,11 +54,11 @@ const NewPost = ({ setPosts }) => {
   };
 
   return (
-    <div className="tax-info-background">
+    <div className="tax-info-background animate-fadeIn">
       <div className="services-header-image">
         <PageHeader title="New Post" />
       </div>
-      <div className="max-w-[900px] mx-auto">
+      <main className="max-w-[900px] mx-auto">
         <div className="flex flex-col gap-20 justify-center items-center pt-20 mx-5 pb-80 md:hidden">
           <p className="text-xl text-center">
             For the best experience, please access this page using a laptop or
@@ -122,7 +122,7 @@ const NewPost = ({ setPosts }) => {
           </div>
         </form>
         <ToastContainer />
-      </div>
+      </main>
     </div>
   );
 };

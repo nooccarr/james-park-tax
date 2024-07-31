@@ -33,7 +33,7 @@ const AdminPortal = ({ username, removeCookie }) => {
   };
 
   return (
-    <div className="tax-info-background">
+    <div className="tax-info-background animate-fadeIn">
       <div className="services-header-image">
         <PageHeader title="Admin Portal" />
       </div>

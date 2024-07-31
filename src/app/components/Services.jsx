@@ -8,12 +8,12 @@ const Services = () => {
   useScrollToTop();
 
   return (
-    <div className="services-background">
+    <div className="services-background animate-fadeIn">
       <div className="services-header-image">
         <PageHeader title="서비스" />
       </div>
 
-      <div className="max-w-[2240px] mx-auto">
+      <main className="max-w-[2240px] mx-auto">
         <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
           <div className="flex flex-col md:flex-row gap-10 lg:gap-14">
             <div className="w-full md:w-1/2 lg:w-3/5 text-center rounded-0">
@@ -40,7 +40,7 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };

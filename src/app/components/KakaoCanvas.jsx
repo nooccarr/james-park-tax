@@ -7,7 +7,7 @@ const KakaoCanvas = ({ showKakaoCanvas, handleKakaoCanvasClose }) => {
     <Modal
       isOpen={showKakaoCanvas}
       onRequestClose={handleKakaoCanvasClose}
-      className="offcanvas-background-image w-[370px] h-screen p-5 absolute right-0"
+      className="offcanvas-background-image w-[370px] h-screen p-5 absolute right-0 animate-fadeInRight"
       overlayClassName="fixed inset-0 z-10"
     >
       <div className="flex justify-end">
@@ -23,7 +23,7 @@ const KakaoCanvas = ({ showKakaoCanvas, handleKakaoCanvasClose }) => {
         </div>
       </div>
       <div className="mt-12 flex justify-center">
-        <img src={Kakaotalk} alt="" />
+        <img src={Kakaotalk} width={384} height={512} alt="" />
       </div>
     </Modal>
   );

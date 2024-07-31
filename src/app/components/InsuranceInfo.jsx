@@ -7,16 +7,16 @@ const InsuranceInfo = () => {
   useScrollToTop();
 
   return (
-    <div className="medicare-info-background">
+    <div className="medicare-info-background animate-fadeIn">
       <div className="medicare-info-header-image">
         <PageHeader title="Insurance 정보" />
       </div>
 
-      <div className="max-w-[2240px] mx-auto">
+      <main className="max-w-[2240px] mx-auto">
         <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
           <Outlet />
         </div>
-      </div>
+      </main>
     </div>
   );
 };

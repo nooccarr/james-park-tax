@@ -63,7 +63,7 @@ const Layout = ({
         <Modal
           isOpen={showOffCanvas}
           onRequestClose={handleOffCanvasClose}
-          className="md:hidden"
+          className="md:hidden animate-fadeInRight"
           overlayClassName="fixed inset-0 z-10"
         >
           <ul className="nav-dropdown px-10 pt-5 h-screen">
