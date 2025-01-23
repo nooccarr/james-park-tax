@@ -8,12 +8,10 @@ const TaxInfo = () => {
 
   return (
     <div className="tax-info-background animate-fadeIn">
-      <div className="services-header-image">
-        <PageHeader title="Tax 정보" />
-      </div>
+      <PageHeader title="Tax 정보" image="services" />
 
-      <main className="max-w-[2240px] mx-auto">
-        <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
+      <main className="max-w-[1280px] mx-auto">
+        <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-0">
           <Outlet />
         </div>
       </main>

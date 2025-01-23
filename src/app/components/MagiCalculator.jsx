@@ -36,9 +36,8 @@ const MagiCalculator = () => {
 
   return (
     <div className="tax-info-background animate-fadeIn">
-      <div className="services-header-image">
-        <PageHeader title="MAGI Calculator" />
-      </div>
+      <PageHeader title="MAGI Calculator" image="services" />
+
       <main className="flex flex-col justify-center items-center pt-20 pb-40 mx-5 md:mx-0">
         <div className="form_container">
           <form onSubmit={handleSubmit}>

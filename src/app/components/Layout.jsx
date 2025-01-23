@@ -25,7 +25,7 @@ const Layout = ({
       <nav className="relative">
         <div className="nav-container hidden md:block px-10">
           <div className="py-3">
-            <div className="max-w-[2240px] mx-auto">
+            <div className="max-w-[1280px] mx-auto">
               <div>
                 <div className="flex justify-between gap-2">
                   {NavItems.map(({ link, title }) => {

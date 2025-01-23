@@ -22,7 +22,7 @@ const Footer = () => {
 
   return (
     <footer className="px-5 md:px-10 pt-10 pb-20">
-      <div className="max-w-[2240px] mx-auto">
+      <div className="max-w-[1280px] mx-auto">
         <>
           <div className="text-center pb-2">
             <div className="footer-location">LOCATIONS</div>

@@ -55,9 +55,7 @@ const NewPost = ({ setPosts }) => {
 
   return (
     <div className="tax-info-background animate-fadeIn">
-      <div className="services-header-image">
-        <PageHeader title="New Post" />
-      </div>
+      <PageHeader title="New Post" image="services" />
       <main className="max-w-[900px] mx-auto">
         <div className="flex flex-col gap-20 justify-center items-center pt-20 mx-5 pb-80 md:hidden">
           <p className="text-xl text-center">

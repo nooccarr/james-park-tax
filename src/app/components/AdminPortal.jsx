@@ -34,9 +34,8 @@ const AdminPortal = ({ username, removeCookie }) => {
 
   return (
     <div className="tax-info-background animate-fadeIn">
-      <div className="services-header-image">
-        <PageHeader title="Admin Portal" />
-      </div>
+      <PageHeader title="Admin Portal" image="services" />
+
       <div className="flex justify-center pt-20 pb-40 mx-5 md:mx-0">
         <div className="admin_container">
           <div className="font-semibold text-center pb-5">

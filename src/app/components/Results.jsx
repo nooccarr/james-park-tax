@@ -13,11 +13,9 @@ const Results = ({
 
   return (
     <div className="animate-fadeIn">
-      <div className="results-header-image">
-        <PageHeader title="Search Articles" />
-      </div>
+      <PageHeader title="Search Articles" image="results" />
 
-      <main className="max-w-[2240px] mx-auto">
+      <main className="max-w-[1280px] mx-auto">
         <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
           <SearchParams
             searchQuery={searchQuery}

@@ -38,11 +38,9 @@ const AboutUs = () => {
 
   return (
     <div className="about-us-background animate-fadeIn">
-      <div className="services-header-image">
-        <PageHeader title="회사소개" />
-      </div>
+      <PageHeader title="회사소개" image="services" />
 
-      <main className="max-w-[2240px] mx-auto">
+      <main className="max-w-[1280px] mx-auto">
         <div className="mx-5 md:mx-10 mb-20 md:mb-40">
           <div className="my-10">
             <div className="flex flex-wrap justify-center items-center gap-3 mb-4">

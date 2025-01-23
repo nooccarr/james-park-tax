@@ -8,12 +8,10 @@ const InsuranceInfo = () => {
 
   return (
     <div className="medicare-info-background animate-fadeIn">
-      <div className="medicare-info-header-image">
-        <PageHeader title="Insurance 정보" />
-      </div>
+      <PageHeader title="Insurance 정보" image="medicare-info" />
 
-      <main className="max-w-[2240px] mx-auto">
-        <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
+      <main className="max-w-[1280px] mx-auto">
+        <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-0">
           <Outlet />
         </div>
       </main>

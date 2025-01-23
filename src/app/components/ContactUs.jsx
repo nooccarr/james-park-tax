@@ -133,10 +133,9 @@ const ContactUs = () => {
 
   return (
     <div className="animate-fadeIn">
-      <div className="services-header-image">
-        <PageHeader title="Contact Us" />
-      </div>
-      <main className="max-w-[2240px] mx-auto">
+      <PageHeader title="Contact Us" image="services" />
+
+      <main className="max-w-[1280px] mx-auto">
         <div className="mx-5 md:mx-10 mb-20">
           <div className="flex flex-col mt-20 h-[540px]">
             <Tabs aria-label="Options">

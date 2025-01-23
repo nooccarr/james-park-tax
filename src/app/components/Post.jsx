@@ -74,8 +74,7 @@ const Post = ({ posts, cookies }) => {
             ) : post?.hidden && !token ? (
               <div className="flex flex-col gap-20 justify-center items-center">
                 <p className="text-xl">
-                  The post you're looking for has been removed by the
-                  administrator.
+                  The post you're looking for has been removed.
                 </p>
                 <button
                   className="post-link-category"
