@@ -6,8 +6,8 @@ import '../styles/about-us.css';
 const AboutUs = () => {
   useScrollToTop();
 
-  const aboutUsDescription = () => (
-    <>
+  const aboutUsDescription = (
+    <div className="text-container">
       <p>안녕하세요?</p>
       <p className="pb-5">
         제임스 박 회계사 홈페이지를 찾아 주셔서 감사 드립니다.
@@ -33,14 +33,14 @@ const AboutUs = () => {
       <p>
         <strong className="pe-2">대표 회계사</strong>제임스 박
       </p>
-    </>
+    </div>
   );
 
   return (
     <div className="about-us-background animate-fadeIn">
       <PageHeader title="회사소개" image="services" />
 
-      <main className="max-w-[1280px] mx-auto">
+      <main className="max-w-[768px] mx-auto">
         <div className="mx-5 md:mx-10 mb-20 md:mb-40">
           <div className="my-10">
             <div className="flex flex-wrap justify-center items-center gap-3 mb-4">
@@ -54,14 +54,10 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-10 lg:gap-14">
-            <div className="w-full md:w-1/2  aspect-square">
-              <img src={AboutUsImg} alt="" fetchpriority="high" />
-            </div>
-            <div className="w-full md:w-1/2">
-              <div className="text-container">{aboutUsDescription()}</div>
-            </div>
+          <div className="aspect-square mb-10">
+            <img src={AboutUsImg} alt="" fetchPriority="high" />
           </div>
+          {aboutUsDescription}
         </div>
       </main>
     </div>

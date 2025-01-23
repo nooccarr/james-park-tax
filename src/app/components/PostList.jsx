@@ -102,7 +102,7 @@ const PostList = ({
               key={post._id}
               className={`${post.hidden && !isToken(cookies) && 'hidden'}`}
             >
-              <div className="md:mx-10 mb-5">
+              <div className={`${category && 'md:mx-10'} mb-5`}>
                 <section className="article-container mb-3">
                   <div className="p-0 mt-2">
                     <Link
@@ -194,7 +194,7 @@ const PostList = ({
         </div>
       )}
       {categoryPosts.length ? (
-        <div className="md:px-10 mt-20">
+        <div className={`${category && 'md:px-10'} mt-20`}>
           <Pagination
             totalCount={categoryPosts?.length}
             currentPage={currentPage}

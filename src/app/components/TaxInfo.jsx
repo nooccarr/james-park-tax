@@ -10,7 +10,7 @@ const TaxInfo = () => {
     <div className="tax-info-background animate-fadeIn">
       <PageHeader title="Tax 정보" image="services" />
 
-      <main className="max-w-[1280px] mx-auto">
+      <main className="max-w-[768px] mx-auto">
         <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-0">
           <Outlet />
         </div>

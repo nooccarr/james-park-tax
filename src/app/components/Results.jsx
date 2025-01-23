@@ -15,7 +15,7 @@ const Results = ({
     <div className="animate-fadeIn">
       <PageHeader title="Search Articles" image="results" />
 
-      <main className="max-w-[1280px] mx-auto">
+      <main className="max-w-[768px] mx-auto">
         <div className="pt-20 pb-20 md:pb-40 mx-5 md:mx-10">
           <SearchParams
             searchQuery={searchQuery}

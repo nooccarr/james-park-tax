@@ -135,7 +135,7 @@ const ContactUs = () => {
     <div className="animate-fadeIn">
       <PageHeader title="Contact Us" image="services" />
 
-      <main className="max-w-[1280px] mx-auto">
+      <main className="max-w-[1024px] mx-auto">
         <div className="mx-5 md:mx-10 mb-20">
           <div className="flex flex-col mt-20 h-[540px]">
             <Tabs aria-label="Options">
@@ -178,8 +178,8 @@ const ContactUs = () => {
             </Tabs>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-10 lg:gap-14 mt-20">
-            <div className="w-full md:w-1/2">
+          <div className="flex flex-col md:flex-row mt-10 md:mt-20">
+            <div className="w-full md:w-1/2 mb-10 md:mb-0">
               {newYorkOfficeContactInfo}
               {newJerseryOfficeContactInfo}
             </div>
