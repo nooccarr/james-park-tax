@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -13,6 +14,16 @@ const Layout = ({
   handleOffCanvasClose,
   cookies,
 }) => {
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      handleOffCanvasClose();
+    }, 300);
+  };
+
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -62,13 +73,15 @@ const Layout = ({
 
         <Modal
           isOpen={showOffCanvas}
-          onRequestClose={handleOffCanvasClose}
-          className="md:hidden animate-fadeInRight"
+          onRequestClose={handleClose}
+          className={`md:hidden ${
+            isClosing ? 'animate-fadeOutRight' : 'animate-fadeInRight'
+          }`}
           overlayClassName="fixed inset-0 z-10"
         >
           <ul className="nav-dropdown px-10 pt-5 h-screen">
             <div className="flex justify-end">
-              <div onClick={handleOffCanvasClose}>
+              <div onClick={handleClose}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 384 512"
@@ -86,7 +99,7 @@ const Layout = ({
               return (
                 <li
                   className="py-[13.5px] nav-dropdown-item mr-0"
-                  onClick={handleOffCanvasClose}
+                  onClick={handleClose}
                   key={title}
                 >
                   <Link to={link} onClick={handleSearchReset}>

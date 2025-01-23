@@ -55,7 +55,7 @@ const AboutUs = () => {
           </div>
 
           <div className="aspect-square mb-10">
-            <img src={AboutUsImg} alt="" fetchPriority="high" />
+            <img src={AboutUsImg} alt="" fetchpriority="high" />
           </div>
           {aboutUsDescription}
         </div>

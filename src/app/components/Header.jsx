@@ -24,7 +24,7 @@ const Header = ({
                   width={250}
                   height={100}
                   loading="eager"
-                  fetchPriority="high"
+                  fetchpriority="high"
                 />
               </Link>
             </div>

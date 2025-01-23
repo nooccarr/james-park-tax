@@ -61,11 +61,13 @@ const Login = () => {
       console.log(error);
       setError(error.response.data.message);
     }
-    setInputValue({
-      ...inputValue,
-      email: '',
-      password: '',
-    });
+    setTimeout(() => {
+      setInputValue({
+        ...inputValue,
+        email: '',
+        password: '',
+      });
+    }, 2000);
   };
 
   return (

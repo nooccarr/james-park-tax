@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Kakaotalk from '../images/kakaotalk-offcanvas.png';
 
 const KakaoCanvas = ({ showKakaoCanvas, handleKakaoCanvasClose }) => {
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      handleKakaoCanvasClose();
+    }, 300);
+  };
+
   return (
     <Modal
       isOpen={showKakaoCanvas}
-      onRequestClose={handleKakaoCanvasClose}
-      className="offcanvas-background-image w-[370px] h-screen p-5 absolute right-0 animate-fadeInRight"
+      onRequestClose={handleClose}
+      className={`offcanvas-background-image w-[370px] h-screen p-5 absolute ring-0 right-0 ${
+        isClosing ? 'animate-fadeOutRight' : 'animate-fadeInRight'
+      }`}
       overlayClassName="fixed inset-0 z-10"
     >
       <div className="flex justify-end">
-        <div onClick={handleKakaoCanvasClose}>
+        <div onClick={handleClose}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"

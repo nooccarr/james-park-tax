@@ -41,7 +41,7 @@ const Home = () => {
             <img
               className="brightness-90 w-full h-full object-cover"
               src={LandingImgOne}
-              fetchPriority="high"
+              fetchpriority="high"
               srcSet={`${LandingImgOneSmall} 500w, ${LandingImgOneMedium} 1000w, ${LandingImgOne} 1500w`}
               sizes="(max-width: 500px) 500px, (max-width: 1000px) 1000px, 1500px"
               loading="eager"
@@ -75,7 +75,7 @@ const Home = () => {
             <img
               className="brightness-90 w-full h-full object-cover"
               src={LandingImgTwo}
-              fetchPriority="high"
+              fetchpriority="high"
               srcSet={`${LandingImgTwoSmall} 500w, ${LandingImgTwoMedium} 1000w, ${LandingImgTwo} 1500w`}
               sizes="(max-width: 500px) 500px, (max-width: 1000px) 1000px, 1500px"
               loading="eager"
