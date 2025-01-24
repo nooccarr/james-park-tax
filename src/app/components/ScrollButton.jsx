@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 const ScrollButton = () => {
-  const [showBtn, setShowBtn] = useState('myBtn none');
+  const [showBtn, setShowBtn] = useState('scroll-button--hidden');
 
   // When the user scrolls down 20px from the top of the document, show the button
   window.onscroll = function () {
@@ -9,14 +9,13 @@ const ScrollButton = () => {
   };
 
   function scrollFunction() {
-    if (
-      document.body.scrollTop > 20 ||
-      document.documentElement.scrollTop > 20
-    ) {
-      setShowBtn('myBtn');
+    if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+      setShowBtn('scroll-button');
     } else {
-      // TODO: make it fade out
-      setShowBtn('none');
+      setShowBtn('scroll-button--close');
+      setTimeout(() => {
+        setShowBtn('scroll-button--hidden');
+      }, 300);
     }
   }
 
@@ -29,7 +28,7 @@ const ScrollButton = () => {
   return (
     <button
       onClick={topFunction}
-      id="myBtn"
+      id="scroll-button"
       className={`hidden md:block ${showBtn}`}
       title="Go to top"
     >

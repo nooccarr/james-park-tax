@@ -14,7 +14,7 @@ body {
   min-width: 320px;
 }
 
-.myBtn {
+.scroll-button {
   display: block;
   position: fixed;
   bottom: 20px;
@@ -29,15 +29,34 @@ body {
   padding: 15px;
   border-radius: 100%;
   opacity: 0.8;
-  transition: 0.3s;
+  transition: 0.3s ease-in;
   box-shadow: 2px 2px 3px #494f5e;
 }
 
-.none {
+.scroll-button--close {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #9e9a79;
+  color: #fff9d1;
+  cursor: default;
+  padding: 15px;
+  border-radius: 100%;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  box-shadow: 2px 2px 3px #494f5e;
+}
+
+.scroll-button--hidden {
   display: none;
 }
 
-.myBtn:hover {
+.scroll-button:hover {
   color: #9e9a79;
   color: #fff9d1;
   opacity: 1;
