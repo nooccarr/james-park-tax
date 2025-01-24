@@ -74,7 +74,7 @@ const Layout = ({
         <Modal
           isOpen={showOffCanvas}
           onRequestClose={handleClose}
-          className={`md:hidden ${
+          className={`md:hidden outline-none ${
             isClosing ? 'animate-fadeOutRight' : 'animate-fadeInRight'
           }`}
           overlayClassName="fixed inset-0 z-10"

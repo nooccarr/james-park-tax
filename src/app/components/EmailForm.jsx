@@ -39,7 +39,7 @@ const EmailForm = () => {
               name="from_name"
               id="name"
               autoComplete="off"
-              className="form-control p-2 border-1 block w-full"
+              className="form-control p-2 border-1 block w-full outline-none"
               required
             />
 
@@ -49,7 +49,7 @@ const EmailForm = () => {
               name="reply_to"
               id="email"
               autoComplete="off"
-              className="form-control p-2 border-1 block w-full"
+              className="form-control p-2 border-1 block w-full outline-none"
               required
             />
 
@@ -57,7 +57,7 @@ const EmailForm = () => {
             <select
               name="subject"
               id="subject"
-              className="form-control p-2 border-1 block w-full text-[#6A6A6A]"
+              className="form-control p-2 border-1 block w-full text-[#6A6A6A] outline-none"
               required
             >
               {SUBJECTS.map((subject, idx) => (
@@ -72,7 +72,7 @@ const EmailForm = () => {
               name="message"
               id="message"
               autoComplete="off"
-              className="form-control p-2 min-h-[200px] border-1 block w-full"
+              className="form-control p-2 min-h-[200px] border-1 block w-full outline-none"
             />
 
             <button className="mt-2 email-form-button w-full">send</button>

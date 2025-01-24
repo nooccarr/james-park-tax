@@ -17,7 +17,7 @@ const KakaoCanvas = ({ showKakaoCanvas, handleKakaoCanvasClose }) => {
     <Modal
       isOpen={showKakaoCanvas}
       onRequestClose={handleClose}
-      className={`offcanvas-background-image w-[370px] h-screen p-5 absolute ring-0 right-0 ${
+      className={`offcanvas-background-image w-[370px] h-screen p-5 absolute right-0 outline-none ${
         isClosing ? 'animate-fadeOutRight' : 'animate-fadeInRight'
       }`}
       overlayClassName="fixed inset-0 z-10"

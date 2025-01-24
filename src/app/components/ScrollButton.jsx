@@ -15,6 +15,7 @@ const ScrollButton = () => {
     ) {
       setShowBtn('myBtn');
     } else {
+      // TODO: make it fade out
       setShowBtn('none');
     }
   }
