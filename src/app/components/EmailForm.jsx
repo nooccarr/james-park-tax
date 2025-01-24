@@ -72,7 +72,7 @@ const EmailForm = () => {
               name="message"
               id="message"
               autoComplete="off"
-              className="form-control p-2 min-h-[200px] border-1 block w-full outline-none"
+              className="form-control p-2 min-h-40 max-h-96 border-1 block w-full outline-none"
             />
 
             <button className="mt-2 email-form-button w-full">send</button>

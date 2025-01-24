@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Modal from 'react-modal';
 import { emailHelper } from '../helpers/emailHelper';
 
@@ -7,6 +7,8 @@ const ContactForm = ({
   handleContactFormClose,
   setShowFormSuccess,
 }) => {
+  const [isClosing, setIsClosing] = useState(false);
+
   const form = useRef(null);
 
   const sendEmail = (e) => {
@@ -21,18 +23,28 @@ const ContactForm = ({
     }
   };
 
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      handleContactFormClose();
+    }, 300);
+  };
+
   return (
     <Modal
       isOpen={showContactForm}
-      onRequestClose={handleContactFormClose}
-      className="email-form-form flex flex-col w-[320px] mx-2"
+      onRequestClose={handleClose}
+      className={`email-form-form flex flex-col w-[320px] mx-2 ${
+        isClosing ? 'animate-fadeOut' : 'animate-fadeIn'
+      }`}
       overlayClassName="fixed inset-0 z-10 flex justify-center items-center"
     >
       <div className="flex justify-between items-center p-5 text-center bg-[#043A49] border-b-[3px] border-[#AA9465]">
         <h2 className="text-[#fff9d1] font-semibold">
           Schedule a Consultation
         </h2>
-        <div onClick={handleContactFormClose}>
+        <div onClick={handleClose}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 384 512"
@@ -51,7 +63,7 @@ const ContactForm = ({
             name="from_name"
             id="name"
             autoComplete="off"
-            className="form-control p-2"
+            className="form-control p-2 outline-none"
             required
           />
 
@@ -61,7 +73,7 @@ const ContactForm = ({
             name="reply_to"
             id="email"
             autoComplete="off"
-            className="form-control p-2"
+            className="form-control p-2 outline-none"
             required
           />
 
@@ -71,7 +83,7 @@ const ContactForm = ({
             name="subject"
             id="subject"
             autoComplete="off"
-            className="form-control p-2"
+            className="form-control p-2 outline-none"
             required
           />
 
@@ -80,7 +92,7 @@ const ContactForm = ({
             name="message"
             id="message"
             autoComplete="off"
-            className="form-control p-2"
+            className="form-control p-2 outline-none min-h-20 max-h-40"
           />
           <button className="email-form-button normal-case" type="submit">
             Schedule a Consultation

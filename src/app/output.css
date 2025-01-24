@@ -1212,6 +1212,26 @@ video {
   max-height: calc(100% - 7.5rem);
 }
 
+.max-h-52 {
+  max-height: 13rem;
+}
+
+.max-h-60 {
+  max-height: 15rem;
+}
+
+.max-h-80 {
+  max-height: 20rem;
+}
+
+.max-h-96 {
+  max-height: 24rem;
+}
+
+.max-h-40 {
+  max-height: 10rem;
+}
+
 .min-h-10 {
   min-height: 2.5rem;
 }
@@ -1270,6 +1290,18 @@ video {
 
 .min-h-full {
   min-height: 100%;
+}
+
+.min-h-48 {
+  min-height: 12rem;
+}
+
+.min-h-40 {
+  min-height: 10rem;
+}
+
+.min-h-20 {
+  min-height: 5rem;
 }
 
 .w-1 {
@@ -1711,7 +1743,7 @@ video {
 }
 
 .animate-fadeIn {
-  animation: fadeIn 0.3s ease-in-out;
+  animation: fadeIn 0.3s ease-in;
 }
 
 @keyframes fadeInRight {
@@ -1728,6 +1760,20 @@ video {
 
 .animate-fadeInRight {
   animation: fadeInRight 0.3s ease-in;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.33s ease-out;
 }
 
 @keyframes fadeOutRight {
@@ -3517,12 +3563,6 @@ video {
 
 .outline {
   outline-style: solid;
-}
-
-.ring-0 {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
 }
 
 .ring-1 {
