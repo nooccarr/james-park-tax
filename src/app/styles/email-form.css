@@ -36,12 +36,12 @@
   opacity: 0.8;
 }
 .email-form-button:active {
-  outline: solid 2px #6d949e;
+  outline: solid 2px #aa9465;
   outline-offset: 2px;
   transition: none;
 }
 .email-form-button:focus {
-  outline: solid 2px #6d949e;
+  outline: solid 2px #aa9465;
   transition: none;
 }
 

@@ -70,11 +70,11 @@
 }
 
 .article-button:active {
-  outline: solid 2px #6d949e;
+  outline: solid 2px #aa9465;
   transition: none;
 }
 
 .article-button:focus {
-  outline: solid 2px #6d949e;
+  outline: solid 2px #aa9465;
   transition: none;
 }

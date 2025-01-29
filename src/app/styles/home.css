@@ -12,12 +12,12 @@
   opacity: 1;
 }
 .home-contact-form-button:active {
-  outline: solid 2px #ccc7a4;
+  outline: solid 2px #aa9465;
   outline-offset: 2px;
   transition: none;
 }
 .home-contact-form-button:focus {
-  outline: solid 2px #ccc7a4;
+  outline: solid 2px #aa9465;
   transition: none;
 }
 
