@@ -51,13 +51,37 @@
   cursor: pointer;
   border-radius: 0.3rem;
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
 }
 
 .form_container button:hover,
 .admin_container_logout:hover,
 .admin_container_button:hover {
   opacity: 0.8;
+}
+
+.form_container button:active,
+.admin_container_logout:active {
+  outline: solid 2px #6d949e;
+  outline-offset: 2px;
+  transition: none;
+}
+
+.admin_container_button:active {
+  outline: solid 2px #d1cca9;
+  outline-offset: 2px;
+  transition: none;
+}
+
+.form_container button:focus,
+.admin_container_logout:focus {
+  outline: solid 2px #6d949e;
+  transition: none;
+}
+
+.admin_container_button:focus {
+  outline: solid 2px #d1cca9;
+  transition: none;
 }
 
 .admin_container_button {
@@ -69,5 +93,5 @@
   cursor: pointer;
   border-radius: 0.3rem;
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
 }

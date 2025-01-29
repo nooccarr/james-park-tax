@@ -15,7 +15,7 @@
   text-decoration: none;
   /* margin-right: 32px; */
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
 }
 
 .navlink:hover,
@@ -26,7 +26,7 @@
 .navsearch {
   color: rgb(227, 241, 222);
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
 }
 
 .navsearch:hover,
@@ -43,7 +43,7 @@
   border-radius: 3px;
   color: #9e9a79;
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
   padding: 8px;
 }
 

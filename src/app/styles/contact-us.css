@@ -39,7 +39,7 @@ p a {
   line-height: 24px;
   font-size: 15px;
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
 }
 
 p a:hover {

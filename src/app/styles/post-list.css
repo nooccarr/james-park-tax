@@ -18,7 +18,7 @@
   font-weight: 700;
   font-size: 37px;
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
   line-height: 1;
 }
 
@@ -62,9 +62,19 @@
   cursor: pointer;
   text-transform: uppercase;
   opacity: 1;
-  transition: 0.3s;
+  transition: 0.3s ease-in-out;
 }
 
 .article-button:hover {
   opacity: 0.8;
+}
+
+.article-button:active {
+  outline: solid 2px #6d949e;
+  transition: none;
+}
+
+.article-button:focus {
+  outline: solid 2px #6d949e;
+  transition: none;
 }
