@@ -65,7 +65,9 @@ const Home = () => {
               className="form-submit-message absolute top-[50%] md:top-[70%] left-[50%] min-w-[222px]"
               style={{ transform: 'translate(-50%, -50%)' }}
             >
-              Thank you for your submission!
+              Thank you for your message.
+              <br />
+              It has been sent.
             </h2>
           )}
         </div>

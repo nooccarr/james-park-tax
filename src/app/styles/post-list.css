@@ -71,10 +71,6 @@
 
 .article-button:active {
   outline: solid 2px #aa9465;
-  transition: none;
-}
-
-.article-button:focus {
-  outline: solid 2px #aa9465;
+  outline-offset: 2px;
   transition: none;
 }

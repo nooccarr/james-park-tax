@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPen, faBookmark } from '@fortawesome/free-solid-svg-icons';
 import Pagination from './Pagination';
 import usePutData from '../hooks/usePutData';
-import isToken from '../utils/isToken';
 import '../styles/post-list.css';
 
 const PostList = ({
@@ -15,7 +14,7 @@ const PostList = ({
   posts,
   category,
   handleSearchReset,
-  cookies,
+  userLoggedIn,
   currentPage,
   onPageChange,
   searchQuery,
@@ -100,7 +99,7 @@ const PostList = ({
           {currentPosts.map((post) => (
             <div
               key={post._id}
-              className={`${post.hidden && !isToken(cookies) && 'hidden'}`}
+              className={`${post.hidden && !userLoggedIn && 'hidden'}`}
             >
               <div className={`${category && 'md:mx-10'} mb-5`}>
                 <section className="article-container mb-3">
@@ -137,7 +136,7 @@ const PostList = ({
                       </button>
                     </Link>
                     <div className="flex gap-4 mt-7 items-center">
-                      {isToken(cookies) && (
+                      {userLoggedIn && (
                         <>
                           <Link
                             to={`edit/${post.slug}`}

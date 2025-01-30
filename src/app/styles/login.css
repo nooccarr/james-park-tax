@@ -62,13 +62,6 @@
 
 .form_container button:active,
 .admin_container_logout:active {
-  outline: solid 2px #aa9465;
-  outline-offset: 2px;
-  transition: none;
-}
-
-.admin_container_button:active {
-  outline: solid 2px #235161;
   outline-offset: 2px;
   transition: none;
 }
@@ -76,11 +69,13 @@
 .form_container button:focus,
 .admin_container_logout:focus {
   outline: solid 2px #aa9465;
+
   transition: none;
 }
 
-.admin_container_button:focus {
+.admin_container_button:active {
   outline: solid 2px #235161;
+  outline-offset: 2px;
   transition: none;
 }
 

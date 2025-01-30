@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate } from 'react-router-dom';
 import NavItems from '../data/navItems';
 import Modal from 'react-modal';
-import isToken from '../utils/isToken';
 import '../styles/layout.css';
 
 const Layout = ({
   handleSearchReset,
   showOffCanvas,
   handleOffCanvasClose,
-  cookies,
+  userLoggedIn,
 }) => {
   const [isClosing, setIsClosing] = useState(false);
 
@@ -22,13 +20,6 @@ const Layout = ({
       setIsClosing(false);
       handleOffCanvasClose();
     }, 300);
-  };
-
-  const navigate = useNavigate();
-
-  const handleNavigate = () => {
-    const token = isToken(cookies);
-    navigate(token ? '/admin-portal' : '/login');
   };
 
   return (
@@ -58,12 +49,15 @@ const Layout = ({
                     <Link to="/search" className="navsearch">
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
-                    <div
-                      className="hover:cursor-pointer"
-                      onClick={handleNavigate}
-                    >
-                      <FontAwesomeIcon icon={faUser} className="navsearch" />
-                    </div>
+                    {userLoggedIn ? (
+                      <Link to="admin-portal" className="navsearch">
+                        <FontAwesomeIcon icon={faUser} />
+                      </Link>
+                    ) : (
+                      <Link to="login" className="navsearch">
+                        <FontAwesomeIcon icon={faUser} />
+                      </Link>
+                    )}
                   </div>
                 </div>
               </div>
@@ -93,9 +87,8 @@ const Layout = ({
               </div>
             </div>
             {NavItems.map(({ link, title }) => {
-              const token = isToken(cookies);
-              if (token && title === 'Login') return;
-              else if (!token && title === 'Admin Portal') return;
+              if (userLoggedIn && title === 'Login') return;
+              else if (!userLoggedIn && title === 'Admin Portal') return;
               return (
                 <li
                   className="py-[13.5px] nav-dropdown-item mr-0"

@@ -16,29 +16,14 @@
   outline-offset: 2px;
   transition: none;
 }
-.home-contact-form-button:focus {
-  outline: solid 2px #aa9465;
-  transition: none;
-}
-
-.home-contact-form-button-mobile {
-  background-color: #043a49;
-  color: #fff9d1;
-  border: none;
-  border-radius: 10px;
-  padding: 15px;
-  opacity: 0.6;
-  transition: 0.5s;
-}
-
-.home-contact-form-button-mobile:hover {
-  opacity: 1;
-}
 
 .form-submit-message {
-  color: #fff9d1;
-  padding-bottom: 25px;
-  font-weight: 400;
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 200;
+  letter-spacing: loose;
+  opacity: 0.8;
+  background-color: #494f5e;
 }
 
 .home-carousel-h1 {

@@ -33,7 +33,6 @@ import Modal from 'react-modal';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
-import isToken from '../utils/isToken';
 import isProtectedPath from '../utils/isProtectedPath';
 import ScrollButton from './ScrollButton';
 import MagiCalculator from './MagiCalculator';
@@ -55,6 +54,7 @@ const App = () => {
   const [showKakaoCanvas, setShowKakaoCanvas] = useState(false);
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies(['token']);
+  const [userLoggedIn, setUserLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams] = useSearchParams();
@@ -93,9 +93,8 @@ const App = () => {
 
   useEffect(() => {
     const verifyCookie = async (retryCount = 3) => {
-      const token = isToken(cookies);
       const protectedPath = isProtectedPath(location.pathname);
-      if (!token && protectedPath) navigate('/login');
+      if (!userLoggedIn && protectedPath) navigate('/login');
       try {
         const { data } = await axios.post(
           `${import.meta.env.DEV ? 'http://localhost:4000' : ''}/verify`,
@@ -174,6 +173,14 @@ const App = () => {
     setShowKakaoCanvas(false);
   };
 
+  const handleUserLogin = () => {
+    setUserLoggedIn(true);
+  };
+
+  const handleUserLogout = () => {
+    setUserLoggedIn(false);
+  };
+
   const onSearchPageChange = (page) => {
     setCurrentPage(page);
     searchParams.set('page', page);
@@ -225,7 +232,7 @@ const App = () => {
               handleSearchReset={handleSearchReset}
               showOffCanvas={showOffCanvas}
               handleOffCanvasClose={handleOffCanvasClose}
-              cookies={cookies}
+              userLoggedIn={userLoggedIn}
             />
           }
         >
@@ -241,7 +248,7 @@ const App = () => {
                   categoryPosts={categoryPosts}
                   setCategoryPosts={setCategoryPosts}
                   category={'Tax'}
-                  cookies={cookies}
+                  userLoggedIn={userLoggedIn}
                   isLoading={isLoading}
                   currentPage={currentPage}
                   onPageChange={onTaxInfoPageChange}
@@ -251,7 +258,7 @@ const App = () => {
             <Route path="edit/:slug" element={<EditPost posts={posts} />} />
             <Route
               path=":slug"
-              element={<Post posts={posts} cookies={cookies} />}
+              element={<Post posts={posts} userLoggedIn={userLoggedIn} />}
             />
           </Route>
           <Route path="/insurance-info" element={<InsuranceInfo />}>
@@ -263,17 +270,14 @@ const App = () => {
                   categoryPosts={categoryPosts}
                   setCategoryPosts={setCategoryPosts}
                   category={'Insurance'}
-                  cookies={cookies}
+                  userLoggedIn={userLoggedIn}
                   isLoading={isLoading}
                   currentPage={currentPage}
                   onPageChange={onInsuranceInfoPageChange}
                 />
               }
             />
-            <Route
-              path="edit/:slug"
-              element={<EditPost posts={posts} cookies={cookies} />}
-            />
+            <Route path="edit/:slug" element={<EditPost posts={posts} />} />
             <Route path=":slug" element={<Post posts={posts} />} />
           </Route>
           <Route
@@ -305,17 +309,24 @@ const App = () => {
             />
             <Route
               path=":slug"
-              element={<Post posts={searchPosts} cookies={cookies} />}
+              element={<Post posts={searchPosts} userLoggedIn={userLoggedIn} />}
             />
           </Route>
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/new-post" element={<NewPost setPosts={setPosts} />} />
 
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={<Login handleUserLogin={handleUserLogin} />}
+          />
           <Route
             path="/admin-portal"
             element={
-              <AdminPortal username={username} removeCookie={removeCookie} />
+              <AdminPortal
+                username={username}
+                removeCookie={removeCookie}
+                handleUserLogout={handleUserLogout}
+              />
             }
           />
           <Route

@@ -11,7 +11,7 @@
 }
 
 .navlink {
-  color: rgb(227, 241, 222);
+  color: #e3f1de;
   text-decoration: none;
   /* margin-right: 32px; */
   opacity: 1;
@@ -24,7 +24,7 @@
 }
 
 .navsearch {
-  color: rgb(227, 241, 222);
+  color: #e3f1de;
   opacity: 1;
   transition: 0.3s ease-in-out;
 }
@@ -59,7 +59,7 @@
 
 .nav-dropdown-item {
   line-height: 2.2;
-  border-bottom: 1px solid rgb(116, 122, 113);
+  border-bottom: 1px solid #747a71;
   margin-right: 28px;
 }
 

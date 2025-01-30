@@ -6,7 +6,7 @@ import PageHeader from './PageHeader';
 import useScrollToTop from '../hooks/useScrollToTop';
 import '../styles/login.css';
 
-const Login = () => {
+const Login = ({ handleUserLogin }) => {
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: '',
@@ -35,6 +35,7 @@ const Login = () => {
     toast.success(msg, {
       position: 'bottom-left',
     });
+    handleUserLogin();
   };
 
   const handleSubmit = async (e) => {
@@ -52,7 +53,8 @@ const Login = () => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          navigate(-1);
+          // TODO: previous page is /login if protected route access is attempted and re-routed to /login
+          navigate('/admin-portal');
         }, 1500);
       } else {
         handleError(message);

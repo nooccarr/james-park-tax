@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import PageHeader from './PageHeader';
 import useScrollToTop from '../hooks/useScrollToTop';
 
-const AdminPortal = ({ username, removeCookie }) => {
+const AdminPortal = ({ username, removeCookie, handleUserLogout }) => {
   const navigate = useNavigate();
   // console.log({ username, removeCookie });
   useScrollToTop();
@@ -17,6 +17,7 @@ const AdminPortal = ({ username, removeCookie }) => {
     toast.success(msg, {
       position: 'bottom-left',
     });
+    handleUserLogout();
   };
 
   const handleLogout = () => {
