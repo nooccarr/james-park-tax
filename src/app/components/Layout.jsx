@@ -11,6 +11,8 @@ const Layout = ({
   showOffCanvas,
   handleOffCanvasClose,
   loggedIn,
+  menuSelected,
+  handleMenuSelected,
 }) => {
   const [isClosing, setIsClosing] = useState(false);
 
@@ -26,18 +28,25 @@ const Layout = ({
     <>
       <nav className="relative">
         <div className="nav-container hidden md:block">
-          <div className="py-3">
+          <div className="py-1">
             <div className="max-w-[1280px] mx-auto px-10">
               <div>
                 <div className="flex justify-between gap-2">
                   {NavItems.map(({ link, title }) => {
                     if (title === 'Login' || title === 'Admin Portal') return;
                     return (
-                      <div className="" key={title}>
+                      <div className="py-2" key={title}>
                         <Link
                           to={link}
-                          onClick={handleSearchReset}
-                          className="navlink"
+                          onClick={() => {
+                            handleSearchReset();
+                            handleMenuSelected(title);
+                          }}
+                          className={
+                            menuSelected === title
+                              ? 'navlink--selected'
+                              : 'navlink'
+                          }
                         >
                           {title}
                         </Link>
@@ -45,16 +54,40 @@ const Layout = ({
                     );
                   })}
 
-                  <div className="flex items-center gap-6">
-                    <Link to="/search" className="navsearch">
+                  <div className="flex items-center gap-2">
+                    <Link
+                      to="/search"
+                      className={
+                        menuSelected === 'Search'
+                          ? 'navsearch--selected'
+                          : 'navsearch'
+                      }
+                      onClick={() => handleMenuSelected('Search')}
+                    >
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
                     {loggedIn ? (
-                      <Link to="admin-portal" className="navsearch">
+                      <Link
+                        to="admin-portal"
+                        className={
+                          menuSelected === 'Admin'
+                            ? 'navsearch--selected'
+                            : 'navsearch'
+                        }
+                        onClick={() => handleMenuSelected('Admin')}
+                      >
                         <FontAwesomeIcon icon={faUser} />
                       </Link>
                     ) : (
-                      <Link to="login" className="navsearch">
+                      <Link
+                        to="login"
+                        className={
+                          menuSelected === 'Admin'
+                            ? 'navsearch--selected'
+                            : 'navsearch'
+                        }
+                        onClick={() => handleMenuSelected('Admin')}
+                      >
                         <FontAwesomeIcon icon={faUser} />
                       </Link>
                     )}

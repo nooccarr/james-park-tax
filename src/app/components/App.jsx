@@ -58,6 +58,7 @@ const App = () => {
   const [username, setUsername] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams] = useSearchParams();
+  const [menuSelected, setMenuSelected] = useState(null);
 
   const query = searchParams.get('query') || '';
   const page = searchParams.get('page') || '1';
@@ -181,6 +182,10 @@ const App = () => {
     setLoggedIn(false);
   };
 
+  const handleMenuSelected = (title) => {
+    setMenuSelected(title);
+  };
+
   const onSearchPageChange = (page) => {
     setCurrentPage(page);
     searchParams.set('page', page);
@@ -223,6 +228,7 @@ const App = () => {
         handleOffCanvasToggle={handleOffCanvasToggle}
         handleOffCanvasClose={handleOffCanvasClose}
         handleKakaoCanvasOpen={handleKakaoCanvasOpen}
+        handleMenuSelected={handleMenuSelected}
       />
       <Routes>
         <Route
@@ -233,6 +239,8 @@ const App = () => {
               showOffCanvas={showOffCanvas}
               handleOffCanvasClose={handleOffCanvasClose}
               loggedIn={loggedIn}
+              menuSelected={menuSelected}
+              handleMenuSelected={handleMenuSelected}
             />
           }
         >

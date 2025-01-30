@@ -8,6 +8,7 @@ const Header = ({
   handleOffCanvasToggle,
   handleOffCanvasClose,
   handleKakaoCanvasOpen,
+  handleMenuSelected,
 }) => {
   return (
     <header className=" flex flex-col">
@@ -19,7 +20,10 @@ const Header = ({
               <Link to="/">
                 <img
                   src={Logo}
-                  onClick={handleOffCanvasClose}
+                  onClick={() => {
+                    handleOffCanvasClose();
+                    handleMenuSelected(null);
+                  }}
                   alt="James Park Tax and Accounting Company Logo"
                   width={250}
                   height={100}
