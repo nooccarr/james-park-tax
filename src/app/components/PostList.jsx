@@ -14,7 +14,7 @@ const PostList = ({
   posts,
   category,
   handleSearchReset,
-  userLoggedIn,
+  loggedIn,
   currentPage,
   onPageChange,
   searchQuery,
@@ -99,7 +99,7 @@ const PostList = ({
           {currentPosts.map((post) => (
             <div
               key={post._id}
-              className={`${post.hidden && !userLoggedIn && 'hidden'}`}
+              className={`${post.hidden && !loggedIn && 'hidden'}`}
             >
               <div className={`${category && 'md:mx-10'} mb-5`}>
                 <section className="article-container mb-3">
@@ -136,7 +136,7 @@ const PostList = ({
                       </button>
                     </Link>
                     <div className="flex gap-4 mt-7 items-center">
-                      {userLoggedIn && (
+                      {loggedIn && (
                         <>
                           <Link
                             to={`edit/${post.slug}`}

@@ -53,7 +53,6 @@ const Login = ({ handleUserLogin }) => {
       if (success) {
         handleSuccess(message);
         setTimeout(() => {
-          // TODO: previous page is /login if protected route access is attempted and re-routed to /login
           navigate('/admin-portal');
         }, 1500);
       } else {

@@ -54,7 +54,7 @@ const App = () => {
   const [showKakaoCanvas, setShowKakaoCanvas] = useState(false);
   const navigate = useNavigate();
   const [cookies, removeCookie] = useCookies(['token']);
-  const [userLoggedIn, setUserLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [username, setUsername] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [searchParams] = useSearchParams();
@@ -94,7 +94,7 @@ const App = () => {
   useEffect(() => {
     const verifyCookie = async (retryCount = 3) => {
       const protectedPath = isProtectedPath(location.pathname);
-      if (!userLoggedIn && protectedPath) navigate('/login');
+      if (!loggedIn && protectedPath) navigate('/login');
       try {
         const { data } = await axios.post(
           `${import.meta.env.DEV ? 'http://localhost:4000' : ''}/verify`,
@@ -174,11 +174,11 @@ const App = () => {
   };
 
   const handleUserLogin = () => {
-    setUserLoggedIn(true);
+    setLoggedIn(true);
   };
 
   const handleUserLogout = () => {
-    setUserLoggedIn(false);
+    setLoggedIn(false);
   };
 
   const onSearchPageChange = (page) => {
@@ -232,7 +232,7 @@ const App = () => {
               handleSearchReset={handleSearchReset}
               showOffCanvas={showOffCanvas}
               handleOffCanvasClose={handleOffCanvasClose}
-              userLoggedIn={userLoggedIn}
+              loggedIn={loggedIn}
             />
           }
         >
@@ -248,7 +248,7 @@ const App = () => {
                   categoryPosts={categoryPosts}
                   setCategoryPosts={setCategoryPosts}
                   category={'Tax'}
-                  userLoggedIn={userLoggedIn}
+                  loggedIn={loggedIn}
                   isLoading={isLoading}
                   currentPage={currentPage}
                   onPageChange={onTaxInfoPageChange}
@@ -258,7 +258,7 @@ const App = () => {
             <Route path="edit/:slug" element={<EditPost posts={posts} />} />
             <Route
               path=":slug"
-              element={<Post posts={posts} userLoggedIn={userLoggedIn} />}
+              element={<Post posts={posts} loggedIn={loggedIn} />}
             />
           </Route>
           <Route path="/insurance-info" element={<InsuranceInfo />}>
@@ -270,7 +270,7 @@ const App = () => {
                   categoryPosts={categoryPosts}
                   setCategoryPosts={setCategoryPosts}
                   category={'Insurance'}
-                  userLoggedIn={userLoggedIn}
+                  loggedIn={loggedIn}
                   isLoading={isLoading}
                   currentPage={currentPage}
                   onPageChange={onInsuranceInfoPageChange}
@@ -309,7 +309,7 @@ const App = () => {
             />
             <Route
               path=":slug"
-              element={<Post posts={searchPosts} userLoggedIn={userLoggedIn} />}
+              element={<Post posts={searchPosts} loggedIn={loggedIn} />}
             />
           </Route>
           <Route path="/contact-us" element={<ContactUs />} />

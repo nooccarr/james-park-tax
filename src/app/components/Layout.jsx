@@ -10,7 +10,7 @@ const Layout = ({
   handleSearchReset,
   showOffCanvas,
   handleOffCanvasClose,
-  userLoggedIn,
+  loggedIn,
 }) => {
   const [isClosing, setIsClosing] = useState(false);
 
@@ -49,7 +49,7 @@ const Layout = ({
                     <Link to="/search" className="navsearch">
                       <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
-                    {userLoggedIn ? (
+                    {loggedIn ? (
                       <Link to="admin-portal" className="navsearch">
                         <FontAwesomeIcon icon={faUser} />
                       </Link>
@@ -87,8 +87,8 @@ const Layout = ({
               </div>
             </div>
             {NavItems.map(({ link, title }) => {
-              if (userLoggedIn && title === 'Login') return;
-              else if (!userLoggedIn && title === 'Admin Portal') return;
+              if (loggedIn && title === 'Login') return;
+              else if (!loggedIn && title === 'Admin Portal') return;
               return (
                 <li
                   className="py-[13.5px] nav-dropdown-item mr-0"
