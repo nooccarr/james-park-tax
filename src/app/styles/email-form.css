@@ -34,12 +34,14 @@
 
 .email-form-button:hover {
   opacity: 0.8;
+  box-shadow: 0 0 0 3px #aa9465;
 }
 
 .email-form-button:active {
   outline: solid 2px #aa9465;
   outline-offset: 2px;
   transition: none;
+  box-shadow: none;
 }
 
 form label {

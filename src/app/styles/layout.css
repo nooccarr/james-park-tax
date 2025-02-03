@@ -13,7 +13,6 @@
 .navlink {
   color: #e3f1de;
   text-decoration: none;
-  /* margin-right: 32px; */
   opacity: 1;
   transition: 0.3s ease-in-out;
   padding: 8px 10px;
@@ -21,7 +20,7 @@
 }
 
 .navlink--selected {
-  opacity: 0.4;
+  opacity: 0.3;
   background-color: #e3f1de;
   color: #043a49;
   padding: 8px 10px;
@@ -30,7 +29,7 @@
 
 .navlink:hover,
 .navlink:focus {
-  opacity: 0.5;
+  opacity: 0.6;
   background-color: #e3f1de;
   color: #043a49;
   padding: 8px 10px;
@@ -46,7 +45,7 @@
 }
 
 .navsearch--selected {
-  opacity: 0.4;
+  opacity: 0.3;
   background-color: #e3f1de;
   color: #043a49;
   padding: 5px 9px;
@@ -55,7 +54,7 @@
 
 .navsearch:hover,
 .navsearch:focus {
-  opacity: 0.5;
+  opacity: 0.6;
   background-color: #e3f1de;
   color: #043a49;
   padding: 5px 9px;

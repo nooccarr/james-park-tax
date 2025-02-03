@@ -55,27 +55,34 @@
 }
 
 .form_container button:hover,
-.admin_container_logout:hover,
+.admin_container_logout:hover {
+  opacity: 0.8;
+  box-shadow: 0 0 0 3px #aa9465;
+}
+
 .admin_container_button:hover {
   opacity: 0.8;
+  box-shadow: 0 0 0 3px #235161;
 }
 
 .form_container button:active,
 .admin_container_logout:active {
+  outline: solid 2px #9e9a79;
   outline-offset: 2px;
   transition: none;
-}
-
-.form_container button:focus,
-.admin_container_logout:focus {
-  outline: solid 2px #aa9465;
-
-  transition: none;
+  box-shadow: none;
 }
 
 .admin_container_button:active {
   outline: solid 2px #235161;
   outline-offset: 2px;
+  transition: none;
+  box-shadow: none;
+}
+
+.form_container button:focus,
+.admin_container_logout:focus {
+  outline: solid 2px #aa9465;
   transition: none;
 }
 

@@ -66,7 +66,7 @@ const Header = ({
             </div>
             <div className="hidden md:inline-block">
               <a onClick={handleKakaoCanvasOpen}>
-                <span className="icon-kakao"></span>
+                <span className="icon-kakao icon-kakao-outline"></span>
               </a>
             </div>
           </div>

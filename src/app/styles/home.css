@@ -10,11 +10,13 @@
 
 .home-contact-form-button:hover {
   opacity: 1;
+  box-shadow: 0 0 0 3px #aa9465;
 }
 .home-contact-form-button:active {
   outline: solid 2px #aa9465;
   outline-offset: 2px;
   transition: none;
+  box-shadow: none;
 }
 
 .form-submit-message {
