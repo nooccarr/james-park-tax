@@ -41,7 +41,7 @@ const Pagination = ({
   };
 
   return (
-    <div className="flex items-center justify-center md:justify-between md:border md:border-gray-200 md:shadow-md md:bg-white px-4 py-3 sm:px-6">
+    <div className="flex items-center justify-center md:justify-between md:border md:border-gray-200 md:shadow-md md:bg-white px-4 py-3 sm:px-6 select-none">
       <div className="flex md:flex-1 items-center justify-between">
         <div className="hidden md:flex gap-1 items-baseline">
           <p className="text-sm text-gray-700">Showing</p>

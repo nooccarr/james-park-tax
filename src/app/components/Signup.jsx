@@ -60,7 +60,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="flex justify-center py-20">
+    <div className="flex justify-center py-20 select-none">
       <div className="form_container">
         <h2>Signup Account</h2>
         <form onSubmit={handleSubmit}>

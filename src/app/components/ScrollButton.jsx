@@ -29,7 +29,7 @@ const ScrollButton = () => {
     <button
       onClick={topFunction}
       id="scroll-button"
-      className={`hidden md:block ${showBtn}`}
+      className={`hidden md:block select-none ${showBtn}`}
       title="Go to top"
     >
       <svg

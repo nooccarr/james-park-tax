@@ -37,7 +37,7 @@ const AboutUs = () => {
   );
 
   return (
-    <div className="about-us-background animate-fadeIn">
+    <div className="about-us-background animate-fadeIn select-none">
       <PageHeader title="회사소개" image="services" />
 
       <main className="max-w-[768px] mx-auto">

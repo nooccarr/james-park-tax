@@ -20,7 +20,7 @@ const EmailForm = () => {
   };
 
   return (
-    <aside className="pb-5">
+    <aside className="pb-5 select-none">
       <div className="py-5 text-center bg-[#043A49] border-b-[3px] border-[#AA9465]">
         <div className="px-2">
           <h4 className="email-form-h4">이메일로 문의하기</h4>

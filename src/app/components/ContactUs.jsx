@@ -132,7 +132,7 @@ const ContactUs = () => {
   );
 
   return (
-    <div className="animate-fadeIn">
+    <div className="animate-fadeIn select-none">
       <PageHeader title="Contact Us" image="services" />
 
       <main className="max-w-[1024px] mx-auto">

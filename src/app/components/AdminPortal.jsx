@@ -34,7 +34,7 @@ const AdminPortal = ({ username, removeCookie, handleUserLogout }) => {
   };
 
   return (
-    <div className="tax-info-background animate-fadeIn">
+    <div className="tax-info-background animate-fadeIn select-none">
       <PageHeader title="Admin Portal" image="services" />
 
       <div className="flex justify-center pt-20 pb-40 mx-5 md:mx-0">

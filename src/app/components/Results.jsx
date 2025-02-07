@@ -12,7 +12,7 @@ const Results = ({
   useScrollToTop();
 
   return (
-    <div className="animate-fadeIn">
+    <div className="animate-fadeIn select-none">
       <PageHeader title="Search Articles" image="results" />
 
       <main className="max-w-[768px] mx-auto">

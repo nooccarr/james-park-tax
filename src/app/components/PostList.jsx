@@ -55,7 +55,7 @@ const PostList = ({
   };
 
   return (
-    <main className="animate-fadeIn">
+    <main className="animate-fadeIn select-none">
       {(!currentPosts.length && path !== 'search') ||
       (!postsSize && searchQuery?.length) ? (
         <>

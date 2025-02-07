@@ -26,7 +26,7 @@ const Layout = ({
 
   return (
     <>
-      <nav className="relative">
+      <nav className="relative select-none">
         <div className="nav-container hidden md:block">
           <div className="py-1">
             <div className="max-w-[1280px] mx-auto px-10">
@@ -101,7 +101,7 @@ const Layout = ({
         <Modal
           isOpen={showOffCanvas}
           onRequestClose={handleClose}
-          className={`md:hidden outline-none ${
+          className={`md:hidden outline-none select-none ${
             isClosing ? 'animate-fadeOutRight' : 'animate-fadeInRight'
           }`}
           overlayClassName="fixed inset-0 z-10"

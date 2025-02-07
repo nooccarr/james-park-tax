@@ -29,7 +29,7 @@ const Post = ({ posts, loggedIn }) => {
   const currentPath = getPath(window.location.pathname);
 
   return (
-    <main className="animate-fadeIn">
+    <main className="animate-fadeIn select-none">
       <div className="mb-5">
         <div>
           <div>

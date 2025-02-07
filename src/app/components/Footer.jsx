@@ -21,7 +21,7 @@ const Footer = () => {
   );
 
   return (
-    <footer className="px-5 md:px-10 pt-10 pb-20">
+    <footer className="px-5 md:px-10 pt-10 pb-20 select-none">
       <div className="max-w-[1280px] mx-auto">
         <>
           <div className="text-center pb-2">

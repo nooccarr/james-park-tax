@@ -8,7 +8,7 @@ const Services = () => {
   useScrollToTop();
 
   return (
-    <div className="services-background animate-fadeIn">
+    <div className="services-background animate-fadeIn select-none">
       <PageHeader title="서비스" image="services" />
 
       <main className="max-w-[768px] mx-auto">

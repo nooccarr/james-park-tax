@@ -35,7 +35,7 @@ const ContactForm = ({
     <Modal
       isOpen={showContactForm}
       onRequestClose={handleClose}
-      className={`email-form-form flex flex-col w-[320px] mx-2 ${
+      className={`email-form-form flex flex-col w-[320px] mx-2 select-none ${
         isClosing ? 'animate-fadeOut' : 'animate-fadeIn'
       }`}
       overlayClassName="fixed inset-0 z-10 flex justify-center items-center"

@@ -72,7 +72,7 @@ const EditPost = ({ posts }) => {
   };
 
   return (
-    <div className="max-w-[900px] mx-auto animate-fadeIn">
+    <div className="max-w-[900px] mx-auto animate-fadeIn select-none">
       <div className="flex flex-col gap-20 justify-center items-center py-20 mx-5 pb-60 md:hidden">
         <p className="text-xl text-center">
           For the best experience, please access this page using a laptop or

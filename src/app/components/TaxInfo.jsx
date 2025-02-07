@@ -7,7 +7,7 @@ const TaxInfo = () => {
   useScrollToTop();
 
   return (
-    <div className="tax-info-background animate-fadeIn">
+    <div className="tax-info-background animate-fadeIn select-none">
       <PageHeader title="Tax 정보" image="services" />
 
       <main className="max-w-[768px] mx-auto">

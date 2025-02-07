@@ -8,7 +8,7 @@ const SearchParams = ({
   handleSearchSubmit,
 }) => {
   return (
-    <section>
+    <section className="select-none">
       <form onSubmit={handleSearchSubmit}>
         <div>
           <FontAwesomeIcon

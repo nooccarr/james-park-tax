@@ -1,6 +1,6 @@
 const PageHeader = ({ title, image }) => {
   return (
-    <div className={`${image}-header-image`}>
+    <div className={`select-none ${image}-header-image`}>
       <div className="max-w-[1280px] mx-auto">
         <div className="py-16 md:py-28">
           <div className="ps-5 md:ps-10 flex justify-start">

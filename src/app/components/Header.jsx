@@ -15,7 +15,7 @@ const Header = ({
       <div>
         <div className="max-w-[1280px] mx-auto py-4">
           <div className="px-5 md:px-10 flex items-center">
-            <div className="md:min-w-[250px]">
+            <div className="md:min-w-[250px] select-none">
               <h1 className="text-hide">James Park Tax & Accounting</h1>
               <Link to="/">
                 <img
@@ -52,7 +52,7 @@ const Header = ({
               </div>
             </div>
 
-            <div className="hidden md:inline-block me-10">
+            <div className="hidden md:inline-block me-10 select-none">
               <a href="tel:+1-718-359-1096" className="header-tel text-xl">
                 (718) 359-1096
               </a>
@@ -73,7 +73,7 @@ const Header = ({
         </div>
       </div>
 
-      <div className="order-first bg-[#235161] md:hidden">
+      <div className="order-first bg-[#235161] md:hidden select-none">
         <div className="header-mobile-container text-center">
           <div className="header-mobile-text text-wrap">
             163-10 Northern Blvd, #311, Flushing, NY 11358
