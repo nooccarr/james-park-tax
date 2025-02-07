@@ -35,17 +35,17 @@ const MagiCalculator = () => {
   };
 
   return (
-    <div className="tax-info-background animate-fadeIn select-none">
+    <div className="tax-info-background animate-fadeIn">
       <PageHeader title="MAGI Calculator" image="services" />
 
       <main className="flex flex-col justify-center items-center pt-20 pb-40 mx-5 md:mx-0">
         <div className="form_container">
           <form onSubmit={handleSubmit}>
-            <h4 className="font-semibold text-gray-600 text-lg">
+            <h4 className="font-semibold text-gray-600 text-lg select-none">
               Filing Status
             </h4>
             <div className="flex gap-4">
-              <label>
+              <label className="select-none">
                 <input
                   type="radio"
                   id="single"
@@ -58,7 +58,7 @@ const MagiCalculator = () => {
                 &nbsp;Single
               </label>
 
-              <label>
+              <label className="select-none">
                 <input
                   type="radio"
                   id="married-filing-jointly"
@@ -72,10 +72,10 @@ const MagiCalculator = () => {
               </label>
             </div>
 
-            <h4 className="font-semibold text-gray-600 text-lg">
+            <h4 className="font-semibold text-gray-600 text-lg select-none">
               MAGI Calculator
             </h4>
-            <div>
+            <div className="select-none">
               <label htmlFor="socialSecurity">Social Security benefits</label>
               <span className="text-[#6a6a6a] absolute pt-[38px] text-md">
                 $
@@ -92,7 +92,7 @@ const MagiCalculator = () => {
                 required
               />
             </div>
-            <div>
+            <div className="select-none">
               <label htmlFor="income">Ordinary Income</label>
               <span className="text-[#6a6a6a] absolute pt-[37px] text-md">
                 $
@@ -109,19 +109,18 @@ const MagiCalculator = () => {
               />
             </div>
             <div>
-              <div className="text-[15px] text-[#6a6a6a]">Total Income</div>
+              <div className="text-[15px] text-[#6a6a6a] select-none">
+                Total Income
+              </div>
               <div className="text-[24px] text-[#235161] font-semibold">
-                $
-                <span className="select-text">
-                  {calculateMagi(filingStatus, socialSecurity, income)}
-                </span>
+                ${calculateMagi(filingStatus, socialSecurity, income)}
               </div>
             </div>
           </form>
         </div>
         <div className="pt-10">
           <button
-            className="post-link-category"
+            className="post-link-category select-none"
             onClick={() => navigate('/admin-portal')}
           >
             Back to Admin Portal

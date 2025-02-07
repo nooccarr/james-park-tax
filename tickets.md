@@ -6,6 +6,4 @@
 
 # TODO
 
-[ ] text select-none
-[ ] pointer-events-none
 [ ] fix scroll to top
