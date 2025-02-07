@@ -111,7 +111,10 @@ const MagiCalculator = () => {
             <div>
               <div className="text-[15px] text-[#6a6a6a]">Total Income</div>
               <div className="text-[24px] text-[#235161] font-semibold">
-                ${calculateMagi(filingStatus, socialSecurity, income)}
+                $
+                <span className="select-text">
+                  {calculateMagi(filingStatus, socialSecurity, income)}
+                </span>
               </div>
             </div>
           </form>
