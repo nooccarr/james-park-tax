@@ -19,6 +19,14 @@
   border-radius: 5px;
 }
 
+.navlink-mobile {
+  display: block;
+  color: #e3f1de;
+  text-decoration: none;
+  padding: 0px 8px;
+  cursor: default;
+}
+
 .navlink--selected {
   opacity: 0.3;
   background-color: #e3f1de;
