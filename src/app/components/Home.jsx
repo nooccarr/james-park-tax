@@ -40,11 +40,11 @@ const Home = () => {
       <Carousel
         autoPlay
         interval="10000"
-        transitionTime="1000"
+        transitionTime="1300"
         infiniteLoop
-        emulateTouch
+        // emulateTouch
         showThumbs={false}
-        showArrows={false}
+        // showArrows={false}
         showStatus={false}
       >
         <div>
