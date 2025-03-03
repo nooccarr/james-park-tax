@@ -158,12 +158,14 @@ const App = () => {
     setSearchMessage('');
   };
 
-  const handleOffCanvasToggle = () => {
-    setShowOffCanvas(!showOffCanvas);
+  const handleOffCanvasOpen = () => {
+    setShowOffCanvas(true);
+    document.body.classList.add('no-scroll');
   };
 
   const handleOffCanvasClose = () => {
     setShowOffCanvas(false);
+    document.body.classList.remove('no-scroll');
   };
 
   const handleKakaoCanvasOpen = () => {
@@ -225,7 +227,7 @@ const App = () => {
   return (
     <>
       <Header
-        handleOffCanvasToggle={handleOffCanvasToggle}
+        handleOffCanvasOpen={handleOffCanvasOpen}
         handleOffCanvasClose={handleOffCanvasClose}
         handleKakaoCanvasOpen={handleKakaoCanvasOpen}
         handleMenuSelected={handleMenuSelected}

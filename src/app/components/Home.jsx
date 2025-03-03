@@ -22,10 +22,12 @@ const Home = () => {
 
   const handleContactFormOpen = () => {
     setShowContactForm(true);
+    document.body.classList.add('no-scroll');
   };
 
   const handleContactFormClose = () => {
     setShowContactForm(false);
+    document.body.classList.remove('no-scroll');
   };
 
   const handleButtonClick = () => {

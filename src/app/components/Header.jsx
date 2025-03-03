@@ -5,7 +5,7 @@ import Logo from '../images/logo.png';
 import '../styles/header.css';
 
 const Header = ({
-  handleOffCanvasToggle,
+  handleOffCanvasOpen,
   handleOffCanvasClose,
   handleKakaoCanvasOpen,
   handleMenuSelected,
@@ -46,7 +46,7 @@ const Header = ({
               <div className="py-2">
                 <FontAwesomeIcon
                   className="navbars"
-                  onClick={handleOffCanvasToggle}
+                  onClick={handleOffCanvasOpen}
                   icon={faBars}
                 />
               </div>
