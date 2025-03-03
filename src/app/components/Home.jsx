@@ -37,7 +37,15 @@ const Home = () => {
 
   return (
     <main className="animate-fadeIn select-none">
-      <Carousel autoPlay interval="10000" infiniteLoop showThumbs={false}>
+      <Carousel
+        autoPlay
+        interval="10000"
+        infiniteLoop
+        emulateTouch
+        showThumbs={false}
+        showArrows={false}
+        showStatus={false}
+      >
         <div>
           <div className="min-h-[500px] aspect-video">
             <img
