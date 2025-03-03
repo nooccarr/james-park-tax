@@ -40,7 +40,7 @@ const Home = () => {
       <Carousel
         autoPlay
         interval="10000"
-        transitionTime="1300"
+        // transitionTime="1300"
         infiniteLoop
         // emulateTouch
         showThumbs={false}
