@@ -155,7 +155,7 @@ const Home = () => {
             loading="eager"
             alt="Close-up of two people shaking hands across a wooden table, symbolizing agreement or partnership."
           />
-          <div className="absolute top-[50%] w-full justify-center items-center text-lg text-center flex flex-col">
+          <div className="absolute top-[50%] w-full justify-center items-center text-[19px] text-center flex flex-col">
             <h1 className="home-carousel-h1">
               한국거주 영주권, 시민권자 세금보고
             </h1>

@@ -9,13 +9,16 @@ const ScrollButton = () => {
   };
 
   function scrollFunction() {
-    if (document.body.scrollTop > 1 || document.documentElement.scrollTop > 1) {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
       setShowBtn('scroll-button');
     } else {
       setShowBtn('scroll-button--close');
-      setTimeout(() => {
-        setShowBtn('scroll-button--hidden');
-      }, 300);
+      // setTimeout(() => {
+      //   setShowBtn('scroll-button--hidden');
+      // }, 300);
     }
   }
 

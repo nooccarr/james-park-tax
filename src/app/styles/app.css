@@ -56,9 +56,9 @@ body.no-scroll {
   box-shadow: 2px 2px 3px #494f5e;
 }
 
-.scroll-button--hidden {
+/* .scroll-button--hidden {
   display: none;
-}
+} */
 
 .scroll-button:hover {
   color: #9e9a79;
