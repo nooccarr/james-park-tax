@@ -112,7 +112,7 @@ const Home = () => {
       </div>
 
       <div className="block md:hidden">
-        <div className="aspect-square max-h-[767px]">
+        <div className="aspect-square max-h-[767px] relative">
           <img
             className="brightness-90 w-full h-full object-cover"
             src={LandingImgOne}
@@ -122,29 +122,28 @@ const Home = () => {
             loading="eager"
             alt="Skyline of lower Manhattan, New York City at dusk, featuring the One World Trade Center and illuminated buildings reflecting in the water."
           />
-        </div>
-
-        {!showFormSuccess ? (
-          <button
-            onClick={handleButtonClick}
-            className="absolute top-[50%] left-[50%] font-semibold home-contact-form-button p-3 md:p-5 min-w-[222px]"
-            style={{ transform: 'translate(-50%, -50%)' }}
-          >
-            <h2 className="">
-              <FontAwesomeIcon className="pe-2" icon={faCalendarDays} />
-              Schedule a Consultation
+          {!showFormSuccess ? (
+            <button
+              onClick={handleButtonClick}
+              className="absolute top-[50%] left-[50%] font-semibold home-contact-form-button p-3 md:p-5 min-w-[222px] opacity-100"
+              style={{ transform: 'translate(-50%, -50%)' }}
+            >
+              <h2 className="">
+                <FontAwesomeIcon className="pe-2" icon={faCalendarDays} />
+                Schedule a Consultation
+              </h2>
+            </button>
+          ) : (
+            <h2
+              className="form-submit-message absolute top-[50%] left-[50%]"
+              style={{ transform: 'translate(-50%, -50%)' }}
+            >
+              Thank you for your message.
+              <br />
+              It has been sent.
             </h2>
-          </button>
-        ) : (
-          <h2
-            className="form-submit-message absolute top-[50%] left-[50%] min-w-[222px]"
-            style={{ transform: 'translate(-50%, -50%)' }}
-          >
-            Thank you for your message.
-            <br />
-            It has been sent.
-          </h2>
-        )}
+          )}
+        </div>
 
         <div className="aspect-square relative max-h-[767px]">
           <img
@@ -156,7 +155,7 @@ const Home = () => {
             loading="eager"
             alt="Close-up of two people shaking hands across a wooden table, symbolizing agreement or partnership."
           />
-          <div className="absolute top-[50%] w-full justify-center items-center text-lg text-center font-semibold flex flex-col">
+          <div className="absolute top-[50%] w-full justify-center items-center text-lg text-center flex flex-col">
             <h1 className="home-carousel-h1">
               한국거주 영주권, 시민권자 세금보고
             </h1>
