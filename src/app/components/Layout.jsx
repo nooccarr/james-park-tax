@@ -106,7 +106,7 @@ const Layout = ({
           }`}
           overlayClassName="fixed inset-0 z-10"
         >
-          <ul className="nav-dropdown px-10 pt-5 h-screen">
+          <ul className="nav-dropdown px-10 pt-5 h-screen overflow-auto">
             <div className="flex justify-end">
               <div onClick={handleClose}>
                 <svg
@@ -134,6 +134,7 @@ const Layout = ({
                 </li>
               );
             })}
+            <div>&nbsp;</div>
           </ul>
         </Modal>
       </nav>
