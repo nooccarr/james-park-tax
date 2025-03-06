@@ -20,7 +20,7 @@ const KakaoCanvas = ({ showKakaoCanvas, handleKakaoCanvasClose }) => {
       className={`offcanvas-background-image w-[370px] h-screen p-5 absolute right-0 outline-none select-none pointer ${
         isClosing ? 'animate-fadeOutRight' : 'animate-fadeInRight'
       }`}
-      overlayClassName="fixed inset-0 z-10"
+      overlayClassName="fixed inset-0 z-10 bg-black bg-opacity-50"
     >
       <div className="flex justify-end">
         <div onClick={handleClose}>

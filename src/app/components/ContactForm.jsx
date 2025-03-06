@@ -51,7 +51,7 @@ const ContactForm = ({
       className={`email-form-form min-h-[537.5px] flex flex-col w-[320px] mx-2 select-none outline-none ${
         isClosing ? 'animate-fadeOut' : 'animate-fadeIn'
       }`}
-      overlayClassName={`fixed inset-0 z-10 flex justify-center overflow-auto ${
+      overlayClassName={`bg-black bg-opacity-50 fixed inset-0 z-10 flex justify-center overflow-auto ${
         windowHeight <= 537 ? '' : 'items-center'
       }`}
     >

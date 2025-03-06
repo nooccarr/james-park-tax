@@ -170,10 +170,12 @@ const App = () => {
 
   const handleKakaoCanvasOpen = () => {
     setShowKakaoCanvas(true);
+    document.body.classList.add('no-scroll');
   };
 
   const handleKakaoCanvasClose = () => {
     setShowKakaoCanvas(false);
+    document.body.classList.remove('no-scroll');
   };
 
   const handleUserLogin = () => {
