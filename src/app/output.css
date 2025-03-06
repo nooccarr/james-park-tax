@@ -1204,6 +1204,18 @@ video {
   height: 100vh;
 }
 
+.h-\[500px\] {
+  height: 500px;
+}
+
+.h-\[200px\] {
+  height: 200px;
+}
+
+.h-\[547\.5px\] {
+  height: 547.5px;
+}
+
 .max-h-40 {
   max-height: 10rem;
 }
@@ -1286,6 +1298,10 @@ video {
 
 .min-h-full {
   min-height: 100%;
+}
+
+.min-h-\[537\.5px\] {
+  min-height: 537.5px;
 }
 
 .w-1 {
@@ -1864,6 +1880,10 @@ video {
 
 .resize-none {
   resize: none;
+}
+
+.resize {
+  resize: both;
 }
 
 .snap-y {

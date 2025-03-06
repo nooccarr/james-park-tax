@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Modal from 'react-modal';
 import { emailHelper } from '../helpers/emailHelper';
 
@@ -8,6 +8,19 @@ const ContactForm = ({
   setShowFormSuccess,
 }) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleSize = () => {
+      setWindowHeight(window.innerHeight);
+    };
+
+    window.addEventListener('resize', handleSize);
+
+    return () => {
+      window.removeEventListener('resize', handleSize);
+    };
+  }, []);
 
   const form = useRef(null);
 
@@ -35,10 +48,12 @@ const ContactForm = ({
     <Modal
       isOpen={showContactForm}
       onRequestClose={handleClose}
-      className={`email-form-form flex flex-col w-[320px] mx-2 select-none outline-none ${
+      className={`email-form-form min-h-[537.5px] flex flex-col w-[320px] mx-2 select-none outline-none ${
         isClosing ? 'animate-fadeOut' : 'animate-fadeIn'
       }`}
-      overlayClassName="fixed inset-0 z-10 flex justify-center items-center"
+      overlayClassName={`fixed inset-0 z-10 flex justify-center overflow-auto ${
+        windowHeight <= 537 ? '' : 'items-center'
+      }`}
     >
       <div className="flex justify-between items-center p-5 text-center bg-[#043A49] border-b-[3px] border-[#AA9465]">
         <h2 className="text-[#fff9d1] font-semibold">
